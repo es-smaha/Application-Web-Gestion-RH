@@ -28,6 +28,11 @@ Route::group(['middleware'=>['auth','2']],function(){
     Route::get('/dashboard2', function () {
         return view('resprh.dashboard');
     });
+    Route::get('/users','UserController@index');
+    Route::get('/users/{id}','UserController@show');
+    Route::delete('/user/{id}','UserController@destroy');
+    Route::put('/edituser/{id}','UserController@update');
+   
    
 
 });

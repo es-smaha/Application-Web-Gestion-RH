@@ -58,9 +58,9 @@ The above copyright notice and this permission notice shall be included in all c
             </a>
           </li>
           <li class="nav-item ">
-            <a class="nav-link" href="./tables.html">
+            <a class="nav-link" href="/admi">
               <i class="material-icons">content_paste</i>
-              <p>Table List</p>
+              <p>Administration</p>
             </a>
           </li>
           <li class="nav-item ">

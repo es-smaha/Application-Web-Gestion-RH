@@ -32,6 +32,14 @@ Route::group(['middleware'=>['auth','2']],function(){
     Route::get('/users/{id}','UserController@show');
     Route::delete('/user/{id}','UserController@destroy');
     Route::put('/edituser/{id}','UserController@update');
+         
+
+    Route::resource('service', 'ServiceController');
+    Route::resource('typecon', 'TypecongeController');
+    Route::resource('typedoc', 'TypedocumentController');
+    Route::get('/admi', function(){
+        return view('resprh.rerh.admini');
+    });
    
    
 

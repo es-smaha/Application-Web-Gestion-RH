@@ -30,6 +30,7 @@ Route::group(['middleware'=>['auth','2']],function(){
     });
     Route::get('/users','UserController@index');
     Route::get('/create','UserController@create');
+    Route::post('/save-agents','UserController@store');
     Route::get('/users/{id}','UserController@show');
     Route::delete('/user/{id}','UserController@destroy');
     Route::put('/edituser/{id}','UserController@update');

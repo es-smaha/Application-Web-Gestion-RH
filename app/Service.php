@@ -9,7 +9,7 @@ class Service extends Model
     
     protected $table='services';
 
-    protected function user(){
+    protected function users(){
         return $this->hasMany('App\User');
     }
 }

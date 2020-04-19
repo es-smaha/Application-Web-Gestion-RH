@@ -5,6 +5,7 @@
 
 @section('content')
 <div class="container-fluid">
+              <a href="/create" class="btn btn-dark">Ajouter Agent</a>
           <div class="row">
             <div class="col-md-12">
               <div class="card">
@@ -36,9 +37,6 @@
                           date Embauche
                         </th>
                         <th>
-                          Service
-                        </th>
-                        <th>
                           Solde Congee
                         </th>
                         <th>
@@ -66,7 +64,7 @@
                             <td>{{$user->ko}}</td>
                             <td>{{$user->tele}}</td>
                             <td>{{$user->dateembauche}}</td>
-                            <td>{{$user->service}}</td>
+                           
                             <td>{{$user->solde}}</td>
                             <td>{{$user->salaire}}</td>
                             <td>{{$user->usertype}}</td>
@@ -77,10 +75,10 @@
                                     
                                         
                                                
-                                    <td><button type="button" rel="tooltip" title="Edit Task" class="btn btn-primary btn-link btn-sm">
+                                    <td><button type="button" rel="tooltip"  title="Edit Task" class="btn btn-primary btn-link btn-sm">
                                 <i class="material-icons">edit</i>
                               </button></td>
-                                        <td> <button type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-link btn-sm">
+                                        <td> <button type="button" rel="tooltip" id="#delete"  data-toggle="modal" data-target="#delete" title="Remove" class="btn btn-danger btn-link btn-sm">
                                 <i class="material-icons">close</i>
                               </button></td>
 
@@ -101,6 +99,40 @@
             </div>
            
           </div>
+
+
+
+
+
+
+          <div class="modal modal-danger fade " id="delete" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">confirmations</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      
+        <form  action="/user/{{$user->id}}" method="POST">
+        @csrf
+        @method('delete')
+        <div class="modal-body">
+            <p>are you sure you wanna delete</p>
+          <input type="hidden" name="users_id" id="user_id" value="">
+        </div>
+          <div class="modal-footer">
+        <button type="button" class="btn btn-success" data-dismiss="modal">No</button>
+        <button type="submit" class="btn btn-warning">yes</button>
+      </div>
+          
+        </form>
+      </div>
+     
+    </div>
+  </div>
+</div>
 
 @endsection
 

@@ -24,7 +24,7 @@ class CreateUsersTable extends Migration
             $table->string('poste');
             $table->string('tele');
             $table->date('dateembauche');
-            $table->integer('service_id')->nullable();
+          
             $table->string('solde');
             $table->string('salaire');
             $table->string('image')->nullable();

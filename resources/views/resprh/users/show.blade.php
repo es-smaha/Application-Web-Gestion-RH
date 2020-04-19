@@ -31,8 +31,10 @@
                   
                         <div class="col-6">
                   
-                     
-                    <h3>Service  &nbsp &nbsp &nbsp  &nbsp :  <small>{{$user->service_id}} </small></h3>  
+                     @if($user->service_id != "")
+                    <h3>Service  &nbsp &nbsp &nbsp  &nbsp :  <small>{{$user->service->nom}}  </small></h3>  
+                    @endif
+                    
                     <h3>Solde Congee : <small>{{$user->solde}} </small></h3>    
                     <h3>salaire   &nbsp &nbsp &nbsp  &nbsp :<small>{{$user->salaire}}</small></h3>
                     <h3>date Embauche:   :<small>{{$user->dateembauche}}</small></h3>
@@ -152,7 +154,12 @@
           <div class="form-group">
             <label for="recipient-name" class="col-form-label">service</label>
             <br>
-            <input type="text"  name="service" class="form-control" id="recipient-name" value="{{$user->service}}">
+            <select name="service_id" id="service" class="form-control">
+                                @foreach($services as $services )
+                                    <option value="{{$services->id}}">{{$services->nom}}</option>
+
+                                @endforeach
+                                </select>
           </div>
           <button type="button" class="btn btn-info" data-dismiss="modal">Close</button>
           </div>

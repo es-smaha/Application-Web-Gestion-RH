@@ -25,7 +25,7 @@
           </div>
           <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="submit" class="btn btn-primary">Ajouter</button>
+        <button type="submit" class="btn btn-success">Ajouter</button>
       </div>
           
         </form>
@@ -39,16 +39,17 @@
 <div class="row">
             <div class="col-lg-6 col-md-12">
               <div class="card">
-                <div class="card-header card-header-warning">
+                <div class="card-header card-header-success">
                   <h4 class="card-title">Type De Document</h4>
                 
                 </div>
+                <div class="col-lg-6 col-md-2">
                   <button type="button" class="btn btn-orange" data-toggle="modal"  data-target="#exampleModal" >Ajouter un type de document</button> </tr>
-
+                </div>
                 <div class="card-body table-responsive">
                   <table class="table table-hover">
                   
-                    <thead class="text-warning">
+                    <thead class="text-success">
                       <th>ID</th>
                       <th>Name</th>
                       <th>action</th>
@@ -62,7 +63,7 @@
       <td>{{$typedocument->name}}</td>
 
       <td class="td-actions text-right">
-        <button type="button" rel="tooltip" title="Editer" data-toggle="modal"  data-target="#edit" class="btn btn-primary btn-link btn-sm">
+        <button type="button" rel="tooltip" title="Editer" data-toggle="modal"  data-target="#edit" class="btn btn-success btn-link btn-sm">
             <i class="material-icons">edit</i> </button>
 
           <button type="submit" rel="tooltip" title="Remove" class="btn btn-danger btn-link btn-sm" data-userid="{{$typedocument->id}}" data-toggle="modal" data-target="#delete" >
@@ -101,8 +102,8 @@
           <input type="hidden" name="users_id" id="user_id" value="">
         </div>
           <div class="modal-footer">
-        <button type="button" class="btn btn-success" data-dismiss="modal">No</button>
-        <button type="submit" class="btn btn-warning">yes</button>
+        <button type="button" class="btn btn-orange" data-dismiss="modal">No</button>
+        <button type="submit" class="btn btn-success">yes</button>
       </div>
           
         </form>
@@ -140,7 +141,7 @@
           </div>
           <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="submit" class="btn btn-primary">Editer</button>
+        <button type="submit" class="btn btn-success">Editer</button>
       </div>
           
         </form>

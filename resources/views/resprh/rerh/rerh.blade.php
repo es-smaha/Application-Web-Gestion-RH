@@ -35,9 +35,8 @@
   </div>
 </div>
 
-
         <div class="row">
-            <div class="col-lg-6 col-md-12">
+            <div class="col-lg-12 col-md-12">
               <div class="card">
                 <div class="card-header card-header-success">
                   <h4 class="card-title"  >Employees Stats</h4>
@@ -55,6 +54,7 @@
                     </thead>
                     <tbody>
                       
+
 
                     @foreach($services as $service)
     <tr>
@@ -76,7 +76,7 @@
                     </div>
                   </div>
                 </div>
-            
+                </div>
 
            
 

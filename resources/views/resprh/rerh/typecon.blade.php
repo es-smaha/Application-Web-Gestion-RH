@@ -38,18 +38,18 @@
 <div class="container-fluid">
 <div class="row">
             
-<div class="col-lg-6 col-md-12">
+<div class="col-lg-12 col-md-12">
               <div class="card">
                 <div class="card-header card-header-success">
                   <h4 class="card-title">Employees Stats</h4>
                 
                 </div>
                 <div class="col-lg-6 col-md-2">
-                  <button type="button" class="btn btn-orange" data-toggle="modal"  data-target="#exampleModal" >Ajouter un service</button> </tr>
+                  <button type="button" class="btn btn-orange" data-toggle="modal"  data-target="#exampleModal" >Ajouter un type de conge</button> </tr>
                 </div>
                 <div class="card-body table-responsive">
                   <table class="table table-hover">
-                  @foreach($typeconges as $typeconges)
+                 
                     <thead class="text-success">
                       <th>ID</th>
                      <th>Name</th> 
@@ -59,7 +59,7 @@
                     <tbody>
                       
 
-                    
+                    @foreach($typeconges as $typeconges)
     <tr>
       <td >{{$typeconges->id}}</td>
       <td>{{$typeconges->nom}}</td>

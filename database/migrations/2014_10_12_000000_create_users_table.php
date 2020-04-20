@@ -27,7 +27,7 @@ class CreateUsersTable extends Migration
           
             $table->string('solde');
             $table->string('salaire');
-            $table->string('image')->nullable();
+            $table->string('image')->default('noimagee.png');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');

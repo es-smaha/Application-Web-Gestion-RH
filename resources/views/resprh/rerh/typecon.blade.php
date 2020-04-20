@@ -58,7 +58,7 @@
                     </thead>
                     <tbody>
                       
-
+                   
                     @foreach($typeconges as $typeconges)
     <tr>
       <td >{{$typeconges->id}}</td>
@@ -74,6 +74,7 @@
       
     </tr>
    @endforeach
+
                     </tbody>
                   </table>
                     </div>
@@ -84,7 +85,7 @@
            
 
      <!-- Button trigger modal -->
-  
+    
 <div class="modal modal-danger fade " id="delete" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -113,7 +114,7 @@
     </div>
   </div>
 </div>
-
+@endif
 
      
  
@@ -121,8 +122,10 @@
 
 
 
+
 <br>
 <br>
+
 <div class="modal fade" id="edit" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -151,7 +154,7 @@
     </div>
   </div>
 </div>
-
+@endif
 
 
 

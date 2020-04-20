@@ -12,7 +12,8 @@ class UserController extends Controller
 {
     public function index(){
         $user=User::all();
-        return view('Resprh.users.users')->with('user',$user);
+        $services=Service::All();
+        return view('Resprh.users.users',['user'=>$user,'services'=>$services]);
 
     }
     public function show($id){
@@ -27,7 +28,7 @@ class UserController extends Controller
 
     }
     public function store(Request $request){
-       
+        $services=Service::All();
         $this->validate($request,[
             'name' => ['required', 'string', 'max:255'],
             'prenom' => ['required', 'string', 'max:255'],
@@ -40,9 +41,30 @@ class UserController extends Controller
             'solde' => ['required', 'string', 'max:255'],
             'salaire' => ['required', 'string'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'image'=>'image|nullable|max:1999',
             'password' => ['required', 'string', 'min:8', 'confirmed'],
+           
   
          ]);
+           // handla file upload
+        if($request->hasFile('image')){
+            //get fn with ext
+           $FilenameWithExt=$request->file('image')->getClientOriginalName();
+
+           //gwt just filename
+           $filename=pathinfo($FilenameWithExt,PATHINFO_FILENAME);
+           //gET JUST EXT
+           $extension=$request->file('image')->getClientOriginalExtension();
+           //file name to store
+           $fileNameToStore=$filename.'_'.time().'.'.$extension;
+           //upload image
+           $path=$request->file('image')->storeAs('public\cover_images',  $fileNameToStore);
+       // on utise ce commande pour cree ce dossier :php artisan storage:link
+
+         }else{
+
+           $fileNameToStore='noimagee.png';
+         }
          $user= new User();
          $user->name=$request->input('name');
          $user->prenom=$request->input('prenom');
@@ -56,11 +78,13 @@ class UserController extends Controller
          $user->service_id=$request->service_id;
          $user->solde=$request->input('solde');
          $user->salaire=$request->input('salaire');
+         $user->usertype=$request->input('usertype');
          $user->email=$request->input('email');
+         $user->image=$fileNameToStore;
          $user->password=hash::make($request->input('password'));
          $user->save();
 
-          return redirect('users');
+          return redirect('users')->with('services',$services);
 
     }
     public function update(Request $request, $id){

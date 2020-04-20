@@ -55,10 +55,10 @@
                     <tbody>
                       
 
-
+                       @if(count($services)>0)
                     @foreach($services as $service)
     <tr>
-      <th >{{$service->id}}</th>
+      <td >{{$service->id}}</td>
       <td>{{$service->nom}}</td>
 
       <td class="td-actions text-right">
@@ -71,6 +71,12 @@
       
     </tr>
    @endforeach
+
+   @else
+   <td >no data</td>
+      <td>no data</td>
+   @endif
+
                     </tbody>
                   </table>
                     </div>
@@ -81,6 +87,7 @@
            
 
      <!-- Button trigger modal -->
+     @if(count($services)>0)
   
 <div class="modal modal-danger fade " id="delete" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
@@ -112,7 +119,7 @@
 </div>
 
 
-     
+     @endif
  
 
 
@@ -120,6 +127,7 @@
 
 <br>
 <br>
+@if(count($services)>0)
 <div class="modal fade" id="edit" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -148,6 +156,7 @@
     </div>
   </div>
 </div>
+@endif
 
 
 

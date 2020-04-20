@@ -56,7 +56,7 @@
                     </thead>
                     <tbody>
                       
-
+                         @if(count($typedocuments)>0)
                     @foreach($typedocuments as $typedocument)
     <tr>
       <td >{{$typedocument->id}}</td>
@@ -72,8 +72,14 @@
       
     </tr>
    
-                    </tbody>
+                    
                     @endforeach
+                    @else
+                    <td >no data</td>
+      <td>no data</td>
+
+@endif
+</tbody>
                   </table>
                     </div>
                   </div>
@@ -83,7 +89,7 @@
            
 
      <!-- Button trigger modal -->
-  
+     @if(count($typedocuments)>0)
 <div class="modal modal-danger fade " id="delete" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -113,7 +119,7 @@
   </div>
 </div>
 
-
+@endif
      
  
 
@@ -122,6 +128,7 @@
 
 <br>
 <br>
+@if(count($typedocuments)>0)
 <div class="modal fade" id="edit" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -150,7 +157,7 @@
     </div>
   </div>
 </div>
-
+@endif
 
 
 

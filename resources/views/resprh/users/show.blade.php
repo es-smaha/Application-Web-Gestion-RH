@@ -8,7 +8,7 @@
               <div class="card card-profile">
                 <div class="card-avatar">
                   <a href="javascript:;">
-                    <img class="img" src="../assets/img/faces/marc.jpg" />
+                    <img class="img" src="/storage/cover_images/{{$user->image}}" />
                   </a>
                 </div>
                 <div class="card-body">

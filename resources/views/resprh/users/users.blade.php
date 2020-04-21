@@ -70,8 +70,8 @@ perm_identity
                                     <td><button type="button" rel="tooltip"  title="Edit Task" class="btn btn-primary btn-link btn-sm">
                                 <i class="material-icons">edit</i>
                               </button></td>
-                                        <td> <button type="button" rel="tooltip" id="#delete"  data-toggle="modal" data-target="#delete" title="Remove" class="btn btn-danger btn-link btn-sm">
-                                <i class="material-icons">close</i>
+                                        <td> <button type="button" rel="tooltip" id="#delete"  data-toggle="modal" data-target="#delete" title="Remove" class="btn btn-success btn-link btn-sm">
+                                <i class="material-icons" class="btn btn-danger">close</i>
                               </button></td>
 
                         

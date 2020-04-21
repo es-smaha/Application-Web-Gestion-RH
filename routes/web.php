@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login');
 });
 Route::group(['middleware'=>['auth','1']],function(){
 
@@ -28,6 +28,7 @@ Route::group(['middleware'=>['auth','2']],function(){
     Route::get('/dashboard2', function () {
         return view('resprh.dashboard');
     });
+    
     Route::get('/users','UserController@index');
     Route::get('/create','UserController@create');
     Route::post('/save-agents','UserController@store');
@@ -42,7 +43,7 @@ Route::group(['middleware'=>['auth','2']],function(){
     Route::get('/admi', function(){
         return view('resprh.rerh.admini');
     });
-   
+  
    
 
 });

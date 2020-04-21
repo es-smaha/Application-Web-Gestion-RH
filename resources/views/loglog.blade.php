@@ -135,7 +135,7 @@ body{
     <div class="body"></div>
 		<div class="grad"></div>
 		<div class="header">
-			<div>Singn<span>in</span></div>
+			<div> @yield('div')</div>
 		</div>
 		<br>
 		<div class="login">

@@ -14,7 +14,7 @@
                         @csrf
 
                         <div class="form-group row">
-                            <label for="ko" class="col-md-8 col-form-label text-md-right">{{ __('ko') }}</label>
+                            <label for="ko" class="col-md-4 col-form-label text-md-right">{{ __('matricule') }}</label>
 
                             <div class="col-md-12">
                                 <input id="ko" type="ko" class="form-control @error('ko') is-invalid @enderror" name="ko" value="{{ old('ko') }}" required autocomplete="ko" autofocus>

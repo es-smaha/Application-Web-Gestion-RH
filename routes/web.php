@@ -14,9 +14,8 @@
 Route::get('/', function () {
     return view('auth.login');
 });
-Route::get('/changepass', function () {
-    return view('change');
-});
+Route::get('/change','auth\ChangePasswordController@index');
+Route::post('/update-password','auth\ChangePasswordController@passwordupdate');
 Route::group(['middleware'=>['auth','1']],function(){
 
     Route::get('/dashboard', function () {

@@ -28,7 +28,10 @@ class LoginController extends Controller
      * @var string
      */
     protected $redirectTo = '/login';
+     protected $first_time_login = false;
     protected function redirectTo(){
+
+      
         if (Auth::User()->usertype=='1'){
             return 'dashboard';
         }else if(Auth::User()->usertype=='2'){

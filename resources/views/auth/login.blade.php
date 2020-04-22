@@ -1,6 +1,6 @@
 @extends('loglog')
 @section('div')
-Sign <span style="color:#2E8B57">In</span>
+Sign<span style="color:#2E8B57"> In</span>
 @endsection
 
 @section('content')

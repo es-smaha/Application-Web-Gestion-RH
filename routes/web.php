@@ -62,3 +62,4 @@ Route::group(['middleware'=>['auth','3']],function(){
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::resource('conge', 'DemandecongeController');

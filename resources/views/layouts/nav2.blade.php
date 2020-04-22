@@ -423,7 +423,7 @@ The above copyright notice and this permission notice shall be included in all c
 
     });
   </script>
-    
+  @include('sweetalert::alert')
   @yield('scripts')
 </body>
 

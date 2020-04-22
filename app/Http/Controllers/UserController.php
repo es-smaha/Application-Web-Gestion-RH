@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Hash;
 use App\User;
 use App\Service;
+use RealRashid\SweetAlert\Facades\Alert;
 
 
 use Illuminate\Http\Request;
@@ -84,7 +85,7 @@ class UserController extends Controller
          $user->password=hash::make($request->input('password'));
          $user->save();
 
-          return redirect('users')->with('services',$services);
+        return redirect('users')->with('services',$services);
 
     }
     public function update(Request $request, $id){
@@ -112,8 +113,9 @@ class UserController extends Controller
     public function destroy($id){
         $user=User::findOrFail($id);
         $user->delete();
+    Alert::warning('Deleted', 'supression effectuee');
+        
         return redirect('users');
-
     }
    
 

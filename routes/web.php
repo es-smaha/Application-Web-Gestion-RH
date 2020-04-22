@@ -14,6 +14,7 @@
 Route::get('/', function () {
     return view('auth.login');
 });
+Route::resource('doc', 'DocumentController');
 Route::get('/change','auth\ChangePasswordController@index');
 Route::post('/update-password','auth\ChangePasswordController@passwordupdate');
 Route::group(['middleware'=>['auth','1']],function(){
@@ -26,19 +27,22 @@ Route::group(['middleware'=>['auth','1']],function(){
 });
 
 Route::group(['middleware'=>['auth','2']],function(){
+    
+Route::get('/users','UserController@index');
+Route::get('/create','UserController@create');
+Route::post('/save-agents','UserController@store');
+Route::get('/users/{id}','UserController@show');
+Route::delete('/user/{id}','UserController@destroy');
+Route::put('/edituser/{id}','UserController@update');
 
     Route::get('/dashboard2', function () {
         return view('resprh.dashboard');
+
     });
     
-    Route::get('/users','UserController@index');
-    Route::get('/create','UserController@create');
-    Route::post('/save-agents','UserController@store');
-    Route::get('/users/{id}','UserController@show');
-    Route::delete('/user/{id}','UserController@destroy');
-    Route::put('/edituser/{id}','UserController@update');
+  
          
-
+   
     Route::resource('service', 'ServiceController');
     Route::resource('typecon', 'TypecongeController');
     Route::resource('typedoc', 'TypedocumentController');
@@ -58,7 +62,6 @@ Route::group(['middleware'=>['auth','3']],function(){
 
 });
 
-
+Route::get('/home', 'HomeController@index')->name('home');
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');

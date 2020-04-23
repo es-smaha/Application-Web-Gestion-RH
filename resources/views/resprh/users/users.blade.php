@@ -10,6 +10,10 @@
 <button type="button" class="btn btn-success btn-round" data-toggle="modal"  data-target="#ajouter" ><span class="material-icons">
 perm_identity
 </span>Ajouter Agents</button>
+      <a href="/admi" class="btn btn-success btn-round"><span class="material-icons">settings</span>Configuration</a>
+
+
+
           <div class="row">
             <div class="col-md-12">
               <div class="card">
@@ -41,9 +45,7 @@ perm_identity
                         <th>
                         Show
                         </th>
-                        <th>
-                       Edit
-                        </th>
+                     
                         <th>
                        delete
                         </th>
@@ -56,28 +58,17 @@ perm_identity
                             <td>{{$user->name}}</td>
                             <td>{{$user->ko}}</td>
                             <td>{{$user->solde}}</td>
-                            <td>{{$user->adress}}</td>
+                            <td>{{$user->jour}}</td>
                            
                                 
                                 <td> 
                                     <a href="/users/{{$user->id}}" class="btn btn-success btn-link btn-lg" >
                                 <span class="material-icons">  remove_red_eye</span>   </a></td>
-                                    
-                                        
-                                               
-                                    <td><button type="button" rel="tooltip"  title="Edit Task" class="btn btn-primary btn-link btn-sm">
-                                <i class="material-icons">edit</i>
-                              </button></td>
+                         
                                         <td> <button type="button" rel="tooltip" id="#delete"  data-toggle="modal" data-target="#delete" title="Remove" class="btn btn-success btn-link btn-sm">
                                 <i class="material-icons" class="btn btn-danger">close</i>
                               </button></td>
 
-                        
-                        
-                        
-                        
-                        
-                        
                         </tr>
                         <div class="modal modal-danger fade " id="delete" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
@@ -183,9 +174,9 @@ perm_identity
           
           </div>
           <div class="form-group">
-            <label for="recipient-name" class="col-form-label">{{ __('adress') }}</label>
+            <label for="recipient-name" class="col-form-label">{{ __('Ko/chefHierarchique') }}</label>
             <br>
-            <input type="text"  name="adress" class="form-control @error('adress') is-invalid @enderror" id="recipient-name" >
+            <input type="text"  name="kochef" class="form-control @error('kochef') is-invalid @enderror" id="recipient-name" >
             @error('adress')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -275,7 +266,7 @@ perm_identity
           <div class="form-group">
             <label for="recipient-name" class="col-form-label">{{ __('solde') }}</label>
             <br>
-            <input type="text"  name="solde" class="form-control @error('solde') is-invalid @enderror" id="recipient-name"  >
+            <input type="nubmer"  name="solde" class="form-control @error('solde') is-invalid @enderror" id="recipient-name"  >
             @error('solde')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -284,18 +275,7 @@ perm_identity
           
           </div>
 
-          <div class="form-group">
-            <label for="recipient-name" class="col-form-label">{{ __('salaire') }}</label>
-            <br>
-            <input type="text"  name="salaire" class="form-control @error('salaire') is-invalid @enderror" id="recipient-name" >
-            @error('salaire')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-          
-          
-          </div>
+       
           
          
           <div class="form-group">

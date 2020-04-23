@@ -27,7 +27,10 @@ Route::group(['middleware'=>['auth','1']],function(){
 });
 
 Route::group(['middleware'=>['auth','2']],function(){
-    
+
+Route::get('/docum','RhdocumentController@index');
+Route::get('/docum/{id}','RhdocumentController@valider');
+
 Route::get('/users','UserController@index');
 Route::get('/create','UserController@create');
 Route::post('/save-agents','UserController@store');
@@ -48,6 +51,7 @@ Route::put('/edituser/{id}','UserController@update');
     Route::resource('typedoc', 'TypedocumentController');
     Route::get('/admi', function(){
         return view('resprh.rerh.admini');
+
     });
   
    

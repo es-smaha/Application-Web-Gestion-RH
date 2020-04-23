@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Hash;
+use RealRashid\SweetAlert\Facades\Alert;
 use App\User;
 use App\Service;
 
@@ -13,6 +14,7 @@ class UserController extends Controller
     public function index(){
         $user=User::all();
         $services=Service::All();
+       
         return view('Resprh.users.users',['user'=>$user,'services'=>$services]);
 
     }
@@ -24,6 +26,8 @@ class UserController extends Controller
     }
     public function create(){
         $service=Service::All();
+        
+
         return  view('Resprh.users.create')->with('service',$service);
 
     }

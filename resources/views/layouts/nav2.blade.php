@@ -30,12 +30,32 @@ The above copyright notice and this permission notice shall be included in all c
   <link href="../assets/demo/demo.css" rel="stylesheet" />
     <style>
 
-.sidebar[data-color="white"] li.active>a {
-    background-color: #085e72;
-    box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(255, 255, 255, 0.4);
+      .form-control {
+   
+        border-style: inset;
+    height: 36px;
+   
 }
-.sidebar .nav p {
-   color:white;
+.form-control, .is-focused .form-control {
+    background-image: linear-gradient(to top, #5eab80 2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #d2d2d2 1px, rgba(210, 210, 210, 0) 1px);
+}
+.btn.btn-secondary {
+    color: #333333;
+    background-color: gray;
+  
+   
+}
+.card .card-header-success .card-icon, .card .card-header-success .card-text, .card .card-header-success:not(.card-header-icon):not(.card-header-text), .card.bg-success, .card.card-rotate.bg-success .front, .card.card-rotate.bg-success .back {
+    background: linear-gradient(60deg, #649e85, #439c84);
+}
+.btn.btn-success {
+    color: #fff;
+    background-color: #96b197;
+}
+.btn.btn-success.btn-link {
+    background-color: transparent;
+    color: #649e85;
+    box-shadow: none;
 }
     </style>
   
@@ -43,7 +63,7 @@ The above copyright notice and this permission notice shall be included in all c
 
 <body class="">
   <div class="wrapper">
-    <div class="sidebar" data-color="white" data-background-color="black" data-image="../assets/img/sidebar-5.jpg">
+    <div class="sidebar" data-color="" data-background-color="black" data-image="../assets/img/sidebar-5.jpg">
       <!--
         Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
 
@@ -428,6 +448,8 @@ The above copyright notice and this permission notice shall be included in all c
       });
     });
   </script>
+  
+
   <script>
     $(document).ready(function() {
       // Javascript method's body can be found in assets/js/demos.js

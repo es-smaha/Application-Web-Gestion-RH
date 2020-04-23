@@ -4,9 +4,7 @@
 @endsection
 
 @section('content')
-  <br>
-    <br>
-    <br>
+
 <div class="container-fluid">
 
 <button type="button" class="btn btn-success btn-round" data-toggle="modal"  data-target="#ajouter" ><span class="material-icons">
@@ -21,11 +19,9 @@ perm_identity
                 </div>
                 <div class="card-body">
                   <div class="table-responsive">
-                    <table class="table">
+                    <table id="example"class="table">
                       <thead class=" text-primary">
-                        <th>
-                          ID
-                        </th>
+                       
                         <th>
                          last Name
                         </th>
@@ -35,12 +31,11 @@ perm_identity
                         <th>
                           KO
                         </th>
-                       
                         <th>
-                          telephone
+                         solde Conge
                         </th>
                         <th>
-                          date Embauche
+                         Jours Consommee
                         </th>
                       
                         <th>
@@ -56,12 +51,12 @@ perm_identity
                       <tbody>
                       @foreach($user as $user)
                         <tr>
-                            <td>{{$user->id}}</td>
+                          
                             <td>{{$user->prenom}}</td>
                             <td>{{$user->name}}</td>
                             <td>{{$user->ko}}</td>
-                            <td>{{$user->tele}}</td>
-                            <td>{{$user->dateembauche}}</td>
+                            <td>{{$user->solde}}</td>
+                            <td>{{$user->adress}}</td>
                            
                                 
                                 <td> 
@@ -370,5 +365,13 @@ perm_identity
 @endsection
 
 @section('scripts')
-
+  <script>$(document).ready(function() {
+    var table = $('#example').DataTable( {
+        lengthChange: false,
+        buttons: [ 'copy', 'excel', 'pdf', 'colvis' ]
+    } );
+ 
+    table.buttons().container()
+        .appendTo( '#example_wrapper .col-md-6:eq(0)' );
+} );</script>
 @endsection

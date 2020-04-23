@@ -15,6 +15,11 @@
   <link rel="stylesheet" href="asset/css/font-awesome.min.css">
   <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+
+
+  <link rel="stylesheet" href="{{asset('assets/css/bootstrap.css')}}">
+  <link rel="stylesheet" href="{{asset('assets/css/dataTables.bootstrap4.min.css')}}">
+  <link rel="stylesheet" href="{{asset('assets/css/dataTables.bootstrap4.min.css')}}">
   <!-- CSS Files -->
 
   <!-- CSS Just for demo purpose, don't include it in your project -->
@@ -168,6 +173,18 @@
 	<script src="asset/js/headroom.min.js"></script>
 	<script src="asset/js/jQuery.headroom.min.js"></script>
 	<script src="asset/js/template.js"></script>
+
+	<script src="{{asset('assets/js/jquery-3.3.1.js')}}"> </script>
+	<script src="{{asset('assets/js/jquery.dataTables.min.js')}}"> </script>
+	<script src="{{asset('assets/js/dataTables.bootstrap4.min.js')}}"> </script>
+	<script src="{{asset('assets/js/dataTables.buttons.min.js')}}"> </script>
+	<script src="{{asset('assets/js/buttons.bootstrap4.min.js')}}"> </script>
+	<script src="{{asset('assets/js/jszip.min.js')}}"> </script>
+	<script src="{{asset('assets/js/pdfmake.min.js')}}"> </script>
+	<script src="{{asset('assets/js/vfs_fonts.js')}}"> </script>
+	<script src="{{asset('assets/js/buttons.html5.min.js')}}"> </script>
+	<script src="{{asset('assets/js/buttons.print.min.js')}}"> </script>
+	<script src="{{asset('assets/js/buttons.colVis.min.js')}}"> </script>
 	@yield('scripts')
 </body>
 </html>

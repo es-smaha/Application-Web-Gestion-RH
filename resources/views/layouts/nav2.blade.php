@@ -57,6 +57,9 @@ The above copyright notice and this permission notice shall be included in all c
     color: #649e85;
     box-shadow: none;
 }
+.text-primary {
+    color: black!important;
+}
     </style>
   
 </head>

@@ -33,8 +33,8 @@ The above copyright notice and this permission notice shall be included in all c
 </head>
 
 <body class="">
-  <div class="wrapper ">
-    <div class="sidebar" data-color="green" data-background-color="white" data-image="../assets/img/sidebar-2.jpg">
+  <div class="wrapper">
+    <div class="sidebar" data-color="white" data-background-color="black" data-image="../assets/img/sidebar-5.jpg">
       <!--
         Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
 
@@ -45,13 +45,13 @@ The above copyright notice and this permission notice shall be included in all c
         </a></div>
       <div class="sidebar-wrapper">
         <ul class="nav">
-          <li class="nav-item active">
+          <li class="{{'dashboard2'==request()->path()?'active':''}}">
             <a class="nav-link" href="/dashboard2">
               <i class="material-icons">dashboard</i>
               <p>Dashboard</p>
             </a>
           </li>
-          <li class="nav-item ">
+          <li class="{{'users'==request()->path()?'active':''}} ">
             <a class="nav-link" href="/users">
               <i class="material-icons">person</i>
               <p>Annuaire telephonque</p>

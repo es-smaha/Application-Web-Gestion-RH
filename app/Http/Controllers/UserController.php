@@ -22,7 +22,7 @@ class UserController extends Controller
     public function show($id){
         $user=User::find($id);
         $services=Service::All();
-        return view('Resprh.users.show',['user'=>$user,'services'=>$services]);
+        return view('Resprh.users.show2',['user'=>$user,'services'=>$services]);
 
     }
     public function create(){
@@ -37,14 +37,14 @@ class UserController extends Controller
         $this->validate($request,[
             'name' => ['required', 'string', 'max:255'],
             'prenom' => ['required', 'string', 'max:255'],
-            'adress' => ['required', 'string', 'max:255'],
+            'kochef' => ['required', 'string', 'max:255'],
             'cne' => ['required', 'string', 'max:10'],
             'ko' => ['required', 'string', 'max:10','unique:users'],
             'poste' => ['required', 'string', 'max:255'],
             'tele' => ['required', 'string', 'max:10','min:10'],
             'dateembauche' => ['required', 'date'],
-            'solde' => ['required', 'string', 'max:255'],
-            'salaire' => ['required', 'string'],
+            'solde' => ['required', 'max:30'],
+       
             'email' => ['required', 'string', 'max:8', 'unique:users'],
             'image'=>'image|nullable|max:1999',
             'password' => ['required', 'string', 'min:8', 'confirmed'],
@@ -74,7 +74,7 @@ class UserController extends Controller
          $user->name=$request->input('name');
          $user->prenom=$request->input('prenom');
 
-         $user->adress=$request->input('adress');
+         $user->kochef=$request->input('kochef');
          $user->cne=$request->input('cne');
          $user->ko=$request->input('ko');
          $user->poste=$request->input('poste');
@@ -82,7 +82,7 @@ class UserController extends Controller
          $user->dateembauche=$request->input('dateembauche');
          $user->service_id=$request->service_id;
          $user->solde=$request->input('solde');
-         $user->salaire=$request->input('salaire');
+        
          $user->usertype=$request->input('usertype');
          $user->email=$request->input('email');
          $user->image=$fileNameToStore;
@@ -96,21 +96,23 @@ class UserController extends Controller
 
         $user=User::find($id);
         $service=Service::All();
-         $user->name=$request->input('nom');
-         $user->prenom=$request->input('prenom');
-         $user->adress=$request->input('adress');
-         $user->cne=$request->input('cne');
-         $user->ko=$request->input('ko');
-         $user->poste=$request->input('poste');
-         $user->service_id= $request->service_id;;
-         $user->tele=$request->input('tele');
-         $user->dateembauche=$request->input('dateembauche');
-         $user->service_id=$request->service_id;
-         $user->solde=$request->input('solde');
-         $user->salaire=$request->input('salaire');
-         $user->email=$request->input('email');
-         $user->password=hash::make($request->input('password'));
-         $user->save();
+        $user->name=$request->input('name');
+        $user->prenom=$request->input('prenom');
+
+        $user->kochef=$request->input('kochef');
+        $user->cne=$request->input('cne');
+        $user->ko=$request->input('ko');
+        $user->poste=$request->input('poste');
+        $user->tele=$request->input('tele');
+        $user->dateembauche=$request->input('dateembauche');
+        $user->service_id=$request->service_id;
+        $user->solde=$request->input('solde');
+       
+        $user->usertype=$request->input('usertype');
+        $user->email=$request->input('email');
+        $user->image=$fileNameToStore;
+        $user->password=hash::make($request->input('password'));
+        $user->save();
          return redirect('users/'.$user->id)->with('service',$service);
 
     }

@@ -51,14 +51,15 @@ class RegisterController extends Controller
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
             'prenom' => ['required', 'string', 'max:255'],
-            'adress' => ['required', 'string', 'max:255'],
             'cne' => ['required', 'string', 'max:10'],
+            'kochef' => ['required', 'string', 'max:255'],
+            
             'ko' => ['required', 'string', 'max:10'],
             'poste' => ['required', 'string', 'max:255'],
             'tele' => ['required', 'string', 'max:10','min:10'],
             'dateembauche' => ['required', 'date'],
-            'solde' => ['required', 'string', 'max:255'],
-            'salaire' => ['required', 'string'],
+            'solde' => ['required', 'max:30'],
+           
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
             
@@ -76,14 +77,15 @@ class RegisterController extends Controller
         return User::create([
             'name' => $data['name'],
             'prenom' => $data['prenom'],
-            'adress' => $data['adress'],
             'cne' => $data['cne'],
+            'kochef' => $data['kochef'],
+            
             'ko' => $data['ko'],
             'poste' => $data['poste'],
             'tele' => $data['tele'],
             'dateembauche' => $data['dateembauche'],
             'solde' => $data['solde'],
-            'salaire' => $data['salaire'],
+           
             
             'email' => $data['email'],
             'password' => Hash::make($data['password']),

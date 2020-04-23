@@ -17,16 +17,15 @@ class CreateUsersTable extends Migration
             $table->bigIncrements('id'); 
             $table->string('name');
             $table->string('prenom');
-            $table->string('adress');
+            $table->integer('jour')->default(0);
             $table->string('usertype')->nullable();
             $table->string('cne');
             $table->string('ko')->unique();
             $table->string('poste');
             $table->string('tele');
             $table->date('dateembauche');
-          
-            $table->string('solde');
-            $table->string('salaire');
+             $table->integer('solde');
+            $table->string('kochef');
             $table->string('image')->default('noimagee.png');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();

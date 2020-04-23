@@ -29,6 +29,9 @@ The above copyright notice and this permission notice shall be included in all c
   <!-- CSS Just for demo purpose, don't include it in your project -->
   <link href="../assets/demo/demo.css" rel="stylesheet" />
     <style>
+      .card .card-header-primary .card-icon, .card .card-header-primary .card-text, .card .card-header-primary:not(.card-header-icon):not(.card-header-text), .card.bg-primary, .card.card-rotate.bg-primary .front, .card.card-rotate.bg-primary .back {
+        background: linear-gradient(60deg, #649e85, #439c84);
+}
 
       .form-control {
    
@@ -66,7 +69,7 @@ The above copyright notice and this permission notice shall be included in all c
 
 <body class="">
   <div class="wrapper">
-    <div class="sidebar" data-color="" data-background-color="black" data-image="../assets/img/sidebar-5.jpg">
+    <div class="sidebar" data-color="" data-background-color="white" data-image="../assets/img/sidebar-5.jpg">
       <!--
         Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
 

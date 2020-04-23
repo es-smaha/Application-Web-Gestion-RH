@@ -165,13 +165,31 @@ md = {
   },
 
   showNotification: function(from, align) {
-    type = ['', 'info', 'danger', 'success', 'warning', 'rose', 'primary'];
+    type = ['', 'info', 'primary'];
 
     color = Math.floor((Math.random() * 6) + 1);
 
     $.notify({
       icon: "add_alert",
-      message: "Welcome to <b>Material Dashboard Pro</b> - a beautiful admin panel for every web developer."
+      message: "l'utilisateure a ete modifier"
+
+    }, {
+      type: type[color],
+      timer: 3000,
+      placement: {
+        from: from,
+        align: align
+      }
+    });
+  },
+  showNotificationn: function(from, align) {
+    type = ['', 'danger','warning' ];
+
+    color = Math.floor((Math.random() * 6) + 1);
+
+    $.notify({
+      icon: "add_alert",
+      message: "Suppression avec success"
 
     }, {
       type: type[color],

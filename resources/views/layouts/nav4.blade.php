@@ -6,7 +6,7 @@
 	<meta name="description" content="">
 	<meta name="author"      content="Sergey Pozhilov (GetTemplate.com)">
 	
-	<title>About - Progressus Bootstrap template</title>
+	<title>@yield('title')</title>
 
 	<link rel="shortcut icon" href="asset/images/gt_favicon.png">
 	
@@ -82,51 +82,10 @@
 		</div>
 	</div> 
 	<!-- /.navbar -->
-
-	<header id="head" class="secondary"></header>
-
-	<!-- container -->
 	<div class="container">
-  @if(count($errors)>0)
-@if ($errors->any()) 
-    <div class="alert alert-danger">
-        <ul>
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div>
-@endif
-                @endif
-                @if(session()->has('success'))
-                   <div class="alert alert-success" role="alert">
-                      {{session()->get('success')}}
-                      </div>
-                       @endif
-
-                    @if(session()->has('delete'))
-                    <div class="alert alert-success" role="alert">
-                       {{session()->get('delete')}}
-                     </div>
-                      @endif
-                      @if(session()->has('error'))
-                    <div class="alert alert-" role="alert">
-                       {{session()->get('error')}}
-                     </div>
-                      @endif
-                        @if(session()->has('fail'))
-                        <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                          {{session()->get('fail')}}
-                          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                             <span aria-hidden="true">&times;</span>
-                                 </button>
-                                </div>
-                               @endif
-      @yield('content')
 		
-        </div>
-	
-	
+	@yield('content')	
+	</div>
 
 	<footer id="footer" class="top-space">
 
@@ -165,7 +124,7 @@
 						</div>
 					</div>
 
-				</div> 
+				</div> <!-- /row of widgets -->
 			</div>
 		</div>
 
@@ -194,12 +153,11 @@
 						</div>
 					</div>
 
-				</div> 
+				</div> <!-- /row of widgets -->
 			</div>
 		</div>
-  </footer>	
-  
-	
+	</footer>	
+		
 
 
 
@@ -209,7 +167,7 @@
 	<script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
 	<script src="asset/js/headroom.min.js"></script>
 	<script src="asset/js/jQuery.headroom.min.js"></script>
-  <script src="asset/js/template.js"></script>
-  @yield('scripts')
+	<script src="asset/js/template.js"></script>
+	@yield('scripts')
 </body>
 </html>

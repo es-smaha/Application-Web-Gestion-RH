@@ -16,7 +16,6 @@ class CreateDemandedocumentsTable extends Migration
         Schema::create('demandedocuments', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->boolean('etat')->default(false);
-            $table->date('datecreation');
             $table->date('datetraitement')->nullable();
             $table->integer('user_id');
             $table->integer('typedocument_id');

@@ -87,6 +87,41 @@
 
 	<!-- container -->
 	<div class="container">
+  @if(count($errors)>0)
+@if ($errors->any()) 
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
+                @endif
+                @if(session()->has('success'))
+                   <div class="alert alert-success" role="alert">
+                      {{session()->get('success')}}
+                      </div>
+                       @endif
+
+                    @if(session()->has('delete'))
+                    <div class="alert alert-success" role="alert">
+                       {{session()->get('delete')}}
+                     </div>
+                      @endif
+                      @if(session()->has('error'))
+                    <div class="alert alert-" role="alert">
+                       {{session()->get('error')}}
+                     </div>
+                      @endif
+                        @if(session()->has('fail'))
+                        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                          {{session()->get('fail')}}
+                          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                             <span aria-hidden="true">&times;</span>
+                                 </button>
+                                </div>
+                               @endif
       @yield('content')
 		
         </div>

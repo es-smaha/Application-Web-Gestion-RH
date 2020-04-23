@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
+use RealRashid\SweetAlert\Facades\Alert;
 use App\User;
 
 use Illuminate\Http\Request;
@@ -11,7 +12,9 @@ use App\Http\Controllers\Controller;
 class ChangePasswordController extends Controller
 {
     public function index(){
+        Alert::success('Success Title', 'Success Message');
         return view('change');
+        
     }
 
     public function passwordupdate(Request $request){
@@ -29,8 +32,10 @@ class ChangePasswordController extends Controller
                      $user->password=hash::make($request->password);
                       $user->save();
                       Auth::logout();
+                      
                       return redirect('/');
          }else{
+            
                  return view('change');
          }
 

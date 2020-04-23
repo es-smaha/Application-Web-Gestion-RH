@@ -53,6 +53,9 @@ class DemandecongeController extends Controller
           $conge= new Demandeconge();
           $conge->datedebut=$request->input('datedebut');
           $conge->datefin=$request->input('datefin');
+          if($request->input('jour') > auth()->user()->conge ){
+              return redirect('conge')->with('fail','solde insufisant');
+          }
           $conge->jour=$request->input('jour');
           $conge->raison=$request->input('raison');
           $conge->user_id= auth()->user()->id;

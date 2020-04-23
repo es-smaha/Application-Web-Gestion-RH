@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Hash;
-use RealRashid\SweetAlert\Facades\Alert;
+
 use App\User;
 use App\Service;
-use RealRashid\SweetAlert\Facades\Alert;
+
 
 
 use Illuminate\Http\Request;

@@ -34,7 +34,7 @@ The above copyright notice and this permission notice shall be included in all c
 
 <body class="">
   <div class="wrapper ">
-    <div class="sidebar" data-color="green" data-background-color="white" data-image="../assets/img/sidebar-5.jpg">
+    <div class="sidebar" data-color="green" data-background-color="white" data-image="../assets/img/sidebar-2.jpg">
       <!--
         Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
 
@@ -425,7 +425,7 @@ The above copyright notice and this permission notice shall be included in all c
   </script>
  
   @yield('scripts')
-  @include('sweetalert::alert')
+ 
 </body>
 
 </html>

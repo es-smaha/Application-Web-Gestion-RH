@@ -28,7 +28,16 @@ The above copyright notice and this permission notice shall be included in all c
   <link href="../assets/css/material-dashboard.css?v=2.1.2" rel="stylesheet" />
   <!-- CSS Just for demo purpose, don't include it in your project -->
   <link href="../assets/demo/demo.css" rel="stylesheet" />
- 
+    <style>
+
+.sidebar[data-color="white"] li.active>a {
+    background-color: #085e72;
+    box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(255, 255, 255, 0.4);
+}
+.sidebar .nav p {
+   color:white;
+}
+    </style>
   
 </head>
 
@@ -101,8 +110,9 @@ The above copyright notice and this permission notice shall be included in all c
       <!-- Navbar -->
       <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
         <div class="container-fluid">
+        <img src="../assets/img/kohler2.jpg" alt="kohler"></a>
           <div class="navbar-wrapper">
-            <a class="navbar-brand" href="javascript:;">Dashboard</a>
+            <a class="navbar-brand" href="javascript:;"></a>
           </div>
           <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
             <span class="sr-only">Toggle navigation</span>
@@ -179,6 +189,8 @@ The above copyright notice and this permission notice shall be included in all c
           </div>
         </div>
       </nav>
+        <br>
+        <br>
       <!-- End Navbar -->
       <div class="content">
         <div class="container-fluid">

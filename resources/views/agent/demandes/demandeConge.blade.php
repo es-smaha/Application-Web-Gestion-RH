@@ -21,9 +21,7 @@
                   <div class="table-responsive">
                     <table class="table table-hover">
                       <thead class="">
-       
-       
-                      <th>Nom</th>
+                        <th>Nom</th>
                         <th>Type Conge</th>
                            <th>date conge</th>
                             <th>Jour reservee</th>
@@ -91,26 +89,9 @@
           </div>
         </div>
       </div>
-        
-      
-        
-      
-
-         
-
-
-
-
-
-
-
-
-
-
-
-
-
-                 </div>
+    </div>
+  </div>
+</div>
 
                       
 

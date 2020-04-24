@@ -33,7 +33,7 @@
                       </thead>
                       <tbody>
                       @foreach($conge as $conge)
-                      @if($conge->avis=='0' && $conge->decision==false)
+                     
                               <tr>
                                     <td>{{$conge->user->name}}</td>
                                           <td>{{$conge->typeconge->nom}}</td>
@@ -54,7 +54,7 @@
 
 
 
-@endif
+
 
           @endforeach
                        

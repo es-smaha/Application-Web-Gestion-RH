@@ -20,6 +20,15 @@ Route::get('/home','HomeController@index')->name('home');
 Auth::routes();
 Route::resource('conge', 'DemandecongeController');
 
+    Route::get('/dashboard', function () {
+        return view('chefh.dashboard');
+    });
+    Route::get('/demande-conge','TraitedemandeController@index');
+    Route::get('/conge-accepter','TraitedemandeController@accepter');
+    Route::get('/conge-refuser','TraitedemandeController@refuser');
+    Route::put('/confirmer/{id}/edit','TraitedemandeController@valider');
+    Route::delete('/delete/{id}','TraitedemandeController@destroy');
+   
 
 Route::group(['middleware'=>['auth','1']],function()
     {
@@ -54,4 +63,17 @@ Route::get('/dashboard3', function () {
         return view('resppaie.dashboard');});
    });
 
+
+Route::group(['middleware'=>['auth','3']],function(){
+
+    Route::get('/dashboard3', function () {
+        return view('resppaie.dashboard');
+    });
+   
+
+});
+
+Route::get('/home', 'HomeController@index')->name('home');
+Auth::routes();
+Route::resource('conge', 'DemandecongeController');
 

@@ -3,7 +3,7 @@
 @section('content')
        
     <br>
-        <button type="button" class="btn btn-warning btn-round" data-toggle="modal"  data-target="#ajouter" ><span class="material-icons"></span>Ajouter Demande de conge </button>
+        <button type="button" class="btn btn-success btn-round" data-toggle="modal"  data-target="#ajouter" ><span class="material-icons"></span>Ajouter Demande de conge </button>
             <br>
 
                     
@@ -23,63 +23,67 @@
                       <thead class="">
                         <th>Nom</th>
                         <th>Type Conge</th>
-                        <th>date conge</th>
-                        <th>Jour reservee</th>
-                        <th>date creation</th>
-                        <th>Etat</th>
-                        <th>edit</th>
-                        <th>delete</th>
+                           <th>date conge</th>
+                            <th>Jour reservee</th>
+                              <th>date creation</th>
+                                <th>Etat</th>
+                              <th>edit</th>
+                              <th>delete</th>
+                              
+                                  <th>recu</th>
+                          
                       </thead>
                       <tbody>
+                      @if(count($conge)>0)
                       @foreach($conge as $conge)
+                      
         @if(!auth::guest())
               @if(auth::user()->id==$conge->user_id)
-  <tr>
-  <td>{{$conge->user->name}}</td>
-  <td>{{$conge->typeconge->nom}}</td>
-  <td>{{$conge->datedebut}}   <span> a </span> {{$conge->datefin}}</td>
-  <td>{{$conge->jour}}</td>
+                              <tr>
+                                    <td>{{$conge->user->name}}</td>
+                                    <td>{{$conge->typeconge->nom}}</td>
+                                    <td>{{$conge->datedebut}}   <span> a </span> {{$conge->datefin}}</td>
+                                    <td>{{$conge->jour}}</td>
+                                      <td>{{$conge->created_at}}</td>
+                                                    
+                                              @if($conge->avis=='0' && $conge->decision==false || $conge->avis=='1' && $conge->decision==false ||$conge->avis=='2' && $conge->decision==false)
+                                              <td> <span class="badge badge-warning">en attente</span> </td>
+                                                <td>  <button type="button" class="btn btn-success btn-round" data-toggle="modal"  data-target="#ajouter" ><span class="material-icons">create</span></button></td>
+                                                   <td><button type="button" class="btn btn-danger btn-round" data-toggle="modal"  data-target="#ajouter" ><span class="material-icons">delete</span> </button></td>
+                                                        <td></td>
+                                                   @endif
 
-  <td>{{$conge->created_at}}</td>
+                                                   @if($conge->avis=='1' && $conge->decision==true )
+                                                       <td> <span class="badge badge-success">accepte</span> </td>
+                                                          <td>  <button type="button" class="btn btn-success btn-round" data-toggle="modal"  data-target="#ajouter" disabled><span class="material-icons">create</span></button></td>
+                                                              <td><button type="button" class="btn btn-danger btn-round" data-toggle="modal"  data-target="#ajouter" disabled><span class="material-icons">delete</span> </button></td>
+                                                                  <td><span class="material-icons">get_app</span></td>
+                                                                                @endif
 
-  @if($conge->avis=='0' && $conge->decision==false || $conge->avis=='1' && $conge->decision==false)
-  <td> <span class="badge badge-warning">en attente</span> </td>
-  <td>  <button type="button" class="btn btn-warning btn-round" data-toggle="modal"  data-target="#ajouter" ><span class="material-icons"></span>edit</button></td>
-  <td><button type="button" class="btn btn-warning btn-round" data-toggle="modal"  data-target="#ajouter" ><span class="material-icons"></span>delete </button></td>
+                                                                    @if($conge->avis=='2' && $conge->decision==true)
+                                                                    <td><span class="badge badge-danger">Refusee</span> </td>
+                                                                    <td>  <button type="button" class="btn btn-success btn-round" data-toggle="modal"  data-target="#ajouter" disabled><span class="material-icons">create</span></button></td>
+                                                              <td><button type="button" class="btn btn-danger btn-round" data-toggle="modal"  data-target="#ajouter" disabled><span class="material-icons">delete</span> </button></td>
+                                                                    <td>    <a href="/conge/{{$conge->id}}" style="color:red"><span class="material-icons" >picture_as_pdf</span></a> </td> @endif
+                                                                    </tr>
 
 
 
-@endif
-@if($conge->avis=='1' && $conge->decision==true )
-  
-<td> <span class="badge badge-success">accepte</span> </td>
-  <td> 
-         <button type="button" class="btn btn-warning btn-round" data-toggle="modal"  data-target="#ajouter" ><span class="material-icons"></span>lopaa</button>
-         </td>
-        <td>
-         <button type="button" class="btn btn-warning btn-round" data-toggle="modal"  data-target="#ajouter" ><span class="material-icons"></span>opaaa </button>
-         </td>
-   
-    @endif
-    @if($conge->avis=='2' && $conge->decision==true)
-    <td><span class="badge badge-danger">Refusee</span> </td>
-      <td>  
-          <button type="button" class="btn btn-warning btn-round" data-toggle="modal"  data-target="#ajouter" ><span class="material-icons"></span>edit</button>
-          </td>
-            <td>
-          <button type="button" class="btn btn-warning btn-round" data-toggle="modal"  data-target="#ajouter" ><span class="material-icons"></span>delete </button>
-        </td>
-        @endif
-        </tr>
-        @else
-        <p>vous  n'avez pas  effectuer aucune demande</p>
-        @endif
-        @endif
-
-        @endforeach
-
-                  </tbody>
-                </table>
+        
+                        
+                    
+                                @endif
+          @endif
+         
+          @endforeach
+          @else
+                            <td>aucuene demande</td>
+                            @endif
+                       
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
               </div>
             </div>
           </div>

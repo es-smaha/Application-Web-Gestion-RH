@@ -21,32 +21,30 @@
                   <div class="table-responsive">
                     <table class="table table-hover">
                       <thead class="">
-       
-       
-                      <th>Nom</th>
+                        <th>Nom</th>
                         <th>Type Conge</th>
-                           <th>date conge</th>
-                            <th>Jour reservee</th>
-                              <th>date creation</th>
-                                <th>Etat</th>
-                              <th>edit</th>
-                              <th>delete</th>
+                        <th>date conge</th>
+                        <th>Jour reservee</th>
+                        <th>date creation</th>
+                        <th>Etat</th>
+                        <th>edit</th>
+                        <th>delete</th>
                       </thead>
                       <tbody>
                       @foreach($conge as $conge)
         @if(!auth::guest())
               @if(auth::user()->id==$conge->user_id)
-                              <tr>
-                                    <td>{{$conge->user->name}}</td>
-                                          <td>{{$conge->typeconge->nom}}</td>
-                                            <td>{{$conge->datedebut}}   <span> a </span> {{$conge->datefin}}</td>
-                                            <td>{{$conge->jour}}</td>
-                                            
-                                              <td>{{$conge->created_at}}</td>
-                                                    
-                                              @if($conge->avis=='0' && $conge->decision==false || $conge->avis=='1' && $conge->decision==false)
-                                              <td> <span class="badge badge-warning">en attente</span> </td>
-                                                <td>  <button type="button" class="btn btn-warning btn-round" data-toggle="modal"  data-target="#ajouter" ><span class="material-icons"></span>edit</button></td>
+  <tr>
+  <td>{{$conge->user->name}}</td>
+  <td>{{$conge->typeconge->nom}}</td>
+  <td>{{$conge->datedebut}}   <span> a </span> {{$conge->datefin}}</td>
+  <td>{{$conge->jour}}</td>
+
+  <td>{{$conge->created_at}}</td>
+
+  @if($conge->avis=='0' && $conge->decision==false || $conge->avis=='1' && $conge->decision==false)
+  <td> <span class="badge badge-warning">en attente</span> </td>
+  <td>  <button type="button" class="btn btn-warning btn-round" data-toggle="modal"  data-target="#ajouter" ><span class="material-icons"></span>edit</button></td>
   <td><button type="button" class="btn btn-warning btn-round" data-toggle="modal"  data-target="#ajouter" ><span class="material-icons"></span>delete </button></td>
 
 
@@ -70,45 +68,26 @@
           </td>
             <td>
           <button type="button" class="btn btn-warning btn-round" data-toggle="modal"  data-target="#ajouter" ><span class="material-icons"></span>delete </button>
-          </td>
+        </td>
         @endif
-                              </tr>
-                              @else
-                                <p>vous  n'avez pas  effectuer aucune demande</p>
-                                @endif
-          @endif
-         
-          @endforeach
-                       
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
+        </tr>
+        @else
+        <p>vous  n'avez pas  effectuer aucune demande</p>
+        @endif
+        @endif
+
+        @endforeach
+
+                  </tbody>
+                </table>
               </div>
             </div>
           </div>
         </div>
       </div>
-        
-      
-        
-      
-
-         
-
-
-
-
-
-
-
-
-
-
-
-
-
-                 </div>
+    </div>
+  </div>
+</div>
 
                       
 

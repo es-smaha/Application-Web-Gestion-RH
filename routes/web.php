@@ -29,7 +29,7 @@ Route::group(['middleware'=>['auth','1']],function(){
 Route::group(['middleware'=>['auth','2']],function(){
 
 Route::get('/docum','RhdocumentController@index');
-Route::get('/docum/{id}','RhdocumentController@valider');
+Route::put('/docum/{id}','RhdocumentController@valider');
 
 Route::get('/users','UserController@index');
 Route::get('/create','UserController@create');

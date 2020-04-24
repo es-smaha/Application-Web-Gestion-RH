@@ -10,10 +10,24 @@ use Illuminate\Http\Request;
 class RhdocumentController extends Controller
 {
     public function index(){
-        $demandedocuments=Demandedocument::All();
-        $typedoc=Typedocument::All();
-        $user=User::All();
-        return view('resprh.document.index', ['typedoc'=>$typedoc,'user'=>$user, 'demandedocuments'=> $demandedocuments]);
+
+        $demandedocument=Demandedocument::all();
+        
+        $demandedocuments=$demandedocument->where('etat',false);
+        
+        return view('resprh.document.index', ['demandedocuments'=> $demandedocuments,'demandedocument'=> $demandedocument]);
+    }
+   
+    public function valider($id)
+    {
+        $demandedocuments=Demandedocument::find($id);
+            
+               $demandedocuments->etat=1;
+               $demandedocuments->save();
+            
+             return redirect()->back();
+      
+         
     }
 
 

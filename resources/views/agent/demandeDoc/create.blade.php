@@ -37,6 +37,7 @@
     <table class="table table-dark">
   <thead>
     <tr>
+      <th>nom de demandeur</th>
       <th scope="col">mes demandes</th>
       <th scope="col">la date de creation</th>
       <th scope="col">l'état</th>
@@ -47,6 +48,7 @@
     @foreach( $demandedocuments as $dec)
     
     @if(auth::user()->id==$dec->user_id)
+      <td>{{$dec->user->name}}</td>
       <td>{{$dec->typedocument->name}}</td>
       <td>{{$dec->created_at}}</td>
       @if($dec->etat==0)

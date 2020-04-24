@@ -47,9 +47,7 @@ Route::put('/edituser/{id}','UserController@update');
         return view('resprh.dashboard');
 
     });
-    
-  
-         
+      
    
     Route::resource('service', 'ServiceController');
     Route::resource('typecon', 'TypecongeController');

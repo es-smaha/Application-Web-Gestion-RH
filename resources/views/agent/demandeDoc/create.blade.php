@@ -47,11 +47,11 @@
                       <label for="typedocument_id">choisissez un type de document</label>
 
                       <select name="typedocument_id" id="inputState" class="form-control">
-
+                          @if(count($typedoc) >0)
                       @foreach($typedoc as $doc)
                         <option value="{{$doc->id}}" > {{$doc->name}}</option>
                         @endforeach
-
+                              @endif
                       </select>
                   
                   
@@ -78,6 +78,7 @@
 </thead>
 <tbody>
   <tr>
+  @if(count($demandedocuments) >0)
   @foreach( $demandedocuments as $dec)
   
   @if(auth::user()->id==$dec->user_id)
@@ -100,18 +101,6 @@
   
   
   @endif
-  @endforeach
-</tbody>
-</table>
-          </div>
-                 </div>
-      </div>
-    </div>
-  </div>
-
-
-
-
   <div class="modal modal-danger fade " id="delete" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -140,6 +129,22 @@
     </div>
   </div>
 </div>
+  @endforeach
+  @else
+    <p>non valide</p>
+  @endif
+
+</tbody>
+</table>
+          </div>
+                 </div>
+      </div>
+    </div>
+  </div>
+
+
+
+ 
 
 
      

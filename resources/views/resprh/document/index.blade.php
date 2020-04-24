@@ -34,7 +34,7 @@ valider
 @foreach($demandedocuments as $demandedocuments)
 
 <tr>
-<td> {{$demandedocuments->user_id}}</td>
+<td> {{$demandedocuments->user->name}}</td>
 <td> {{$demandedocuments->typedocument->name}}</td>
 <td> {{$demandedocuments->created_at}}</td>
 <td>
@@ -48,6 +48,7 @@ valider
 </tr>
 
 @endforeach
+
 </tbody>
 </table>
 </div>

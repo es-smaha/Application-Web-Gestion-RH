@@ -25,7 +25,7 @@ class RhdocumentController extends Controller
                $demandedocuments->etat=1;
                $demandedocuments->save();
             
-             return redirect()->back();
+             return redirect()->back()->with('success','le document est pret');
       
          
     }

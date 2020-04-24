@@ -17,14 +17,11 @@ Route::get('/', function () {
 Route::resource('doc', 'DocumentController');
 Route::get('/change','auth\ChangePasswordController@index');
 Route::post('/update-password','auth\ChangePasswordController@passwordupdate');
-
 Route::group(['middleware'=>['auth','1']],function(){
 
     Route::get('/dashboard', function () {
         return view('chefh.dashboard');
     });
-    Route::get('/demandeconge','TraitedemandeController@index');
-    Route::put('/confirmer/{id}/edit','TraitedemandeController@confirmer');
    
 
 });

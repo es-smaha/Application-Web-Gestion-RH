@@ -93,6 +93,9 @@ class DocumentController extends Controller
      */
     public function destroy($id)
     {
-        //
+        
+        $demandedocuments=Demandedocument::find($id);
+        $demandedocuments->delete($id);
+        return redirect('doc')->with('success','votre demane a ete bien supprime');
     }
 }

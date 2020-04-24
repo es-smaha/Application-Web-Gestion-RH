@@ -82,27 +82,27 @@ The above copyright notice and this permission notice shall be included in all c
       <div class="sidebar-wrapper">
         <ul class="nav">
           <li class="{{'dashboard2'==request()->path()?'active':''}}">
-            <a class="nav-link" href="/dashboard2">
+            <a class="nav-link" href="/home">
               <i class="material-icons">dashboard</i>
               <p>Dashboard</p>
             </a>
           </li>
           <li class="{{'users'==request()->path()?'active':''}} ">
-            <a class="nav-link" href="/users">
+            <a class="nav-link" href="/doc">
               <i class="material-icons">person</i>
-              <p>Annuaire telephonque</p>
+              <p> documents administratifs</p>
             </a>
           </li>
           <li class="nav-item ">
-            <a class="nav-link" href="/admi">
+            <a class="nav-link" href="/conge">
               <i class="material-icons">content_paste</i>
-              <p>Administration</p>
+              <p>Demande Congee</p>
             </a>
           </li>
           <li class="nav-item ">
             <a class="nav-link" href="./typography.html">
               <i class="material-icons">library_books</i>
-              <p>Documents Administratifs</p>
+              <p>Documents </p>
             </a>
           </li>
           <li class="nav-item ">

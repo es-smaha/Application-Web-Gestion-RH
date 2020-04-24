@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Typeconge;
 use App\User;
 use App\Demandeconge;
+use PDF;
 use Illuminate\Support\Facades\Auth;
 
 class DemandecongeController extends Controller
@@ -68,23 +69,24 @@ class DemandecongeController extends Controller
       }
 
       return redirect('conge')->with('fail','Vous avez depassee votre solde');
-         
-         
-        
-      
 
     }
 
+    
     /**
      * Display the specified resource.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
-    {
-        //
-    }
+    public function show($id){
+    $conge=Demandeconge::find($id) ;
+    $pdf=PDF::loadView('agent.demandes.pdf')->setPaper('a4','portrait');
+    $fileNames=$conge->id;
+    return $pdf->stream('$fileNames'.'.pdf');
+
+
+}
 
     /**
      * Show the form for editing the specified resource.

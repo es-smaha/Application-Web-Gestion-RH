@@ -88,21 +88,21 @@ The above copyright notice and this permission notice shall be included in all c
             </a>
           </li>
           <li class="{{'users'==request()->path()?'active':''}} ">
-            <a class="nav-link" href="/demandeconge">
+            <a class="nav-link" href="/demande-conge">
               <i class="material-icons">person</i>
               <p>Demande de Congee</p>
             </a>
           </li>
           <li class="nav-item ">
-            <a class="nav-link" href="/demandeconge">
+            <a class="nav-link" href="/conge-accepter">
               <i class="material-icons">content_paste</i>
-              <p>Administration</p>
+              <p>Archives des demandes accepter</p>
             </a>
           </li>
           <li class="nav-item ">
-            <a class="nav-link" href="./typography.html">
+            <a class="nav-link" href="/conge-refuser">
               <i class="material-icons">library_books</i>
-              <p>Documents Administratifs</p>
+              <p>archives des demandes refusee</p>
             </a>
           </li>
           <li class="nav-item ">

@@ -28,43 +28,81 @@ The above copyright notice and this permission notice shall be included in all c
   <link href="../assets/css/material-dashboard.css?v=2.1.2" rel="stylesheet" />
   <!-- CSS Just for demo purpose, don't include it in your project -->
   <link href="../assets/demo/demo.css" rel="stylesheet" />
+    <style>
+      
+      .card .card-header-primary .card-icon, .card .card-header-primary .card-text, .card .card-header-primary:not(.card-header-icon):not(.card-header-text), .card.bg-primary, .card.card-rotate.bg-primary .front, .card.card-rotate.bg-primary .back {
+        background: linear-gradient(60deg, #649e85, #439c84);
+}
+
+      .form-control {
+   
+        border-style: inset;
+    height: 36px;
+   
+}
+.form-control, .is-focused .form-control {
+    background-image: linear-gradient(to top, #5eab80 2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #d2d2d2 1px, rgba(210, 210, 210, 0) 1px);
+}
+.btn.btn-secondary {
+    color: #333333;
+    background-color: gray;
+  
+   
+}
+.card .card-header-success .card-icon, .card .card-header-success .card-text, .card .card-header-success:not(.card-header-icon):not(.card-header-text), .card.bg-success, .card.card-rotate.bg-success .front, .card.card-rotate.bg-success .back {
+    background: linear-gradient(60deg, #649e85, #439c84);
+}
+.btn.btn-success {
+    color: #fff;
+    background-color: #96b197;
+}
+.btn.btn-success.btn-link {
+    background-color: transparent;
+    color: #649e85;
+    box-shadow: none;
+}
+.text-primary {
+    color: black!important;
+}
+    </style>
+  
 </head>
 
 <body class="">
-  <div class="wrapper ">
-    <div class="sidebar" data-color="green" data-background-color="white" data-image="../assets/img/sidebar-5.jpg">
+  <div class="wrapper">
+    <div class="sidebar" data-color="" data-background-color="white" data-image="../assets/img/sidebar-5.jpg">
       <!--
         Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
 
         Tip 2: you can also add an image using data-image tag
     -->
       <div class="logo"><a href="http://www.creative-tim.com" class="simple-text logo-normal">
-          Creative Tim
+         Responsable Rh
         </a></div>
       <div class="sidebar-wrapper">
         <ul class="nav">
-          <li class="nav-item active">
-            <a class="nav-link" href="./dashboard.html">
+          <li class="{{'dashboard2'==request()->path()?'active':''}}">
+            <a class="nav-link" href="/dashboard">
               <i class="material-icons">dashboard</i>
               <p>Dashboard</p>
             </a>
           </li>
-          <li class="nav-item ">
-            <a class="nav-link" href="./user.html">
+          <li class="{{'users'==request()->path()?'active':''}} ">
+            <a class="nav-link" href="/demandeconge">
               <i class="material-icons">person</i>
-              <p>User Profile</p>
+              <p>Demande de Congee</p>
             </a>
           </li>
           <li class="nav-item ">
-            <a class="nav-link" href="./tables.html">
+            <a class="nav-link" href="/demandeconge">
               <i class="material-icons">content_paste</i>
-              <p>Table List</p>
+              <p>Administration</p>
             </a>
           </li>
           <li class="nav-item ">
             <a class="nav-link" href="./typography.html">
               <i class="material-icons">library_books</i>
-              <p>Typography</p>
+              <p>Documents Administratifs</p>
             </a>
           </li>
           <li class="nav-item ">
@@ -76,27 +114,22 @@ The above copyright notice and this permission notice shall be included in all c
           <li class="nav-item ">
             <a class="nav-link" href="./map.html">
               <i class="material-icons">location_ons</i>
-              <p>Maps</p>
+              <p>demandes de conge</p>
             </a>
           </li>
           <li class="nav-item ">
             <a class="nav-link" href="./notifications.html">
               <i class="material-icons">notifications</i>
-              <p>Notifications</p>
+              <p>Archives demandes acceptee</p>
             </a>
           </li>
           <li class="nav-item ">
             <a class="nav-link" href="./rtl.html">
               <i class="material-icons">language</i>
-              <p>RTL Support</p>
+              <p>Archives demandes refuser</p>
             </a>
           </li>
-          <li class="nav-item active-pro ">
-            <a class="nav-link" href="./upgrade.html">
-              <i class="material-icons">unarchive</i>
-              <p>Upgrade to PRO</p>
-            </a>
-          </li>
+    
         </ul>
       </div>
     </div>
@@ -104,8 +137,9 @@ The above copyright notice and this permission notice shall be included in all c
       <!-- Navbar -->
       <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
         <div class="container-fluid">
+        <img src="../assets/img/kohler2.jpg" alt="kohler"></a>
           <div class="navbar-wrapper">
-            <a class="navbar-brand" href="javascript:;">Dashboard</a>
+            <a class="navbar-brand" href="javascript:;"></a>
           </div>
           <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
             <span class="sr-only">Toggle navigation</span>
@@ -182,37 +216,56 @@ The above copyright notice and this permission notice shall be included in all c
           </div>
         </div>
       </nav>
+        <br>
+        <br>
       <!-- End Navbar -->
       <div class="content">
         <div class="container-fluid">
+        @if(count($errors)>0)
+@if ($errors->any()) 
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
+                @endif
+                @if(session()->has('fail'))
+                   <div class="alert alert-warning" role="alert">
+                      {{session()->get('fail')}}
+                      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                             <span aria-hidden="true">&times;</span>
+                                 </button>
+                      </div>
+                       @endif
+
+                    @if(session()->has('delete'))
+                    <div class="alert alert-danger" role="alert">
+                       {{session()->get('delete')}}
+                     </div>
+                      @endif
+                      @if(session()->has('error'))
+                    <div class="alert alert-danger" role="alert">
+                       {{session()->get('error')}}
+                     </div>
+                      @endif
+                        @if(session()->has('success'))
+                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                          {{session()->get('success')}}
+                          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                             <span aria-hidden="true">&times;</span>
+                                 </button>
+                                </div>
+                               @endif
         @yield('content')
         </div>
       </div>
       <footer class="footer">
         <div class="container-fluid">
           <nav class="float-left">
-            <ul>
-              <li>
-                <a href="https://www.creative-tim.com">
-                  Creative Tim
-                </a>
-              </li>
-              <li>
-                <a href="https://creative-tim.com/presentation">
-                  About Us
-                </a>
-              </li>
-              <li>
-                <a href="http://blog.creative-tim.com">
-                  Blog
-                </a>
-              </li>
-              <li>
-                <a href="https://www.creative-tim.com/license">
-                  Licenses
-                </a>
-              </li>
-            </ul>
+           
           </nav>
           <div class="copyright float-right">
             &copy;
@@ -440,6 +493,8 @@ The above copyright notice and this permission notice shall be included in all c
       });
     });
   </script>
+  
+
   <script>
     $(document).ready(function() {
       // Javascript method's body can be found in assets/js/demos.js
@@ -447,9 +502,9 @@ The above copyright notice and this permission notice shall be included in all c
 
     });
   </script>
-    @include('sweetalert::alert')
-
+ 
   @yield('scripts')
+ 
 </body>
 
 </html>

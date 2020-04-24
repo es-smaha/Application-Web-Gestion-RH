@@ -89,7 +89,7 @@ perm_identity
         </div>
           <div class="modal-footer">
         <button type="button" class="btn btn-success" data-dismiss="modal">No</button>
-        <button type="submit" class="btn btn-warning">yes</button>
+        <button type="submit"  onclick="md.showNotificationn('top','center')" class="btn btn-warning">yes</button>
       </div>
           
         </form>
@@ -174,18 +174,6 @@ perm_identity
           
           </div>
           <div class="form-group">
-            <label for="recipient-name" class="col-form-label">{{ __('Ko/chefHierarchique') }}</label>
-            <br>
-            <input type="text"  name="kochef" class="form-control @error('kochef') is-invalid @enderror" id="recipient-name" >
-            @error('adress')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-          
-          </div>
-    
-          <div class="form-group">
             <label for="recipient-name" class="col-form-label">{{ __('cne') }}</label>
             <br>
             <input type="text"  name="cne" class="form-control @error('cne') is-invalid @enderror" name="cne"  id="recipient-name" >
@@ -196,6 +184,19 @@ perm_identity
                                 @enderror
           
           </div>
+          <div class="form-group">
+            <label for="recipient-name" class="col-form-label">{{ __('Ko/chefHierarchique') }}</label>
+            <br>
+            <input type="text"  name="kochef" class="form-control @error('kochef') is-invalid @enderror" id="recipient-name" >
+            @error('kochef')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+          
+          </div>
+    
+        
           <div class="form-group">
             <label for="recipient-name" class="col-form-label">{{ __('matricule /ko') }}</label>
             <br>
@@ -266,7 +267,7 @@ perm_identity
           <div class="form-group">
             <label for="recipient-name" class="col-form-label">{{ __('solde') }}</label>
             <br>
-            <input type="nubmer"  name="solde" class="form-control @error('solde') is-invalid @enderror" id="recipient-name"  >
+            <input type="number"  name="solde" class="form-control @error('solde') is-invalid @enderror" id="recipient-name"  >
             @error('solde')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -328,7 +329,7 @@ perm_identity
           </div>
          
           
-          <button type="submit" class="btn btn-primary">
+          <button type="submit" class="btn btn-success"  onclick="md.showNotification('top','center')">
                                     {{ __('Add Agent') }}
                                 </button>
      

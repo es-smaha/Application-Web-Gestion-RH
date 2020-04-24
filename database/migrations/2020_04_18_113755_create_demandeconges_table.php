@@ -17,7 +17,7 @@ class CreateDemandecongesTable extends Migration
             $table->bigIncrements('id');
             $table->date('datedebut');
             $table->date('datefin');
-            $table->string('jour');
+            $table->integer('jour');
             $table->longtext('raison');
             $table->integer('user_id');
             $table->integer('typeconge_id');

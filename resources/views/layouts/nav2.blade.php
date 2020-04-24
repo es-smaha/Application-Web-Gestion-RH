@@ -29,6 +29,7 @@ The above copyright notice and this permission notice shall be included in all c
   <!-- CSS Just for demo purpose, don't include it in your project -->
   <link href="../assets/demo/demo.css" rel="stylesheet" />
     <style>
+      
       .card .card-header-primary .card-icon, .card .card-header-primary .card-text, .card .card-header-primary:not(.card-header-icon):not(.card-header-text), .card.bg-primary, .card.card-rotate.bg-primary .front, .card.card-rotate.bg-primary .back {
         background: linear-gradient(60deg, #649e85, #439c84);
 }
@@ -220,6 +221,44 @@ The above copyright notice and this permission notice shall be included in all c
       <!-- End Navbar -->
       <div class="content">
         <div class="container-fluid">
+        @if(count($errors)>0)
+@if ($errors->any()) 
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
+                @endif
+                @if(session()->has('fail'))
+                   <div class="alert alert-warning" role="alert">
+                      {{session()->get('fail')}}
+                      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                             <span aria-hidden="true">&times;</span>
+                                 </button>
+                      </div>
+                       @endif
+
+                    @if(session()->has('delete'))
+                    <div class="alert alert-danger" role="alert">
+                       {{session()->get('delete')}}
+                     </div>
+                      @endif
+                      @if(session()->has('error'))
+                    <div class="alert alert-danger" role="alert">
+                       {{session()->get('error')}}
+                     </div>
+                      @endif
+                        @if(session()->has('success'))
+                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                          {{session()->get('success')}}
+                          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                             <span aria-hidden="true">&times;</span>
+                                 </button>
+                                </div>
+                               @endif
         @yield('content')
         </div>
       </div>

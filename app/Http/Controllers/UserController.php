@@ -83,7 +83,7 @@ class UserController extends Controller
          $user->service_id=$request->service_id;
          $user->solde=$request->input('solde');
         
-         $user->usertype=$request->input('usertype');
+         
          $user->email=$request->input('email');
          $user->image=$fileNameToStore;
          $user->password=hash::make($request->input('password'));
@@ -108,7 +108,6 @@ class UserController extends Controller
         $user->service_id=$request->service_id;
         $user->solde=$request->input('solde');
        
-        $user->usertype=$request->input('usertype');
         $user->email=$request->input('email');
         $user->image=$fileNameToStore;
         $user->password=hash::make($request->input('password'));

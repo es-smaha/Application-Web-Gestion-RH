@@ -42,6 +42,8 @@ class DemandecongeController extends Controller
      */
     public function store(Request $request)
     {       
+        $user_id=auth()->user()->id;
+        $user=User::find($user_id);
         $this->validate($request,[
             'datedebut' => ['required', ],
             'datefin' => ['required', ],
@@ -50,18 +52,25 @@ class DemandecongeController extends Controller
            
   
          ]);
-          $conge= new Demandeconge();
+         $conge= new Demandeconge();
+         if($request->input('jour') < $user->solde){
+          
+          $conge->typeconge_id=$request->typeconge_id;
           $conge->datedebut=$request->input('datedebut');
           $conge->datefin=$request->input('datefin');
-          if($request->input('jour') > auth()->user()->conge ){
-              return redirect('conge')->with('fail','solde insufisant');
-          }
           $conge->jour=$request->input('jour');
           $conge->raison=$request->input('raison');
           $conge->user_id= auth()->user()->id;
-          $conge->typeconge_id=$request->typeconge_id;
+          
             $conge->save();
-            return redirect('conge');
+      
+          return redirect('conge')->with('success','lajout est effectuer');
+      }
+
+      return redirect('conge')->with('fail','Vous avez depassee votre solde');
+         
+         
+        
       
 
     }

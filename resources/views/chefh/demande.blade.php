@@ -50,7 +50,14 @@
 @method('PUT')
 <button type="submit" class="btn btn-warning btn-round" data-toggle="modal"  data-target="#ajouter" ><span class="material-icons"></span>confirmer</button></td>
 </form>
-<td><button type="button" class="btn btn-warning btn-round" data-toggle="modal"  data-target="#ajouter" ><span class="material-icons"></span>refuser </button></td>
+
+<td>
+<form action="/refuser/{{$conge->id}}" method="POST">
+@csrf
+@method('PUT')
+<button type="submit" class="btn btn-warning btn-round" data-toggle="modal"  data-target="#ajouter" ><span class="material-icons"></span>refuser</button></td>
+</form>
+</td>
 
 
 

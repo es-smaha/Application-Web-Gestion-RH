@@ -20,20 +20,26 @@ Route::get('/home','HomeController@index')->name('home');
 Auth::routes();
 Route::resource('conge', 'DemandecongeController');
 
-    Route::get('/dashboard', function () {
-        return view('chefh.dashboard');
-    });
-    Route::get('/demande-conge','TraitedemandeController@index');
-    Route::get('/conge-accepter','TraitedemandeController@accepter');
-    Route::get('/conge-refuser','TraitedemandeController@refuser');
-    Route::put('/confirmer/{id}/edit','TraitedemandeController@valider');
-    Route::delete('/delete/{id}','TraitedemandeController@destroy');
+   
    
 
 Route::group(['middleware'=>['auth','1']],function()
     {
 Route::get('/dashboard', function () {
-        return view('chefh.dashboard');});
+        return view('chefh.dashboard');
+   
+    });
+
+  
+    Route::get('/demande-conge','TraitedemandeController@index');
+    Route::get('/conge-accepter','TraitedemandeController@accepter');
+    Route::get('/conge-refuser','TraitedemandeController@refuser');
+    Route::put('/confirmer/{id}/edit','TraitedemandeController@valider');
+    Route::delete('/delete/{id}','TraitedemandeController@destroy');
+
+
+
+
    });
 
 
@@ -55,11 +61,6 @@ Route::resource('typedoc', 'TypedocumentController');
 Route::get('/admi', function(){
         return view('resprh.rerh.admini');});
  
-
-
-   
-      
-   
     Route::resource('service', 'ServiceController');
     Route::resource('typecon', 'TypecongeController');
     Route::resource('typedoc', 'TypedocumentController');

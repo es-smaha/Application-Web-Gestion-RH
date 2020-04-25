@@ -64,24 +64,21 @@ class DemandecongeController extends Controller
          $months = floor(($diff - $years * 365*60*60*24)   / (30*60*60*24));
          $conges=floor(($diff - $years * 365*60*60*24 -  $months*30*60*60*24)/ (60*60*24));;
          if($conges < $user->solde){
-            $conge->datedebut=$request->input('datedebut');
-            $conge->datefin=$request->input('datefin');
-            $start_date = strtotime( $conge->datedebut); 
-         $end_date = strtotime($conge->datefin);
-         $diff = abs(  $start_date-$end_date);
-         $years = floor($diff / (365*60*60*24)); 
-         $months = floor(($diff - $years * 365*60*60*24)   / (30*60*60*24));
-         $conges=floor(($diff - $years * 365*60*60*24 -  $months*30*60*60*24)/ (60*60*24));;
-         
-            $conge->jour=$conges;
-          $conge->typeconge_id=$request->typeconge_id;
-         
-          $conge->raison=$request->input('raison');
-          $conge->user_id= auth()->user()->id;
-          
-            $conge->save();
-      
-          return redirect('conge')->with('success','lajout est effectuer');
+
+        $conge->datedebut=$request->input('datedebut');
+        $conge->datefin=$request->input('datefin');
+        $start_date = strtotime( $conge->datedebut); 
+        $end_date = strtotime($conge->datefin);
+        $diff = abs(  $start_date-$end_date);
+        $years = floor($diff / (365*60*60*24)); 
+        $months = floor(($diff - $years * 365*60*60*24)   / (30*60*60*24));
+        $conges=floor(($diff - $years * 365*60*60*24 -  $months*30*60*60*24)/ (60*60*24));;
+        $conge->jour=$conges;
+        $conge->typeconge_id=$request->typeconge_id;
+        $conge->raison=$request->input('raison');
+        $conge->user_id= auth()->user()->id;
+        $conge->save();
+        return redirect('conge')->with('success','lajout est effectuer');
       }
 
       return redirect('conge')->with('fail','Vous avez depassee votre solde');

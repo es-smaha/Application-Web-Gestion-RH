@@ -1,4 +1,4 @@
-@extends('layouts.nav1')
+@extends('layouts.nav3')
 @section('title')
 
 @endsection
@@ -13,7 +13,7 @@
 <div class="col-md-12">
 <div class="card card-plain">
 <div class="card-header card-header-primary">
-<h4 class="card-title mt-0"> Table on Plain Background</h4>
+<h4 class="card-title mt-0"> Les demandes non-traite</h4>
 <p class="card-category"> Here is a subtitle for this table</p>
 </div>
 <div class="card-body">
@@ -32,8 +32,9 @@
 <th>delete</th>
 </thead>
 <tbody>
-@foreach($conge as $conge)
 
+@foreach($conge as $conge)
+@if($conge->decision==0)
 <tr>
 <td>{{$conge->user->name}}</td>
 <td>{{$conge->typeconge->nom}}</td>
@@ -45,17 +46,15 @@
 
 <td> <span class="badge badge-warning">en attente</span> </td>
 
-<td>    <form action="/confirmer/{{$conge->id}}/edit" method="POST">
+<td>    <form action="/confin/{{$conge->id}}" method="POST">
 @csrf
 @method('PUT')
 <button type="submit" class="btn btn-warning btn-round" data-toggle="modal"  data-target="#ajouter" ><span class="material-icons"></span>confirmer</button></td>
 </form>
-<td><button type="button" class="btn btn-warning btn-round" data-toggle="modal"  data-target="#ajouter" ><span class="material-icons"></span>refuser </button></td>
 
 
 
-
-
+@endif
 @endforeach
 
 </tbody>

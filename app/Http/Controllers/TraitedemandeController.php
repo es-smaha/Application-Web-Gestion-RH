@@ -32,13 +32,18 @@ class TraitedemandeController extends Controller
       if( $conge->avis==0){
          $conge->avis=1;
          $conge->save();
-      }else if($conge->avis==2){
-         $conge->avis=1;
+      }
+       return redirect()->back();
+   }
+   public function refuuseer($id){
+      $conge=Demandeconge::find($id);
+      if( $conge->avis==0){
+         $conge->avis=2;
          $conge->save();
       }
        return redirect()->back();
-
    }
+   
    public function destroy($id){
       $conge=Demandeconge::find($id);
         $conge->delete();

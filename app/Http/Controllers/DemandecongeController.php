@@ -22,6 +22,7 @@ class DemandecongeController extends Controller
         $user=User::find($user_id);
         $type=Typeconge::All();
         $conge=Demandeconge::All();
+       
         return view('agent.demandes.demandeConge', ['type'=>$type,'conge'=>$conge, ]);
     }
 
@@ -48,18 +49,33 @@ class DemandecongeController extends Controller
         $this->validate($request,[
             'datedebut' => ['required', ],
             'datefin' => ['required', ],
-            'jour' => ['required', ],
+        
           
            
   
          ]);
          $conge= new Demandeconge();
-         if($request->input('jour') < $user->solde){
-          
+         $dated=$request->input('datedebut');
+         $datef=$request->input('datefin');
+         $start_date = strtotime( $dated); 
+         $end_date = strtotime($datef);
+         $diff = abs( $start_date-$end_date );
+         $years = floor($diff / (365*60*60*24)); 
+         $months = floor(($diff - $years * 365*60*60*24)   / (30*60*60*24));
+         $conges=floor(($diff - $years * 365*60*60*24 -  $months*30*60*60*24)/ (60*60*24));;
+         if($conges < $user->solde){
+            $conge->datedebut=$request->input('datedebut');
+            $conge->datefin=$request->input('datefin');
+            $start_date = strtotime( $conge->datedebut); 
+         $end_date = strtotime($conge->datefin);
+         $diff = abs(  $start_date-$end_date);
+         $years = floor($diff / (365*60*60*24)); 
+         $months = floor(($diff - $years * 365*60*60*24)   / (30*60*60*24));
+         $conges=floor(($diff - $years * 365*60*60*24 -  $months*30*60*60*24)/ (60*60*24));;
+         
+            $conge->jour=$conges;
           $conge->typeconge_id=$request->typeconge_id;
-          $conge->datedebut=$request->input('datedebut');
-          $conge->datefin=$request->input('datefin');
-          $conge->jour=$request->input('jour');
+         
           $conge->raison=$request->input('raison');
           $conge->user_id= auth()->user()->id;
           

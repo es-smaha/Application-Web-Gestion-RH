@@ -4,12 +4,40 @@
 @endsection
 
 @section('content')
-
+<div class="row">
+  <div class="col-lg-12 col-md-12">
+    <div class="card">
+      <div class="card-header card-header-tabs card-header-primary">
+        <div class="nav-tabs-navigation">
+          <div class="nav-tabs-wrapper">
+            
+            <ul class="nav nav-tabs" data-tabs="tabs">
+              <li class="nav-item">
+                <a class="nav-link active" href="#" data-toggle="tab">
+                  <i class="material-icons"><span class="material-icons">note_add</span></i> les demandes en attentes
+                  <div class="ripple-container"></div>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link " href="/conge-refuser">
+                  <i class="material-icons"><span class="material-icons">bookmarks</span></i> les demandes refuser
+                  <div class="ripple-container"></div>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link  " href="/conge-accepter" >
+                  <i class="material-icons"><span class="material-icons">bookmarks</span></i> les demandes accepter
+                  <div class="ripple-container"></div>
+                </a>
+              </li>
+          
+            </ul>
+          </div>
+        </div>
+      </div>  
 
 <div class="container-fluid">
 <!-- Mes demandes de Conge  -->
-
-
 <div class="col-md-12">
 <div class="card card-plain">
 <div class="card-header card-header-primary">
@@ -27,29 +55,30 @@
 <th>date conge</th>
 <th>Jour reservee</th>
 <th>date creation</th>
-<th>Etat</th>
-<th>edit</th>
-<th>delete</th>
+<th>Avis chef hierarchique</th>
+<th>Confirmation responsable</th>
+<th>Confirmer</th>
 </thead>
 <tbody>
 
 @foreach($conge as $conge)
-@if($conge->decision==0)
+@if($conge->avis==1 && $conge->decision==0)
 <tr>
 <td>{{$conge->user->name}}</td>
 <td>{{$conge->typeconge->nom}}</td>
 <td>{{$conge->datedebut}}   <span> a </span> {{$conge->datefin}}</td>
-<td>{{$conge->jour}}</td>
+<td >  {{$conge->jour}}</td>
 
 <td>{{$conge->created_at}}</td>
 
 
-<td> <span class="badge badge-warning">en attente</span> </td>
+<td> <span class="badge badge-success">accepter</span> </td>
+<td> <span class="badge badge-warning">en attente </span> </td>
 
 <td>    <form action="/confin/{{$conge->id}}" method="POST">
 @csrf
 @method('PUT')
-<button type="submit" class="btn btn-warning btn-round" data-toggle="modal"  data-target="#ajouter" ><span class="material-icons"></span>confirmer</button></td>
+<button type="submit" class="btn btn-success btn-round" data-toggle="modal"  data-target="#ajouter" ><span class="material-icons"></span>confirmer</button></td>
 </form>
 
 

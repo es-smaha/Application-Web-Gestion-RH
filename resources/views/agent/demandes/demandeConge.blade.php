@@ -185,10 +185,7 @@
 <label for="recipient-name" class="col-form-label">Date Fin<b class="text-danger  ">*</b></label>
 <input  name="datefin" type="date" class="form-control" id="recipient-name">
 </div>
-<div class="form-group">
-<label for="recipient-name" class="col-form-label">Jour reserve <b class="text-danger  ">*</b></label>
-<input name="jour"  type="number" class="form-control" id="recipient-name">
-</div>
+
 <div class="form-group">
 <label for="message-text"   class="col-form-label">raison</label>
 <p class="text-muted">pas obligatoire *</p>
@@ -196,7 +193,7 @@
 </div>
 
 <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
-<button type="submit" class="btn btn-success" onclick="md.showNotification('top','center')" >Ajouter</button>
+<button type="submit" class="btn btn-success" onclick="md.showNotification('top','right')" >Ajouter</button>
 
 @csrf
 </form>

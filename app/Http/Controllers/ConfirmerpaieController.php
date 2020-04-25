@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Demandeconge;
-use App\user;
+use App\User;
 use App\Typeconge;
 use Illuminate\Http\Request;
 class ConfirmerpaieController extends Controller
@@ -14,14 +14,19 @@ class ConfirmerpaieController extends Controller
     return view('resppaie.confirmerconge', ['type'=>$type,'conge'=>$conge]);
    }
     
-   public function valider($id){
+   public function valider( Request $request ,$id){
       $conge=Demandeconge::find($id);
+
       if( $conge->avis!=0){
+         $us=$conge->user_id;
+         $user=User::find($us);
          $conge->decision=1;
          $conge->save();
+         $user->solde = $user->solde - $conge->jour;
+         $user->save();
       }
        return redirect()->back();
-
+         
    }
    
 }

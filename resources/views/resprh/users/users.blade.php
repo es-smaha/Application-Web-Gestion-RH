@@ -293,7 +293,7 @@ perm_identity
           </div>      
             
 
-          <div class="form-group ">
+          <!--<div class="form-group ">
                             <label for="password" class="col-form-label">{{ __('Password') }}</label>
 
                             
@@ -312,7 +312,7 @@ perm_identity
                             <label for="password-confirm" class="col-form-label">{{ __('Confirm') }}</label>
                            
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
-                            </div>
+                            </div>-->
                           
                             
   <div class="file-field">

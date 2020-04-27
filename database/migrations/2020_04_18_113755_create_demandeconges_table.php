@@ -23,7 +23,8 @@ class CreateDemandecongesTable extends Migration
             $table->integer('typeconge_id');
             $table->integer('avis')->default(0);
             $table->boolean('decision')->default(false);
-
+            $table->boolean('motif')->default(false);
+            $table->boolean('pdf')->default(false);
 
             $table->timestamps();
         });

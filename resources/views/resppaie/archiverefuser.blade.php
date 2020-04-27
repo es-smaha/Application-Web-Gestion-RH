@@ -13,19 +13,19 @@
             
             <ul class="nav nav-tabs" data-tabs="tabs">
               <li class="nav-item">
-                <a class="nav-link active " href="/confin" >
+                <a class="nav-link " href="/confin" >
                   <i class="material-icons"><span class="material-icons">note_add</span></i> les demandes en attentes
                   <div class="ripple-container"></div>
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link " href="/decision-refuser">
+                <a class="nav-link active  " href="/decision-refuser">
                   <i class="material-icons"><span class="material-icons">bookmarks</span></i> les demandes refuser
                   <div class="ripple-container"></div>
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link  " href="/decision-accepter" >
+                <a class="nav-link " href="/decision-accepter" >
                   <i class="material-icons"><span class="material-icons">bookmarks</span></i> les demandes accepter
                   <div class="ripple-container"></div>
                 </a>
@@ -35,7 +35,6 @@
           </div>
         </div>
       </div>  
-
 <div class="container-fluid">
 <!-- Mes demandes de Conge  -->
 <div class="col-md-12">
@@ -59,12 +58,11 @@
 <th>date creation</th>
 <th>Avis chef hierarchique</th>
 <th>Confirmation responsable</th>
-<th>Confirmer</th>
 </thead>
 <tbody>
 
 @foreach($conge as $conge)
-@if($conge->avis==1 && $conge->decision==0)
+@if($conge->avis==2 && $conge->decision==1)
 <tr>
 <td>{{$conge->user->name}}</td>
 <td>{{$conge->typeconge->nom}}</td>
@@ -72,15 +70,14 @@
 <td>  {{$conge->jour}}</td>
 <td>  {{$conge->user->jour}}</td>
 <td>  {{$conge->user->solde}}</td>
-<td>{{$conge->created_at}}</td>
-<td> <span class="badge badge-success">accepter</span> </td>
-<td> <span class="badge badge-warning">en attente </span> </td>
 
-<td>    <form action="/confin/{{$conge->id}}" method="POST">
-@csrf
-@method('PUT')
-<button type="submit" class="btn btn-success btn-round" data-toggle="modal"  data-target="#ajouter" ><span class="material-icons"></span>confirmer</button></td>
-</form>
+<td>{{$conge->created_at}}</td>
+
+
+<td> <span class="badge badge-warning">refuser</span> </td>
+<td> <span class="badge badge-warning">refuser</span> </td>
+
+
 
 
 

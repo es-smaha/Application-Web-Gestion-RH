@@ -14,6 +14,7 @@ class TypedocumentController extends Controller
     public function index()
     {
         $typedocuments=Typedocument::all();
+     
         
         return view('resprh.rerh.typedoc')->with('typedocuments',$typedocuments);
     
@@ -38,6 +39,8 @@ class TypedocumentController extends Controller
     {
         $typedocuments=new Typedocument();
         $typedocuments->name=$request->input('name');
+        $typedocuments->max=$request->input('max');
+        $typedocuments->periode=$request->input('periode');
         $typedocuments->save();
         return redirect('typedoc')->with('success',' le type document est bien ajouté');
       

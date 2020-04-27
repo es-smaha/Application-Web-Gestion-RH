@@ -38,8 +38,7 @@ class LoginController extends Controller
 
              return 'dashboard2';
         }else if(Auth::User()->usertype=='3') {
-        
-        return 'dashboard3';
+                return 'dashboard3';
         }else{
     
         return 'home';

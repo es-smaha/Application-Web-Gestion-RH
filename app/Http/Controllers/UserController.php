@@ -47,7 +47,7 @@ class UserController extends Controller
        
             'email' => ['required', 'string', 'max:8', 'unique:users'],
             'image'=>'image|nullable|max:1999',
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            //'password' => ['required', 'string', 'min:8', 'confirmed'],
            
   
          ]);
@@ -86,7 +86,7 @@ class UserController extends Controller
          
          $user->email=$request->input('email');
          $user->image=$fileNameToStore;
-         $user->password=hash::make($request->input('password'));
+         $user->password=hash::make($request->input('cne'));
          $user->save();
 
         return redirect('users')->with('services',$services);

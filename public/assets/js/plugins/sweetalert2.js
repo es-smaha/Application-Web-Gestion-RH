@@ -1,11 +1,11 @@
 /*!
- * sweetalert2 v7.24.1
+ * 2 v7.24.1
  * Released under the MIT License.
  */
 (function(global, factory) {
   typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
     typeof define === 'function' && define.amd ? define(factory) :
-    (global.Sweetalert2 = factory());
+    (global.2 = factory());
 }(this, (function() {
   'use strict';
 
@@ -170,7 +170,7 @@
     };
   }();
 
-  var consolePrefix = 'SweetAlert2:';
+  var consolePrefix = '2:';
 
   /**
    * Filter the unique values into a new array
@@ -503,7 +503,7 @@
     return typeof window === 'undefined' || typeof document === 'undefined';
   };
 
-  var sweetHTML = ('\n <div aria-labelledby="' + swalClasses.title + '" aria-describedby="' + swalClasses.content + '" class="' + swalClasses.popup + '" tabindex="-1">\n   <div class="' + swalClasses.header + '">\n     <ul class="' + swalClasses.progresssteps + '"></ul>\n     <div class="' + swalClasses.icon + ' ' + iconTypes.error + '">\n       <span class="swal2-x-mark"><span class="swal2-x-mark-line-left"></span><span class="swal2-x-mark-line-right"></span></span>\n     </div>\n     <div class="' + swalClasses.icon + ' ' + iconTypes.question + '">\n       <span class="' + swalClasses['icon-text'] + '">?</span>\n      </div>\n     <div class="' + swalClasses.icon + ' ' + iconTypes.warning + '">\n       <span class="' + swalClasses['icon-text'] + '">!</span>\n      </div>\n     <div class="' + swalClasses.icon + ' ' + iconTypes.info + '">\n       <span class="' + swalClasses['icon-text'] + '">i</span>\n      </div>\n     <div class="' + swalClasses.icon + ' ' + iconTypes.success + '">\n       <div class="swal2-success-circular-line-left"></div>\n       <span class="swal2-success-line-tip"></span> <span class="swal2-success-line-long"></span>\n       <div class="swal2-success-ring"></div> <div class="swal2-success-fix"></div>\n       <div class="swal2-success-circular-line-right"></div>\n     </div>\n     <img class="' + swalClasses.image + '" />\n     <h2 class="' + swalClasses.title + '" id="' + swalClasses.title + '"></h2>\n     <button type="button" class="' + swalClasses.close + '">\xD7</button>\n   </div>\n   <div class="' + swalClasses.content + '">\n     <div id="' + swalClasses.content + '"></div>\n     <input class="' + swalClasses.input + '" />\n     <input type="file" class="' + swalClasses.file + '" />\n     <div class="' + swalClasses.range + '">\n       <input type="range" />\n       <output></output>\n     </div>\n     <select class="' + swalClasses.select + '"></select>\n     <div class="' + swalClasses.radio + '"></div>\n     <label for="' + swalClasses.checkbox + '" class="' + swalClasses.checkbox + '">\n       <input type="checkbox" />\n     </label>\n     <textarea class="' + swalClasses.textarea + '"></textarea>\n     <div class="' + swalClasses.validationerror + '" id="' + swalClasses.validationerror + '"></div>\n   </div>\n   <div class="' + swalClasses.actions + '">\n     <button type="button" class="' + swalClasses.confirm + '">OK</button>\n     <button type="button" class="' + swalClasses.cancel + '">Cancel</button>\n   </div>\n   <div class="' + swalClasses.footer + '">\n   </div>\n </div>\n').replace(/(^|\n)\s*/g, '');
+  var = ('\n <div aria-labelledby="' + swalClasses.title + '" aria-describedby="' + swalClasses.content + '" class="' + swalClasses.popup + '" tabindex="-1">\n   <div class="' + swalClasses.header + '">\n     <ul class="' + swalClasses.progresssteps + '"></ul>\n     <div class="' + swalClasses.icon + ' ' + iconTypes.error + '">\n       <span class="swal2-x-mark"><span class="swal2-x-mark-line-left"></span><span class="swal2-x-mark-line-right"></span></span>\n     </div>\n     <div class="' + swalClasses.icon + ' ' + iconTypes.question + '">\n       <span class="' + swalClasses['icon-text'] + '">?</span>\n      </div>\n     <div class="' + swalClasses.icon + ' ' + iconTypes.warning + '">\n       <span class="' + swalClasses['icon-text'] + '">!</span>\n      </div>\n     <div class="' + swalClasses.icon + ' ' + iconTypes.info + '">\n       <span class="' + swalClasses['icon-text'] + '">i</span>\n      </div>\n     <div class="' + swalClasses.icon + ' ' + iconTypes.success + '">\n       <div class="swal2-success-circular-line-left"></div>\n       <span class="swal2-success-line-tip"></span> <span class="swal2-success-line-long"></span>\n       <div class="swal2-success-ring"></div> <div class="swal2-success-fix"></div>\n       <div class="swal2-success-circular-line-right"></div>\n     </div>\n     <img class="' + swalClasses.image + '" />\n     <h2 class="' + swalClasses.title + '" id="' + swalClasses.title + '"></h2>\n     <button type="button" class="' + swalClasses.close + '">\xD7</button>\n   </div>\n   <div class="' + swalClasses.content + '">\n     <div id="' + swalClasses.content + '"></div>\n     <input class="' + swalClasses.input + '" />\n     <input type="file" class="' + swalClasses.file + '" />\n     <div class="' + swalClasses.range + '">\n       <input type="range" />\n       <output></output>\n     </div>\n     <select class="' + swalClasses.select + '"></select>\n     <div class="' + swalClasses.radio + '"></div>\n     <label for="' + swalClasses.checkbox + '" class="' + swalClasses.checkbox + '">\n       <input type="checkbox" />\n     </label>\n     <textarea class="' + swalClasses.textarea + '"></textarea>\n     <div class="' + swalClasses.validationerror + '" id="' + swalClasses.validationerror + '"></div>\n   </div>\n   <div class="' + swalClasses.actions + '">\n     <button type="button" class="' + swalClasses.confirm + '">OK</button>\n     <button type="button" class="' + swalClasses.cancel + '">Cancel</button>\n   </div>\n   <div class="' + swalClasses.footer + '">\n   </div>\n </div>\n').replace(/(^|\n)\s*/g, '');
 
   /*
    * Add modal + backdrop to DOM
@@ -517,13 +517,13 @@
     }
 
     if (isNodeEnv()) {
-      error('SweetAlert2 requires document to initialize');
+      error('2 requires document to initialize');
       return;
     }
 
     var container = document.createElement('div');
     container.className = swalClasses.container;
-    container.innerHTML = sweetHTML;
+    container.innerHTML = 
 
     var targetElement = typeof params.target === 'string' ? document.querySelector(params.target) : params.target;
     targetElement.appendChild(container);
@@ -688,7 +688,7 @@
   };
 
   /*
-   * Global function to close sweetAlert
+   * Global function to close 
    */
   var close = function close(onClose, onAfterClose) {
     var container = getContainer();
@@ -927,7 +927,7 @@
         value: function setDefaults(params) {
           warnOnce(deprecationWarning);
           if (!params || (typeof params === 'undefined' ? 'undefined' : _typeof(params)) !== 'object') {
-            throw new TypeError('SweetAlert2: The argument for setDefaults() is required and has to be a object');
+            throw new TypeError('2: The argument for setDefaults() is required and has to be a object');
           }
           showWarningsForParams(params);
           // assign valid params from `params` to `defaults`
@@ -999,7 +999,7 @@
   var currentSteps = [];
 
   /*
-   * Global function for chaining sweetAlert popups
+   * Global function for chaining  popups
    */
   var queue = function queue(steps) {
     var swal = this;
@@ -1140,7 +1140,7 @@
   }();
 
   // WeakMap polyfill, needed for Android 4.4
-  // Related issue: https://github.com/sweetalert2/sweetalert2/issues/1071
+  // Related issue: https://github.com/2/alertues/1071
   // http://webreflection.blogspot.fi/2015/04/a-weakmap-polyfill-in-20-lines-of-code.html
 
   var WeakMap$1 = typeof WeakMap === 'function' ? WeakMap : function(s, dP, hOP) {
@@ -1635,7 +1635,7 @@
 
     // showLoaderOnConfirm && preConfirm
     if (params.showLoaderOnConfirm && !params.preConfirm) {
-      warn('showLoaderOnConfirm is set to true, but preConfirm is not defined.\n' + 'showLoaderOnConfirm should be used together with preConfirm, see usage example:\n' + 'https://sweetalert2.github.io/#ajax-request');
+      warn('showLoaderOnConfirm is set to true, but preConfirm is not defined.\n' + 'showLoaderOnConfirm should be used together with preConfirm, see usage example:\n' + 'https://2.github.io/#ajax-request');
     }
   }
 
@@ -2285,8 +2285,8 @@
 
   var currentInstance = void 0;
 
-  // SweetAlert constructor
-  function SweetAlert() {
+  //  constructor
+  function () {
     // Prevent run in Node env
     if (typeof window === 'undefined') {
       return;
@@ -2294,7 +2294,7 @@
 
     // Check for the existence of Promise
     if (typeof Promise === 'undefined') {
-      error('This package requires a Promise library, please include a shim to enable it in this browser (See: https://github.com/sweetalert2/sweetalert2/wiki/Migration-from-SweetAlert-to-SweetAlert2#1-ie-support)');
+      error('This package requires a Promise library, please include a shim to enable it in this browser (See: https://github.com/2/alerti/Migration-from-Alert-to-A#1-ie-sup');
     }
 
     for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
@@ -2302,7 +2302,7 @@
     }
 
     if (typeof args[0] === 'undefined') {
-      error('SweetAlert2 expects at least 1 attribute!');
+      error('2 expects at least 1 attribute!');
       return false;
     }
 
@@ -2323,28 +2323,28 @@
   }
 
   // `catch` cannot be the name of a module export, so we define our thenable methods here instead
-  SweetAlert.prototype.then = function(onFulfilled, onRejected) {
+  .prototype.then = function(onFulfilled, onRejected) {
     var promise = privateProps.promise.get(this);
     return promise.then(onFulfilled, onRejected);
   };
-  SweetAlert.prototype.catch = function(onRejected) {
+  .prototype.catch = function(onRejected) {
     var promise = privateProps.promise.get(this);
     return promise.catch(onRejected);
   };
-  SweetAlert.prototype.finally = function(onFinally) {
+  .prototype.finally = function(onFinally) {
     var promise = privateProps.promise.get(this);
     return promise.finally(onFinally);
   };
 
   // Assign instance methods from src/instanceMethods/*.js to prototype
-  _extends(SweetAlert.prototype, instanceMethods);
+  _extends(.prototype, instanceMethods);
 
   // Assign static methods from src/staticMethods/*.js to constructor
-  _extends(SweetAlert, staticMethods);
+  _extends(, staticMethods);
 
   // Proxy to instance methods to constructor, for now, for backwards compatibility
   Object.keys(instanceMethods).forEach(function(key) {
-    SweetAlert[key] = function() {
+    [key] = function() {
       if (currentInstance) {
         var _currentInstance;
 
@@ -2353,20 +2353,20 @@
     };
   });
 
-  SweetAlert.DismissReason = DismissReason;
+  .DismissReason = DismissReason;
 
-  SweetAlert.noop = function() {};
+  .noop = function() {};
 
-  SweetAlert.version = version;
+  .version = version;
 
-  var Swal = withNoNewKeyword(withGlobalDefaults(SweetAlert));
+  var Swal = withNoNewKeyword(withGlobalDefaults());
   Swal.default = Swal;
 
   return Swal;
 
 })));
-if (typeof window !== 'undefined' && window.Sweetalert2) {
-  window.swal = window.sweetAlert = window.Swal = window.SweetAlert = window.Sweetalert2
+if (typeof window !== 'undefined' && window.2) {
+  window.swal = window. = window.Swal = window.Alertndow.alert2
 }
 
 "undefined" != typeof document && function(e, t) {
@@ -2761,11 +2761,11 @@ if (typeof window !== 'undefined' && window.Sweetalert2) {
   "        right: .1875em;\n" +
   "        width: 1.375em; }\n" +
   "  .swal2-popup.swal2-toast.swal2-show {\n" +
-  "    -webkit-animation: showSweetToast .5s;\n" +
-  "            animation: showSweetToast .5s; }\n" +
+  "    -webkit-animation: show .5s;\n" +
+  "            animation: show .5s; }\n" +
   "  .swal2-popup.swal2-toast.swal2-hide {\n" +
-  "    -webkit-animation: hideSweetToast .2s forwards;\n" +
-  "            animation: hideSweetToast .2s forwards; }\n" +
+  "    -webkit-animation: hide .2s forwards;\n" +
+  "            animation: hide .2s forwards; }\n" +
   "  .swal2-popup.swal2-toast .swal2-animate-success-icon .swal2-success-line-tip {\n" +
   "    -webkit-animation: animate-toast-success-tip .75s;\n" +
   "            animation: animate-toast-success-tip .75s; }\n" +
@@ -2773,7 +2773,7 @@ if (typeof window !== 'undefined' && window.Sweetalert2) {
   "    -webkit-animation: animate-toast-success-long .75s;\n" +
   "            animation: animate-toast-success-long .75s; }\n" +
   "\n" +
-  "@-webkit-keyframes showSweetToast {\n" +
+  "@-webkit-keyframes show {\n" +
   "  0% {\n" +
   "    -webkit-transform: translateY(-0.625em) rotateZ(2deg);\n" +
   "            transform: translateY(-0.625em) rotateZ(2deg);\n" +
@@ -2791,7 +2791,7 @@ if (typeof window !== 'undefined' && window.Sweetalert2) {
   "            transform: translateY(0) rotateZ(0);\n" +
   "    opacity: 1; } }\n" +
   "\n" +
-  "@keyframes showSweetToast {\n" +
+  "@keyframes show {\n" +
   "  0% {\n" +
   "    -webkit-transform: translateY(-0.625em) rotateZ(2deg);\n" +
   "            transform: translateY(-0.625em) rotateZ(2deg);\n" +
@@ -2809,7 +2809,7 @@ if (typeof window !== 'undefined' && window.Sweetalert2) {
   "            transform: translateY(0) rotateZ(0);\n" +
   "    opacity: 1; } }\n" +
   "\n" +
-  "@-webkit-keyframes hideSweetToast {\n" +
+  "@-webkit-keyframes hide {\n" +
   "  0% {\n" +
   "    opacity: 1; }\n" +
   "  33% {\n" +
@@ -2819,7 +2819,7 @@ if (typeof window !== 'undefined' && window.Sweetalert2) {
   "            transform: rotateZ(1deg);\n" +
   "    opacity: 0; } }\n" +
   "\n" +
-  "@keyframes hideSweetToast {\n" +
+  "@keyframes hide {\n" +
   "  0% {\n" +
   "    opacity: 1; }\n" +
   "  33% {\n" +

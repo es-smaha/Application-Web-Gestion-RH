@@ -33,6 +33,13 @@ Route::group(['middleware'=>['auth','1']],function()
     Route::get('/dashboard', function () {
         return view('chefh.dashboard');
     });
+
+    //calendier  
+Route::resource('/events','EventController');
+Route::get('/display','EventController@show');
+Route::get('/deleteevent','EventController@show');
+
+
    });
 
 

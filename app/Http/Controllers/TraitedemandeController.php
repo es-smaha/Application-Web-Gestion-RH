@@ -53,21 +53,54 @@ class TraitedemandeController extends Controller
        return redirect()->back();
 
    }
-   public function store(Request $request ){
-      $id=$request->demandeconge_id;
-      $motif=new Motif();
-      $conge=Demandeconge::find($id);
+   public function store(Request $request){
+        $id=$request->conge_id;
+        $conge=Demandeconge::find($id);
       if($conge->motif==0){
          $conge->motif=1;
+         $conge->motifs=$request->input('justification');
          $conge->save();
+       
       }
-      $motif->justification=$request->input('justification');
-      $motif->demandeconge_id=$request->demandeconge_id;
-
-      $motif->save();
-     
+      
       return redirect()->back();
       
+    }
+
+
+
+    public function pdf(Request $request){
+      $id=$request->conge_id;
+      $conge=Demandeconge::find($id);
+      $this->validate($request,[
+      
+         'recu'=>'nullable|max:1999|mimes:doc,pdf,docx,png,jpg',
+  
+      ]);
+
+      if($request->hasFile('recu')){
+         //get fn with ext
+        $FilenameWithExt=$request->file('recu')->getClientOriginalName();
+
+        //gwt just filename
+        $filename=pathinfo($FilenameWithExt,PATHINFO_FILENAME);
+        //gET JUST EXT
+        $extension=$request->file('recu')->getClientOriginalExtension();
+        //file name to store
+        $fileNameToStore=$filename.'_'.time().'.'.$extension;
+        //upload image
+        $path=$request->file('recu')->storeAs('public\cover_images',  $fileNameToStore);
+    // on utise ce commande pour cree ce dossier :php artisan storage:link
+
+      }
+      if($conge->pdf==0){
+         $conge->pdf=1;
+         $conge->recu=$fileNameToStore;
+         $conge->save();
+       
+      }
+       return redirect()->back();
+
     }
 
 }

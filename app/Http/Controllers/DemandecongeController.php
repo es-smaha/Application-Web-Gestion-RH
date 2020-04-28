@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Typeconge;
 use App\User;
 use App\Demandeconge;
+use App\Motif;
 use PDF;
 use Illuminate\Support\Facades\Auth;
 
@@ -21,7 +22,8 @@ class DemandecongeController extends Controller
         $user_id=auth()->user()->id;
         $user=User::find($user_id);
         $type=Typeconge::All();
-        $conge=Demandeconge::All();
+         $conge=Demandeconge::All();
+          
        
         return view('agent.demandes.demandeConge', ['type'=>$type,'conge'=>$conge, ]);
     }
@@ -55,6 +57,7 @@ class DemandecongeController extends Controller
   
          ]);
          $conge= new Demandeconge();
+         
          $dated=$request->input('datedebut');
          $datef=$request->input('datefin');
          $start_date = strtotime( $dated); 

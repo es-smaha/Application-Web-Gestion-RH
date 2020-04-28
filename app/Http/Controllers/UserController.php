@@ -46,9 +46,9 @@ class UserController extends Controller
             'solde' => ['required', 'max:30'],
        
             'email' => ['required', 'string', 'max:8', 'unique:users'],
-            'image'=>'image|nullable|max:1999',
+            'image'=>'image|nullable|max:1999|',
             //'password' => ['required', 'string', 'min:8', 'confirmed'],
-           
+           //mimes:doc,pdf,docx,png,jpg
   
          ]);
            // handla file upload
@@ -96,9 +96,8 @@ class UserController extends Controller
 
         $user=User::find($id);
         $service=Service::All();
-        $user->name=$request->input('nom');
+        $user->name=$request->input('nom ');
         $user->prenom=$request->input('prenom');
-
         $user->kochef=$request->input('kochef');
         $user->cne=$request->input('cne');
         $user->ko=$request->input('ko');
@@ -107,10 +106,8 @@ class UserController extends Controller
         $user->dateembauche=$request->input('dateembauche');
         $user->service_id=$request->service_id;
         $user->solde=$request->input('solde');
-       
-        $user->email=$request->input('email');
-       
-        $user->password=hash::make($request->input('password'));
+          $user->email=$request->input('email');
+          $user->password=hash::make($request->input('password'));
         $user->save();
          return redirect('users/'.$user->id)->with('service',$service);
 

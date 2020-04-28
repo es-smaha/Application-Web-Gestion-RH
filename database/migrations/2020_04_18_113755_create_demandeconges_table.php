@@ -19,6 +19,8 @@ class CreateDemandecongesTable extends Migration
             $table->date('datefin');
             $table->integer('jour');
             $table->longtext('raison');
+            $table->longtext('motifs')->nullable();
+            $table->string('recu')->nullable();
             $table->integer('user_id');
             $table->integer('typeconge_id');
             $table->integer('avis')->default(0);

@@ -85,23 +85,24 @@
 
 @if($conge->avis=='0' && $conge->decision==false || $conge->avis=='1' && $conge->decision==false ||$conge->avis=='2' && $conge->decision==false)
 <td> <span class="badge badge-warning">en attente</span> </td>
-<td>  <button type="button" class="btn btn-success btn-round" data-toggle="modal"  data-target="#ajouter" ><span class="material-icons">create</span></button></td>
-<td><button type="button" class="btn btn-danger btn-round" data-toggle="modal"  data-target="#ajouter" ><span class="material-icons">delete</span> </button></td>
+<td>  <a type="button" style="color:green"  data-toggle="modal"  data-target="#ajouter" ><span class="material-icons">create</span></a></td>
+<td><a type="button" style="color:red" data-toggle="modal"  data-target="#ajouter" ><span class="material-icons">delete</span> </a></td>
 <td></td>
 
 
 @elseif($conge->avis=='1' && $conge->decision==true )
 <td> <span class="badge badge-success">accepte</span> </td>
-<td>  <button type="button" class="btn btn-success btn-round" data-toggle="modal"  data-target="#ajouter" disabled><span class="material-icons">create</span></button></td>
-<td><button type="button" class="btn btn-danger btn-round" data-toggle="modal"  data-target="#ajouter" disabled><span class="material-icons">delete</span> </button></td>
-<td><span class="material-icons">get_app</span></td>
+<td>  <a  style="color:gray" disabled><span class="material-icons">create</span></a></td>
+<td><a  style="color:gray" disabled><span class="material-icons">delete</span> </a></td>
+
+<td>  <a style="color:green" href="/storage/cover_images/{{$conge->recu}}" download="{{$conge->recu}}"><span class="material-icons">get_app</span></a></td>
 
 
 @else
 <td><span class="badge badge-danger">Refusee</span> </td>
-<td>  <button type="button" class="btn btn-success btn-round" data-toggle="modal"  data-target="#ajouter" disabled><span class="material-icons">create</span></button></td>
-<td><button type="button" class="btn btn-danger btn-round" data-toggle="modal"  data-target="#ajouter" disabled><span class="material-icons">delete</span> </button></td>
-<td>    <a href="/conge/{{$conge->id}}" style="color:red"><span class="material-icons" >picture_as_pdf</span></a> </td> @endif
+<td>  <a  style="color:gray" disabled><span class="material-icons">create</span></a></td>
+<td><a  style="color:gray" disabled><span class="material-icons">delete</span> </a></td>
+<td><button type="button" class="btn btn-outline-danger btn-round " data-toggle="modal"  data-target="#motif" >Voir plus <span class="badge badge-light">1</span> </button></td>@endif
 </tr>
 
 
@@ -111,6 +112,50 @@
 
 @endif
 @endif
+
+<!-- Motif -->
+
+<div class="modal fade" id="motif" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">New message</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+   
+          <div class="form-group">
+            <label for="recipient-name" class="col-form-label">Votre Demande A ete refusee </label>
+          
+          </div>
+          <div class="form-group">
+            <label for="message-text" class="col-form-label">Justification</label>
+        
+         
+               <p>{{$conge->motifs}}</p>
+            
+
+              <p></p>
+          </div>
+        </form>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
 
 @endforeach
 @else
@@ -191,21 +236,14 @@
 <p class="text-muted">pas obligatoire *</p>
 <textarea   name="raison" class="form-control" id="message-text"></textarea>
 </div>
-
 <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
 <button type="submit" class="btn btn-success" onclick="md.showNotification('top','right')" >Ajouter</button>
-
 @csrf
 </form>
 </div>
-
-</div>
-
 </div>
 </div>
-
-
-
+</div>
 </div>
 
 

@@ -31,7 +31,7 @@ Route::group(['middleware'=>['auth','1']],function()
     Route::put('/refuser/{id}','TraitedemandeController@refuuseer');
     Route::delete('/delete/{id}','TraitedemandeController@destroy');
     Route::post('/motifs','TraitedemandeController@store');
-
+    Route::post('/pdfinsert','TraitedemandeController@pdf');
 
     Route::get('/dashboard', function () {
         return view('chefh.dashboard');

@@ -30,8 +30,8 @@
 <th>solde Conge</th>
 <th>date creation</th>
                                 <th>Etat</th>
-                              <th>delete</th>
-                              <th>pdf</th>
+                                <th>pdf</th>
+                                <th>delete</th>
                       </thead>
                       <tbody>
                       @foreach($conge as $conge)
@@ -46,8 +46,13 @@
                                                <td>{{$conge->created_at}}</td>
                                                <td> <span class="badge badge-success">Accepter</span> </td>
                                               
-                                                <td>    
-                                        <button type="submit" class="btn btn-warning btn-round" data-toggle="modal"  data-target="#ajouter" ><span class="material-icons"></span>pdf</button></td>
+                                               @if($conge->pdf==0)
+                                                        <td> <a type="button" rel="tooltip" id="#motif"  data-toggle="modal" data-target="#ajouter" title="ecrire motif" class="btn btn-success btn-link btn-sm">
+                                                        <span class="material-icons">picture_as_pdf</span></a></td>
+                                                          @else
+                                                          <td> <a type="button" rel="tooltip" id="#motif"  data-toggle="modal" data-target="#motif" title="deja Envoyer" class="btn btn-success btn-link btn-sm" disabled>
+                                                        <span class="material-icons"><span class="material-icons">done_all</span>picture_as_pdf</span></a></td>
+<!--  -->                                                 @endif
                                                 
                                         <td> <button type="button" rel="tooltip" id="#delete"  data-toggle="modal" data-target="#delete" title="Remove" class="btn btn-danger btn-link btn-sm">
                                                         <span class="material-icons">delete</span></button></td>
@@ -69,6 +74,37 @@
         <div class="modal-body">
             <p>are you sure you wanna delete</p>
           <input type="hidden" name="users_id" id="user_id" value="">
+        </div>
+          <div class="modal-footer">
+        <button type="button" class="btn btn-success" data-dismiss="modal">No</button>
+        <button type="submit"  onclick="md.showNotificationn('top','center')" class="btn btn-warning">yes</button>
+      </div>
+          
+        </form>
+      </div>
+     
+    </div>
+  </div>
+</div>
+
+<!-- PDF -->
+<div class="modal modal-danger fade " id="ajouter" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">confirmations</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+  
+        <form  action="/pdfinsert" method="POST" enctype="multipart/form-data">
+        @csrf
+      
+        <div class="modal-body">
+            <p>Importer le document ici </p>
+          <input type="hidden" name="conge_id" id="user_id" value="{{$conge->id}}">
+          <input type="file" name="recu" class="form-control">
         </div>
           <div class="modal-footer">
         <button type="button" class="btn btn-success" data-dismiss="modal">No</button>

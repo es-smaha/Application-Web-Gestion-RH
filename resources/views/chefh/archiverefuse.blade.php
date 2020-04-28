@@ -99,11 +99,12 @@
       </div>
   
         <form  action="/motifs" method="POST">
+   
         @csrf
     
         <div class="modal-body">
             <p>Ercire Une justification de refus </p>
-              <input type="hidden" name="demandeconge_id" value='{{$conge->id}}'>
+              <input type="hidden" name="conge_id" value='{{$conge->id}}'>
             <div class="form-group">
             <label for="message-text"   class="col-form-label">justification</label>
             <textarea   name="justification" class="form-control" id="message-text"></textarea>

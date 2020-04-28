@@ -17,6 +17,7 @@ class CreateDemandedocumentsTable extends Migration
             $table->bigIncrements('id');
             $table->boolean('etat')->default(false);
             $table->date('datetraitement')->nullable();
+        
             $table->integer('user_id');
             $table->integer('typedocument_id');
             $table->timestamps();

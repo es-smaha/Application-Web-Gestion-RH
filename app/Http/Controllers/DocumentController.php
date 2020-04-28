@@ -45,6 +45,8 @@ class DocumentController extends Controller
     {
         $demandedocuments=new Demandedocument();
         $demandedocuments->typedocument_id=$request->typedocument_id;
+      
+
         $demandedocuments->user_id=auth()->user()->id;
         
         $demandedocuments->save();

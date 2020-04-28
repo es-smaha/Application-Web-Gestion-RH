@@ -5,8 +5,9 @@
 
 @section('content')
 <!--popup ajouter service-->
-<br>
-<br>
+<a class="btn btn-success" href="/admi"><span class="material-icons">
+keyboard_backspace
+</span></a>
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -22,6 +23,18 @@
           <div class="form-group">
             <label for="recipient-name" class="col-form-label">name</label>
             <input type="text"  name="name" class="form-control" id="recipient-name">
+           
+          </div>
+          <div class="form-group">
+         
+            <label for="recipient-name" class="col-form-label">Periodicite( par an ou par mois )</label>
+            <input type="text"  name="periode" class="form-control" id="recipient-name">
+
+          </div>
+          <div class="form-group">
+ 
+            <label for="recipient-name" class="col-form-label">Nombre maximal par periode</label>
+            <input type="number"  name="max" class="form-control" id="recipient-name">
           </div>
           <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -52,6 +65,8 @@
                     <thead class="text-success">
                       <th>ID</th>
                       <th>Name</th>
+                      <th>Nombre maximale   <br> par Periode</th>
+                        <th>Periode( Year/Month)</th>
                       <th>action</th>
                     </thead>
                     <tbody>
@@ -61,7 +76,8 @@
     <tr>
       <td >{{$typedocument->id}}</td>
       <td>{{$typedocument->name}}</td>
-
+      <td>{{$typedocument->max}}</td>
+      <td>{{$typedocument->periode}}</td>
       <td class="td-actions text-right">
         <button type="button" rel="tooltip" title="Editer" data-toggle="modal"  data-target="#edit" class="btn btn-success btn-link btn-sm">
             <i class="material-icons">edit</i> </button>

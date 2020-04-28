@@ -52,11 +52,12 @@
 <table class="table table-hover">
 <thead class="">
 
-
 <th>Nom</th>
 <th>Type Conge</th>
 <th>date conge</th>
 <th>Jour reservee</th>
+<th>jour consommee</th>
+<th>solde Conge</th>
 <th>date creation</th>
 <th>Etat</th>
 <th>edit</th>
@@ -68,9 +69,10 @@
 <tr>
 <td>{{$conge->user->name}}</td>
 <td>{{$conge->typeconge->nom}}</td>
-<td>{{$conge->datedebut}}   <span> a </span> {{$conge->datefin}}</td>
-<td>{{$conge->jour}}</td>
-
+<td>{{$conge->datedebut}}   <b >a </b> {{$conge->datefin}}</td>
+<td>  {{$conge->jour}}</td>
+<td>  {{$conge->user->jour}}</td>
+<td>  {{$conge->user->solde}}</td>
 <td>{{$conge->created_at}}</td>
 
 

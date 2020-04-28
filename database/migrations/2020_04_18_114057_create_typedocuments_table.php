@@ -16,6 +16,8 @@ class CreateTypedocumentsTable extends Migration
         Schema::create('typedocuments', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
+            $table->integer('max');
+            $table->string('periode');
             $table->timestamps();
         });
     }

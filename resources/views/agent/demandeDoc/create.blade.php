@@ -4,6 +4,7 @@
 @endsection
 
 @section('content')
+ 
 <div class="row">
   <div class="col-lg-12 col-md-12">
     <div class="card">
@@ -47,12 +48,13 @@
                       <label for="typedocument_id">choisissez un type de document</label>
 
                       <select name="typedocument_id" id="inputState" class="form-control">
-                          @if(count($typedoc) >0)
+                       @if(count($typedoc) >0)
                       @foreach($typedoc as $doc)
                         <option value="{{$doc->id}}" > {{$doc->name}}</option>
                         @endforeach
                               @endif
                       </select>
+                      
                   
                   
 

@@ -23,10 +23,12 @@
        
        
                       <th>Nom</th>
-                        <th>Type Conge</th>
-                           <th>date conge</th>
-                            <th>Jour reservee</th>
-                              <th>date creation</th>
+<th>Type Conge</th>
+<th>date conge</th>
+<th>Jour reservee</th>
+<th>jour consommee</th>
+<th>solde Conge</th>
+<th>date creation</th>
                                 <th>Etat</th>
                               <th>delete</th>
                               <th>pdf</th>
@@ -35,12 +37,14 @@
                       @foreach($conge as $conge)
                      
                               <tr>
-                                    <td>{{$conge->user->name}}</td>
-                                          <td>{{$conge->typeconge->nom}}</td>
-                                            <td>{{$conge->datedebut}}   <span> a </span> {{$conge->datefin}}</td>
-                                            <td>{{$conge->jour}}</td>
-                                           <td>{{$conge->created_at}}</td>
-                                              <td> <span class="badge badge-success">Accepter</span> </td>
+                              <td>{{$conge->user->name}}</td>
+                               <td>{{$conge->typeconge->nom}}</td>
+                                  <td>{{$conge->datedebut}}   <b >a </b> {{$conge->datefin}}</td>
+                                      <td>  {{$conge->jour}}</td>
+                                         <td>  {{$conge->user->jour}}</td>
+                                            <td>  {{$conge->user->solde}}</td>
+                                               <td>{{$conge->created_at}}</td>
+                                               <td> <span class="badge badge-success">Accepter</span> </td>
                                               
                                                 <td>    
                                         <button type="submit" class="btn btn-warning btn-round" data-toggle="modal"  data-target="#ajouter" ><span class="material-icons"></span>pdf</button></td>

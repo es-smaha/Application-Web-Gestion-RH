@@ -30,6 +30,9 @@ Route::group(['middleware'=>['auth','1']],function()
     Route::put('/confirmer/{id}/edit','TraitedemandeController@valider');
     Route::put('/refuser/{id}','TraitedemandeController@refuuseer');
     Route::delete('/delete/{id}','TraitedemandeController@destroy');
+    Route::post('/motifs','TraitedemandeController@store');
+
+
     Route::get('/dashboard', function () {
         return view('chefh.dashboard');
     });
@@ -70,6 +73,8 @@ Route::group(['middleware'=>['auth','3']],function()
         return view('resppaie.dashboard');});
     
     Route::get('/confin','ConfirmerpaieController@index');
+    Route::get('/decision-accepter','ConfirmerpaieController@archive1');
+    Route::get('/decision-refuser','ConfirmerpaieController@archive2');
     Route::put('/confin/{id}','ConfirmerpaieController@valider');
 
    });

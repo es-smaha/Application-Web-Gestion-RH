@@ -102,5 +102,10 @@ class TraitedemandeController extends Controller
        return redirect()->back();
 
     }
+    public function sho($id)
+    {
+      $conge=Demandeconge::find($id);
+      return view('chefh.show')->with('conge',$conge);
+    }
 
 }

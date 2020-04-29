@@ -37,7 +37,7 @@
                       @foreach($conge as $conge)
                      
                               <tr>
-                              <td>{{$conge->user->name}}</td>
+                              <td><a href="/us/{{$conge->id}}">{{$conge->user->name}}</a></td>
 <td>{{$conge->typeconge->nom}}</td>
 <td>{{$conge->datedebut}}   <b >a </b> {{$conge->datefin}}</td>
 <td>  {{$conge->jour}}</td>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Event;
+use App\Demandeconge;
 use MaddHatter\LaravelFullcalendar\Facades\Calendar;
 
 class EventController extends Controller
@@ -30,11 +31,33 @@ class EventController extends Controller
                     'color' => $row->color,
                 ]
                 );
-        }
-        $calendar=\Calendar::addEvents($event);
-        return view('calendar.eventpage',compact('events','calendar'));
+       
+        $conges=Demandeconge::all();
+        $conge=[];
         
+        foreach($conges as $roww){
+            if($roww->avis==1){
+                $enddate=$roww->datefin."24:00:00";
+                $event[]=\Calendar::event(
+                    $roww->user->name,
+                    true,
+                    new \DateTime($roww->datedebut),
+                    new \DateTime($roww->datefin),
+                    $roww->id,
+                    [
+                        'color' => 'pink',
+                    ]
+                    );
+            }}
+            
+            $calendar=\Calendar::addEvents($event);
+            return view('calendar.eventpage',compact('events','conges','calendar'));
+        }
     }
+            
+        
+        
+    
 
     /**
      * Show the form for creating a new resource.
@@ -85,7 +108,8 @@ class EventController extends Controller
     public function show()
     {
         $events =Event::all();
-        return view('calendar.editevent')->with('events',$events);
+        $conges=Demandeconge::all();
+        return view('calendar.editevent',['events'=>$events ,'conges'=>$conges]);
     }
 
     /**

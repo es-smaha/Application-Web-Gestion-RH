@@ -88,7 +88,7 @@ The above copyright notice and this permission notice shall be included in all c
         Tip 2: you can also add an image using data-image tag
     -->
       <div class="logo"><a href="http://www.creative-tim.com" class="simple-text logo-normal">
-         Responsable Rh
+         Chef Hiérarchique
         </a></div>
       <div class="sidebar-wrapper">
         <ul class="nav">
@@ -119,6 +119,12 @@ The above copyright notice and this permission notice shall be included in all c
         
           <li class="nav-item ">
             <a class="nav-link" href="/events">
+            <span class="material-icons">calendar_today</span>
+              Calendrier
+            </a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="./map.html">
               <i class="material-icons">location_ons</i>
               <p>calendrier Conge </p>
             </a>

@@ -4,8 +4,9 @@
 @endsection
 
 @section('content')
+<h2>les evenements</h2>
 <div class="container">
-<div class="jumbotron">
+
 <table class="table table-striped table-bordered table-hover">
 <thead class="thead">
 <tr class="warning">
@@ -43,6 +44,45 @@
 </tbody>
 @endforeach
 </table>
+</div>
+
+<h2>les conges</h2>
+
+
+<div class="container">
+
+<table class="table table-striped table-bordered table-hover">
+<thead class="thead">
+<tr class="warning">
+<th>ID</th>
+<th>Nom</th>
+<th>Type de conge</th>
+<th>date de debut</th>
+<th>date de fin</th>
+</tr>
+</thead>
+
+@foreach($conges as $conges)
+@if($conges->avis==1)
+<tbody>
+<tr>
+<td>{{$conges->id}}</td>
+<td>{{$conges->user->name}}</td>
+<td>{{$conges->typeconge->nom}}</td>
+<td>{{$conges->datedebut}}</td>
+<td>{{$conges->datefin}}</td>
+</tr>
+
+</tbody>
+
+@endif
+@endforeach
+
+</table>
+</div>
+
+
+
 
 
 <!-- modifier event -->

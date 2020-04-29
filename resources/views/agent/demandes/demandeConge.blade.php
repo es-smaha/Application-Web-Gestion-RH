@@ -77,7 +77,7 @@
 @if(!auth::guest())
 @if(auth::user()->id==$conge->user_id)
 <tr>
-<td>{{$conge->user->name}}</td>
+<td>  <a >{{$conge->user->name}}</a></td>
 <td>{{$conge->typeconge->nom}}</td>
 <td>{{$conge->datedebut}}   <span> a </span> {{$conge->datefin}}</td>
 <td>{{$conge->jour}}</td>
@@ -85,9 +85,85 @@
 
 @if($conge->avis=='0' && $conge->decision==false || $conge->avis=='1' && $conge->decision==false ||$conge->avis=='2' && $conge->decision==false)
 <td> <span class="badge badge-warning">en attente</span> </td>
-<td>  <a type="button" style="color:green"  data-toggle="modal"  data-target="#ajouter" ><span class="material-icons">create</span></a></td>
-<td><a type="button" style="color:red" data-toggle="modal"  data-target="#ajouter" ><span class="material-icons">delete</span> </a></td>
+<td>  <a type="button" style="color:green"  data-toggle="modal"  data-target="#edit" ><span class="material-icons">create</span></a></td>
+<td><a type="button" style="color:red" data-toggle="modal"  data-target="#delete" ><span class="material-icons">delete</span> </a></td>
 <td></td>
+<!-- delete -->
+
+<div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Confirmation</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form action="/conge/{{$conge->id}}" method="POST">
+                      @method('DELETE')
+                      <div class="modal-body">
+                    <p>voulez-vous vraiment supprimer Votre demande</p>  
+                      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Non</button>
+        <button type="submit" class="btn btn-danger" onclick="md.showNotificationn('top','right')" >Oui</button>
+      </div>
+    </div>
+    @csrf
+   </form>
+  </div>
+</div>
+  </div>
+
+
+
+
+
+<!--  -->
+
+<!-- editer -->
+<div class="modal fade" id="edit" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal-dialog" role="document">
+<div class="modal-content">
+<div class="modal-header">
+<h5 class="modal-title" id="exampleModalLabel">Effectuer Demande de conge</h5>
+<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+<span aria-hidden="true">&times;</span>
+</button>
+</div>
+<div class="modal-body">
+<form action="/conge/{{$conge->id}}" method="POST">
+
+@method('PUT')
+<div class="form-group">
+<label for="recipient-name" class="col-form-label">Type Conge   <b class="text-danger  ">*</b></label>
+
+<p type="text" class="form-control" id="recipient-name" value="">{{$conge->typeconge->nom}}</p>
+
+</div>
+<div class="form-group">
+<label for="recipient-name" class="col-form-label">date Debut  <b class="text-danger  ">*</b></label>
+<input  name="datedebut" type="text" class="form-control" id="recipient-name" value="{{$conge->datedebut}}">
+</div>
+<div class="form-group">
+<label for="recipient-name" class="col-form-label">Date Fin<b class="text-danger  ">*</b></label>
+<input  name="datefin" type="text" class="form-control" id="recipient-name" value="{{$conge->datefin}}">
+</div>
+
+<div class="form-group">
+<label for="message-text"   class="col-form-label">raison</label>
+
+<textarea   name="raison" class="form-control" id="message-text">{{$conge->raison}}</textarea>
+</div>
+<button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+<button type="submit" class="btn btn-success" onclick="md.showNotification('top','right')" >Ajouter</button>
+@csrf
+</form>
+</div>
+</div>
+</div>
+</div>
+</div>
 
 
 @elseif($conge->avis=='1' && $conge->decision==true )
@@ -151,12 +227,6 @@
 </div>
 
 
-
-
-
-
-
-
 @endforeach
 @else
 <td>aucuene demande</td>
@@ -174,27 +244,6 @@
 </div>
 </div>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 <div class="modal fade" id="ajouter" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -245,6 +294,27 @@
 </div>
 </div>
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

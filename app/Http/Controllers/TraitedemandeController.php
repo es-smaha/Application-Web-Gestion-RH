@@ -10,6 +10,8 @@ use Illuminate\Http\Request;
 
 class TraitedemandeController extends Controller
 {
+  
+
    public function index(){
     $type=Typeconge::All();
    
@@ -26,8 +28,8 @@ class TraitedemandeController extends Controller
    public function refuser(){
       $type=Typeconge::All();
       $conge=Demandeconge::All()->where('avis','=',2);
-     
-      return view('chefh.archiverefuse', ['type'=>$type,'conge'=>$conge, ]);
+       $user=User::All();
+      return view('chefh.archiverefuse', ['type'=>$type,'conge'=>$conge,'user'=>$user ]);
      }
     
    public function valider($id){
@@ -40,6 +42,7 @@ class TraitedemandeController extends Controller
    }
    public function refuuseer($id){
       $conge=Demandeconge::find($id);
+    
       if( $conge->avis==0){
          $conge->avis=2;
          $conge->save();
@@ -102,5 +105,5 @@ class TraitedemandeController extends Controller
        return redirect()->back();
 
     }
-
+    
 }

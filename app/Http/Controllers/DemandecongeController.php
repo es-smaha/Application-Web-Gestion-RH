@@ -25,7 +25,7 @@ class DemandecongeController extends Controller
          $conge=Demandeconge::All();
           
        
-        return view('agent.demandes.demandeConge', ['type'=>$type,'conge'=>$conge, ]);
+        return view('agent.demandes.demandeConge', ['type'=>$type,'conge'=>$conge,'user'=>$user ]);
     }
 
     /**
@@ -65,7 +65,7 @@ class DemandecongeController extends Controller
          $diff = abs( $start_date-$end_date );
          $years = floor($diff / (365*60*60*24)); 
          $months = floor(($diff - $years * 365*60*60*24)   / (30*60*60*24));
-         $conges=floor(($diff - $years * 365*60*60*24 -  $months*30*60*60*24)/ (60*60*24));;
+         $conges=floor((($diff - $years * 365*60*60*24 -  $months*30*60*60*24)/ (60*60*24))+3);;
          if($conges < $user->solde){
 
         $conge->datedebut=$request->input('datedebut');
@@ -124,7 +124,42 @@ class DemandecongeController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $user_id=auth()->user()->id;
+        $user=User::find($user_id);
+        $this->validate($request,[
+            'datedebut' => ['required', ],
+            'datefin' => ['required', ],
+      
+         ]);
+         $conge= Demandeconge::find($id);
+           $dated=$request->input('datedebut');
+         $datef=$request->input('datefin');
+         $start_date = strtotime( $dated); 
+         $end_date = strtotime($datef);
+         $diff = abs( $start_date-$end_date );
+         $years = floor($diff / (365*60*60*24)); 
+         $months = floor(($diff - $years * 365*60*60*24)   / (30*60*60*24));
+         $conges=floor((($diff - $years * 365*60*60*24 -  $months*30*60*60*24)/ (60*60*24))+1);
+         if($conges < $user->solde){
+        $conge->datedebut=$request->input('datedebut');
+        $conge->datefin=$request->input('datefin');
+        $start_date = strtotime( $conge->datedebut); 
+        $end_date = strtotime($conge->datefin);
+        $diff = abs(  $start_date-$end_date);
+        $years = floor($diff / (365*60*60*24)); 
+        $months = floor(($diff - $years * 365*60*60*24)   / (30*60*60*24));
+        $conges=floor((($diff - $years * 365*60*60*24 -  $months*30*60*60*24)/ (60*60*24))+1);
+
+        $conge->jour=$conges;
+        $conge->typeconge_id=$request->typeconge_id;
+        $conge->raison=$request->input('raison');
+        $conge->user_id= auth()->user()->id;
+        $conge->save();
+        return redirect('conge')->with('success','votre Demande a ete modifier');
+      }
+
+      return redirect('conge')->with('fail','Vous avez depassee votre solde');
+
     }
 
     /**
@@ -135,6 +170,8 @@ class DemandecongeController extends Controller
      */
     public function destroy($id)
     {
-        //
+          $conge=Demandeconge::findOrfail($id);
+          $conge->delete();
+          return redirect()->back();
     }
 }

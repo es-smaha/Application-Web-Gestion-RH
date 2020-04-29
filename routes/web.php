@@ -21,9 +21,11 @@ Route::get('/home','HomeController@index')->name('home');
 Auth::routes();
 Route::resource('conge', 'DemandecongeController');
 
+//
    
 Route::group(['middleware'=>['auth','1']],function()
     {
+      
     Route::get('/demande-conge','TraitedemandeController@index');
     Route::get('/conge-accepter','TraitedemandeController@accepter');
     Route::get('/conge-refuser','TraitedemandeController@refuser');
@@ -32,7 +34,8 @@ Route::group(['middleware'=>['auth','1']],function()
     Route::delete('/delete/{id}','TraitedemandeController@destroy');
     Route::post('/motifs','TraitedemandeController@store');
     Route::post('/pdfinsert','TraitedemandeController@pdf');
-
+ 
+       
     Route::get('/dashboard', function () {
         return view('chefh.dashboard');
     });

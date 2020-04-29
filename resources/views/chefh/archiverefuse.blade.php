@@ -32,18 +32,22 @@
                                 <th>Etat</th>
                               <th>delete</th>
                               <th>Motifs</th>
+                          
                       </thead>
                       <tbody>
                       @foreach($conge as $conge)
-                     
+                      
                               <tr>
-                              <td>{{$conge->user->name}}</td>
+                              <td>  {{$conge->user->name}}</td>
 <td>{{$conge->typeconge->nom}}</td>
 <td>{{$conge->datedebut}}   <b >a </b> {{$conge->datefin}}</td>
 <td>  {{$conge->jour}}</td>
 <td>  {{$conge->user->jour}}</td>
 <td>  {{$conge->user->solde}}</td>
 <td>{{$conge->created_at}}</td>
+    
+  
+  
                                              
                                             <td> <span class="badge badge-danger">Refusee</span> </td>
                                                         <td> <button type="button" rel="tooltip" id="#delete"  data-toggle="modal" data-target="#delete" title="Remove" class="btn btn-danger btn-link btn-sm">

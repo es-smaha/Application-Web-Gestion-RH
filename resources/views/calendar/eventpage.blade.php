@@ -73,12 +73,7 @@
     </div>
     @endif
     
-        @if( \Session::has('success'))
-        <div class="alert alert-success">
-        <p>{{ \Session::get('success')}}</p>
-        </div>
-        @endif
-        
+      
         <div class="row">
         <div class="col-md-12 col-md-offset-4">
             <div class="panel panel-default">

@@ -17,9 +17,11 @@ class EventController extends Controller
     public function index()
     {
         $events=Event::all();
-        $event=[];
+    
         
+       if(count($events)>0) {
         foreach($events as $row){
+            $event=[];
             $enddate=$row->end_date."24:00:00";
             $event[]=\Calendar::event(
                 $row->title,
@@ -31,7 +33,8 @@ class EventController extends Controller
                     'color' => $row->color,
                 ]
                 );
-       
+            }
+        }
         $conges=Demandeconge::all();
         $conge=[];
         
@@ -52,7 +55,7 @@ class EventController extends Controller
             
             $calendar=\Calendar::addEvents($event);
             return view('calendar.eventpage',compact('events','conges','calendar'));
-        }
+        
     }
             
         

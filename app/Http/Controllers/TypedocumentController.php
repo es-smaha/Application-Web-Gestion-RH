@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Typedocument;
 use Illuminate\Http\Request;
+Use \Carbon\Carbon;
 
 class TypedocumentController extends Controller
 {
@@ -41,17 +42,25 @@ class TypedocumentController extends Controller
         $typedocuments->name=$request->input('name');
         $typedocuments->max=$request->input('max');
         $typedocuments->periode=$request->input('periode');
+        $d=$typedocuments->dure;
+        if(date("m", strtotime($d)) != date("m"))
+        {
+            $typedocuments->dure=Carbon::now();
+        }
+    
         $typedocuments->save();
         return redirect('typedoc')->with('success',' le type document est bien ajouté');
       
     }
-
+    
+    
     /**
      * Display the specified resource.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
     public function show($id)
     {
         //

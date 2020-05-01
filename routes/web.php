@@ -75,7 +75,9 @@ Route::group(['middleware'=>['auth','3']],function()
     {
     Route::get('/dashboard3', function () {
         return view('resppaie.dashboard');});
-    
+    // cal
+    // Route::get('/cal','Calpaie@cal');
+ 
     Route::get('/confin','ConfirmerpaieController@index');
     Route::get('/decision-accepter','ConfirmerpaieController@archive1');
     Route::get('/decision-refuser','ConfirmerpaieController@archive2');

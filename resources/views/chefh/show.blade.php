@@ -4,22 +4,42 @@
 @endsection
 
 @section('content')
-
+ 
         
 <div class="card-body">
               <div class="row">
-                <div class="col-md-6">
-           
-                
-                  <h3 ><i class="fa fa-user-md"></i> Agent Details</h3>
+                <div class="col-md-10">
+                             <h3 ><i class="fa fa-user-md"></i> Agent Details</h3>
             <ol class="breadcrumb">
               <li><i class="fa fa-home"></i><a href="index.html">/Demande Conge/</a></li>
               <li><i class="icon_documents_alt"></i>/userDetails/</li>
               <li><i ></i>/Profile</li>
             </ol>
           </div>
-                  </div>
-          <div >
+
+          <div class="col-md-2">
+           @if($conge->avis=='0')
+            <form action="/confirmer/{{$conge->id}}/edit" method="POST">
+              @csrf
+                   @method('PUT')
+                   <button type="submit" class="btn btn-success btn-round" data-toggle="modal"  data-target="#ajouter" ><span class="material-icons"></span>confirmer</button></td>
+                     </form>
+                     </div>
+                       <div >
+                            <td>
+                <form action="/refuser/{{$conge->id}}" method="POST">
+                     @csrf
+                      @method('PUT')
+                          <button type="submit" class="btn btn-warning btn-round" data-toggle="modal"  data-target="#ajouter" ><span class="material-icons"></span>refuser</button></td>
+                            </form>
+                               </td>
+          @else 
+          <button type="submit" class="btn btn-success btn-round" data-toggle="modal" title="deja confirmer" data-target="#ajouter" disabled>confirmer</button></td>
+          <button type="submit" class="btn btn-warning btn-round" data-toggle="modal" title="deja refuser" data-target="#ajouter" disabled>refuser</button></td>
+            
+            @endif
+            
+            
             </div>
 
 
@@ -135,7 +155,7 @@
     
         <div class="row">
         <span class="material-icons">file_copy</span>
-                    <p style="font-size:24px">Solde Conge <span class="badge badge-warning">{{$conge->user->solde}}</span></p>
+                    <p style="font-size:24px">Solde Conge <span class="badge badge-warning">{{$conge->jour}}</span></p>
         </div>
         <div class="row">
         <span class="material-icons">file_copy</span>
@@ -144,6 +164,11 @@
         <div class="row">
         <span class="material-icons">file_copy</span>
                     <p style="font-size:24px">Type Conge <span class="badge badge-warning">{{$conge->typeconge->nom}}</span></p>
+        </div>
+        <div class="row">
+        <span class="material-icons">file_copy</span>
+                    <h1 style="font-size:24px">Raison : </h1>
+                      <p style="font-size:20px">{{$conge->raison}}</p>
         </div>
     
     

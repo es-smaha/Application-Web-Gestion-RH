@@ -22,6 +22,7 @@ Route::get('/home','HomeController@index')->name('home');
 Auth::routes();
 Route::resource('conge', 'DemandecongeController');
 Route::resource('/profil','ProfilController');
+Route::resource('/reclamation','reclamationController');
 
 //
    

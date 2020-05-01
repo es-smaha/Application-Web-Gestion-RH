@@ -9,6 +9,6 @@ class Reclamation extends Model
     protected $table='reclamations';
 
     protected function user(){
-        return $this->belongTo('App\User');
+        return $this->belongsTo('App\User');
     }
 }

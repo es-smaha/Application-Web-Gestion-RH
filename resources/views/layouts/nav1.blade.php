@@ -136,6 +136,7 @@ The above copyright notice and this permission notice shall be included in all c
               <p>Demande de Congee</p>
             </a>
           </li>
+
           <li class="nav-item ">
             <a class="nav-link" href="/conge-accepter">
               <i class="material-icons">content_paste</i>
@@ -155,10 +156,7 @@ The above copyright notice and this permission notice shall be included in all c
               Calendrier
             </a>
           </li>
-          <li class="nav-item ">
-            <a class="nav-link" href="./map.html">
-              <i class="material-icons">location_ons</i>
-              <p>calendrier Conge </p>
+       
             </a>
           </li>
           <li class="nav-item ">

@@ -112,7 +112,7 @@ The above copyright notice and this permission notice shall be included in all c
             </a>
           </li>
           <li class="nav-item ">
-            <a class="nav-link" href="./icons.html">
+            <a class="nav-link" href="/reclamation">
               <i class="material-icons">local_post_office</i>
               <p>Reclamation</p>
             </a>

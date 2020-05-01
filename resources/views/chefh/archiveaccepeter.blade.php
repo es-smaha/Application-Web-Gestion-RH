@@ -5,7 +5,39 @@
 
 @section('content')
   <a href="/demande-conge" class="btn btn-succcess"><span class="material-icons">keyboard_return</span></a>
-                    
+
+          <div class="row">
+  <div class="col-lg-12 col-md-12">
+    <div class="card">
+      <div class="card-header card-header-tabs card-header-primary">
+        <div class="nav-tabs-navigation">
+          <div class="nav-tabs-wrapper">
+            
+            <ul class="nav nav-tabs" data-tabs="tabs">
+              <li class="nav-item">
+                <a class="nav-link " href="/demande-conge" data-toggle="tab">
+                  <i class="material-icons"><span class="material-icons">note_add</span></i> les demandes en attentes
+                  <div class="ripple-container"></div>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link " href="/conge-refuser">
+                  <i class="material-icons"><span class="material-icons">bookmarks</span></i> les demandes refuser
+                  <div class="ripple-container"></div>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link  active" href="/conge-accepter" >
+                  <i class="material-icons"><span class="material-icons">bookmarks</span></i> les demandes accepter
+                  <div class="ripple-container"></div>
+                </a>
+              </li>
+          
+            </ul>
+          </div>
+        </div>
+      </div>  
+          
 <div class="container-fluid">
         <!-- Mes demandes de Conge  -->
       
@@ -23,13 +55,15 @@
        
        
                       <th>Nom</th>
-<th>Type Conge</th>
-<th>date conge</th>
-<th>Jour reservee</th>
-<th>jour consommee</th>
-<th>solde Conge</th>
-<th>date creation</th>
-                                <th>Etat</th>
+                          <th>Type Conge</th>
+                             <th>date conge</th>
+                                <th>Jour reservee</th>
+                                   <th>jour consommee</th>
+                                          <th>solde Conge</th>
+                                               <th>date creation</th>
+                                                  <th>Etat</th>
+                                                  <th><span class="material-icons">loupe</span></th>
+                               
                                 <th>pdf</th>
                                 <th>delete</th>
                       </thead>
@@ -37,7 +71,7 @@
                       @foreach($conge as $conge)
                      
                               <tr>
-                              <td>{{$conge->user->name}}</td>
+                              <td>  <a href="/us/{{$conge->id}}">{{$conge->user->name}}</a></td>
                                <td>{{$conge->typeconge->nom}}</td>
                                   <td>{{$conge->datedebut}}   <b >a </b> {{$conge->datefin}}</td>
                                       <td>  {{$conge->jour}}</td>
@@ -45,6 +79,7 @@
                                             <td>  {{$conge->user->solde}}</td>
                                                <td>{{$conge->created_at}}</td>
                                                <td> <span class="badge badge-success">Accepter</span> </td>
+                                                <td >  <a href="/us/{{$conge->id}}" ><span class="material-icons warnning">loupe</span></td>
                                               
                                                @if($conge->pdf==0)
                                                         <td> <a type="button" rel="tooltip" id="#motif"  data-toggle="modal" data-target="#ajouter" title="ecrire motif" class="btn btn-success btn-link btn-sm">

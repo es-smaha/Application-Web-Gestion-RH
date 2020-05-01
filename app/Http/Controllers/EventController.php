@@ -36,9 +36,10 @@ class EventController extends Controller
             }
         }
         $conges=Demandeconge::all();
-        $conge=[];
-        
+       
+        if(count($conges)>0) {
         foreach($conges as $roww){
+            $conge=[];
             if($roww->avis==1){
                 $enddate=$roww->datefin."24:00:00";
                 $event[]=\Calendar::event(
@@ -51,7 +52,7 @@ class EventController extends Controller
                         'color' => 'pink',
                     ]
                     );
-            }}
+            }}}
             
             $calendar=\Calendar::addEvents($event);
             return view('calendar.eventpage',compact('events','conges','calendar'));

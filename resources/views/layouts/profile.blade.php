@@ -15,6 +15,17 @@ The above copyright notice and this permission notice shall be included in all c
 <head>
   <meta charset="utf-8" />
   <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/kohler.jpg">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<!-- fullcalendar -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.2.7/fullcalendar.min.js"></script>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.2.7/fullcalendar.min.css"/>
+
+
+
+
   <link rel="icon" type="image/png" href="../assets/img/kohler.jpg">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <title>
@@ -29,6 +40,216 @@ The above copyright notice and this permission notice shall be included in all c
   <!-- CSS Just for demo purpose, don't include it in your project -->
   <link href="../assets/demo/demo.css" rel="stylesheet" />
     <style>
+@import url('https://fonts.googleapis.com/css?family=Abel');
+
+html, body {
+  background: white;
+  font-family: Abel, Arial, Verdana, sans-serif;
+}
+
+.center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+}
+
+.card {
+  width: 850px;
+  height: 350px;
+  background-color: #fff;
+  background: linear-gradient(#f8f8f8, #fff);
+  box-shadow: 0 8px 16px -8px rgba(0,0,0,0.4);
+  border-radius: 6px;
+  overflow: hidden;
+  position: relative;
+  margin: 1.5rem;
+}
+
+.card h1 {
+  text-align: center;
+}
+
+.card .additional {
+  position: absolute;
+  width: 150px;
+  height: 100%;
+  background: gray;
+  transition: width 0.4s;
+  overflow: hidden;
+  z-index: 2;
+}
+
+.card.green .additional {
+  background: linear-gradient(#92bCa6, #A2CCB6);
+}
+
+
+.card:hover .additional {
+  width: 100%;
+  border-radius: 0 5px 5px 0;
+}
+
+.card .additional .user-card {
+  width: 150px;
+  height: 100%;
+  position: relative;
+  float: left;
+}
+
+.card .additional .user-card::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 10%;
+  right: -2px;
+  height: 80%;
+  border-left: 2px solid rgba(0,0,0,0.025);*/
+}
+
+.card .additional .user-card .level,
+.card .additional .user-card .points {
+  top: 15%;
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 0.75em;
+  font-weight: bold;
+  background: rgba(0,0,0,0.15);
+  padding: 0.125rem 0.75rem;
+  border-radius: 100px;
+  white-space: nowrap;
+}
+
+.card .additional .user-card .points {
+  top: 85%;
+}
+
+.card .additional .user-card svg {
+  top: 50%;
+}
+
+.card .additional .more-info {
+  width: 300px;
+  float: left;
+  position: absolute;
+  left: 150px;
+  height: 100%;
+}
+
+.card .additional .more-info h1 {
+  color: #fff;
+  margin-bottom: 0;
+}
+
+.card.green .additional .more-info h1 {
+  color: #224C36;
+}
+
+.card .additional .coords {
+  margin: 0 1rem;
+  color: #fff;
+  font-size: 1rem;
+}
+
+.card.green .additional .coords {
+  color: #325C46;
+}
+
+.card .additional .coords span + span {
+  float: right;
+}
+
+.card .additional .stats {
+  font-size: 2rem;
+  display: flex;
+  position: absolute;
+  bottom: 1rem;
+  left: 1rem;
+  right: 1rem;
+  top: auto;
+  color: #fff;
+}
+
+.card.green .additional .stats {
+  color: #325C46;
+}
+
+.card .additional .stats > div {
+  flex: 1;
+  text-align: center;
+}
+
+.card .additional .stats i {
+  display: block;
+}
+
+.card .additional .stats div.title {
+  font-size: 0.75rem;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.card .additional .stats div.value {
+  font-size: 1.5rem;
+  font-weight: bold;
+  line-height: 1.5rem;
+}
+
+.card .additional .stats div.value.infinity {
+  font-size: 2.5rem;
+}
+
+.card .general {
+  width: 300px;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 1;
+  box-sizing: border-box;
+  padding: 1rem;
+  padding-top: 0;
+}
+
+.card .general .more {
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  font-size: 0.9em;
+}
+/*  
+    .jumbotron {
+    padding: 1rem 1rem;
+    margin-bottom: 2rem;
+    background-color: #ced8e2;
+    border-radius: 0.3rem;
+}
+.sidebar .logo .simple-text {
+    text-transform: uppercase;
+    padding: 5px 0px;
+    display: inline-block;
+    font-size: 18px;
+    color:white;
+    white-space: nowrap;
+    font-weight: 400;
+    line-height: 30px;
+    overflow: hidden;
+    text-align: center;
+    display: block;
+}
+.sidebar .logo {
+    padding: 15px 0px;
+    margin: 0;
+    display: block;
+    position: relative;
+    z-index: 4;
+    background-color:black;
+}
+.navbar.navbar-transparent {
+    background-color: black !important;
+    box-shadow: none;
+    position:fixed;
+}*/
       
       .card .card-header-primary .card-icon, .card .card-header-primary .card-text, .card .card-header-primary:not(.card-header-icon):not(.card-header-text), .card.bg-primary, .card.card-rotate.bg-primary .front, .card.card-rotate.bg-primary .back {
         background: linear-gradient(60deg, #649e85, #439c84);
@@ -77,48 +298,55 @@ The above copyright notice and this permission notice shall be included in all c
         Tip 2: you can also add an image using data-image tag
     -->
       <div class="logo"><a href="http://www.creative-tim.com" class="simple-text logo-normal">
-         Espace Agent
+         Chef Hiérarchique
         </a></div>
       <div class="sidebar-wrapper">
         <ul class="nav">
           <li class="{{'dashboard2'==request()->path()?'active':''}}">
-            <a class="nav-link" href="/home">
+            <a class="nav-link" href="/dashboard">
               <i class="material-icons">dashboard</i>
               <p>Dashboard</p>
             </a>
           </li>
-          <li class="{{'users'==request()->path()?'active':''}} ">
-            <a class="nav-link" href="/doc">
+          <li class="{{'demande-conge'==request()->path()?'active':''}} ">
+            <a class="nav-link" href="/demande-conge">
               <i class="material-icons">person</i>
-              <p> documents administratifs</p>
+              <p>Demande de Congee</p>
             </a>
           </li>
           <li class="nav-item ">
-            <a class="nav-link" href="/conge">
+            <a class="nav-link" href="/conge-accepter">
               <i class="material-icons">content_paste</i>
-              <p>Demande Congee</p>
+              <p>Demandes Conge pret</p>
             </a>
           </li>
           <li class="nav-item ">
-            <a class="nav-link" href="/profil">
-              <i class="material-icons">account_circle</i>
-              <p>Prophile </p>
+            <a class="nav-link" href="/conge-refuser">
+              <i class="material-icons">library_books</i>
+              <p> demandes conge refuser</p>
+            </a>
+          </li>
+        
+          <li class="nav-item ">
+            <a class="nav-link" href="/events">
+            <span class="material-icons">calendar_today</span>
+              Calendrier
             </a>
           </li>
           <li class="nav-item ">
-            <a class="nav-link" href="./icons.html">
-              <i class="material-icons">bubble_chart</i>
-              <p>Planning de travail</p>
+            <a class="nav-link" href="./map.html">
+              <i class="material-icons">location_ons</i>
+              <p>calendrier Conge </p>
             </a>
           </li>
           <li class="nav-item ">
-            <a class="nav-link" href="/reclamation">
-              <i class="material-icons">local_post_office</i>
-              <p>Reclamation</p>
+            <a class="nav-link" href="./notifications.html">
+              <i class="material-icons">notifications</i>
+              <p>Planning Travail</p>
             </a>
           </li>
-
          
+    
         </ul>
       </div>
     </div>
@@ -209,7 +437,8 @@ The above copyright notice and this permission notice shall be included in all c
         <br>
       <!-- End Navbar -->
       <div class="content">
-        <div class="container-fluid">
+      
+        @yield('content')
         @if(count($errors)>0)
 @if ($errors->any()) 
     <div class="alert alert-danger">
@@ -248,8 +477,8 @@ The above copyright notice and this permission notice shall be included in all c
                                  </button>
                                 </div>
                                @endif
-        @yield('content')
-        </div>
+        
+       
       </div>
       <footer class="footer">
         <div class="container-fluid">

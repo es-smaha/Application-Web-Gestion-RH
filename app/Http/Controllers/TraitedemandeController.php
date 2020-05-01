@@ -34,8 +34,13 @@ class TraitedemandeController extends Controller
     
    public function valider($id){
       $conge=Demandeconge::find($id);
-      if( $conge->avis==0){
-         $conge->avis=1;
+      if( $conge->avis == 0){
+         $conge->avis = 1;
+         $us = $conge->user_id;
+         $user =   User::find($us);
+          $user->solde = $user->solde - $conge->jour;
+         $user->jour = $user->jour + $conge->jour;
+         $user->save();
          $conge->save();
       }
       return redirect('conge-accepter');

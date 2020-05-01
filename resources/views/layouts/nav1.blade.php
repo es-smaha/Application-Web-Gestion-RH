@@ -40,6 +40,38 @@ The above copyright notice and this permission notice shall be included in all c
   <!-- CSS Just for demo purpose, don't include it in your project -->
   <link href="../assets/demo/demo.css" rel="stylesheet" />
     <style>
+     .jumbotron { 
+    padding: 1rem 1rem;
+    margin-bottom: 2rem;
+    background-color: #ced8e2;
+    border-radius: 0.3rem;
+}/*
+.sidebar .logo .simple-text {
+    text-transform: uppercase;
+    padding: 5px 0px;
+    display: inline-block;
+    font-size: 18px;
+    color:white;
+    white-space: nowrap;
+    font-weight: 400;
+    line-height: 30px;
+    overflow: hidden;
+    text-align: center;
+    display: block;
+}
+.sidebar .logo {
+    padding: 15px 0px;
+    margin: 0;
+    display: block;
+    position: relative;
+    z-index: 4;
+    background-color:black;
+}
+.navbar.navbar-transparent {
+    background-color: black !important;
+    box-shadow: none;
+    position:fixed;
+}*/
       
       .card .card-header-primary .card-icon, .card .card-header-primary .card-text, .card .card-header-primary:not(.card-header-icon):not(.card-header-text), .card.bg-primary, .card.card-rotate.bg-primary .front, .card.card-rotate.bg-primary .back {
         background: linear-gradient(60deg, #649e85, #439c84);
@@ -98,12 +130,13 @@ The above copyright notice and this permission notice shall be included in all c
               <p>Dashboard</p>
             </a>
           </li>
-          <li class="{{'users'==request()->path()?'active':''}} ">
+          <li class="{{'demande-conge'==request()->path()?'active':''}} ">
             <a class="nav-link" href="/demande-conge">
               <i class="material-icons">person</i>
               <p>Demande de Congee</p>
             </a>
           </li>
+
           <li class="nav-item ">
             <a class="nav-link" href="/conge-accepter">
               <i class="material-icons">content_paste</i>
@@ -123,10 +156,7 @@ The above copyright notice and this permission notice shall be included in all c
               Calendrier
             </a>
           </li>
-          <li class="nav-item ">
-            <a class="nav-link" href="./map.html">
-              <i class="material-icons">location_ons</i>
-              <p>calendrier Conge </p>
+       
             </a>
           </li>
           <li class="nav-item ">
@@ -228,6 +258,7 @@ The above copyright notice and this permission notice shall be included in all c
       <!-- End Navbar -->
       <div class="content">
         <div class="container-fluid">
+        @yield('content')
         @if(count($errors)>0)
 @if ($errors->any()) 
     <div class="alert alert-danger">
@@ -266,7 +297,7 @@ The above copyright notice and this permission notice shall be included in all c
                                  </button>
                                 </div>
                                @endif
-        @yield('content')
+        
         </div>
       </div>
       <footer class="footer">

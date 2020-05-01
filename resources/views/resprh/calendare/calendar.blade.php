@@ -1,7 +1,4 @@
-
-@extends('layouts.nav1')
-
-
+@extends('layouts.nav2')
 @section('title')
 Calendar
 @endsection

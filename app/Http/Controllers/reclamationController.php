@@ -1,12 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Typedocument;
-use carbon\carbon;
+use App\Reclamation; 
 use Illuminate\Http\Request;
+use App\User;
 
-
-class TypedocumentController extends Controller
+class reclamationController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,12 +14,11 @@ class TypedocumentController extends Controller
      */
     public function index()
     {
-        $typedocuments=Typedocument::all();
-     
-        
-        return view('resprh.rerh.typedoc')->with('typedocuments',$typedocuments);
-    
+        $rec=Reclamation::All();
+        $user=User::All();
+        return view("agent.reclamation",['rec'=>$rec,'user'=>$user]);
     }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -39,28 +37,15 @@ class TypedocumentController extends Controller
      */
     public function store(Request $request)
     {
-        $typedocuments=new Typedocument();
-        $typedocuments->name=$request->input('name');
-        $typedocuments->max=$request->input('max');
-        $typedocuments->periode=$request->input('periode');
-        $d=$typedocuments->duree;
-        if(date("m", strtotime($d)) != date("m"))
-        {
-            $typedocuments->duree=Carbon::now();
-        }
-        $typedocuments->save();
-        return redirect('typedoc')->with('success',' le type document est bien ajouté');
-      
+        //
     }
-    
-    
+
     /**
      * Display the specified resource.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-
     public function show($id)
     {
         //
@@ -74,8 +59,7 @@ class TypedocumentController extends Controller
      */
     public function edit($id)
     {
-        $typedocuments=Typedocument::find($id);
-        return view('resprh.rerh.typedoc')->with('typedocuments',$typedocuments);
+        //
     }
 
     /**
@@ -87,11 +71,12 @@ class TypedocumentController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $typedocuments=Typedocument::find($id);
-        $typedocuments->name=$request->input('name');
-        $typedocuments->save();
-        return redirect('typedoc')->with('success','le Type document a ete modifie');
-    
+        $rec=  Reclamation::find($id);
+        $rec->titre=$request->input('titre');
+        $rec->description=$request->input('description');
+        $rec->user_id=Auth()->user()->id;
+         $rec->save();
+        return redirect('reclamation')->with('success', 'bien deposer');
     }
 
     /**
@@ -102,8 +87,9 @@ class TypedocumentController extends Controller
      */
     public function destroy($id)
     {
-        $typedocuments=Typedocument::find($id);
-        $typedocuments->delete($id);
-        return redirect('typedoc')->with('success','le Type document a ete bien supprime');
+        $rec=  Reclamation::find($id);
+     
+         $rec->delete;
+        return redirect('reclamation')->with('fail', 'Votre reclamation a ete supprimer');
     }
 }

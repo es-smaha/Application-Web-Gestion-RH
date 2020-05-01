@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Demandedocument;
 use App\User;
 use App\Typedocument;
+use Carbon\Carbon;
+use App\Db ;
 use Illuminate\Support\Facades\Auth;
 
 class DocumentController extends Controller
@@ -43,14 +45,58 @@ class DocumentController extends Controller
      */
     public function store(Request $request)
     {
-        $demandedocuments=new Demandedocument();
-        $demandedocuments->typedocument_id=$request->typedocument_id;
-      
-
-        $demandedocuments->user_id=auth()->user()->id;
+        $demandedocuments = new Demandedocument();
         
-        $demandedocuments->save();
-        return redirect('doc')->with('success','Votre demande est envoyée');
+        $typeDocId = $request->typedocument_id;
+        $typedoc = Typedocument::find($typeDocId);
+        $periode =$typedoc->duree;
+        
+        $user = auth()->user()->id;
+        $max = $typedoc->max;
+       
+        // appel sur la base 
+        // $type doc ? month ola year and which is that 
+        // if month \DateTime('today') month
+        // select demande doc where id user . typde doc . and createdAT in type doc month ola year 
+       
+        $date = carbon::now() ;
+             if($typedoc->periode=='y'&& date("y", strtotime($date)) == date("y", strtotime($periode))){
+                $demandes = Demandedocument::where(["user_id"=>$user, "typedocument_id"=>$typeDocId])->count();
+                if($demandes < $max  ){
+
+                    $demandedocuments->datetraitement = new \DateTime('today');
+                    $demandedocuments->typedocument_id=$request->typedocument_id;
+                    $demandedocuments->user_id=auth()->user()->id;
+                    $demandedocuments->save();
+                    return redirect('doc');
+                }
+            
+            else
+            {
+         
+                return redirect('doc')->with('fail','vous avez depassez la limite de vos demandes ');
+            }  
+        }
+            if($typedoc->periode=='m'  && date("m", strtotime($date)) == date("m", strtotime($periode)) ){
+                $demandes = Demandedocument::where(["user_id"=>$user, "typedocument_id"=>$typeDocId])->count();
+                if($demandes < $max){
+
+                    $demandedocuments->datetraitement = new \DateTime('today');
+                    $demandedocuments->typedocument_id=$request->typedocument_id;
+                    $demandedocuments->user_id=auth()->user()->id;
+                    $demandedocuments->save();
+                    return redirect('doc');
+                }
+            
+            else
+            {
+         
+                return redirect('doc')->with('fail','vous avez depassez la limite de vos demandes ');
+            }  
+        }
+            
+    
+       
     }
 
     /**

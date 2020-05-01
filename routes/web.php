@@ -11,6 +11,7 @@
 |
 */
 
+
 Route::get('/', function () {
     return view('auth.login');
 });
@@ -20,6 +21,7 @@ Route::post('/update-password','auth\ChangePasswordController@passwordupdate');
 Route::get('/home','HomeController@index')->name('home');
 Auth::routes();
 Route::resource('conge', 'DemandecongeController');
+Route::resource('/profil','ProfilController');
 
 //
    
@@ -35,23 +37,24 @@ Route::group(['middleware'=>['auth','1']],function()
     Route::post('/motifs','TraitedemandeController@store');
     Route::post('/pdfinsert','TraitedemandeController@pdf');
     Route::get('/us/{id}','TraitedemandeController@sho');
-
-
     Route::get('/dashboard', function () {
         return view('chefh.dashboard');
     });
 
     //calendier  
-Route::resource('/events','EventController');
-Route::get('/display','EventController@show');
-Route::get('/deleteevent','EventController@show');
 
+    Route::resource('/events','EventController');
+    Route::get('/display','EventController@show');
+    Route::get('/deleteevent','EventController@show');
 
    });
 
 
 Route::group(['middleware'=>['auth','2']],function()
     {
+       
+ 
+
     Route::get('/docum','RhdocumentController@index');
     Route::put('/docum/{id}','RhdocumentController@valider');
     Route::get('/users','UserController@index');
@@ -67,6 +70,13 @@ Route::group(['middleware'=>['auth','2']],function()
     Route::resource('typedoc', 'TypedocumentController');
     Route::get('/admi', function(){
             return view('resprh.rerh.admini');});
+          
+          
+           
+            
+
+
+
         });
 
 

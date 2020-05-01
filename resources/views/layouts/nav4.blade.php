@@ -77,7 +77,7 @@ The above copyright notice and this permission notice shall be included in all c
         Tip 2: you can also add an image using data-image tag
     -->
       <div class="logo"><a href="http://www.creative-tim.com" class="simple-text logo-normal">
-         Responsable Rh
+         Espace Agent
         </a></div>
       <div class="sidebar-wrapper">
         <ul class="nav">
@@ -100,36 +100,25 @@ The above copyright notice and this permission notice shall be included in all c
             </a>
           </li>
           <li class="nav-item ">
-            <a class="nav-link" href="./typography.html">
-              <i class="material-icons">library_books</i>
-              <p>Documents </p>
+            <a class="nav-link" href="/profil">
+              <i class="material-icons">account_circle</i>
+              <p>Prophile </p>
             </a>
           </li>
           <li class="nav-item ">
             <a class="nav-link" href="./icons.html">
               <i class="material-icons">bubble_chart</i>
-              <p>Icons</p>
+              <p>Planning de travail</p>
             </a>
           </li>
           <li class="nav-item ">
-            <a class="nav-link" href="./map.html">
-              <i class="material-icons">location_ons</i>
-              <p>demandes de conge</p>
+            <a class="nav-link" href="./icons.html">
+              <i class="material-icons">local_post_office</i>
+              <p>Reclamation</p>
             </a>
           </li>
-          <li class="nav-item ">
-            <a class="nav-link" href="./notifications.html">
-              <i class="material-icons">notifications</i>
-              <p>Archives demandes acceptee</p>
-            </a>
-          </li>
-          <li class="nav-item ">
-            <a class="nav-link" href="./rtl.html">
-              <i class="material-icons">language</i>
-              <p>Archives demandes refuser</p>
-            </a>
-          </li>
-    
+
+         
         </ul>
       </div>
     </div>

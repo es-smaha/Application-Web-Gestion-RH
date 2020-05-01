@@ -44,7 +44,7 @@
                     <form method="POST" action="/doc">
                   @csrf
 
-                 
+                  
                       <label for="typedocument_id">choisissez un type de document</label>
 
                       <select name="typedocument_id" id="inputState" class="form-control">
@@ -58,7 +58,7 @@
                   
                   
 
-                  <button type="submit" class="btn btn-dark">Effectuer</button>
+                  <button type="submit" class="btn btn-dark" onclick="md.showNotification('top','center')">Effectuer</button>
                   </form>
 
                 </div>
@@ -88,7 +88,7 @@
     <td>{{$dec->typedocument->name}}</td>
     <td>{{$dec->created_at}}</td>
     @if($dec->etat==0)
-    <td><div class="alert alert-warning"> En attente </div></td></td>
+    <td> <span class="badge badge-warning"> En attente </span></td></td>
     @else
     <td>
     <div class="alert alert-success"> Validé </div></td>

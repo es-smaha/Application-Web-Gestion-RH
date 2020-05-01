@@ -18,6 +18,7 @@ class CreateTypedocumentsTable extends Migration
             $table->string('name');
             $table->integer('max');
             $table->string('periode');
+            $table->date('duree')->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->timestamps();
         });
     }

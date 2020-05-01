@@ -31,6 +31,7 @@ keyboard_backspace
             <input type="text"  name="periode" class="form-control" id="recipient-name">
 
           </div>
+         
           <div class="form-group">
  
             <label for="recipient-name" class="col-form-label">Nombre maximal par periode</label>
@@ -67,6 +68,7 @@ keyboard_backspace
                       <th>Name</th>
                       <th>Nombre maximale   <br> par Periode</th>
                         <th>Periode( Year/Month)</th>
+                        
                       <th>action</th>
                     </thead>
                     <tbody>

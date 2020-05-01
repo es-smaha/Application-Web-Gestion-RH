@@ -1,10 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Typeconge;
+
 use Illuminate\Http\Request;
 
-class TypecongeController extends Controller
+class ProfilController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,8 +13,7 @@ class TypecongeController extends Controller
      */
     public function index()
     {
-        $typeconges=Typeconge::all();
-        return view('resprh.rerh.typecon')->with('typeconges',$typeconges);
+        return view("agent.prophile");
     }
 
     /**
@@ -35,12 +34,7 @@ class TypecongeController extends Controller
      */
     public function store(Request $request)
     {
-        $typeconges=new Typeconge();
-        $typeconges->nom=$request->input('nom');
-        
-        $typeconges->save();
-        return redirect('typecon')->with('success','le type conge est bien ajouté');
-     
+        //
     }
 
     /**
@@ -51,7 +45,7 @@ class TypecongeController extends Controller
      */
     public function show($id)
     {
-        
+        //
     }
 
     /**
@@ -62,9 +56,7 @@ class TypecongeController extends Controller
      */
     public function edit($id)
     {
-        $typeconges=Typeconge::find($id);
-        return view('resprh.rerh.typecon')->with('typeconges',$typeconges);
-   
+        //
     }
 
     /**
@@ -76,12 +68,7 @@ class TypecongeController extends Controller
      */
     public function update(Request $request, $id)
     {
-        
-        $typeconges=Typeconge::find($id);
-        $typeconges->nom=$request->input('nom');
-        $typeconges->save();
-       return redirect('typecon')->with('success','le type de conge a ete modifie');
-   
+        //
     }
 
     /**
@@ -92,9 +79,6 @@ class TypecongeController extends Controller
      */
     public function destroy($id)
     {
-        $typeconges=Typeconge::find($id);
-        $typeconges->delete($id);
-        return redirect('typecon')->with('success','le type conge a ete bien supprime');
-    
+        //
     }
 }

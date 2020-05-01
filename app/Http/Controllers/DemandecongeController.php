@@ -51,9 +51,7 @@ class DemandecongeController extends Controller
         $this->validate($request,[
             'datedebut' => ['required', ],
             'datefin' => ['required', ],
-        
-          
-           
+         
   
          ]);
          $conge= new Demandeconge();

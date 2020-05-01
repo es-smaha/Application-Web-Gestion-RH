@@ -57,6 +57,7 @@
 <th>jour consommee</th>
 <th>solde Conge</th>
 <th>date creation</th>
+  <th><span class="material-icons">loupe</span>Details</th>
 <th>Avis chef hierarchique</th>
 <th>Confirmation responsable</th>
 <th>Confirmer</th>
@@ -66,7 +67,7 @@
 @foreach($conge as $conge)
 @if($conge->avis==1 && $conge->decision==0)
 <tr>
-<td>{{$conge->user->name}}</td>
+<td>  <a href="/us/{{$conge->id}}"></a>{{$conge->user->name}}</td>
 <td>{{$conge->typeconge->nom}}</td>
 <td>{{$conge->datedebut}}   <b >a </b> {{$conge->datefin}}</td>
 <td>  {{$conge->jour}}</td>

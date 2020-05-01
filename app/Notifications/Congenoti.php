@@ -5,26 +5,22 @@ namespace App\Notifications;
 use Illuminate\Bus\Queueable;
 use Illuminate\Notifications\Notification;
 use Illuminate\Contracts\Queue\ShouldQueue;
-use Illuminate\Notifications\Messages\MailMessage;
 use App\Demandeconge;
-use App\User;
+use Illuminate\Notifications\Messages\MailMessage;
 
 class Congenoti extends Notification
 {
     use Queueable;
 
-    protected $user;
-    protected $demandeconge;
-
+    public $conge;
     /**
      * Create a new notification instance.
      *
      * @return void
      */
-    public function __construct(Demandeconge $demandeconge , User $user)
+    public function __construct($conge)
     {
-        $this->demandeconge = $demandeconge;
-        $this->user=$user;
+        $this->conge = $conge;
     }
 
     /**
@@ -35,7 +31,7 @@ class Congenoti extends Notification
      */
     public function via($notifiable)
     {
-        return ['database'];
+        return ['mail'];
     }
 
     /**
@@ -47,8 +43,12 @@ class Congenoti extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
-                    ->line('The introduction to the notification.')
-                    ->action('Notification Action', url('/'))
+                    ->greeting('hello','Admin')
+                    ->subject('Nouvelle demande de conge est besoin de traitement')
+                    ->line('Nouvelle demande de conge de ' .$this->conge->user->name .' est en attente.' )
+                    ->line('Pour approuver cliquer sur le boutton "View" ')
+                    
+                    ->action('View', url('/demande-conge'))
                     ->line('Thank you for using our application!');
     }
 
@@ -61,10 +61,7 @@ class Congenoti extends Notification
     public function toArray($notifiable)
     {
         return [
-            'demandecongename'=>$this->demandeconge->typeconge_id,
-            'demandecongeId'=>$this->demandeconge->id,
-            'username'=> $this->user->name
-
+            //
         ];
     }
 }

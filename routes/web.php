@@ -29,6 +29,7 @@ Route::resource('/reclamation','reclamationController');
 Route::group(['middleware'=>['auth','1']],function()
     {
       
+        
     Route::get('/demande-conge','TraitedemandeController@index');
     Route::get('/conge-accepter','TraitedemandeController@accepter');
     Route::get('/conge-refuser','TraitedemandeController@refuser');

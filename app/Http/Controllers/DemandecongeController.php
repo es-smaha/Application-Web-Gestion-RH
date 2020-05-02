@@ -9,6 +9,8 @@ use App\Demandeconge;
 use App\Motif;
 use PDF;
 use Illuminate\Support\Facades\Auth;
+use App\Notifications\Congenoti;
+use Illuminate\Support\Facades\Notification;
 
 class DemandecongeController extends Controller
 {
@@ -79,6 +81,12 @@ class DemandecongeController extends Controller
         $conge->raison=$request->input('raison');
         $conge->user_id= auth()->user()->id;
         $conge->save();
+
+        //notification
+        $us=User::where('usertype','1')->get();
+        Notification::send($us, new Congenoti($conge));
+         //fin
+
         return redirect('conge')->with('success','lajout est effectuer');
       }
 

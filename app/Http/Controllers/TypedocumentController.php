@@ -5,6 +5,7 @@ use App\Typedocument;
 use carbon\carbon;
 use Illuminate\Http\Request;
 
+
 class TypedocumentController extends Controller
 {
     /**
@@ -51,13 +52,15 @@ class TypedocumentController extends Controller
         return redirect('typedoc')->with('success',' le type document est bien ajouté');
       
     }
-
+    
+    
     /**
      * Display the specified resource.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
     public function show($id)
     {
         //

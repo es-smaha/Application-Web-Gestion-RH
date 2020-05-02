@@ -29,6 +29,7 @@ Route::resource('/reclamation','reclamationController');
 Route::group(['middleware'=>['auth','1']],function()
     {
       
+        
     Route::get('/demande-conge','TraitedemandeController@index');
     Route::get('/conge-accepter','TraitedemandeController@accepter');
     Route::get('/conge-refuser','TraitedemandeController@refuser');
@@ -88,7 +89,9 @@ Route::group(['middleware'=>['auth','3']],function()
     {
     Route::get('/dashboard3', function () {
         return view('resppaie.dashboard');});
-    
+    // cal
+    // Route::get('/cal','Calpaie@cal');
+ 
     Route::get('/confin','ConfirmerpaieController@index');
     Route::get('/decision-accepter','ConfirmerpaieController@archive1');
     Route::get('/decision-refuser','ConfirmerpaieController@archive2');

@@ -20,6 +20,14 @@ class RhdocumentController extends Controller
         
         return view('resprh.document.index', ['demandedocuments'=> $demandedocuments,'demandedocument'=> $demandedocument]);
     }
+    public function pret(){
+
+        $demandedocument=Demandedocument::all();
+        
+        $demandedocuments=$demandedocument->where('etat',true);
+        
+        return view('resprh.document.documentpret', ['demandedocuments'=> $demandedocuments,'demandedocument'=> $demandedocument]);
+    }
    
     public function valider($id)
     {
@@ -28,7 +36,7 @@ class RhdocumentController extends Controller
                $demandedocuments->etat=1;
                $demandedocuments->save();
             
-             return redirect()->back()->with('success','le document est pret');
+             return redirect('document-pret')->with('success','le document est pret');
       
          
     }
@@ -75,6 +83,40 @@ class RhdocumentController extends Controller
              $calendar=\Calendar::addEvents($event);
              return view('resprh.calendare.calendar',compact('events','conges','calendar'));
          
+    }
+    public function pdf(Request $request){
+        $id=$request->demandedoc_id;
+        $doc=Demandedocument::find($id);
+        $this->validate($request,[
+        
+           'recu'=>'nullable|max:1999|mimes:doc,pdf,docx,png,jpg',
+    
+        ]);
+  
+        if($request->hasFile('recu')){
+           //get fn with ext
+          $FilenameWithExt=$request->file('recu')->getClientOriginalName();
+  
+          //gwt just filename
+          $filename=pathinfo($FilenameWithExt,PATHINFO_FILENAME);
+          //gET JUST EXT
+          $extension=$request->file('recu')->getClientOriginalExtension();
+          //file name to store
+          $fileNameToStore=$filename.'_'.time().'.'.$extension;
+          //upload image
+          $path=$request->file('recu')->storeAs('public\cover_images',  $fileNameToStore);
+      // on utise ce commande pour cree ce dossier :php artisan storage:link
+  
+        }
+        if($doc->pdf==0){
+           $doc->pdf=1;
+           $doc->recu=$fileNameToStore;
+           $doc->save();
+         
+        }
+         return redirect()->back();
+  
+
     }
 
 

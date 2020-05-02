@@ -57,6 +57,8 @@ Route::group(['middleware'=>['auth','2']],function()
  
 
     Route::get('/docum','RhdocumentController@index');
+    Route::get('/document-pret','RhdocumentController@pret');
+    Route::post('/pdf','RhdocumentController@pdf');
     Route::put('/docum/{id}','RhdocumentController@valider');
     Route::get('/users','UserController@index');
     Route::get('/create','UserController@create');

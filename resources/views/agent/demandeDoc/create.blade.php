@@ -75,7 +75,9 @@
     <th scope="col" >mes demandes</th>
     <th scope="col">la date de creation</th>
     <th scope="col">l'état</th>
+    <th scope="col">PDF</th>
     <th scope="col">action</th>
+
   </tr>
 </thead>
 <tbody>
@@ -89,9 +91,11 @@
     <td>{{$dec->created_at}}</td>
     @if($dec->etat==0)
     <td> <span class="badge badge-warning"> En attente </span></td></td>
+    <td>  <a style="color:gray" ><span class="material-icons">get_app</span></a></td>
     @else
     <td>
-    <div class="alert alert-success"> Validé </div></td>
+    <span class="badge badge-success"> Validé </apan></td>
+    <td>  <a style="color:green" href="/storage/cover_images/{{$dec->recu}}" download="{{$dec->recu}}"><span class="material-icons">get_app</span></a></td>
     @endif
     <td>
     

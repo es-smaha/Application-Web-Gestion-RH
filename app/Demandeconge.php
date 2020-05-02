@@ -1,14 +1,20 @@
 <?php
 
 namespace App;
-
+use App\User;
+use App\Notifications\Useredemandeconge;
+use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Model;
-
+use Illuminate\Support\Facades\Notification;
 class Demandeconge extends Model
 {
-    protected $fillable = [
+
+    use Notifiable; 
+    protected $fillable = [ 
         'datedebut', 'datefin', 'jour' ,'raison', 
     ];
+
+
     protected $table='demandeconges';
     protected function  user(){
          return $this->belongsTo('App\User');

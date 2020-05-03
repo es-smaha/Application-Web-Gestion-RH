@@ -15,6 +15,14 @@ class CreatePlanningsTable extends Migration
     {
         Schema::create('plannings', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('user');
+            $table->string('lundi');
+            $table->string('mardi');
+            $table->string('mercredi');
+            $table->string('jeudi');
+            $table->string('vendredi');
+            $table->string('samedi');
+            $table->string('dimanche');
             $table->timestamps();
         });
     }

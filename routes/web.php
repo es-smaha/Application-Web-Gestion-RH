@@ -59,6 +59,12 @@ Route::group(['middleware'=>['auth','1']],function()
     Route::get('/display','EventController@show');
     Route::get('/deleteevent','EventController@show');
 
+    //planning
+    Route::get('/ex', 'ImportExcelController@index');
+    Route::get('/export', 'ImportExcelController@export');
+    Route::post('/import', 'ImportExcelController@import');
+    
+
    });
   
 

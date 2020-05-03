@@ -163,6 +163,7 @@ return [
         Illuminate\View\ViewServiceProvider::class,
         //fullcalendar
         MaddHatter\LaravelFullcalendar\ServiceProvider::class,
+        Maatwebsite\Excel\ExcelServiceProvider::class,
 
         /*
          * Package Service Providers...
@@ -176,7 +177,7 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-      
+        
     ],
 
     /*
@@ -229,7 +230,8 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         //fullcalendar
         'Calendar' => MaddHatter\LaravelFullcalendar\Facades\Calendar::class,
-       
+        'Excel' => Maatwebsite\Excel\Facades\Excel::class,
+    
     ],
 
 ];

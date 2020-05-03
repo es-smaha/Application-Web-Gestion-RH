@@ -15,6 +15,7 @@
 Route::get('/', function () {
     return view('auth.login');
 });
+
 Route::resource('doc', 'DocumentController');
 Route::get('/change','auth\ChangePasswordController@index');
 Route::post('/update-password','auth\ChangePasswordController@passwordupdate');
@@ -28,7 +29,15 @@ Route::resource('/reclamation','reclamationController');
    
 Route::group(['middleware'=>['auth','1']],function()
     {
-      
+      Route::get('/x', function () {
+    $user=Auth::user();
+     foreach($user->notifications as $notification){
+         $notification->markAsRead();
+     }
+    //$user->notify(new App\Notifications\Useredemandeconge( App\User::findOrFail(2)));
+    
+});
+
         
     Route::get('/demande-conge','TraitedemandeController@index');
     Route::get('/conge-accepter','TraitedemandeController@accepter');
@@ -43,6 +52,7 @@ Route::group(['middleware'=>['auth','1']],function()
         return view('chefh.dashboard');
     });
 
+   
     //calendier  
 
     Route::resource('/events','EventController');
@@ -56,7 +66,7 @@ Route::group(['middleware'=>['auth','1']],function()
     
 
    });
-
+  
 
 Route::group(['middleware'=>['auth','2']],function()
     {

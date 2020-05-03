@@ -24,12 +24,7 @@ Auth::routes();
 Route::resource('conge', 'DemandecongeController');
 Route::resource('/profil','ProfilController');
 Route::resource('/reclamation','reclamationController');
-
-//
-   
-Route::group(['middleware'=>['auth','1']],function()
-    {
-      Route::get('/x', function () {
+Route::get('/x', function () {
     $user=Auth::user();
      foreach($user->notifications as $notification){
          $notification->markAsRead();
@@ -37,6 +32,11 @@ Route::group(['middleware'=>['auth','1']],function()
     //$user->notify(new App\Notifications\Useredemandeconge( App\User::findOrFail(2)));
     
 });
+//
+   
+Route::group(['middleware'=>['auth','1']],function()
+    {
+      
 
         
     Route::get('/demande-conge','TraitedemandeController@index');

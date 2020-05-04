@@ -3,10 +3,11 @@
 namespace App\Http\Controllers;
 use App\user;
 use App\Motif;
-
+use App\Notifications\Validerconge;
 use App\Typeconge;
 use App\Demandeconge;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Notification;
 
 class TraitedemandeController extends Controller
 {
@@ -22,7 +23,7 @@ class TraitedemandeController extends Controller
    public function accepter(){
       $type=Typeconge::All();
       $conge=Demandeconge::All()->where('avis',"=", 1);
-   
+  
       return view('chefh.archiveaccepeter', ['type'=>$type,'conge'=>$conge, ]);
      }
    public function refuser(){
@@ -42,7 +43,12 @@ class TraitedemandeController extends Controller
          $user->jour = $user->jour + $conge->jour;
          $user->save();
          $conge->save();
+      
+         
       }
+      $us = $conge->user_id;
+      $user1 =   User::find($us)->get();
+         Notification::send( $user1, new Validerconge(Auth()->user()));
       return redirect('conge-accepter');
    }
    public function refuuseer($id){

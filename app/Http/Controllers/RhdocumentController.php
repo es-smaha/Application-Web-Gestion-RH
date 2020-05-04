@@ -7,6 +7,8 @@ use App\Event;
 use App\Demandeconge;
 use App\Typedocument;
 use MaddHatter\LaravelFullcalendar\Facades\Calendar;
+use Illuminate\Support\Facades\Notification;
+use App\Notifications\Validerdocument;
 
 use Illuminate\Http\Request;
 
@@ -35,7 +37,10 @@ class RhdocumentController extends Controller
             
                $demandedocuments->etat=1;
                $demandedocuments->save();
-            
+               
+               $us = $demandedocuments->user_id;
+               $user1 =   User::find($us)->get();
+                  Notification::send( $user1, new Validerdocument(Auth()->user()));
              return redirect('document-pret')->with('success','le document est pret');
       
          

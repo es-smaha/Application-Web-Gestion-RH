@@ -9,6 +9,8 @@ use App\Typedocument;
 use Carbon\Carbon;
 use App\Db ;
 use Illuminate\Support\Facades\Auth;
+use App\Notifications\Validerdocument;
+use Illuminate\Support\Facades\Notification;
 
 class DocumentController extends Controller
 
@@ -68,7 +70,11 @@ class DocumentController extends Controller
                     $demandedocuments->typedocument_id=$request->typedocument_id;
                     $demandedocuments->user_id=auth()->user()->id;
                     $demandedocuments->save();
+                    $us=User::where('usertype',"=",2)->get();
+                   
+                    Notification::send($us, new Validerdocument(Auth()->user()));
                     return redirect('doc');
+               
                 }
             
             else
@@ -85,6 +91,8 @@ class DocumentController extends Controller
                     $demandedocuments->typedocument_id=$request->typedocument_id;
                     $demandedocuments->user_id=auth()->user()->id;
                     $demandedocuments->save();
+                    $us=User::where('usertype',"=",2)->get();
+                    Notification::send($us, new validerdocument(Auth()->user()));
                     return redirect('doc');
                 }
             

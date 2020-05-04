@@ -158,17 +158,30 @@ The above copyright notice and this permission notice shall be included in all c
               <li class="nav-item dropdown">
                 <a class="nav-link" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   <i class="material-icons">notifications</i>
-                  <span class="notification">5</span>
+                  <span class="notification">*</span>
                   <p class="d-lg-none d-md-block">
                     Some Actions
                   </p>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                  <a class="dropdown-item" href="#">Mike John responded to your email</a>
-                  <a class="dropdown-item" href="#">You have 5 new tasks</a>
-                  <a class="dropdown-item" href="#">You're now friend with Andrew</a>
-                  <a class="dropdown-item" href="#">Another Notification</a>
-                  <a class="dropdown-item" href="#">Another One</a>
+                @foreach(Auth::user()->notifications as $notification)
+                @if($notification->notifiable_id==Auth::user()->id  && $notification->read_at == '' )
+                @if($notification->type=="App\Notifications\Validerdocument")
+                   <span class="notification">1</span>
+                    <p>
+                  <a class="dropdown-item" href="/doc ">{{$notification->data['userId']}}    <small>   Votre demande  a ete valider </small> {{$notification->created_at->diffforHumans()}}  </a>
+                    </p>
+                    {{$notification->markAsRead()}}
+                    @else($notification->type=="App\Notifications\Validerconge")
+                    <span class="notification">1</span>
+                    <p>
+                  <a class="dropdown-item" href="/conge ">{{$notification->data['userId']}}    <small>   Votre demande de conge  a ete valider </small> {{$notification->created_at->diffforHumans()}}  </a>
+                  {{$notification->markAsRead()}}
+                    </p>
+                    @endif
+                    @endif
+                    
+                    @endforeach
                 </div>
               </li>
               <li class="nav-item dropdown">

@@ -24,8 +24,7 @@
               <div class="card card-stats">
                 <div class="card-header card-header-success card-header-icon">
              
-                  <p class="card-category">Deposer par </p>
-                  <h3 class="card-title">{{$rec->user->name}} {{$rec->user->prenom}}</h3>
+                  
              
                 </div>
                 <div class="card-header">
@@ -43,10 +42,7 @@
                   </div>
                 </div>
                 <div class="card-footer">
-                  <div class="stats">
-                    <i class="material-icons">date_range</i> Last 24 Hours
-                    <td>
-                    @if(!auth::guest())
+                  <div class="stats">        @if(!auth::guest())
               @if(auth::user()->id==$rec->user_id)
               <button type="button" data-toggle="modal"  data-target="#ajouter" rel="tooltip" title="Edit Task" class="btn btn-success btn-link btn-sm">
                                 <i class="material-icons">edit</i>
@@ -55,7 +51,12 @@
                                 <i class="material-icons">close</i>
                               </button></td>
                               @endif
-                              @endif
+                              @endif</div>
+                       <p >{{$rec->created_at->diffforHumans()}} <b>par </b> <span class="badge badge-pill badge-primary">{{$rec->user->name}} {{$rec->user->prenom}}</span> </p>  
+                    
+                 
+
+            
                   </div>
                 </div>
               </div>

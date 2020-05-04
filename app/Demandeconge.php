@@ -2,6 +2,8 @@
 
 namespace App;
 use App\User;
+use App\Demandeconge;
+
 use App\Notifications\Useredemandeconge;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Model;

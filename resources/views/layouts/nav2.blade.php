@@ -157,11 +157,16 @@ The above copyright notice and this permission notice shall be included in all c
                   </p>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                  <a class="dropdown-item" href="#">Mike John responded to your email</a>
-                  <a class="dropdown-item" href="#">You have 5 new tasks</a>
-                  <a class="dropdown-item" href="#">You're now friend with Andrew</a>
-                  <a class="dropdown-item" href="#">Another Notification</a>
-                  <a class="dropdown-item" href="#">Another One</a>
+                @foreach(Auth::user()->notifications as $notification)
+                   @if($notification->notifiable_id==Auth::user()->id &&   $notification->read_at == '' )
+                   <span class="notification">1</span>
+                    <p>
+                  <a class="dropdown-item" href="/docum ">{{$notification->data['userId']}}    <small>   a deposer une demande de document il y'a  </small> {{$notification->created_at->diffforHumans()}}  </a>
+                    </p>
+                   {{$notification->markAsRead()}}
+                 @endif
+
+                    @endforeach
                 </div>
               </li>
               <li class="nav-item dropdown">

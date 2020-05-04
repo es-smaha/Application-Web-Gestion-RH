@@ -15,6 +15,22 @@ class ImportExcelController extends Controller
         $data= Planning::all();
         return view('chefh.planning.create', compact('data'));
     }
+    public function  indexA()
+    {
+        $data= Planning::all();
+        return view('agent.planning', compact('data'));
+    }
+    public function  indexRH()
+    {
+        $data= Planning::all();
+        return view('resprh.planning', compact('data'));
+    }
+    public function  indexP()
+    {
+        $data= Planning::all();
+        return view('resppaie.planning', compact('data'));
+    }
+   
     public function export()
     {
         return Excel::download(new PlanningExport() , 'test.xlsx');

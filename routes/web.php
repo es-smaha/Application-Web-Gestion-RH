@@ -24,6 +24,9 @@ Auth::routes();
 Route::resource('conge', 'DemandecongeController');
 Route::resource('/profil','ProfilController');
 Route::resource('/reclamation','reclamationController');
+Route::get('/planning', 'ImportExcelController@indexA');
+
+
 
 //
    
@@ -91,7 +94,8 @@ Route::group(['middleware'=>['auth','2']],function()
     Route::get('/admi', function(){
             return view('resprh.rerh.admini');});
           
-          
+    Route::get('/planningrh', 'ImportExcelController@indexRH');
+    
            
             
 
@@ -112,6 +116,8 @@ Route::group(['middleware'=>['auth','3']],function()
     Route::get('/decision-accepter','ConfirmerpaieController@archive1');
     Route::get('/decision-refuser','ConfirmerpaieController@archive2');
     Route::put('/confin/{id}','ConfirmerpaieController@valider');
+    Route::get('/planningp', 'ImportExcelController@indexP');
+
 
    });
 

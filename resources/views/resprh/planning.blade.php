@@ -1,28 +1,12 @@
-@extends('layouts.nav1')
-
+@extends('layouts.nav2')
 @section('title')
-Planning
+planning
 @endsection
-
 @section('content')
-<div class="container">
-<div >Planning</div>
-<div class="card-body">
-<div class="row">
-<div class="col-4">
-<a href="/export" class="btn btn-success">Exporter XLSX</a></div>
-<div class="col-4">
-<form action="/import" method="POST" enctype="multipart/form-data">
-@csrf
-
-<input type="file" name="import_file">
-
-<input type="submit" name="import" value="import" class="btn btn-success" >
-</form>
-</div>
-</div>
+<h4>Plannind de travail </h4>
+<br>
 <table class="table">
-<thead>
+<thead class="thead-dark">
 <tr>
 <th>Agent</th>
 <th>lundi</th>
@@ -34,7 +18,7 @@ Planning
 <th>Dimanche</th>
 </tr>
 </thead>
-<tbody>
+<tbody class="thead-light">
 @forelse($data as $data)
 <tr>
 <td>{{$data->user}}</td>
@@ -51,7 +35,4 @@ Planning
 @endforelse
 </tbody>
 </table>
-</div>
-</div>
-
 @endsection

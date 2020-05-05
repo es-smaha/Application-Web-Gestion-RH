@@ -106,7 +106,7 @@ The above copyright notice and this permission notice shall be included in all c
             </a>
           </li>
           <li class="{{'planning' == request()->path() ? 'active' : ''}}"  class="nav-item ">
-            <a class="nav-link" href="/planning">
+            <a class="nav-link" href="/planningR">
               <i class="material-icons">bubble_chart</i>
               <p>Planning de travail</p>
             </a>

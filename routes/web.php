@@ -99,11 +99,6 @@ Route::group(['middleware'=>['auth','2']],function()
           
     Route::get('/planningrh', 'ImportExcelController@indexRH');
     
-           
-            
-
-
-
         });
 
 
@@ -122,6 +117,4 @@ Route::group(['middleware'=>['auth','3']],function()
     Route::get('/planningp', 'ImportExcelController@indexP');
 
 
-   });
-
-
+   });});

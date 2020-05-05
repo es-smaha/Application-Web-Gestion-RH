@@ -124,7 +124,7 @@ The above copyright notice and this permission notice shall be included in all c
         </a></div>
       <div class="sidebar-wrapper">
         <ul class="nav">
-          <li class="{{'dashboard2'==request()->path()?'active':''}}">
+          <li class="{{'dashboard'==request()->path()?'active':''}}">
             <a class="nav-link" href="/dashboard">
               <i class="material-icons">dashboard</i>
               <p>Dashboard</p>
@@ -132,36 +132,36 @@ The above copyright notice and this permission notice shall be included in all c
           </li>
           <li class="{{'demande-conge'==request()->path()?'active':''}} ">
             <a class="nav-link" href="/demande-conge">
-              <i class="material-icons">person</i>
-              <p>Demande de Congee</p>
+              <i class="material-icons">exit_to_app</i>
+              <p>Demande de Congé</p>
             </a>
           </li>
 
-          <li class="nav-item ">
+          <li class="{{'conge-accepter'==request()->path()?'active':''}} " class="nav-item ">
             <a class="nav-link" href="/conge-accepter">
-              <i class="material-icons">content_paste</i>
+              <i class="material-icons">folder</i>
               <p>Demandes Conge pret</p>
             </a>
           </li>
-          <li class="nav-item ">
+          <li class="{{'conge-refuser'==request()->path()?'active':''}} " class="nav-item ">
             <a class="nav-link" href="/conge-refuser">
-              <i class="material-icons">library_books</i>
+              <i class="material-icons">folder</i>
               <p> demandes conge refuser</p>
             </a>
           </li>
         
-          <li class="nav-item ">
+          <li class="{{'events'==request()->path()?'active':''}} " class="nav-item ">
             <a class="nav-link" href="/events">
-            <span class="material-icons">calendar_today</span>
-              Calendrier
+              <i class="material-icons">event</i>
+              <p> Calendrier</p>
             </a>
           </li>
        
             </a>
           </li>
-          <li class="nav-item ">
-            <a class="nav-link" href="./notifications.html">
-              <i class="material-icons">notifications</i>
+          <li  class="{{'/conge-refuser'==request()->path()?'active':''}} " class="nav-item ">
+            <a class="nav-link" href="/ex">
+              <i class="material-icons">schedule</i>
               <p>Planning Travail</p>
             </a>
           </li>

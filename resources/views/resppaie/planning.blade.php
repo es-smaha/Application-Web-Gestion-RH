@@ -1,4 +1,4 @@
-@extends('layouts.nav1')
+@extends('layouts.nav3')
 @section('title')
 
 @endsection
@@ -7,11 +7,8 @@
 <div class="container">
 <div class="card-header">Planning</div>
 <div class="card-body">
-<form action="/import" method="POST" enctype="multipart/form-data">
-@csrf
-<input type="file" name="import_file">
-<br>
-<input type="submit" name="import" value="import" class="btn btn-success" >
+
+
 </form>
 <table id="example" class="table">
 <thead>

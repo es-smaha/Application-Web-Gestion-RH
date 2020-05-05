@@ -88,45 +88,41 @@ The above copyright notice and this permission notice shall be included in all c
             </a>
           </li>
           <li class="{{'users'==request()->path()?'active':''}} ">
+            <a class="nav-link" href="/liste-agent">
+              <i class="material-icons">person</i>
+              <p>Liste Agent </p>
+            </a>
+          </li>
+          <li class="{{'users'==request()->path()?'active':''}} ">
             <a class="nav-link" href="/confin">
               <i class="material-icons">person</i>
               <p>Demandes de conges</p>
             </a>
           </li>
-          <li class="nav-item ">
-            <a class="nav-link" href="/desision-accepter">
-              <i class="material-icons">content_paste</i>
-              <p> demandes accepter</p>
-            </a>
-          </li>
+
+      
           <li class="nav-item ">
             <a class="nav-link" href="/desision-accepter">
               <i class="material-icons">library_books</i>
-              <p>demande refuser </p>
+              <p>demandes conge pret </p>
             </a>
           </li>
           <li class="nav-item ">
-            <a class="nav-link" href="./icons.html">
-              <i class="material-icons">bubble_chart</i>
-              <p>Icons</p>
+            <a class="nav-link" href="/planning">
+              <i class="material-icons">library_books</i>
+              <p>Planning de travail</p>
             </a>
           </li>
           <li class="nav-item ">
-            <a class="nav-link" href="./map.html">
-              <i class="material-icons">location_ons</i>
-              <p>demandes de conge</p>
+            <a class="nav-link" href="/calendrie-conge">
+              <i class="material-icons">calendar</i>
+              <p>calendrier conge</p>
             </a>
           </li>
           <li class="nav-item ">
-            <a class="nav-link" href="./notifications.html">
-              <i class="material-icons">notifications</i>
-              <p>Archives demandes acceptee</p>
-            </a>
-          </li>
-          <li class="nav-item ">
-            <a class="nav-link" href="./rtl.html">
-              <i class="material-icons">language</i>
-              <p>Archives demandes refuser</p>
+            <a class="nav-link" href="/reclamation-agent">
+              <i class="material-icons">library_books</i>
+              <p>reclamations</p>
             </a>
           </li>
     

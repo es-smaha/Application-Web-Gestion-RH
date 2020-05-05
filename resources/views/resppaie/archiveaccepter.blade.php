@@ -71,15 +71,57 @@
 <td>{{$conge->datedebut}}   <b >a </b> {{$conge->datefin}}</td>
 <td>  {{$conge->jour}}</td>
 <td>  {{$conge->user->jour}}</td>
-<td>  {{$conge->user->solde}}</td>
+<td>  {{$conge->user->solde}}
+
+<button type="button" rel="tooltip" id="#update"  data-toggle="modal" data-target="#update" title="update" class="btn btn-danger btn-link btn-sm">
+                                                        <span class="material-icons">update</span></button>
+
+</td>
 
 <td>{{$conge->created_at}}</td>
 
 
 <td> <span class="badge badge-success">accepter</span> </td>
 <td> <span class="badge badge-success">accepter </span> </td>
+<!-- update conge -->
+<div class="modal modal-danger fade " id="update" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">confirmations</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+  
+        <form  action="/solde" method="POST">
+        @csrf
+        @method('PUT')
+        <div class="modal-body">
+        <input type="hidden" name="conge_id" id="user_id" value="{{$conge->id}}">
+          <div class="form-control">
+                     
+                     <label for="message-text"   class="col-form-label">solde conge</label>
+                     <input type="text"   name="solde" id="user_id" value="{{$conge->user->solde}}">
+                     
+                     </div>
+                     <div class="form-control">
+                     <label for="message-text"   class="col-form-label">jour consommer</label>
+                     <input type="text"   name="jour" id="user_id" value="{{$conge->user->jour}}">
+                     
+                     </div>
+        </div>
 
-
+          <div class="modal-footer">
+        
+        <button type="submit"  onclick="md.showNotificationn('top','center')" class="btn btn-warning">Modifier</button>
+      </div>
+          
+        </form>
+      </div>
+     
+    </div>
+  </div>
 
 
 

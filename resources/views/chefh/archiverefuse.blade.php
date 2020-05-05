@@ -140,7 +140,7 @@
         <div class="modal-body">
             <p>Ercire Une justification de refus </p>
               <input type="hidden" name="conge_id" value='{{$conge->id}}'>
-            <div class="form-group">
+            <div class="form-control">
             <label for="message-text"   class="col-form-label">justification</label>
             <textarea   name="justification" class="form-control" id="message-text"></textarea>
           </div>

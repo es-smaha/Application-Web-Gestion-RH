@@ -112,7 +112,12 @@ Route::group(['middleware'=>['auth','3']],function()
     Route::get('/decision-accepter','ConfirmerpaieController@archive1');
     Route::get('/decision-refuser','ConfirmerpaieController@archive2');
     Route::put('/confin/{id}','ConfirmerpaieController@valider');
-
+    Route::put('/solde','ConfirmerpaieController@update');
+    Route::get('/planning', 'ConfirmerpaieController@planning');
+    Route::get('/calendrie-conge', 'ConfirmerpaieController@calendar');
+    Route::get('/liste-agent', 'ConfirmerpaieController@agent');
+    Route::get('/liste-agent/{id}', 'ConfirmerpaieController@show');
+    Route::get('/reclamation-agent', 'ConfirmerpaieController@reclamation');
    });
 
 

@@ -62,6 +62,7 @@
                                           <th>solde Conge</th>
                                                <th>date creation</th>
                                                   <th>Etat</th>
+                                                  <th>Confirmation Rh</th>
                                                   <th><span class="material-icons">loupe</span></th>
                                
                                 <th>pdf</th>
@@ -75,10 +76,15 @@
                                <td>{{$conge->typeconge->nom}}</td>
                                   <td>{{$conge->datedebut}}   <b >a </b> {{$conge->datefin}}</td>
                                       <td>  {{$conge->jour}}</td>
-                                         <td>  {{$conge->user->jour}}</td>
-                                            <td>  {{$conge->user->solde}}</td>
+                                         <td>  {{$conge->user->jour}} </td>
+                                            <td>  {{$conge->user->solde}} (-{{$conge->jour}})</td>
                                                <td>{{$conge->created_at}}</td>
                                                <td> <span class="badge badge-success">Accepter</span> </td>
+                                               @if($conge->decision==false)
+                                               <td> <span class="badge badge-warning">en attente</span> </td>
+                                               @else
+                                               <td> <span class="badge badge-success">Accepter</span> </td>
+                                               @endif
                                                 <td >  <a href="/us/{{$conge->id}}" ><span class="material-icons warnning">loupe</span></td>
                                               
                                                @if($conge->pdf==0)

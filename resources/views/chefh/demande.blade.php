@@ -72,7 +72,7 @@
 <td>{{$conge->datedebut}}   <b >a </b> {{$conge->datefin}}</td>
 <td>  {{$conge->jour}}</td>
 <td>  {{$conge->user->jour}}</td>
-<td>  {{$conge->user->solde}}</td>
+<td>  {{$conge->user->solde}} </td>
 <td>{{$conge->created_at}}</td>
 
 

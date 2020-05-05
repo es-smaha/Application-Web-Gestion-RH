@@ -24,14 +24,11 @@ Auth::routes();
 Route::resource('conge', 'DemandecongeController');
 Route::resource('/profil','ProfilController');
 Route::resource('/reclamation','reclamationController');
-Route::get('/x', function () {
-    $user=Auth::user();
-     foreach($user->notifications as $notification){
-         $notification->markAsRead();
-     }
-    //$user->notify(new App\Notifications\Useredemandeconge( App\User::findOrFail(2)));
-    
-});
+Route::get('/planningR', 'ImportExcelController@indexA');
+
+//
+   
+
 //
    
 Route::group(['middleware'=>['auth','1']],function()
@@ -91,12 +88,8 @@ Route::group(['middleware'=>['auth','2']],function()
     Route::get('/admi', function(){
             return view('resprh.rerh.admini');});
           
-          
-           
-            
-
-
-
+    Route::get('/planningrh', 'ImportExcelController@indexRH');
+    
         });
 
 

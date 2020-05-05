@@ -1,4 +1,4 @@
-@extends('layouts.nav3')
+@extends('layouts.nav2')
 @section('title')
 planning
 @endsection

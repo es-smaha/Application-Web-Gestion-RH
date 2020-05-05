@@ -45,7 +45,7 @@ class UserController extends Controller
             'dateembauche' => ['required', 'date'],
             'solde' => ['required', 'max:30'],
        
-            'email' => ['required', 'string', 'max:8', 'unique:users'],
+            'email' => ['required', 'string', 'unique:users'],
             'image'=>'image|nullable|max:1999|',
             //'password' => ['required', 'string', 'min:8', 'confirmed'],
            //mimes:doc,pdf,docx,png,jpg

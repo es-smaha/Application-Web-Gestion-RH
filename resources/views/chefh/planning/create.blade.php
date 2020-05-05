@@ -1,16 +1,23 @@
 @extends('layouts.nav1')
 @section('title')
 
+@section('title')
+Planning
 @endsection
 
 @section('content')
 <div class="container">
-<div class="card-header">Planning</div>
+<div >Planning</div>
 <div class="card-body">
+<div class="row">
+<div class="col-4">
+<a href="/export" class="btn btn-success">Exporter XLSX</a></div>
+<div class="col-4">
 <form action="/import" method="POST" enctype="multipart/form-data">
 @csrf
+
 <input type="file" name="import_file">
-<br>
+
 <input type="submit" name="import" value="import" class="btn btn-success" >
 </form>
 <table id="example" class="table">
@@ -27,7 +34,7 @@
 </tr>
 </thead>
 <tbody>
-@foreach($data as $data)
+@forelse($data as $data)
 <tr>
 <td>{{$data->user}}</td>
 <td>{{$data->lundi}}</td>
@@ -38,7 +45,9 @@
 <td>{{$data->samedi}}</td>
 <td>{{$data->dimanche}}</td>
 </tr>
-@endforeach
+@empty
+<tr><td>No Data</td></tr>
+@endforelse
 </tbody>
 </table>
 </div>

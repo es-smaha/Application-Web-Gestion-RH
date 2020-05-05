@@ -17,6 +17,12 @@ class EventController extends Controller
     public function index()
     {
         $events=Event::all();
+    //     $events->insert( [
+    //    "title"=>"et",
+    //     "color"=>"red",
+    //     "start_date"=>"",
+    //     "end_date"=>"",
+    //     ] );
     
         
        if(count($events)>0) {

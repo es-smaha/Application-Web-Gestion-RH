@@ -19,7 +19,7 @@
 <th>Supprimer</th>
 </tr>
 </thead>
-@foreach($events as $events)
+@forelse($events as $events)
 <tbody>
 <tr>
 <td>{{$events->id}}</td>
@@ -40,9 +40,12 @@
 </form>
 </th>
 </tr>
+@empty
+No data
+@endforelse
 
 </tbody>
-@endforeach
+
 </table>
 </div>
 

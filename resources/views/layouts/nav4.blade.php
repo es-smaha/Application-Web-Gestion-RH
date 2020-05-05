@@ -76,42 +76,42 @@ The above copyright notice and this permission notice shall be included in all c
 
         Tip 2: you can also add an image using data-image tag
     -->
-      <div class="logo"><a href="http://www.creative-tim.com" class="simple-text logo-normal">
-         Espace Agent
+      <div class="logo"><a href="" class="simple-text logo-normal">
+      Bonjour {{auth::user()->name}} <br>  
         </a></div>
       <div class="sidebar-wrapper">
         <ul class="nav">
-          <li class="{{'dashboard2'==request()->path()?'active':''}}">
+          <li class="{{'home'==request()->path()?'active':''}}">
             <a class="nav-link" href="/home">
               <i class="material-icons">dashboard</i>
               <p>Dashboard</p>
             </a>
           </li>
-          <li class="{{'users'==request()->path()?'active':''}} ">
+          <li class="{{'doc'==request()->path()?'active':''}} ">
             <a class="nav-link" href="/doc">
-              <i class="material-icons">person</i>
+              <i class="material-icons">description</i>
               <p> documents administratifs</p>
             </a>
           </li>
-          <li class="nav-item ">
+          <li class="{{'conge' == request()->path() ? 'active' : ''}}"  class="nav-item ">
             <a class="nav-link" href="/conge">
-              <i class="material-icons">content_paste</i>
+              <i class="material-icons">exit_to_app</i>
               <p>Demande Congee</p>
             </a>
           </li>
-          <li class="nav-item ">
+          <li class="{{'profil' == request()->path() ? 'active' : ''}}" class="nav-item ">
             <a class="nav-link" href="/profil">
               <i class="material-icons">account_circle</i>
-              <p>Prophile </p>
+              <p>Profile </p>
             </a>
           </li>
-          <li class="nav-item ">
-            <a class="nav-link" href="./icons.html">
+          <li class="{{'planning' == request()->path() ? 'active' : ''}}"  class="nav-item ">
+            <a class="nav-link" href="/planning">
               <i class="material-icons">bubble_chart</i>
               <p>Planning de travail</p>
             </a>
           </li>
-          <li class="nav-item ">
+          <li class="{{'reclamation' == request()->path() ? 'active' : ''}}" class="nav-item ">
             <a class="nav-link" href="/reclamation">
               <i class="material-icons">local_post_office</i>
               <p>Reclamation</p>
@@ -147,14 +147,6 @@ The above copyright notice and this permission notice shall be included in all c
               </div>
             </form>
             <ul class="navbar-nav">
-              <li class="nav-item">
-                <a class="nav-link" href="javascript:;">
-                  <i class="material-icons">dashboard</i>
-                  <p class="d-lg-none d-md-block">
-                    Stats
-                  </p>
-                </a>
-              </li>
               <li class="nav-item dropdown">
                 <a class="nav-link" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   <i class="material-icons">notifications</i>
@@ -192,8 +184,7 @@ The above copyright notice and this permission notice shall be included in all c
                   </p>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownProfile">
-                  <a class="dropdown-item" href="#">Profile</a>
-                  <a class="dropdown-item" href="#">Settings</a>
+                  <a class="dropdown-item" href="/profil">Profile</a>
                   <div class="dropdown-divider"></div>
                
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>

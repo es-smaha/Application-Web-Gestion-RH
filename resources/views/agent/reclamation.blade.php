@@ -51,9 +51,9 @@
                                 <i class="material-icons">close</i>
                               </button></td>
                               @endif
-                              @endif</div>
+                              </div>
                        <p >{{$rec->created_at->diffforHumans()}} <b>par </b> <span class="badge badge-pill badge-primary">{{$rec->user->name}} {{$rec->user->prenom}}</span> </p>  
-                    
+                       @endif
                  
 
             

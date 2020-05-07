@@ -64,13 +64,24 @@ The above copyright notice and this permission notice shall be included in all c
 .text-primary {
     color: black!important;
 }
+
+.sidebar .nav li a, .sidebar .nav li .dropdown-menu a {
+    margin: 10px 15px 0;
+    border-radius: 3px;
+    color: #fafafa;
+    padding-left: 10px;
+    padding-right: 10px;
+    text-transform: capitalize;
+    font-size: 13px;
+    padding: 10px 15px;
+}
     </style>
   
 </head>
 
 <body class="">
   <div class="wrapper">
-    <div class="sidebar" data-color="" data-background-color="white" data-image="../assets/img/sidebar-5.jpg">
+    <div class="sidebar" data-color="green" data-background-color="black" data-image="../assets/img/sidebar-5.jpg">
       <!--
         Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
 

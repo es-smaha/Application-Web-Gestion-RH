@@ -164,7 +164,7 @@ return [
         //fullcalendar
         MaddHatter\LaravelFullcalendar\ServiceProvider::class,
         Maatwebsite\Excel\ExcelServiceProvider::class,
-
+        UxWeb\SweetAlert\SweetAlertServiceProvider::class,
         /*
          * Package Service Providers...
          */
@@ -228,6 +228,7 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
+        'Alert' => UxWeb\SweetAlert\SweetAlert::class,
         //fullcalendar
         'Calendar' => MaddHatter\LaravelFullcalendar\Facades\Calendar::class,
         'Excel' => Maatwebsite\Excel\Facades\Excel::class,

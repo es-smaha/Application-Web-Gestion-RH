@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Typedocument;
 use carbon\carbon;
+use SweetAlert;
 use Illuminate\Http\Request;
 
 
@@ -48,8 +49,10 @@ class TypedocumentController extends Controller
         {
             $typedocuments->duree=Carbon::now();
         }
+     
         $typedocuments->save();
-        return redirect()->back()->with('success',' le type document est bien ajouté');
+        alert()->basic('Basic Message', 'Mandatory Title');
+        return redirect()->back();
       
     }
     
@@ -104,6 +107,6 @@ class TypedocumentController extends Controller
     {
         $typedocuments=Typedocument::find($id);
         $typedocuments->delete($id);
-        return redirect()->back()->with('alert', 'Updated!');
+        return redirect()->back();
     }
 }

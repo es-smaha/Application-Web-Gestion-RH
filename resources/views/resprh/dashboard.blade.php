@@ -20,7 +20,7 @@
   <div class="card_image"> <img src="https://cdn.icon-icons.com/icons2/9/PNG/256/calendar_office_day_1474.png" /> </div>
   <div class="card_title title-white">
   <a  data-toggle="modal"  data-target="#conge"><span class="material-icons" style="color:black" >add_circle</span></a>
-  <a data-toggle="modal"  data-target=".congeshow" ><span class="material-icons"  style="color:black">  remove_red_eye</span></a>
+  <a data-toggle="modal"  data-target="#congeshow" ><span class="material-icons"  style="color:black">  remove_red_eye</span></a>
   <a  href="/typedoc"  ><span class="material-icons" style="color:black">  create</span></a>
   </div>
   
@@ -34,7 +34,7 @@
     </div>
   <div class="card_title title-white">
   <a data-toggle="modal"  data-target="#document" ><span class="material-icons"  style="color:black">add_circle</span></a>
-  <a data-toggle="modal"  data-target=".docshow"  ><span class="material-icons"  style="color:black">  remove_red_eye</span></a>
+  <a data-toggle="modal"  data-target="#docshow"  ><span class="material-icons"  style="color:black">  remove_red_eye</span></a>
   <a  href="/typecon"  ><span class="material-icons" st style="color:black">  create</span></a>
   
   
@@ -48,7 +48,7 @@
   </div>
   <div class="card_title">
   <a data-toggle="modal"  data-target="#service" ><span class="material-icons" style="color:black">add_circle</span></a>
-  <a data-toggle="modal"   data-target=".serviceshow" ><span class="material-icons" style="color:black">  remove_red_eye</span></a>
+  <a    data-toggle="modal"  data-target="#serser"><span class="material-icons" style="color:black">  remove_red_eye</span></a>
   <a  href="/service"  ><span class="material-icons" style="color:black">  create</span></a>
    </div>
 </div>
@@ -69,11 +69,16 @@
     </div>
   <div class="card_title title-black">
   <a data-toggle="modal"  data-target="#document" ><span class="material-icons"  style="color:black">add_circle</span></a>
-  <a data-toggle="modal"  data-target=".docshow"  ><span class="material-icons"  style="color:black">  remove_red_eye</span></a>
+  <a data-toggle="modal"    ><span class="material-icons"  style="color:black">  remove_red_eye</span></a>
   <a  href="/users"  ><span class="material-icons" st style="color:black">  create</span></a>
   </div>
   </div>
 </div>
+
+<!--  -->
+
+
+
 
 
 
@@ -91,7 +96,8 @@
 
 <!-- type conge -->
 <div class="modal fade" id="conge" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
+  <div class="modal-dialog modal-sm" role="document">
+ 
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">Ajouter un type conge</h5>
@@ -189,26 +195,130 @@
   </div>
 </div>
 
-<!-- typeconge -->
+<!-- service -->
 
-
-<div class="modal fade congeshow" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-sm">
+<!-- service show -->
+<div class="modal fade" id="serser" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
-  
-    <div class="col-lg-12 col-md-12">
-              <div class="card">
-                <div class="card-header card-header-success">
-                  <h4 class="card-title">Type De Document</h4>
-                
-                </div>
-                <div class="card-body table-responsive">
-                  <table class="table table-hover">
+      <div class="modal-header">
+      <h5 class="modal-title" id="exampleModalLongTitle">Gestion Service</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      <table class="table table-hover">
+                    <thead class="text-success">
+                      <th>ID</th>
+                      <th>Name</th>
+                     
+                    </thead>
+                    <tbody>
+                      
+
+                       @if(count($services)>0)
+                    @foreach($services as $service)
+    <tr>
+      <td >{{$service->id}}</td>
+      <td>{{$service->nom}}</td>
+
+      <td class="td-actions text-right">
+       
+
+          <button type="submit" rel="tooltip" title="Remove" class="btn btn-danger btn-link btn-sm" data-userid="{{$service->id}}" data-toggle="modal" data-target="#delete" >
+        <i class="material-icons">close</i> </button>
+      </td>
+      
+    </tr>
+   @endforeach
+
+   @else
+   <td >no data</td>
+      <td>no data</td>
+   @endif
+
+                    </tbody>
+                  </table>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+     
+      </div>
+    </div>
+  </div>
+</div>
+  <!-- document -->
+
+
+<div class="modal fade" id="docshow" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Gestion Documents Administratives</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      <table class="table table-hover">
+                  
+                    <thead class="text-success">
+                      <th>ID</th>
+                      <th>Name</th>
+                      <th>Nombre maximale   <br> par Periode</th>
+                        <th>Periode( Year/Month)</th>
+           
+                    </thead>
+                    <tbody>
+                      
+                         @if(count($typedocuments)>0)
+                    @foreach($typedocuments as $typedocument)
+    <tr>
+      <td >{{$typedocument->id}}</td>
+      <td>{{$typedocument->name}}</td>
+      <td>{{$typedocument->max}}</td>
+      <td>{{$typedocument->periode}}</td>
+    
+      
+    </tr>
+   
+                    
+                    @endforeach
+                    @else
+                    <td >no data</td>
+      <td>no data</td>
+
+@endif
+</tbody>
+                  </table>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="congeshow" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Gestion des Types conges</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      <table class="table table-hover">
                  
                     <thead class="text-success">
                       <th>ID</th>
                      <th>Name</th> 
-                     <th><th>
+                 
                      
                     </thead>
                     <tbody>
@@ -226,127 +336,14 @@
 
                     </tbody>
                   </table>
-                    </div>
-                  </div>
-                </div>
-            
-
-    </div>
-  </div>
-</div>
-<!--  -->
-<div class="modal fade docshow" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-lg">
-    <div class="modal-content">
-  
-                <div class="card-body table-responsive">
-                 
-<div class="row">
-            <div class="col-lg-12 col-md-12">
-              <div class="card">
-                <div class="card-header card-header-success">
-                  <h4 class="card-title">Type De Document</h4>
-                
-                </div>
-             
-                <div class="card-body table-responsive">
-                  <table class="table table-hover">
-                  
-                    <thead class="text-success">
-                      <th>ID</th>
-                      <th>Name</th>
-                      <th>Nombre maximale   <br> par Periode</th>
-                        <th>Periode( Year/Month)</th>
-                        
-                      <th>action</th>
-                    </thead>
-                    <tbody>
-                      
-                         @if(count($typedocuments)>0)
-                    @foreach($typedocuments as $typedocument)
-    <tr>
-      <td >{{$typedocument->id}}</td>
-      <td>{{$typedocument->name}}</td>
-      <td>{{$typedocument->max}}</td>
-      <td>{{$typedocument->periode}}</td>
-      <td class="td-actions text-right">
-        <button type="button" rel="tooltip" title="Editer" data-toggle="modal"  data-target="#edit" class="btn btn-success btn-link btn-sm">
-            <i class="material-icons">edit</i> </button>
-
-          <button type="submit" rel="tooltip" title="Remove" class="btn btn-danger btn-link btn-sm" data-userid="{{$typedocument->id}}" data-toggle="modal" data-target="#delete" >
-        <i class="material-icons">close</i> </button>
-      </td>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
       
-    </tr>
-   
-                    
-                    @endforeach
-                    @else
-                    <td >no data</td>
-      <td>no data</td>
-
-@endif
-</tbody>
-                  </table>
-                    </div>
-                  </div>
-                </div>
-            
-
+      </div>
     </div>
   </div>
 </div>
-    </div>
-<!-- lllll -->
-<div class="modal fade serviceshow" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-lg">
-    <div class="modal-content">
-  
-                <div class="card-body table-responsive">
-                 
-<div class="row">
-            <div class="col-lg-12 col-md-12">
-              <div class="card">
-                <div class="card-header card-header-success">
-                  <h4 class="card-title">Type De Document</h4>
-                
-                </div>
-             
-                <div class="card-body table-responsive">
-                  <table class="table table-hover">
-                  
-                    <thead class="text-success">
-                      <th>ID</th>
-                      <th>Name</th>
-                      <th>Nombre maximale   <br> par Periode</th>
-                        <th>Periode( Year/Month)</th>
-                        
-                      <th>action</th>
-                    </thead>
-                    <tbody>
-           
-  
-   
-               
-</tbody>
-                  </table>
-                    </div>
-                  </div>
-                </div>
-            
-
-    </div>
-  </div>
-</div>
-    </div>
-
-
-
-
-
-
-
-
 
 
 @endsection

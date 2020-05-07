@@ -28,8 +28,90 @@ The above copyright notice and this permission notice shall be included in all c
   <link href="../assets/css/material-dashboard.css?v=2.1.2" rel="stylesheet" />
   <!-- CSS Just for demo purpose, don't include it in your project -->
   <link href="../assets/demo/demo.css" rel="stylesheet" />
+   
     <style>
-      
+/* lll */
+
+.cards-listt {
+  z-index: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.cardi {
+  margin: 30px auto;
+  width: 250px;
+  height: 250px;
+  border-radius: 40px;
+box-shadow: 5px 5px 30px 7px rgba(0,0,0,0.25), -5px -5px 30px 7px rgba(0,0,0,0.22);
+  cursor: pointer;
+  transition: 0.4s;
+}
+
+.cardi .card_image {
+  width: inherit;
+  height: inherit;
+  border-radius: 40px;
+}
+
+.cardi .card_image img {
+  width: inherit;
+  height: inherit;
+  border-radius: 40px;
+  object-fit: cover;
+}
+
+.cardi .card_title {
+  text-align: center;
+  border-radius: 0px 0px 40px 40px;
+  font-family: sans-serif;
+  font-weight: bold;
+  font-size: 30px;
+  margin-top: -80px;
+  height: 40px;
+}
+
+.cardi:hover {
+  transform: scale(0.9, 0.9);
+  box-shadow: 5px 5px 30px 15px rgba(0,0,0,0.25), 
+    -5px -5px 30px 15px rgba(0,0,0,0.22);
+}
+
+.title-white {
+  color: white;
+}
+
+.title-black {
+  color: black;
+}
+
+@media all and (max-width: 500px) {
+  .card-listt {
+    /* On small screens, we are no longer using row direction but column */
+    flex-direction: column;
+  }
+}
+
+
+/*
+.card {
+  margin: 30px auto;
+  width: 300px;
+  height: 300px;
+  border-radius: 40px;
+  background-image: url('https://i.redd.it/b3esnz5ra34y.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-repeat: no-repeat;
+box-shadow: 5px 5px 30px 7px rgba(0,0,0,0.25), -5px -5px 30px 7px rgba(0,0,0,0.22);
+  transition: 0.4s;
+}
+*/
+
+/* ;;; */
       .card .card-header-primary .card-icon, .card .card-header-primary .card-text, .card .card-header-primary:not(.card-header-icon):not(.card-header-text), .card.bg-primary, .card.card-rotate.bg-primary .front, .card.card-rotate.bg-primary .back {
         background: linear-gradient(60deg, #649e85, #439c84);
 }
@@ -64,13 +146,23 @@ The above copyright notice and this permission notice shall be included in all c
 .text-primary {
     color: black!important;
 }
+.sidebar .nav li a, .sidebar .nav li .dropdown-menu a {
+    margin: 10px 15px 0;
+    border-radius: 3px;
+    color: #fafafa;
+    padding-left: 10px;
+    padding-right: 10px;
+    text-transform: capitalize;
+    font-size: 13px;
+    padding: 10px 15px;
+}
     </style>
   
 </head>
 
 <body class="">
   <div class="wrapper">
-    <div class="sidebar" data-color="" data-background-color="white" data-image="../assets/img/sidebar-5.jpg">
+    <div class="sidebar" data-color="green" data-background-color="black" data-image="../assets/img/sidebar-5.jpg">
       <!--
         Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
 
@@ -93,12 +185,7 @@ The above copyright notice and this permission notice shall be included in all c
               <p>Annuaire telephonque</p>
             </a>
           </li>
-          <li class="nav-item ">
-            <a class="nav-link" href="/admi">
-              <i class="material-icons">content_paste</i>
-              <p>Administration</p>
-            </a>
-          </li>
+     
           <li class="nav-item ">
             <a class="nav-link" href="/docum">
               <i class="material-icons">library_books</i>
@@ -111,7 +198,25 @@ The above copyright notice and this permission notice shall be included in all c
               <p>cal</p>
             </a>
           </li>
+          <li class="{{'profil' == request()->path() ? 'active' : ''}}" class="nav-item ">
+            <a class="nav-link" href="/Myprophil">
+              <i class="material-icons">account_circle</i>
+              <p>Profile </p>
+            </a>
+          </li>
+          <li class="{{'profil' == request()->path() ? 'active' : ''}}" class="nav-item ">
+            <a class="nav-link" href="/Reclamationn">
+              <i class="material-icons">account_circle</i>
+              <p>Reclamation </p>
+            </a>
+          </li>
          
+          <li class="{{'profil' == request()->path() ? 'active' : ''}}" class="nav-item ">
+            <a class="nav-link" href="/ /planningrh">
+              <i class="material-icons">account_circle</i>
+              <p>Planning</p>
+            </a>
+          </li>
         </ul>
       </div>
     </div>
@@ -309,6 +414,7 @@ The above copyright notice and this permission notice shall be included in all c
   <script src="../assets/js/material-dashboard.js?v=2.1.2" type="text/javascript"></script>
   <!-- Material Dashboard DEMO methods, don't include it in your project! -->
   <script src="../assets/demo/demo.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js"></script>
   <script>
     $(document).ready(function() {
       $().ready(function() {
@@ -489,6 +595,16 @@ The above copyright notice and this permission notice shall be included in all c
 
     });
   </script>
+    <script>
+     var msg = '{{Session::get('alert')}}';
+    var exist = '{{Session::has('alert')}}';
+    if(exist){
+      alert(msg);
+    }
+    
+    
+    
+    </script>
  
   @yield('scripts')
  

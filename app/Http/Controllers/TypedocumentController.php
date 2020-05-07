@@ -49,7 +49,7 @@ class TypedocumentController extends Controller
             $typedocuments->duree=Carbon::now();
         }
         $typedocuments->save();
-        return redirect('typedoc')->with('success',' le type document est bien ajouté');
+        return redirect()->back()->with('success',' le type document est bien ajouté');
       
     }
     
@@ -90,7 +90,7 @@ class TypedocumentController extends Controller
         $typedocuments=Typedocument::find($id);
         $typedocuments->name=$request->input('name');
         $typedocuments->save();
-        return redirect('typedoc')->with('success','le Type document a ete modifie');
+        return redirect()->back()->with('success','le Type document a ete modifie');
     
     }
 
@@ -104,6 +104,6 @@ class TypedocumentController extends Controller
     {
         $typedocuments=Typedocument::find($id);
         $typedocuments->delete($id);
-        return redirect('typedoc')->with('success','le Type document a ete bien supprime');
+        return redirect()->back()->with('alert', 'Updated!');
     }
 }

@@ -5,7 +5,7 @@
 
 @section('content')
 <!--popup ajouter service-->
-<a class="btn btn-success" href="/admi"><span class="material-icons">
+<a class="btn btn-success" href="/dashboard2"><span class="material-icons">
 keyboard_backspace
 </span></a>
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">

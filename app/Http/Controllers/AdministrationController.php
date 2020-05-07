@@ -87,9 +87,9 @@ class AdministrationController extends Controller
      */
     public function destroy($id)
     {
-        $rec=  Reclamation::find($id);
-     
-         $rec->delete();
-        return redirect('Reclamationn')->with('fail', 'Votre reclamation a ete supprimer');
+          $rec=  Reclamation::find($id);
+       
+           $rec->delete($id);
+          return redirect('Reclamationn')->with('fail', 'Votre reclamation a ete supprimer');
     }
 }

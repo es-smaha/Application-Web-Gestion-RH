@@ -69,7 +69,8 @@ Route::group(['middleware'=>['auth','2']],function()
     {
        
     Route::get('/profilrh','ProfilController@indexrh'); 
-    Route::get('/reclamationr','reclamationController@indexRh');
+    //Route::get('/reclamationr','reclamationController@indexRh');
+    Route::delete('/reclamationr/{id}', 'reclamationController@destroyr');
     Route::get('/docum','RhdocumentController@index');
     Route::get('/document-pret','RhdocumentController@pret');
     Route::post('/pdf','RhdocumentController@pdf');
@@ -96,7 +97,7 @@ Route::group(['middleware'=>['auth','2']],function()
     Route::get('/Reclamationn', 'AdministrationController@reclamation');
     Route::post('/Reclamationn', 'AdministrationController@store');
     Route::put('/Reclamationn/{id}', 'AdministrationController@edit');
-    Route::delete('/Reclamationn/{$id}', 'AdministrationController@destroy');
+    Route::delete('/Reclamationn/{id}', 'AdministrationController@destroy');
         });
 
 

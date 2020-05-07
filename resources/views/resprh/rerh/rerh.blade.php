@@ -4,9 +4,9 @@
 @endsection
 
 @section('content')
-<!--popup ajouter service-->
-<br>
-<br>
+<a class="btn btn-success" href="/dashboard2"><span class="material-icons">
+keyboard_backspace
+</span></a>
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">

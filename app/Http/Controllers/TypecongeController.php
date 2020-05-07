@@ -94,7 +94,7 @@ class TypecongeController extends Controller
     {
         $typeconges=Typeconge::find($id);
         $typeconges->delete($id);
-        return redirect('typecon')->with('success','le type conge a ete bien supprime');
+        return redirect('typecon')->with('alert', 'Updated!');
     
     }
 }

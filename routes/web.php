@@ -89,8 +89,16 @@ Route::group(['middleware'=>['auth','2']],function()
             return view('resprh.rerh.admini');});
           
     Route::get('/planningrh', 'ImportExcelController@indexRH');
-    
+    Route::get('/dashboard2', 'AdministrationController@index');
+    //prophil
+    Route::get('/Myprophil', 'AdministrationController@profil');
+    Route::post('/Myprophil', 'AdministrationController@update');
+    Route::get('/Reclamationn', 'AdministrationController@reclamation');
+    Route::post('/Reclamationn', 'AdministrationController@store');
+    Route::put('/Reclamationn/{id}', 'AdministrationController@edit');
+    Route::delete('/Reclamationn/{$id}', 'AdministrationController@destroy');
         });
+
 
 
 

@@ -10,7 +10,7 @@
                 
                 </div>
                 <div class="card-body table-responsive">
-                    <a href="/profil"><span class="material-icons">add_circle</span>Ajouter une reclamation</a>
+                    <a href="/Myprophil"><span class="material-icons">add_circle</span>Ajouter une reclamation</a>
                 
                 </div>
               </div>
@@ -47,7 +47,7 @@
               <button type="button" data-toggle="modal"  data-target="#ajouter" rel="tooltip" title="Edit Task" class="btn btn-success btn-link btn-sm">
                                 <i class="material-icons">edit</i>
                               </button>
-                              <button type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-link btn-sm">
+                              <button type="button" rel="tooltip"data-toggle="modal"  data-target="#delete" title="Remove" class="btn btn-danger btn-link btn-sm">
                                 <i class="material-icons">close</i>
                               </button></td>
                               @endif
@@ -77,11 +77,12 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <form action="/reclamation/{{$rec->id}}" method="POST">
-      @method('PUT')
+      <form action="/Reclamationn/{{$rec->id}}" method="POST">
+      @method('DELETE')
                       
                       <div class="modal-body">
                       <div class="form-group">
+                        <input type="hidden" name="rec_id" value='{{$rec->id}}'>
     <label for="exampleInputEmail1">Titre</label>
     <input  name="titre" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{$rec->titre}}">
    
@@ -107,7 +108,38 @@
 </div>
   </div>
     
+            <!--delete  -->
             
+            <div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Confirmation</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form action="/Reclamationn/{{$rec->id}}" method="POST">
+      @method('DELETE')
+                      
+                      <div class="modal-body">
+                  
+   
+                            <p>etes vous sur de la supprimer ?</p>
+  
+                      </div>
+      <div class="modal-footer">
+  
+        <button type="submit" class="btn btn-success" onclick="md.showNotificationn('top','right')" >yes</button>
+      
+      </div>
+    </div>
+    @csrf
+   </form>
+  </div>
+</div>
+  </div>
+    
 
 @endforeach
             @endsection

@@ -1,5 +1,5 @@
 
-@extends('layouts.nav4')
+@extends('layouts.nav2')
 
 @section('content')
        
@@ -62,7 +62,7 @@
               </div>
            
             </div>
-            @endforeach
+
 
 
 
@@ -109,5 +109,5 @@
     
             
 
-
+@endforeach
             @endsection

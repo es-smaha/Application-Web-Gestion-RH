@@ -77,7 +77,7 @@ The above copyright notice and this permission notice shall be included in all c
         Tip 2: you can also add an image using data-image tag
     -->
       <div class="logo"><a href="http://www.creative-tim.com" class="simple-text logo-normal">
-         Responsable Rh
+         Chef Hierarchique
         </a></div>
       <div class="sidebar-wrapper">
         <ul class="nav">

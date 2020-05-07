@@ -1,5 +1,5 @@
 
-@extends('layouts.nav4')
+@extends('layouts.nav1')
 
 @section('content')
        
@@ -51,9 +51,9 @@
                                 <i class="material-icons">close</i>
                               </button></td>
                               @endif
-                              </div>
+                              @endif</div>
                        <p >{{$rec->created_at->diffforHumans()}} <b>par </b> <span class="badge badge-pill badge-primary">{{$rec->user->name}} {{$rec->user->prenom}}</span> </p>  
-                       @endif
+                    
                  
 
             
@@ -62,7 +62,7 @@
               </div>
            
             </div>
-            @endforeach
+
 
 
 
@@ -109,5 +109,5 @@
     
             
 
-
+@endforeach
             @endsection

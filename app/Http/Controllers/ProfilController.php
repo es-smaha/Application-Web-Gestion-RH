@@ -20,6 +20,27 @@ class ProfilController extends Controller
         $service=Service::all();
         return view("agent.prophile",['$user'=>$user,'service'=>$service]);
     }
+    public function indexh()
+    { 
+        $id=Auth()->user()->id;
+        $user=User::find($id);
+        $service=Service::all();
+        return view("chefh.profil",['$user'=>$user,'service'=>$service]);
+    }
+    public function indexrh()
+    { 
+        $id=Auth()->user()->id;
+        $user=User::find($id);
+        $service=Service::all();
+        return view("resprh.profil",['$user'=>$user,'service'=>$service]);
+    }
+    public function indexpaie()
+    { 
+        $id=Auth()->user()->id;
+        $user=User::find($id);
+        $service=Service::all();
+        return view("resppaie.profil",['$user'=>$user,'service'=>$service]);
+    }
 
     /**
      * Show the form for creating a new resource.
@@ -105,7 +126,7 @@ class ProfilController extends Controller
          $user = User::find($id);
         $user->image=$fileNameToStore;
          $user->save();
-         return "123";
+         return redirect()->back()->with('success', 'bien update');
     }
 
     /**

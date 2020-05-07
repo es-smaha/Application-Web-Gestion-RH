@@ -18,6 +18,19 @@ class reclamationController extends Controller
         $user=User::All();
         return view("agent.reclamation",['rec'=>$rec,'user'=>$user]);
     }
+    public function indexRh()
+    {
+        $rec=Reclamation::All();
+        $user=User::All();
+        return view("resprh.reclamation",['rec'=>$rec,'user'=>$user]);
+    }
+    public function indexH()
+    {
+        $rec=Reclamation::All();
+        $user=User::All();
+        return view("chefh.reclamation",['rec'=>$rec,'user'=>$user]);
+    }
+    
 
     /**
      * Show the form for creating a new resource.

@@ -34,8 +34,8 @@ Route::get('/planningR', 'ImportExcelController@indexA');
 Route::group(['middleware'=>['auth','1']],function()
     {
       
-
-        
+    Route::get('/profilh','ProfilController@indexh');
+    Route::get('/reclamationh','reclamationController@indexH');
     Route::get('/demande-conge','TraitedemandeController@index');
     Route::get('/conge-accepter','TraitedemandeController@accepter');
     Route::get('/conge-refuser','TraitedemandeController@refuser');
@@ -68,8 +68,9 @@ Route::group(['middleware'=>['auth','1']],function()
 Route::group(['middleware'=>['auth','2']],function()
     {
        
- 
-
+    Route::get('/profilrh','ProfilController@indexrh'); 
+    //Route::get('/reclamationr','reclamationController@indexRh');
+    Route::delete('/reclamationr/{id}', 'reclamationController@destroyr');
     Route::get('/docum','RhdocumentController@index');
     Route::get('/document-pret','RhdocumentController@pret');
     Route::post('/pdf','RhdocumentController@pdf');
@@ -96,7 +97,7 @@ Route::group(['middleware'=>['auth','2']],function()
     Route::get('/Reclamationn', 'AdministrationController@reclamation');
     Route::post('/Reclamationn', 'AdministrationController@store');
     Route::put('/Reclamationn/{id}', 'AdministrationController@edit');
-    Route::delete('/Reclamationn/{$id}', 'AdministrationController@destroy');
+    Route::delete('/Reclamationn/{id}', 'AdministrationController@destroy');
         });
 
 
@@ -104,6 +105,7 @@ Route::group(['middleware'=>['auth','2']],function()
 
 Route::group(['middleware'=>['auth','3']],function()
     {
+    Route::get('/profilpaie','ProfilController@indexpaie');
     Route::get('/dashboard3', function () {
         return view('resppaie.dashboard');});
     // cal

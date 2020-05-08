@@ -19,7 +19,7 @@
                       <div class="col-md-5">
                         <div class="form-group">
                           <label class="bmd-label-floating">Nom</label>
-                           <input type="text"  name="nom" class="form-control" id="recipient-name" value="{{$user->name}}">
+                           <input type="text"  name="name" class="form-control" id="recipient-name" value="{{$user->name}}">
                         </div>
                       </div>
                       <div class="col-md-3">

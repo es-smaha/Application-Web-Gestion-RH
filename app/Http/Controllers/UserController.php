@@ -19,6 +19,14 @@ class UserController extends Controller
         return view('Resprh.users.users',['user'=>$user,'services'=>$services]);
 
     }
+    public function service(Request $request){
+      
+      $ser=$request->cat_id;
+      $services=Service::where('id','=',$ser);
+      $user=User::where('service_id','=',$ser)->get();
+      return view('Resprh.users.parservice',['user'=>$user,'servicename'=>$user[0]->service->nom]) ;
+
+    }
     public function show($id){
         $user=User::find($id);
         $services=Service::All();
@@ -96,7 +104,7 @@ class UserController extends Controller
 
         $user=User::find($id);
         $service=Service::All();
-        $user->name=$request->input('nom ');
+        $user->name=$request->input('name');
         $user->prenom=$request->input('prenom');
         $user->kochef=$request->input('kochef');
         $user->cne=$request->input('cne');

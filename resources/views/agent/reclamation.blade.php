@@ -19,7 +19,7 @@
 
 @foreach($rec as $rec)
 
-<div class="col-lg-12 col-md-4 col-sm-4">
+<div class="col-lg-12  ">
  
               <div class="card card-stats">
                 <div class="card-header card-header-success card-header-icon">
@@ -42,7 +42,8 @@
                   </div>
                 </div>
                 <div class="card-footer">
-                  <div class="stats">        @if(!auth::guest())
+                  <div class="stats">
+             @if(!auth::guest())
               @if(auth::user()->id==$rec->user_id)
               <button type="button" data-toggle="modal"  data-target="#ajouter" rel="tooltip" title="Edit Task" class="btn btn-success btn-link btn-sm">
                                 <i class="material-icons">edit</i>
@@ -62,7 +63,7 @@
               </div>
            
             </div>
-            @endforeach
+
 
 
 
@@ -109,5 +110,5 @@
     
             
 
-
+@endforeach
             @endsection

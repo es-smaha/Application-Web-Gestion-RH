@@ -76,6 +76,7 @@ Route::group(['middleware'=>['auth','2']],function()
     Route::post('/pdf','RhdocumentController@pdf');
     Route::put('/docum/{id}','RhdocumentController@valider');
     Route::get('/users','UserController@index');
+    Route::get('/usersservice','UserController@service');
     Route::get('/create','UserController@create');
     Route::post('/save-agents','UserController@store');
     Route::get('/users/{id}','UserController@show');
@@ -98,7 +99,9 @@ Route::group(['middleware'=>['auth','2']],function()
     Route::post('/Reclamationn', 'AdministrationController@store');
     Route::put('/Reclamationn/{id}', 'AdministrationController@edit');
     Route::delete('/Reclamationn/{id}', 'AdministrationController@destroy');
-        });
+       
+
+});
 
 
 

@@ -19,7 +19,7 @@ class ResppaieMiddleware
         if(auth::User()->usertype=='3'){
             return $next($request);
         }else{
-            return redirect('/home')->with('status','vous n etes pas admin ');
+            return  redirect('/404error');
         }
     }
 }

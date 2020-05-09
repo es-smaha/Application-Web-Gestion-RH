@@ -39,9 +39,11 @@ class LoginController extends Controller
              return 'dashboard2';
         }else if(Auth::User()->usertype=='3') {
                 return 'dashboard3';
-        }else{
+        }else if(Auth::User()->usertype=='0') {
+            return 'home';
+          }else{
     
-        return 'home';
+        return  '404error';
         }
 }
 

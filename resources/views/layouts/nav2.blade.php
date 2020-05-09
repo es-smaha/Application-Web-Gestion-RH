@@ -149,7 +149,7 @@ box-shadow: 5px 5px 30px 7px rgba(0,0,0,0.25), -5px -5px 30px 7px rgba(0,0,0,0.2
 .sidebar .nav li a, .sidebar .nav li .dropdown-menu a {
     margin: 10px 15px 0;
     border-radius: 3px;
-    color: #fafafa;
+    color: black;
     padding-left: 10px;
     padding-right: 10px;
     text-transform: capitalize;
@@ -162,7 +162,7 @@ box-shadow: 5px 5px 30px 7px rgba(0,0,0,0.25), -5px -5px 30px 7px rgba(0,0,0,0.2
 
 <body class="">
   <div class="wrapper">
-    <div class="sidebar" data-color="green" data-background-color="black" data-image="../assets/img/sidebar-5.jpg">
+    <div class="sidebar" data-color="green" data-background-color="white" data-image="../assets/img/sidebar-5.jpg">
       <!--
         Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
 
@@ -173,23 +173,29 @@ box-shadow: 5px 5px 30px 7px rgba(0,0,0,0.25), -5px -5px 30px 7px rgba(0,0,0,0.2
         </a></div>
       <div class="sidebar-wrapper">
         <ul class="nav">
+        <li class="{{'Myprophil' == request()->path() ? 'active' : ''}}" class="nav-item ">
+            <a class="nav-link" href="/Myprophil">
+              <i class="material-icons">account_circle</i>
+              <p>Profile </p>
+            </a>
+          </li>
           <li class="{{'dashboard2'==request()->path()?'active':''}}">
             <a class="nav-link" href="/dashboard2">
-              <i class="material-icons">dashboard</i>
-              <p>Dashboard</p>
+            <i class="material-icons">build</i>
+              <p>Settings</p>
             </a>
           </li>
           <li class="{{'users'==request()->path()?'active':''}} ">
             <a class="nav-link" href="/users">
               <i class="material-icons">person</i>
-              <p>Annuaire telephonque</p>
+              <p>Gestion Agents</p>
             </a>
           </li>
      
-          <li class="nav-item ">
+          <li class="{{'/docum'==request()->path()?'active':''}} ">
             <a class="nav-link" href="/docum">
               <i class="material-icons">library_books</i>
-              <p>Documents Administratifs</p>
+              <p> Documents Administratifs</p>
             </a>
           </li>
           <li class="nav-item ">
@@ -198,22 +204,17 @@ box-shadow: 5px 5px 30px 7px rgba(0,0,0,0.25), -5px -5px 30px 7px rgba(0,0,0,0.2
               <p>cal</p>
             </a>
           </li>
-          <li class="{{'profil' == request()->path() ? 'active' : ''}}" class="nav-item ">
-            <a class="nav-link" href="/Myprophil">
-              <i class="material-icons">account_circle</i>
-              <p>Profile </p>
-            </a>
-          </li>
-          <li class="{{'profil' == request()->path() ? 'active' : ''}}" class="nav-item ">
+         
+          <li class="{{'Reclamationn' == request()->path() ? 'active' : ''}}" class="nav-item ">
             <a class="nav-link" href="/Reclamationn">
-              <i class="material-icons">account_circle</i>
+              <i class="material-icons">error_outline</i>
               <p>Reclamation </p>
             </a>
           </li>
          
-          <li class="{{'profil' == request()->path() ? 'active' : ''}}" class="nav-item ">
-            <a class="nav-link" href="/ /planningrh">
-              <i class="material-icons">account_circle</i>
+          <li class="{{'planningrh' == request()->path() ? 'active' : ''}}" class="nav-item ">
+            <a class="nav-link" href="/planningrh">
+              <i class="material-icons">event</i>
               <p>Planning</p>
             </a>
           </li>
@@ -282,8 +283,8 @@ box-shadow: 5px 5px 30px 7px rgba(0,0,0,0.25), -5px -5px 30px 7px rgba(0,0,0,0.2
                   </p>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownProfile">
-                  <a class="dropdown-item" href="#">Profile</a>
-                  <a class="dropdown-item" href="#">Settings</a>
+                  <a class="dropdown-item" href="/Myprophil">Profile</a>
+                  <a class="dropdown-item" href="/dashboard2">Settings</a>
                   <div class="dropdown-divider"></div>
                
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>

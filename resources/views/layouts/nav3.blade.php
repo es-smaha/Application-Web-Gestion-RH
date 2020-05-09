@@ -81,8 +81,8 @@ The above copyright notice and this permission notice shall be included in all c
         </a></div>
       <div class="sidebar-wrapper">
         <ul class="nav">
-          <li class="{{'dashboard2'==request()->path()?'active':''}}">
-            <a class="nav-link" href="/home">
+          <li class="{{'dashboard3'==request()->path()?'active':''}}">
+            <a class="nav-link" href="/dashboard3">
               <i class="material-icons">dashboard</i>
               <p>Dashboard</p>
             </a>

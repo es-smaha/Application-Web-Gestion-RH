@@ -63,6 +63,7 @@ class Kernel extends HttpKernel
         '1' => \App\Http\Middleware\ChefhMiddleware::class,
         '2' => \App\Http\Middleware\ResprhMiddleware::class,
         '3' => \App\Http\Middleware\ResppaieMiddleware::class,
+        '0' => \App\Http\Middleware\AgentMiddleware::class,
     ];
 
     /**

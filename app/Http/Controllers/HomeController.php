@@ -30,9 +30,20 @@ class HomeController extends Controller
             Auth::user()->save();
             return view('change');
 
-        }else{
-        return view('home');
+        }else if(Auth::user()->first_time_login==true && Auth::user()->usertype=='1' ){
+        return view('dashboard');
 
-        }
+        }else if(Auth::user()->first_time_login==true && Auth::user()->usertype=='2' ){
+            return view('dashboard2');
+    
+            }else if(Auth::user()->first_time_login==true && Auth::user()->usertype=='3' ){
+                return view('dashboard3');
+        
+                }else if(Auth::user()->first_time_login==true && Auth::user()->usertype=='0' ){
+                    return view('home');
+            
+                    }else{
+                        return view('404error');
+                    }
     }
 }

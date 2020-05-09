@@ -15,18 +15,11 @@
 Route::get('/', function () {
     return view('auth.login');
 });
-
-Route::resource('doc', 'DocumentController');
 Route::get('/change','auth\ChangePasswordController@index');
 Route::post('/update-password','auth\ChangePasswordController@passwordupdate');
-Route::get('/home','HomeController@index')->name('home');
 Auth::routes();
-Route::resource('conge', 'DemandecongeController');
-Route::resource('/profil','ProfilController');
-Route::resource('/reclamation','reclamationController');
-Route::get('/planningR', 'ImportExcelController@indexA');
-
-//
+Route::get('/404error', function () {
+    return view('notfound');});
    
 
 //
@@ -103,9 +96,21 @@ Route::group(['middleware'=>['auth','2']],function()
 
 });
 
+Route::group(['middleware'=>['auth','0']],function()
+    {
+        Route::get('/home','HomeController@index')->name('home');
+        Route::resource('doc', 'DocumentController');
+       
+        
+        
+        Route::resource('conge', 'DemandecongeController');
+        Route::resource('/profil','ProfilController');
+        Route::resource('/reclamation','reclamationController');
+        Route::get('/planningR', 'ImportExcelController@indexA');
 
 
-
+ });
+ 
 Route::group(['middleware'=>['auth','3']],function()
     {
     Route::get('/profilpaie','ProfilController@indexpaie');

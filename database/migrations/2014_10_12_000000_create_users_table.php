@@ -18,7 +18,7 @@ class CreateUsersTable extends Migration
             $table->string('name');
             $table->string('prenom');
             $table->integer('jour')->default(0);
-            $table->string('usertype')->nullable();
+            $table->string('usertype')->default(0);
             $table->string('cne');
             $table->string('ko')->unique();
             $table->string('poste');

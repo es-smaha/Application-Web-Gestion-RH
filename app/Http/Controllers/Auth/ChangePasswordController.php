@@ -12,7 +12,7 @@ use App\Http\Controllers\Controller;
 class ChangePasswordController extends Controller
 {
     public function index(){
-        Alert::success('Success Title', 'Success Message');
+       
         return view('change');
         
     }

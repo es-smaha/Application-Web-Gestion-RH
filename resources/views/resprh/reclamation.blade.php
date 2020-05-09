@@ -16,7 +16,7 @@
               </div>
             </div>
 
-
+@if(count($rec)>0)
 @foreach($rec as $rec)
 
 <div class="col-lg-12 col-md-4 col-sm-4">
@@ -100,7 +100,7 @@
   </div>
 </div>
 
-
+@endif
     
 
 

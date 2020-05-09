@@ -2,10 +2,9 @@
 
 namespace App\Http\Middleware;
 use Illuminate\Support\Facades\Auth;
-
 use Closure;
 
-class ResprhMiddleware
+class AgentMiddleware
 {
     /**
      * Handle an incoming request.
@@ -16,10 +15,10 @@ class ResprhMiddleware
      */
     public function handle($request, Closure $next)
     {
-        if(auth::User()->usertype=='2'){
+        if(auth::User()->usertype=='0'){
             return $next($request);
         }else{
             return  redirect('/404error');
         }
     }
-}
+    }

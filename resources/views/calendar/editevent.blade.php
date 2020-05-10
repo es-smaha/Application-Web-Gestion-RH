@@ -19,6 +19,7 @@
 <th>Supprimer</th>
 </tr>
 </thead>
+@if(count($events)>0)
 @forelse($events as $events)
 <tbody>
 <tr>
@@ -137,6 +138,7 @@ No data
      
     </div>
   </div>
+  @endif
 </div>
 
 @endsection

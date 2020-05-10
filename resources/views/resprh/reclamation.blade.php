@@ -15,34 +15,30 @@
                 </div>
               </div>
             </div>
-
+      
 @if(count($rec)>0)
 @foreach($rec as $rec)
 
-<div class="col-lg-12 col-md-4 col-sm-4">
- 
-              <div class="card card-stats">
-                <div class="card-header card-header-success card-header-icon">
-             
-                  
-             
-                </div>
-                <div class="card-header">
-        
-                  <div class="stats">
-                  <div class="card-icon">
-                  <h3 class="card-title">{{$rec->titre}}</h3>
-                  </div>
-               
-            
-                </div>
-                <div class="card-header">
-                  <div class="stats">
-                  <p class="card-title">{{$rec->description}}</p>
-                  </div>
-                </div>
-                <div class="card-footer">
-                  <div class="stats">        @if(!auth::guest())
+<div class="card">
+  <div class="card-body ">
+        <h6 class="card-category text-danger">
+            <i class="material-icons">trending_up</i> {{$rec->titre}}
+        </h6>
+        <h4 class="card-title">
+            <a href="#pablo">{{$rec->description}}</a>
+        </h4>
+
+    </div>
+    <div class="card-footer ">
+            <div class="author">
+                <a href="#pablo">
+                   <img src="/storage/cover_images/{{$rec->user->image}}" alt="..." class="avatar img-raised">
+                   <span class="badge badge-pill badge-primary">{{$rec->user->name}} {{$rec->user->prenom}}</span>
+                    <span>{{$rec->created_at->diffforHumans()}} </span>
+                </a>
+            </div>
+           <div class="stats ml-auto">
+           @if(!auth::guest())
               @if(auth::user()->id==$rec->user_id)
               <button type="button" data-toggle="modal"  data-target="#ajouter" rel="tooltip" title="Edit Task" class="btn btn-success btn-link btn-sm">
                                 <i class="material-icons">edit</i>
@@ -52,18 +48,19 @@
                               </button></td>
                               @endif
                               @endif</div>
-                       <p >{{$rec->created_at->diffforHumans()}} <b>par </b> <span class="badge badge-pill badge-primary">{{$rec->user->name}} {{$rec->user->prenom}}</span> </p>  
+                      
                     
                  
+            </div>
+        </div>
+     
+      @endforeach
 
-            
-                  </div>
+      <div class="pages">
+                    <ul class="pagination ">
+                       
+                    </ul>
                 </div>
-              </div>
-           
-            </div>@endforeach
-
-
 
 
 

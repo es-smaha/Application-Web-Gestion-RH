@@ -21,7 +21,9 @@ Auth::routes();
 Route::get('/404error', function () {
     return view('notfound');});
    
-
+    Route::resource('/events','EventController');
+    Route::get('/display','EventController@show');
+    Route::get('/cal','EventController@cal');
 //
    
 Route::group(['middleware'=>['auth','1']],function()
@@ -45,8 +47,7 @@ Route::group(['middleware'=>['auth','1']],function()
    
     //calendier  
 
-    Route::resource('/events','EventController');
-    Route::get('/display','EventController@show');
+   
     Route::get('/deleteevent','EventController@show');
 
     //planning

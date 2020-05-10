@@ -1,5 +1,7 @@
 
-@extends('layouts.nav1')
+
+
+@extends('layouts.cal')
 
 
 @section('title')
@@ -72,11 +74,12 @@ Calendar
                 <div class="panel-heading" style="background: #2e6da4; color:white;">
                 Event full calendar
                 </div>
+      
                 <div class="psnel-bodt">
                 {!! $calendar->calendar() !!}
                 {!! $calendar->script() !!}
                 </div>
-            
+      
             </div>
         </div>
         </div>
@@ -131,3 +134,6 @@ Calendar
 @section('scripts')
 
 @endsection
+
+
+

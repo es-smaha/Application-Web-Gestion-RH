@@ -291,18 +291,18 @@ html, body {
 
 <body class="">
   <div class="wrapper">
-    <div class="sidebar" data-color="" data-background-color="white" data-image="../assets/img/sidebar-5.jpg">
+  <div class="sidebar" data-color="green" data-background-color="black" data-image="../assets/img/sidebar-5.jpg">
       <!--
         Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
 
         Tip 2: you can also add an image using data-image tag
     -->
-      <div class="logo"><a href="http://www.creative-tim.com" class="simple-text logo-normal">
+      <div class="logo"><a href="" class="simple-text logo-normal">
          Chef Hiérarchique
         </a></div>
       <div class="sidebar-wrapper">
         <ul class="nav">
-          <li class="{{'dashboard2'==request()->path()?'active':''}}">
+          <li class="{{'dashboard'==request()->path()?'active':''}}">
             <a class="nav-link" href="/dashboard">
               <i class="material-icons">dashboard</i>
               <p>Dashboard</p>
@@ -310,38 +310,36 @@ html, body {
           </li>
           <li class="{{'demande-conge'==request()->path()?'active':''}} ">
             <a class="nav-link" href="/demande-conge">
-              <i class="material-icons">person</i>
-              <p>Demande de Congee</p>
+              <i class="material-icons">exit_to_app</i>
+              <p>Demande de Congé</p>
             </a>
           </li>
-          <li class="nav-item ">
+
+          <li class="{{'conge-accepter'==request()->path()?'active':''}} " class="nav-item ">
             <a class="nav-link" href="/conge-accepter">
-              <i class="material-icons">content_paste</i>
+              <i class="material-icons">folder</i>
               <p>Demandes Conge pret</p>
             </a>
           </li>
-          <li class="nav-item ">
+          <li class="{{'conge-refuser'==request()->path()?'active':''}} " class="nav-item ">
             <a class="nav-link" href="/conge-refuser">
-              <i class="material-icons">library_books</i>
+              <i class="material-icons">folder</i>
               <p> demandes conge refuser</p>
             </a>
           </li>
         
-          <li class="nav-item ">
+          <li class="{{'events'==request()->path()?'active':''}} " class="nav-item ">
             <a class="nav-link" href="/events">
-            <span class="material-icons">calendar_today</span>
-              Calendrier
+              <i class="material-icons">event</i>
+              <p> Calendrier</p>
             </a>
           </li>
-          <li class="nav-item ">
-            <a class="nav-link" href="./map.html">
-              <i class="material-icons">location_ons</i>
-              <p>calendrier Conge </p>
+       
             </a>
           </li>
-          <li class="nav-item ">
-            <a class="nav-link" href="./notifications.html">
-              <i class="material-icons">notifications</i>
+          <li  class="{{'/conge-refuser'==request()->path()?'active':''}} " class="nav-item ">
+            <a class="nav-link" href="/ex">
+              <i class="material-icons">schedule</i>
               <p>Planning Travail</p>
             </a>
           </li>
@@ -386,18 +384,22 @@ html, body {
               <li class="nav-item dropdown">
                 <a class="nav-link" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   <i class="material-icons">notifications</i>
-                  <span class="notification">5</span>
+                  <span class="notification">*</span>
                   <p class="d-lg-none d-md-block">
                     Some Actions
                   </p>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                  <a class="dropdown-item" href="#">Mike John responded to your email</a>
-                  <a class="dropdown-item" href="#">You have 5 new tasks</a>
-                  <a class="dropdown-item" href="#">You're now friend with Andrew</a>
-                  <a class="dropdown-item" href="#">Another Notification</a>
-                  <a class="dropdown-item" href="#">Another One</a>
-                </div>
+                   @foreach(Auth::user()->notifications as $notification)
+                   @if($notification->notifiable_id==Auth::user()->id  &&   $notification->read_at == '' )
+                   <span class="notification">1</span>
+                    <p>
+                  <a class="dropdown-item" href="/demande-conge ">{{$notification->data['userId']}}    <small>   a deposer une demande de conge il y'a  </small> {{$notification->created_at->diffforHumans()}}  </a>
+                    </p>
+                   {{$notification->markAsRead()}}
+                 @endif
+
+                    @endforeach
               </li>
               <li class="nav-item dropdown">
                 <a class="nav-link" href="javascript:;" id="navbarDropdownProfile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -433,8 +435,6 @@ html, body {
           </div>
         </div>
       </nav>
-        <br>
-        <br>
       <!-- End Navbar -->
       <div class="content">
       

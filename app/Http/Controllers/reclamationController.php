@@ -21,7 +21,7 @@ class reclamationController extends Controller
     public function indexRh()
     {
         $rec=Reclamation::All();
-        $user=User::All();
+        $user=User::All()->paginate(1);
         return view("resprh.reclamation",['rec'=>$rec,'user'=>$user]);
     }
     public function indexH()

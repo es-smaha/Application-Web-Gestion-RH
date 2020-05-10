@@ -58,14 +58,69 @@ class EventController extends Controller
                         'color' => 'pink',
                     ]
                     );
-            }}}
-            
-            $calendar=\Calendar::addEvents($event);
-            return view('calendar.eventpage',compact('events','conges','calendar'));
+            }}
+       
+          
+           
+        }
+        $calendar=\Calendar::addEvents($event);
+        return view('calendar.eventpage',compact('events','conges','calendar'));  
         
     }
             
+    public function cal()
+    {
+        $events=Event::all();
+    //     $events->insert( [
+    //    "title"=>"et",
+    //     "color"=>"red",
+    //     "start_date"=>"",
+    //     "end_date"=>"",
+    //     ] );
+    
         
+       if(count($events)>0) {
+        foreach($events as $row){
+            $event=[];
+            $enddate=$row->end_date."24:00:00";
+            $event[]=\Calendar::event(
+                $row->title,
+                false,
+                new \DateTime($row->start_date),
+                new \DateTime($row->end_date),
+                $row->id,
+                [
+                    'color' => $row->color,
+                ]
+                );
+            }
+        }
+        $conges=Demandeconge::all();
+       
+        if(count($conges)>0) {
+        foreach($conges as $roww){
+            $conge=[];
+            if($roww->avis==1){
+                $enddate=$roww->datefin."24:00:00";
+                $event[]=\Calendar::event(
+                    $roww->user->name,
+                    true,
+                    new \DateTime($roww->datedebut),
+                    new \DateTime($roww->datefin),
+                    $roww->id,
+                    [
+                        'color' => 'pink',
+                    ]
+                    );
+            }}
+       
+          
+           
+        }
+        $calendar=\Calendar::addEvents($event);
+        return view('resprh.calendare.calendar',compact('events','conges','calendar'));  
+        
+    }    
         
     
 

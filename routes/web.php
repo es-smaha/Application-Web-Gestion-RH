@@ -62,6 +62,7 @@ Route::group(['middleware'=>['auth','1']],function()
 Route::group(['middleware'=>['auth','2']],function()
     {
        
+        Route::get('/cal','EventController@cal');
     Route::get('/profilrh','ProfilController@indexrh'); 
     Route::get('/reclamationr','reclamationController@indexRh');
     Route::delete('/reclamationr/{id}', 'reclamationController@destroyr');
@@ -109,7 +110,7 @@ Route::group(['middleware'=>['auth','0']],function()
         Route::resource('/profil','ProfilController');
         Route::resource('/reclamation','reclamationController');
         Route::get('/planningR', 'ImportExcelController@indexA');
-
+        
 
  });
  

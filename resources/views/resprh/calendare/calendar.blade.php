@@ -1,4 +1,6 @@
 
+@extends('layouts.nav2')
+
 @section('title')
 Calendar
 @endsection
@@ -38,14 +40,10 @@ Calendar
 
 <div class="container">
 <div class="jumbotron">
-<h2>Event calendar [Full-Calendar]</h2>
+<h2>Clendrier Conge[Full-Calendar]</h2>
 <div class="row">
 <a type="button" class="btn btn-success" data-toggle="modal"  data-target="#exampleModal" >Ajouter un evenement</a> 
 
-
-<a type="button" class="btn btn-danger" href="/display" > Modifer un evenement</a>
-
-<a type="button" href="/deleteevent"  class="btn btn-primary">supprimer un evenement</a>
 </div>
 <br> <br>
 

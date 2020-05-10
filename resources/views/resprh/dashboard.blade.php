@@ -3,6 +3,12 @@
  
 @endsection
 @section('content')
+<nav aria-label="breadcrumb" role="navigation">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Analyse Site</li>
+  </ol>
+</nav>
   <div class="row">
 <div class="col-lg-3 col-md-6 col-sm-6">
               <div class="card card-stats">

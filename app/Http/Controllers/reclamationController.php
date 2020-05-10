@@ -20,8 +20,8 @@ class reclamationController extends Controller
     }
     public function indexRh()
     {
-        $rec=Reclamation::All();
-        $user=User::All()->paginate(1);
+        $rec=Reclamation::orderBy('created_at','ASC')->get();
+        $user=User::All();
         return view("resprh.reclamation",['rec'=>$rec,'user'=>$user]);
     }
     public function indexH()

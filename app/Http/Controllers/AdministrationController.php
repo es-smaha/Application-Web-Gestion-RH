@@ -18,6 +18,14 @@ class AdministrationController extends Controller
         return view('resprh.dashboard',['typeconges'=>$typeconges,'services'=>$services,'typedocuments'=>$typedocuments]);
 
     }
+    public function admini(){
+      $typeconges=Typeconge::all();
+       $services=Service::all();
+       $typedocuments=Typedocument::all();
+
+      return view('resprh.rerh.admini',['typeconges'=>$typeconges,'services'=>$services,'typedocuments'=>$typedocuments]);
+
+  }
     public function profil(){
         $id=Auth()->user()->id;
         $user=User::find($id);

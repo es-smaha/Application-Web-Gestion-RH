@@ -81,7 +81,7 @@ Route::group(['middleware'=>['auth','2']],function()
     Route::resource('service', 'ServiceController');
     Route::resource('typecon', 'TypecongeController');
     Route::resource('typedoc', 'TypedocumentController');
-    Route::get('/admi', function(){
+    Route::get('/administation', function(){
             return view('resprh.rerh.admini');});
           
     Route::get('/planningrh', 'ImportExcelController@indexRH');

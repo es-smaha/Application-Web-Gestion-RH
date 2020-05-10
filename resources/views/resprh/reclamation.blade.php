@@ -34,7 +34,7 @@
                 <a href="#pablo">
                    <img src="/storage/cover_images/{{$rec->user->image}}" alt="..." class="avatar img-raised">
                    <span class="badge badge-pill badge-primary">{{$rec->user->name}} {{$rec->user->prenom}}</span>
-                    <span>{{$rec->created_at->diffforHumans()}} </span>
+                    <span>{{$rec->created_at}} {{$rec->created_at->diffforHumans()}}</span>
                 </a>
             </div>
            <div class="stats ml-auto">
@@ -58,11 +58,25 @@
 
       <div class="pages">
                     <ul class="pagination ">
-                       
+                    
                     </ul>
                 </div>
 
-
+                <nav aria-label="...">
+  <ul class="pagination">
+    <li class="page-item disabled">
+      <a class="page-link" href="#" tabindex="-1">Previous</a>
+    </li>
+    <li class="page-item"><a class="page-link" href="#">1</a></li>
+    <li class="page-item active">
+      <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
+    </li>
+    <li class="page-item"><a class="page-link" href="#">3</a></li>
+    <li class="page-item">
+      <a class="page-link" href="#">Next</a>
+    </li>
+  </ul>
+</nav>
 
     
             <!--delete  -->

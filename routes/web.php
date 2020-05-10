@@ -86,6 +86,7 @@ Route::group(['middleware'=>['auth','2']],function()
           
     Route::get('/planningrh', 'ImportExcelController@indexRH');
     Route::get('/dashboard2', 'AdministrationController@index');
+    Route::get('/administration', 'AdministrationController@admini');
     //prophil
     Route::get('/Myprophil', 'AdministrationController@profil');
     Route::post('/Myprophil', 'AdministrationController@update');

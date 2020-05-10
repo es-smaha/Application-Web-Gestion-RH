@@ -173,14 +173,20 @@ box-shadow: 5px 5px 30px 7px rgba(0,0,0,0.25), -5px -5px 30px 7px rgba(0,0,0,0.2
         </a></div>
       <div class="sidebar-wrapper">
         <ul class="nav">
+        <li class="{{'dashboard2'==request()->path()?'active':''}}">
+            <a class="nav-link" href="/dashboard2">
+            <i class="material-icons">dashboard</i>
+              <p>Dashboard</p>
+            </a>
+          </li>
         <li class="{{'Myprophil' == request()->path() ? 'active' : ''}}" class="nav-item ">
             <a class="nav-link" href="/Myprophil">
               <i class="material-icons">account_circle</i>
               <p>Profile </p>
             </a>
           </li>
-          <li class="{{'dashboard2'==request()->path()?'active':''}}">
-            <a class="nav-link" href="/dashboard2">
+          <li class="{{'administration'==request()->path()?'active':''}}">
+            <a class="nav-link" href="/administration">
             <i class="material-icons">build</i>
               <p>Settings</p>
             </a>

@@ -8,16 +8,16 @@
         
 <div class="card-body">
               <div class="row">
-                <div class="col-md-10">
+                <div class="col-md-12">
                              <h3 ><i class="fa fa-user-md"></i> Agent Details</h3>
             <ol class="breadcrumb">
-              <li><i class="fa fa-home"></i><a href="index.html">/Demande Conge/</a></li>
+              <li><i class="fa fa-home"></i><a href="/demande-conge">/Demande Conge/</a></li>
               <li><i class="icon_documents_alt"></i>/userDetails/</li>
               <li><i ></i>/Profile</li>
             </ol>
           </div>
 
-          <div class="col-md-2">
+          <div class="col-md-12">
            @if($conge->avis=='0')
             <form action="/confirmer/{{$conge->id}}/edit" method="POST">
               @csrf
@@ -149,6 +149,27 @@
 
     </div>
   </div>
+  <style>
+  .card .general {
+    width: 400px;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 1;
+    box-sizing: border-box;
+    padding: 1rem;
+    padding-top: 0;
+}
+h1, .h1 {
+    font-size: 2.3125rem;
+    line-height: 1.15em;
+}
+.card h1 {
+    text-align: left;
+}
+  </style>
+
   <div class="general">
   <div class="row"><h1>{{$conge->user->name}} {{$conge->user->prenom}}</h1></div>
         <br>    <br>

@@ -5,7 +5,7 @@ planning
 @section('content')
 <h4>Plannind de travail </h4>
 <br>
-<table class="table">
+<table id="example" class="table">
 <thead class="thead-dark">
 <tr>
 <th>Agent</th>
@@ -35,4 +35,14 @@ planning
 @endforelse
 </tbody>
 </table>
+@endsection
+@section('scripts')
+<script>
+$(document).ready(function() {
+    $('#example').DataTable();
+} )
+</script>
+
+
+
 @endsection

@@ -15,6 +15,17 @@ The above copyright notice and this permission notice shall be included in all c
 <head>
   <meta charset="utf-8" />
   <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/kohler.jpg">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<!-- fullcalendar -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.2.7/fullcalendar.min.js"></script>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.2.7/fullcalendar.min.css"/>
+
+
+
+
   <link rel="icon" type="image/png" href="../assets/img/kohler.jpg">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <title>
@@ -29,6 +40,53 @@ The above copyright notice and this permission notice shall be included in all c
   <!-- CSS Just for demo purpose, don't include it in your project -->
   <link href="../assets/demo/demo.css" rel="stylesheet" />
     <style>
+     .jumbotron { 
+    padding: 1rem 1rem;
+    margin-bottom: 2rem;
+    background-color: #ced8e2;
+    border-radius: 0.3rem;
+}
+.sidebar .nav li a, .sidebar .nav li .dropdown-menu a {
+    margin: 10px 15px 0;
+    border-radius: 3px;
+    color: #fafafa;
+    padding-left: 10px;
+    padding-right: 10px;
+    text-transform: capitalize;
+    font-size: 13px;
+    padding: 10px 15px;
+}
+
+
+
+
+/*
+.sidebar .logo .simple-text {
+    text-transform: uppercase;
+    padding: 5px 0px;
+    display: inline-block;
+    font-size: 18px;
+    color:white;
+    white-space: nowrap;
+    font-weight: 400;
+    line-height: 30px;
+    overflow: hidden;
+    text-align: center;
+    display: block;
+}
+.sidebar .logo {
+    padding: 15px 0px;
+    margin: 0;
+    display: block;
+    position: relative;
+    z-index: 4;
+    background-color:black;
+}
+.navbar.navbar-transparent {
+    background-color: black !important;
+    box-shadow: none;
+    position:fixed;
+}*/
       
       .card .card-header-primary .card-icon, .card .card-header-primary .card-text, .card .card-header-primary:not(.card-header-icon):not(.card-header-text), .card.bg-primary, .card.card-rotate.bg-primary .front, .card.card-rotate.bg-primary .back {
         background: linear-gradient(60deg, #649e85, #439c84);
@@ -70,14 +128,15 @@ The above copyright notice and this permission notice shall be included in all c
 
 <body class="">
   <div class="wrapper">
-    <div class="sidebar" data-color="" data-background-color="black" data-image="../assets/img/sidebar-5.jpg">
+    <div class="sidebar" data-color="green" data-background-color="black" data-image="../assets/img/sidebar-5.jpg">
       <!--
         Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
 
         Tip 2: you can also add an image using data-image tag
     -->
-      <div class="logo"><a href="http://www.creative-tim.com" class="simple-text logo-normal">
-         Chef Hierarchique
+      
+<div class="logo"><a href="" class="simple-text logo-normal">
+         Responsable de paie
         </a></div>
       <div class="sidebar-wrapper">
         <ul class="nav">
@@ -87,41 +146,41 @@ The above copyright notice and this permission notice shall be included in all c
               <p>Dashboard</p>
             </a>
           </li>
-          <li class="{{'users'==request()->path()?'active':''}} ">
+          <li class="{{'liste-agent'==request()->path()?'active':''}} ">
             <a class="nav-link" href="/liste-agent">
               <i class="material-icons">person</i>
               <p>Liste Agent </p>
             </a>
           </li>
-          <li class="{{'users'==request()->path()?'active':''}} ">
+          <li class="{{'confin'==request()->path()?'active':''}} ">
             <a class="nav-link" href="/confin">
-              <i class="material-icons">person</i>
+              <i class="material-icons">exit_to_app</i>
               <p>Demandes de conges</p>
             </a>
           </li>
 
       
-          <li class="nav-item ">
-            <a class="nav-link" href="/desision-accepter">
+          <li class="{{'decision-accepter'==request()->path()?'active':''}} " class="nav-item ">
+            <a class="nav-link" href="/decision-accepter">
               <i class="material-icons">library_books</i>
               <p>demandes conge pret </p>
             </a>
           </li>
-          <li class="nav-item ">
+          <li class="{{'planning'==request()->path()?'active':''}} " class="nav-item ">
             <a class="nav-link" href="/planning">
               <i class="material-icons">library_books</i>
               <p>Planning de travail</p>
             </a>
           </li>
-          <li class="nav-item ">
+          <li class="{{'calendrie-conge'==request()->path()?'active':''}} " class="nav-item ">
             <a class="nav-link" href="/calendrie-conge">
-              <i class="material-icons">calendar</i>
+              <i class="material-icons">event</i>
               <p>calendrier conge</p>
             </a>
           </li>
-          <li class="nav-item ">
+          <li class="{{'reclamation-agent'==request()->path()?'active':''}} " class="nav-item ">
             <a class="nav-link" href="/reclamation-agent">
-              <i class="material-icons">library_books</i>
+              <i class="material-icons">info_outline</i>
               <p>reclamations</p>
             </a>
           </li>
@@ -165,18 +224,22 @@ The above copyright notice and this permission notice shall be included in all c
               <li class="nav-item dropdown">
                 <a class="nav-link" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   <i class="material-icons">notifications</i>
-                  <span class="notification">5</span>
+                  <span class="notification">*</span>
                   <p class="d-lg-none d-md-block">
                     Some Actions
                   </p>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                  <a class="dropdown-item" href="#">Mike John responded to your email</a>
-                  <a class="dropdown-item" href="#">You have 5 new tasks</a>
-                  <a class="dropdown-item" href="#">You're now friend with Andrew</a>
-                  <a class="dropdown-item" href="#">Another Notification</a>
-                  <a class="dropdown-item" href="#">Another One</a>
-                </div>
+                   @foreach(Auth::user()->notifications as $notification)
+                   @if($notification->notifiable_id==Auth::user()->id  &&   $notification->read_at == '' )
+                   <span class="notification">1</span>
+                    <p>
+                  <a class="dropdown-item" href="/demande-conge ">{{$notification->data['userId']}}    <small>   a deposer une demande de conge il y'a  </small> {{$notification->created_at->diffforHumans()}}  </a>
+                    </p>
+                   {{$notification->markAsRead()}}
+                 @endif
+
+                    @endforeach
               </li>
               <li class="nav-item dropdown">
                 <a class="nav-link" href="javascript:;" id="navbarDropdownProfile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -217,6 +280,7 @@ The above copyright notice and this permission notice shall be included in all c
       <!-- End Navbar -->
       <div class="content">
         <div class="container-fluid">
+        @yield('content')
         @if(count($errors)>0)
 @if ($errors->any()) 
     <div class="alert alert-danger">
@@ -255,7 +319,7 @@ The above copyright notice and this permission notice shall be included in all c
                                  </button>
                                 </div>
                                @endif
-        @yield('content')
+        
         </div>
       </div>
       <footer class="footer">
@@ -504,3 +568,6 @@ The above copyright notice and this permission notice shall be included in all c
 </body>
 
 </html>
+
+
+

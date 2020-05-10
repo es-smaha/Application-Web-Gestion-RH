@@ -1,7 +1,5 @@
 @extends('layouts.nav1')
 @section('title')
-
-@section('title')
 Planning
 @endsection
 
@@ -10,9 +8,9 @@ Planning
 <div >Planning</div>
 <div class="card-body">
 <div class="row">
-<div class="col-4">
-<a href="/export" class="btn btn-success">Exporter XLSX</a></div>
-<div class="col-4">
+<div class="col-12">
+<a href="/export" class="btn btn-success">Exporter XLSX</a>
+
 <form action="/import" method="POST" enctype="multipart/form-data">
 @csrf
 

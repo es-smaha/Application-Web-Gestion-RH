@@ -65,9 +65,10 @@ class AdministrationController extends Controller
          return redirect('Myprophil');
     }
   public function reclamation(){
-    $rec=Reclamation::All();
+    $rec=Reclamation::paginate(2);
+    $pages = $rec->links();
     $user=User::All();
-    return view("resprh.reclamation",['rec'=>$rec,'user'=>$user]);
+    return view("resprh.reclamation",['rec'=>$rec,'user'=>$user,'pages'=>$pages]);
   }
   public function store(Request $request)
 {  $rec= new Reclamation();

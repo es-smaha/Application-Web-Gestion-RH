@@ -63,7 +63,7 @@ Route::group(['middleware'=>['auth','2']],function()
     {
        
     Route::get('/profilrh','ProfilController@indexrh'); 
-    //Route::get('/reclamationr','reclamationController@indexRh');
+    Route::get('/reclamationr','reclamationController@indexRh');
     Route::delete('/reclamationr/{id}', 'reclamationController@destroyr');
     Route::get('/docum','RhdocumentController@index');
     Route::get('/document-pret','RhdocumentController@pret');

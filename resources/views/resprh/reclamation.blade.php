@@ -55,7 +55,8 @@
         </div>
      
       @endforeach
-
+      
+      {{$pages}} 
       <div class="pages">
                     <ul class="pagination ">
                     
@@ -63,7 +64,7 @@
                 </div>
 
                 <nav aria-label="...">
-  <ul class="pagination">
+  <!-- <ul class="pagination">
     <li class="page-item disabled">
       <a class="page-link" href="#" tabindex="-1">Previous</a>
     </li>
@@ -75,7 +76,7 @@
     <li class="page-item">
       <a class="page-link" href="#">Next</a>
     </li>
-  </ul>
+  </ul> -->
 </nav>
 
     

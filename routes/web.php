@@ -25,7 +25,6 @@ Route::get('/404error', function () {
     Route::get('/display','EventController@show');
     Route::get('/cal','EventController@cal');
     Route::resource('/reclamation','reclamationController');
-  
     
 //
    
@@ -67,8 +66,8 @@ Route::group(['middleware'=>['auth','2']],function()
        
         Route::get('/cal','EventController@cal');
     Route::get('/profilrh','ProfilController@indexrh'); 
-    // Route::get('/reclamationr','reclamationController@indexRh');
-    // Route::delete('/reclamationr/{id}', 'reclamationController@destroyr');
+    Route::get('/reclamationr','reclamationController@indexRh');
+    Route::delete('/reclamationr/{id}', 'reclamationController@destroyr');
     Route::get('/docum','RhdocumentController@index');
     Route::get('/document-pret','RhdocumentController@pret');
     Route::post('/pdf','RhdocumentController@pdf');
@@ -122,7 +121,7 @@ Route::group(['middleware'=>['auth','3']],function()
     Route::get('/profilpaie','ProfilController@indexpaie');
     Route::get('/dashboard3', function () {
         return view('resppaie.dashboard');});
-        Route::get('/agentservice','ConfimerpaieController@olala');
+    
 
     // cal
     // Route::get('/cal','Calpaie@cal');
@@ -138,7 +137,7 @@ Route::group(['middleware'=>['auth','3']],function()
     Route::get('/liste-agent/{id}', 'ConfirmerpaieController@show');
     //reclamation
     Route::get('/reclamation-agent/{id}', 'reclamationController@editer');
-    
+    Route::post('/reclamation-agent', 'reclamationController@ajouter');
     Route::get('/reclamation-agent', 'reclamationController@indexp');
     
     Route::get('/cal','EventController@cal2');

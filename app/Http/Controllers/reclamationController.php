@@ -14,23 +14,31 @@ class reclamationController extends Controller
      */
     public function index()
     {
-        
-        $rec=Reclamation::orderBy('id','desc')->paginate(2);
+        $rec=Reclamation::All();
+        $rec=Reclamation::paginate(3);
         $pages = $rec->links();
         $user=User::All();
+   
         return view("agent.reclamation",['rec'=>$rec,'user'=>$user,'pages'=>$pages]);
+       
     }
     public function indexRh()
     {
-        $rec=Reclamation::orderBy('created_at','ASC')->get();
+        $rec=Reclamation::All();
+        $rec=Reclamation::paginate(3);
+        $pages = $rec->links();
         $user=User::All();
-        return view("resprh.reclamation",['rec'=>$rec,'user'=>$user]);
+     
+        return view("resprh.reclamation",['rec'=>$rec,'user'=>$user,'pages'=>$pages]);
     }
     public function indexp()
     {
-        $rec=Reclamation::orderBy('created_at','ASC')->get();
+        $rec=Reclamation::All();
+        $rec=Reclamation::paginate(3);
+        $pages = $rec->links();
         $user=User::All();
-        return view("resppaie.reclamation",['rec'=>$rec,'user'=>$user]);
+     
+        return view("resppaie.reclamation",['rec'=>$rec,'user'=>$user,'pages'=>$pages]);
     }
    
    
@@ -115,21 +123,24 @@ class reclamationController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $rec=  Reclamation::find($id);
-        if(Auth()->User()->id=='0' ){
       
-        $rec->titre=$request->input('titre');
-        $rec->description=$request->input('description');
-        $rec->user_id=Auth()->user()->id;
-         $rec->save();
-        return redirect('reclamation-agent')->with('success', 'bien deposer');
-        }else if(Auth()->User()->id=='3'){
-      
+        if(Auth()->user()->usertype==0 ){
+            $rec=  Reclamation::find($id);
+        
             $rec->titre=$request->input('titre');
             $rec->description=$request->input('description');
             $rec->user_id=Auth()->user()->id;
              $rec->save();
-            return redirect('reclamation')->with('success', 'bien deposer');
+        return redirect('reclamation')->with('success', 'bien deposer');
+        }else if(Auth()->user()->usertype==3){
+            $rec=  Reclamation::find($id);
+        
+            $rec->titre=$request->input('titre');
+            $rec->description=$request->input('description');
+            $rec->user_id=Auth()->user()->id;
+             $rec->save();
+        
+            return redirect('reclamation-agent')->with('success', 'bien deposer');
 
         }
     }

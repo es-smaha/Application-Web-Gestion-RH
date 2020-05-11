@@ -225,6 +225,7 @@ The above copyright notice and this permission notice shall be included in all c
       <!-- End Navbar -->
       <div class="content">
         <div class="container-fluid">
+        @yield('content')
         @if(count($errors)>0)
 @if ($errors->any()) 
     <div class="alert alert-danger">
@@ -263,7 +264,7 @@ The above copyright notice and this permission notice shall be included in all c
                                  </button>
                                 </div>
                                @endif
-        @yield('content')
+        
         </div>
       </div>
       <footer class="footer">

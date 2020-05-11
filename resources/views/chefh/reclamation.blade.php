@@ -13,23 +13,36 @@ reclamation
 <span aria-hidden="true">&times;</span>
 </button>
 </div>
-<div class="modal-body">
-<form  action="reclamationh" method="POST">
+<div class="modal-body"><div class="card card-profile">
+<div class="card-avatar">
+
+  <img class="img" src="../assets/img/ops.png" />
+</a>
+</div>
+<div class="card-body">
+<h6 class="card-category text-gray">Deposer une Note ou bien une Reclamation</h6>
+<form action="/Reclamationn" method="Post">
 @csrf
 <div class="form-group">
-<label for="recipient-name" class="col-form-label">title</label>
-<input type="text"  name="title" class="form-control" id="recipient-name">
+<label for="exampleInputEmail1">Titre</label>
+<input  name="titre" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+
 </div>
 <div class="form-group">
-<label for="recipient-name" class="col-form-label">description</label>
-<input type="text"  name="description" class="form-control" id="recipient-name">
+<label for="exampleInputEmail1">Contenu</label>
+
+
+<textarea name="description"  name="raison" class="form-control" id="message-text"></textarea>
 </div>
-<div class="modal-footer">
-<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-<button type="submit" class="btn btn-success">Ajouter</button>
+<div class="form-group form-check">
+<input type="checkbox" class="form-check-input" id="exampleCheck1">
+
+</div>
+<button type="submit" class="btn btn-success">Deposer</button>
+</form>
+</div>
 </div>
 
-</form>
 </div>
 
 </div>

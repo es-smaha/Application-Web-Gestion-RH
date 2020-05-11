@@ -21,7 +21,7 @@ class UserController extends Controller
     }
     public function service(Request $request){
       
-      $ser=$request->cat_id;
+      $ser=$request->cat_id; 
       $services=Service::where('id','=',$ser);
       $user=User::where('service_id','=',$ser)->get();
       return view('Resprh.users.parservice',['user'=>$user,'servicename'=>$user[0]->service->nom]) ;

@@ -286,7 +286,7 @@ perm_identity
            console.log(response);
            $("#usersparservice").html(response);
           }
-        });
+        }); 
    });
       @endforeach
   

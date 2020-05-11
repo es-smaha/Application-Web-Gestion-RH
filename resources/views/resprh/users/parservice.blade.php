@@ -56,9 +56,9 @@
                             <td>{{$user->prenom}}</td>
                             <td>{{$user->name}}</td>
                             <td>{{$user->dateembauche}}</td>
-                            <td>{{$user->}}</td>
+                            <td>{{$user->service->nom}}</td>
                             
-                            <td>{{$user->kochef}}</td>
+                            <td>{{$user->kochef}}</td> 
                                 
                                 <td> 
                                     <a href="/liste-agent/{{$user->id}}" class="btn btn-success btn-link btn-lg" >

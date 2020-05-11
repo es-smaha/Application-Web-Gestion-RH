@@ -24,6 +24,9 @@ Route::get('/404error', function () {
     Route::resource('/events','EventController');
     Route::get('/display','EventController@show');
     Route::get('/cal','EventController@cal');
+    Route::resource('/reclamation','reclamationController');
+  
+    
 //
    
 Route::group(['middleware'=>['auth','1']],function()
@@ -108,7 +111,7 @@ Route::group(['middleware'=>['auth','0']],function()
         
         Route::resource('conge', 'DemandecongeController');
         Route::resource('/profil','ProfilController');
-        Route::resource('/reclamation','reclamationController');
+    
         Route::get('/planningR', 'ImportExcelController@indexA');
         
 
@@ -119,6 +122,8 @@ Route::group(['middleware'=>['auth','3']],function()
     Route::get('/profilpaie','ProfilController@indexpaie');
     Route::get('/dashboard3', function () {
         return view('resppaie.dashboard');});
+        Route::get('/agentservice','ConfimerpaieController@olala');
+
     // cal
     // Route::get('/cal','Calpaie@cal');
  
@@ -131,7 +136,12 @@ Route::group(['middleware'=>['auth','3']],function()
     Route::get('/calendrie-conge', 'ConfirmerpaieController@calendar');
     Route::get('/liste-agent', 'ConfirmerpaieController@agent');
     Route::get('/liste-agent/{id}', 'ConfirmerpaieController@show');
-    Route::get('/reclamation-agent', 'ConfirmerpaieController@reclamation');
+    //reclamation
+    Route::get('/reclamation-agent/{id}', 'reclamationController@editer');
+    
+    Route::get('/reclamation-agent', 'reclamationController@indexp');
+    
+    Route::get('/cal','EventController@cal2');
    });
 
 

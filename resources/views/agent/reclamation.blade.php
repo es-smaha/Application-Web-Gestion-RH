@@ -10,7 +10,7 @@
                 
                 </div>
                 <div class="card-body table-responsive">
-                    <a href="/Myprophil"><span class="material-icons">add_circle</span>Ajouter une reclamation</a>
+                    <a href="/profil"><span class="material-icons">add_circle</span>Ajouter une reclamation</a>
                 
                 </div>
               </div>
@@ -56,7 +56,7 @@
      
       @endforeach
       
-      {{$pages}} 
+     {{$pages}}
       <div class="pages">
                     <ul class="pagination ">
                     
@@ -80,7 +80,7 @@
         </button>
       </div>
       
-        <form  action="/Reclamationn/{{$rec->id}}" method="POST">
+        <form  action="/reclamationn/{{$rec->id}}" method="POST">
         @csrf
         @method('delete')
         <div class="modal-body">

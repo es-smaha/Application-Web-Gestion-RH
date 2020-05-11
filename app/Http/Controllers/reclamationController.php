@@ -15,8 +15,12 @@ class reclamationController extends Controller
     public function index()
     {
         $rec=Reclamation::All();
+        $rec=Reclamation::paginate(3);
+        $pages = $rec->links();
         $user=User::All();
-        return view("agent.reclamation",['rec'=>$rec,'user'=>$user]);
+   
+        return view("agent.reclamation",['rec'=>$rec,'user'=>$user,'pages'=>$pages]);
+       
     }
     public function indexRh()
     {
@@ -30,16 +34,32 @@ class reclamationController extends Controller
         $user=User::All();
         return view("chefh.reclamation",['rec'=>$rec,'user'=>$user]);
     }
-    
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    public function indexp()
     {
-        //
+        
+        $rec=Reclamation::All();
+        $rec=Reclamation::paginate(3);
+        $pages = $rec->links();
+        $user=User::All();
+        return view("resppaie.reclamation",['rec'=>$rec,'user'=>$user,'pages'=>$pages]);
+    }
+    //Crud Responsable de paie
+    public function editer(Request $request, $id)
+    {
+        $rec=  Reclamation::find($id);
+        $rec->titre=$request->input('titre');
+        $rec->description=$request->input('description');
+        $rec->user_id=Auth()->user()->id;
+         $rec->save();
+        return redirect('/reclamation-agent')->with('success', 'bien deposer');
+    }
+   
+    public function supprimer($id)
+    {
+        $rec=  Reclamation::find($id);
+     
+  
+        return "123";
     }
 
     /**
@@ -48,11 +68,16 @@ class reclamationController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function ajouter(Request $request)
     {
-        //
+        $rec= new Reclamation();
+        $rec->titre=$request->input('titre');
+        $rec->description=$request->input('description');
+        $rec->user_id=Auth()->user()->id;
+         $rec->save();
+        return redirect('/reclamation-agent')->with('success', 'bien deposer');
     }
-
+// 
     /**
      * Display the specified resource.
      *
@@ -85,11 +110,22 @@ class reclamationController extends Controller
     public function update(Request $request, $id)
     {
         $rec=  Reclamation::find($id);
+        if(Auth()->User()->id=='0' ){
+      
         $rec->titre=$request->input('titre');
         $rec->description=$request->input('description');
         $rec->user_id=Auth()->user()->id;
          $rec->save();
-        return redirect('reclamation')->with('success', 'bien deposer');
+        return redirect('reclamation-agent')->with('success', 'bien deposer');
+        }else if(Auth()->User()->id=='3'){
+      
+            $rec->titre=$request->input('titre');
+            $rec->description=$request->input('description');
+            $rec->user_id=Auth()->user()->id;
+             $rec->save();
+            return redirect('reclamation')->with('success', 'bien deposer');
+
+        }
     }
 
     /**
@@ -102,7 +138,15 @@ class reclamationController extends Controller
     {
         $rec=  Reclamation::find($id);
      
-         $rec->delete;
-        return redirect('reclamation')->with('fail', 'Votre reclamation a ete supprimer');
+        $rec->delete($id);
+         if(Auth()->user()->usertype=='0'){
+           
+            return redirect('reclamation')->with('fail', 'Votre reclamation a ete supprimer');  
+         }else if(Auth()->user()->usertype=='3'){
+           
+            return redirect('reclamation-agent')->with('fail', 'Votre reclamation a ete supprimer'); 
+         }
+    
     }
 }
+

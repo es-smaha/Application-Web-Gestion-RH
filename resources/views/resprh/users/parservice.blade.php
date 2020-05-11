@@ -14,7 +14,7 @@
               <div class="card">
                 <div class="card-header card-header-success">
                   <h4 class="card-title "> Table d'agent service: </h4>
-                  <p class="card-category">{{$servicename}} </p>
+                  <p class="card-category"> </p>
                 </div>
                 <div class="card-body">
                   <div class="table-responsive">
@@ -56,11 +56,12 @@
                             <td>{{$user->prenom}}</td>
                             <td>{{$user->name}}</td>
                             <td>{{$user->dateembauche}}</td>
-                            <td>{{$user->service->nom}}</td>
+                            <td>{{$user->}}</td>
+                            
                             <td>{{$user->kochef}}</td>
                                 
                                 <td> 
-                                    <a href="/users/{{$user->id}}" class="btn btn-success btn-link btn-lg" >
+                                    <a href="/liste-agent/{{$user->id}}" class="btn btn-success btn-link btn-lg" >
                                 <span class="material-icons">  remove_red_eye</span>   </a>
                          
                                    <button  type="button" rel="tooltip" id="#delete"  data-toggle="modal" data-target="#delete" title="Remove" class="btn btn-success btn-link btn-sm">

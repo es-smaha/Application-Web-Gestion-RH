@@ -22,11 +22,6 @@ class ConfirmerpaieController extends Controller
     $conge=Demandeconge::All()->where('avis', '!=', 0);
     return view('resppaie.confirmerconge', ['type'=>$type,'conge'=>$conge]);
    }
-   public function planning(){
-      $data= Planning::all();
-      return view('resppaie.planning', compact('data'));
-
-   }
    public function agent(){
       $user=User::all();
       $services=Service::All();
@@ -34,6 +29,21 @@ class ConfirmerpaieController extends Controller
       return view('resppaie.agent',['user'=>$user,'services'=>$services]);
 
    }
+
+   public function service(Request $request){
+      
+      $ser=$request->cat_id;
+      $services=Service::where('id','=',$ser);
+      $user=User::where('service_id','=',$ser)->get();
+      return view('resppaie.agentservice',['user'=>$user,'servicename'=>$user[0]->service->nom]) ;
+
+    }
+   public function planning(){
+      $data= Planning::all();
+      return view('resppaie.planning', compact('data'));
+
+   }
+
    public function reclamation(){
       $rec= Reclamation::all();
       return view('resppaie.reclamation', compact('rec'));

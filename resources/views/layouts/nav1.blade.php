@@ -24,7 +24,7 @@ The above copyright notice and this permission notice shall be included in all c
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.2.7/fullcalendar.min.css"/>
 
 
-
+.
 
   <link rel="icon" type="image/png" href="../assets/img/kohler.jpg">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />

@@ -75,7 +75,7 @@ class EventController extends Controller
     //    "title"=>"et",
     //     "color"=>"red",
     //     "start_date"=>"",
-    //     "end_date"=>"",
+    //     "end_date"=>"", 
     //     ] );
     
         

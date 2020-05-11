@@ -20,49 +20,53 @@
                   <div class="table-responsive">
                     <table id="example"class="table">
                       <thead class=" text-primary">
-                       
+                            <th>matricule</th>
+                              <th>image</th>
                         <th>
                          last Name
                         </th>
                         <th>
                           Name
                         </th>
+                     
                         <th>
-                          KO
+                        Date Conge
                         </th>
                         <th>
-                         solde Conge
+                        Service
                         </th>
                         <th>
-                         Jours Consommee
+                      SuperViseur
                         </th>
                       
                         <th>
-                        Show
-                        </th>
-                     
-                        <th>
-                       delete
+                      
+                       Action
                         </th>
                       </thead>
                       <tbody>
                       @foreach($user as $user)
                         <tr>
-                          
+                        <td>#{{$user->ko}}</td>
+                              <td> <div class="author">
+                             <a href="#pablo">
+                                <img src="/storage/cover_images/{{$user->image}}" alt="..." class="avatar img-raised">
+                                                         </a>
+                                         </div></td>
                             <td>{{$user->prenom}}</td>
                             <td>{{$user->name}}</td>
-                            <td>{{$user->ko}}</td>
-                            <td>{{$user->solde}}</td>
-                            <td>{{$user->jour}}</td>
-                           
+                            <td>{{$user->dateembauche}}</td>
+                            <td>{{$user->service->nom}}</td>
+                            <td>{{$user->kochef}}</td>
                                 
                                 <td> 
                                     <a href="/users/{{$user->id}}" class="btn btn-success btn-link btn-lg" >
-                                <span class="material-icons">  remove_red_eye</span>   </a></td>
+                                <span class="material-icons">  remove_red_eye</span>   </a>
                          
-                                        <td> <button type="button" rel="tooltip" id="#delete"  data-toggle="modal" data-target="#delete" title="Remove" class="btn btn-success btn-link btn-sm">
-                                <i class="material-icons" class="btn btn-danger">close</i>
+                                   <button  type="button" rel="tooltip" id="#delete"  data-toggle="modal" data-target="#delete" title="Remove" class="btn btn-success btn-link btn-sm">
+                                <i  class="material-icons" class="btn btn-danger">close</i>
                               </button></td>
+                   
 
                         </tr>
                         <div class="modal modal-danger fade " id="delete" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -74,7 +78,7 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-  
+      
         <form  action="/user/{{$user->id}}" method="POST">
         @csrf
         @method('delete')

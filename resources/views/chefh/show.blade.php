@@ -122,19 +122,23 @@
         <span>{{$conge->user->prenom}}</span>
       </div>
       <div class="coords">
-        <span>Prenom  :</span>
+        <span>matricule :</span>
         <span>{{$conge->user->ko}}</span>
       </div>
       <div class="coords">
-        <span>matricule :</span>
-        <span>{{$conge->user->ko}}</span>
+        <span>solde Conge:</span>
+        <span>{{$conge->user->solde}}</span>
+      </div>
+      <div class="coords">
+        <span>Jour Consommer : </span>
+        <span>{{$conge->user->jour}}</span>
       </div>
       <div class="coords">
         <span>Fonction : </span>
         <span>{{$conge->user->poste}}</span>
       </div>
       <div class="coords">
-        <span>Chef service : </span>
+        <span>superviseur : </span>
         <span>{{$conge->user->kochef}}</span>
       </div>
       <div class="coords">
@@ -176,11 +180,11 @@ h1, .h1 {
     
         <div class="row">
         <span class="material-icons">file_copy</span>
-                    <p style="font-size:24px">Solde Conge <span class="badge badge-warning">{{$conge->jour}}</span></p>
+                    <p style="font-size:24px">Date Congee <span class="badge badge-warning">{{$conge->datedebut}} A  {{$conge->datefin}}</span></p>
         </div>
         <div class="row">
         <span class="material-icons">file_copy</span>
-                    <p style="font-size:24px">Jour Consommer<span class="badge badge-warning">{{$conge->user->jour}}</span></p>
+                    <p style="font-size:24px">Jour Reserver<span class="badge badge-warning">{{$conge->jour}}</span></p>
         </div>
         <div class="row">
         <span class="material-icons">file_copy</span>

@@ -1,7 +1,7 @@
 
 
 
-@extends('layouts.cal')
+@extends('layouts.nav1')
 
 
 @section('title')

@@ -23,7 +23,7 @@ Route::get('/404error', function () {
    
     Route::resource('/events','EventController');
     Route::get('/display','EventController@show');
-    Route::get('/cal','EventController@cal');
+
     Route::resource('/reclamation','reclamationController');
     
 //
@@ -140,7 +140,7 @@ Route::group(['middleware'=>['auth','3']],function()
     Route::post('/reclamation-agent', 'reclamationController@ajouter');
     Route::get('/reclamation-agent', 'reclamationController@indexp');
     
-    Route::get('/cal','EventController@cal2');
+    Route::get('/cal2','EventController@cal2');
    });
 
 

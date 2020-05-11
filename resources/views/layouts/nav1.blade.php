@@ -24,7 +24,7 @@ The above copyright notice and this permission notice shall be included in all c
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.2.7/fullcalendar.min.css"/>
 
 
-.
+
 
   <link rel="icon" type="image/png" href="../assets/img/kohler.jpg">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
@@ -43,17 +43,17 @@ The above copyright notice and this permission notice shall be included in all c
      .jumbotron { 
     padding: 1rem 1rem;
     margin-bottom: 2rem;
-    background-color: #ced8e2;
+    background-color: #ffff;
     border-radius: 0.3rem;
 }
 .sidebar .nav li a, .sidebar .nav li .dropdown-menu a {
     margin: 10px 15px 0;
     border-radius: 3px;
-    color: #fafafa;
+     color: black;
     padding-left: 10px;
     padding-right: 10px;
     text-transform: capitalize;
-    font-size: 13px;
+    font-size: 15px;
     padding: 10px 15px;
 }
 
@@ -128,17 +128,18 @@ The above copyright notice and this permission notice shall be included in all c
 
 <body class="">
   <div class="wrapper">
-    <div class="sidebar" data-color="green" data-background-color="black" data-image="../assets/img/sidebar-5.jpg">
+    <div class="sidebar" data-color="green" data-background-color="white" data-image="../assets/img/sidebar-5.jpg">
       <!--
         Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
 
         Tip 2: you can also add an image using data-image tag
     -->
-      <div class="logo"><a href="" class="simple-text logo-normal">
-         Chef Hiérarchique
+      
+<div class="logo"><a href="" class="simple-text logo-normal">
+        Espace  Chef Hierarchique
         </a></div>
       <div class="sidebar-wrapper">
-        <ul class="nav">
+      <ul class="nav">
           <li class="{{'dashboard'==request()->path()?'active':''}}">
             <a class="nav-link" href="/dashboard">
               <i class="material-icons">dashboard</i>
@@ -194,7 +195,7 @@ The above copyright notice and this permission notice shall be included in all c
     <div class="main-panel">
       <!-- Navbar -->
       <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
-        <div class="container-fluid">
+      <div class="container-fluid">
         <img src="../assets/img/kohler2.jpg" alt="kohler"></a>
           <div class="navbar-wrapper">
             <a class="navbar-brand" href="javascript:;"></a>
@@ -278,7 +279,8 @@ The above copyright notice and this permission notice shall be included in all c
           </div>
         </div>
       </nav>
-      
+        <br>
+        <br>
       <!-- End Navbar -->
       <div class="content">
         <div class="container-fluid">
@@ -570,3 +572,6 @@ The above copyright notice and this permission notice shall be included in all c
 </body>
 
 </html>
+
+
+

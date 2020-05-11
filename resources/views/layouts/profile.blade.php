@@ -40,6 +40,28 @@ The above copyright notice and this permission notice shall be included in all c
   <!-- CSS Just for demo purpose, don't include it in your project -->
   <link href="../assets/demo/demo.css" rel="stylesheet" />
     <style>
+ .jumbotron { 
+    padding: 1rem 1rem;
+    margin-bottom: 2rem;
+    background-color: #ced8e2;
+    border-radius: 0.3rem;
+}
+.sidebar .nav li a, .sidebar .nav li .dropdown-menu a {
+    margin: 10px 15px 0;
+    border-radius: 3px;
+     color: black;
+    padding-left: 10px;
+    padding-right: 10px;
+    text-transform: capitalize;
+    font-size: 15px;
+    padding: 10px 15px;
+}
+
+
+
+
+
+
 @import url('https://fonts.googleapis.com/css?family=Abel');
 
 html, body {
@@ -291,7 +313,7 @@ html, body {
 
 <body class="">
   <div class="wrapper">
-  <div class="sidebar" data-color="green" data-background-color="black" data-image="../assets/img/sidebar-5.jpg">
+  <div class="sidebar" data-color="green" data-background-color="white" data-image="../assets/img/sidebar-5.jpg">
       <!--
         Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
 

@@ -30,7 +30,7 @@ Route::group(['middleware'=>['auth','1']],function()
     {
       
     Route::get('/profilh','ProfilController@indexh');
-    Route::get('/reclamationh','reclamationController@indexH');
+    Route::resource('/reclamationh','ReclamahConroller');
     Route::get('/demande-conge','TraitedemandeController@index');
     Route::get('/conge-accepter','TraitedemandeController@accepter');
     Route::get('/conge-refuser','TraitedemandeController@refuser');
@@ -63,8 +63,8 @@ Route::group(['middleware'=>['auth','2']],function()
     {
        
     Route::get('/profilrh','ProfilController@indexrh'); 
-    Route::get('/reclamationr','reclamationController@indexRh');
-    Route::delete('/reclamationr/{id}', 'reclamationController@destroyr');
+    // Route::get('/reclamationr','reclamationController@indexRh');
+    // Route::delete('/reclamationr/{id}', 'reclamationController@destroyr');
     Route::get('/docum','RhdocumentController@index');
     Route::get('/document-pret','RhdocumentController@pret');
     Route::post('/pdf','RhdocumentController@pdf');

@@ -1,11 +1,12 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Reclamation; 
+
 use Illuminate\Http\Request;
 use App\User;
+use App\Reclamation; 
 
-class reclamationController extends Controller
+class ReclamahConroller extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,15 +18,9 @@ class reclamationController extends Controller
         $rec=Reclamation::orderBy('id','desc')->paginate(2);
         $pages = $rec->links();
         $user=User::All();
-        return view("agent.reclamation",['rec'=>$rec,'user'=>$user,'pages'=>$pages]);
+        return view("chefh.reclamation",['rec'=>$rec,'user'=>$user,'pages'=>$pages]);
     }
-    public function indexRh()
-    {
-        $rec=Reclamation::orderBy('created_at','ASC')->get();
-        $user=User::All();
-        return view("resprh.reclamation",['rec'=>$rec,'user'=>$user]);
-    }
-   
+
     /**
      * Show the form for creating a new resource.
      *
@@ -50,7 +45,8 @@ class reclamationController extends Controller
         $rec->user_id=Auth()->user()->id;
 
         $rec->save();
-        return redirect('reclamation')->with('success','reclamation ajouté');
+        return redirect('reclamationh')->with('success','reclamation ajouté');
+    
     }
 
     /**
@@ -73,7 +69,7 @@ class reclamationController extends Controller
     public function edit($id)
     {
         $rec=Reclamation::find($id);
-        return view('agent.reclamation')->with('rec',$rec);
+        return view('chefh.reclamation')->with('rec',$rec);
     }
 
     /**
@@ -90,7 +86,8 @@ class reclamationController extends Controller
         $rec->description=$request->input('description');
         $rec->user_id=Auth()->user()->id;
          $rec->save();
-        return redirect('reclamation')->with('success', 'bien deposer');
+        return redirect('reclamationh')->with('success', 'bien Modifié');
+    
     }
 
     /**
@@ -104,7 +101,7 @@ class reclamationController extends Controller
         $rec=  Reclamation::find($id);
      
         $rec->delete($id);
-       return redirect('reclamation')->with('fail', 'Votre reclamation a ete supprimer');
+       return redirect('reclamationh')->with('fail', 'Votre reclamation a ete supprimer');
    
     }
 }

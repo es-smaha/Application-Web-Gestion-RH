@@ -14,13 +14,11 @@ class reclamationController extends Controller
      */
     public function index()
     {
-        $rec=Reclamation::All();
-        $rec=Reclamation::paginate(3);
+        
+        $rec=Reclamation::orderBy('id','desc')->paginate(2);
         $pages = $rec->links();
         $user=User::All();
-   
         return view("agent.reclamation",['rec'=>$rec,'user'=>$user,'pages'=>$pages]);
-       
     }
     public function indexRh()
     {
@@ -28,13 +26,20 @@ class reclamationController extends Controller
         $user=User::All();
         return view("resprh.reclamation",['rec'=>$rec,'user'=>$user]);
     }
-    public function indexH()
-    {
-        $rec=Reclamation::All();
-        $user=User::All();
-        return view("chefh.reclamation",['rec'=>$rec,'user'=>$user]);
-    }
     public function indexp()
+    {
+        $rec=Reclamation::orderBy('created_at','ASC')->get();
+        $user=User::All();
+        return view("resppaie.reclamation",['rec'=>$rec,'user'=>$user]);
+    }
+   
+   
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
     {
         
         $rec=Reclamation::All();
@@ -97,7 +102,8 @@ class reclamationController extends Controller
      */
     public function edit($id)
     {
-        //
+        $rec=Reclamation::find($id);
+        return view('agent.reclamation')->with('rec',$rec);
     }
 
     /**

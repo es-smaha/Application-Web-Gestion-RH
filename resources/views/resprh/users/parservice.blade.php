@@ -61,7 +61,7 @@
                             <td>{{$user->kochef}}</td> 
                                 
                                 <td> 
-                                    <a href="/liste-agent/{{$user->id}}" class="btn btn-success btn-link btn-lg" >
+                                    <a href="/users/{{$user->id}}" class="btn btn-success btn-link btn-lg" >
                                 <span class="material-icons">  remove_red_eye</span>   </a>
                          
                                    <button  type="button" rel="tooltip" id="#delete"  data-toggle="modal" data-target="#delete" title="Remove" class="btn btn-success btn-link btn-sm">

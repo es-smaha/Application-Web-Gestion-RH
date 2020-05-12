@@ -66,12 +66,15 @@ Route::group(['middleware'=>['auth','2']],function()
        
         Route::get('/cal','EventController@cal');
     Route::get('/profilrh','ProfilController@indexrh'); 
+    /*
     Route::get('/reclamationr','reclamationController@indexRh');
     Route::delete('/reclamationr/{id}', 'reclamationController@destroyr');
     Route::get('/docum','RhdocumentController@index');
+    */
     Route::get('/document-pret','RhdocumentController@pret');
     Route::post('/pdf','RhdocumentController@pdf');
     Route::put('/docum/{id}','RhdocumentController@valider');
+    Route::get('/docum','RhdocumentController@index');
     Route::get('/users','UserController@index');
     Route::get('/usersservice','UserController@service');
     Route::get('/create','UserController@create');
@@ -136,7 +139,7 @@ Route::group(['middleware'=>['auth','3']],function()
     Route::get('/liste-agent', 'ConfirmerpaieController@agent');
     Route::get('/liste-agent/{id}', 'ConfirmerpaieController@show');
     
-    Route::get('/usersservice', 'ConfirmerpaieController@service');
+    Route::get('/usersservice2', 'ConfirmerpaieController@service');
     //reclamation
     Route::get('/reclamation-agent/{id}', 'reclamationController@editer');
     Route::post('/reclamation-agent', 'reclamationController@ajouter');

@@ -1,84 +1,29 @@
 
 @extends('layouts.nav2')
 
+
 @section('title')
 Calendar
 @endsection
 
 @section('content')
 
+
 <!-- Ajouter un evenement -->
 <div class="container">
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-    
-                add event
-        </div>
-        <div class="modal-body">
-        <h1>task: add data</h1>
-        <form method="POST" action="/events">
-        @csrf
-        <label for="">enter name of event</label>
-        <input type="text" class="form-control" name="title" placeholder="enter the name"/> <br> <br>
-        <label for="">enter color</label>
-        <input type="color" class="form-control" name="color" placeholder="enter the color"/> <br> <br>
-        <label for="">enter start date of event</label>
-        <input type="datetime-local" class="form-control" name="start_date" placeholder="enter the name"/> <br> <br>
-        <label for="">enter end date of event</label>
-        <input type="datetime-local" class="form-control" name="end_date" placehol der="enter the name"/>
-        <br> <br>
-        <input type="submit" name="submit" class="btn btn-primary" value="add event data">
-        </form>
-        </div>
-        </div>
-    </div>
-  </div>
-</div>
-
-
-<div class="container">
-<div class="jumbotron">
-<h2>Clendrier Conge[Full-Calendar]</h2>
-<div class="row">
-<a type="button" class="btn btn-success" data-toggle="modal"  data-target="#exampleModal" >Ajouter un evenement</a> 
-
-</div>
-<br> <br>
-
-
-
-    
-    @if(count($errors)>0)
-    <div class="alert alert-danger">
-    <ul>
-    @foreach($errors->all() as $error)
-    <li>{{ $error}}</li>
-    @endforeach
-    </ul>
-    </div>
-    @endif
-    
+<a class="btn btn-success dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Filter par service
+  </a>
+   
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+  @foreach(App\Service::all() as $service)
+  <option class="dropdown-item" id="calendar{{$service->id}}" value="{{$service->id}}">{{$service->nom}}</option>
       
-        <div class="row">
-        <div class="col-md-12 col-md-offset-4">
-            <div class="panel panel-default">
-                <div class="panel-heading" style="background: #2e6da4; color:white;">
-                Event full calendar
-                </div>
-                <div class="psnel-bodt">
-                {!! $calendar->calendar() !!}
-                {!! $calendar->script() !!}
-                </div>
-            
-            </div>
-        </div>
-        </div>
-    </div>
-</div>
-
-
+      @endforeach
+   
+  </div>
+  <br>
+  <div id="calendar"></div>
 
 
 <!-- modifier un evenement -->
@@ -125,4 +70,34 @@ Calendar
 
 @section('scripts')
 
+<script>
+  
+  $(document).ready(function(){
+   //get cat
+   @foreach(App\Service::all() as $service)
+   $("#calendar{{$service->id}}").click(function(){
+    var cat=$("#calendar{{$service->id}}").val();
+   
+        $.ajax({
+          type:'get',
+          dataType:'html',
+          url:'{{url('/calendarajax')}}',
+          data:'cat_id='+cat,
+          success:function(response){
+           console.log(response);
+           $("#calendar").html(response);
+          }
+        });
+   });
+      @endforeach
+  
+    
+
+
+
+  });
+  
+  
+  
+  </script>
 @endsection

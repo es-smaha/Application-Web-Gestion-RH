@@ -14,7 +14,7 @@
               <div class="card">
                 <div class="card-header card-header-success">
                   <h4 class="card-title "> Table d'agent service: </h4>
-                  <p class="card-category"> </p>
+                  <p class="card-category">{{$servicename}} </p>
                 </div>
                 <div class="card-body">
                   <div class="table-responsive">

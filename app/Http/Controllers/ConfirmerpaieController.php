@@ -35,7 +35,7 @@ class ConfirmerpaieController extends Controller
       $ser=$request->cat_id;
       $services=Service::where('id','=',$ser);
       $user=User::where('service_id','=',$ser)->get();
-      return view('resppaie.agentservice',['user'=>$user,'servicename'=>$user[0]->service->nom]) ;
+      return view('resppaie.agentservice',['user'=>$user,'services'=>$services,'servicename'=>$user[0]->service->nom]) ;
 
     }
    public function planning(){

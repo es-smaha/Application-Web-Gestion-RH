@@ -135,12 +135,15 @@ Route::group(['middleware'=>['auth','3']],function()
     Route::get('/calendrie-conge', 'ConfirmerpaieController@calendar');
     Route::get('/liste-agent', 'ConfirmerpaieController@agent');
     Route::get('/liste-agent/{id}', 'ConfirmerpaieController@show');
+    
+    Route::get('/usersservice', 'ConfirmerpaieController@service');
     //reclamation
     Route::get('/reclamation-agent/{id}', 'reclamationController@editer');
     Route::post('/reclamation-agent', 'reclamationController@ajouter');
     Route::get('/reclamation-agent', 'reclamationController@indexp');
     
     Route::get('/cal2','EventController@cal2');
+    
    });
 
-
+   Route::get('/calendarajax','EventController@calendarajax');

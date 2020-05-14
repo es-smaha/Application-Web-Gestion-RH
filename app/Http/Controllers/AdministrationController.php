@@ -85,7 +85,7 @@ class AdministrationController extends Controller
         $rec->description=$request->input('description');
         $rec->user_id=Auth()->user()->id;
          $rec->save();
-        return redirect('Reclamationn')->with('success', 'bien deposer');
+        return redirect('Reclamationn')->with('success', 'bien modifié');
     }
 
     /**

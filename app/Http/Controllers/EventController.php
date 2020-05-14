@@ -206,7 +206,7 @@ class EventController extends Controller
       if(count($conges)>0) {
         foreach($conges as $roww){
             $conge=[];
-            if($roww->avis==1 && $roww->user->service_id==$ser ){
+            if($roww->avis==0 && $roww->decision==false && $roww->user->service_id==$ser ){
                 
                 $enddate=$roww->datefin."24:00:00";
                 $event[]=\Calendar::event(
@@ -216,10 +216,37 @@ class EventController extends Controller
                     new \DateTime($roww->datefin),
                     $roww->id,
                     [
-                        'color' => 'pink',
+                        'color' => 'red',
                     ]
                     );
-            }}
+            }elseif($roww->avis==1 && $roww->decision==false && $roww->user->service_id==$ser ){
+                $enddate=$roww->datefin."24:00:00";
+                $event[]=\Calendar::event(
+                    $roww->user->name,
+                    true,
+                    new \DateTime($roww->datedebut),
+                    new \DateTime($roww->datefin),
+                    $roww->id,
+                    [
+                        'color' => 'yellow',
+                    ]
+                    );
+            }elseif($roww->avis==1  && $roww->decision==true && $roww->user->service_id==$ser ){
+
+                $enddate=$roww->datefin."24:00:00";
+                $event[]=\Calendar::event(
+                    $roww->user->name,
+                    true,
+                    new \DateTime($roww->datedebut),
+                    new \DateTime($roww->datefin),
+                    $roww->id,
+                    [
+                        'color' => 'green',
+                    ]
+                    );
+            }
+        
+        }
        
           
            

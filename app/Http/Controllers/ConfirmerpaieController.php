@@ -12,6 +12,7 @@ use App\Exports\PlanningExport;
 use App\Imports\PlanningImport;
 use App\Reclamation;
 use Excel;
+use App\Event;
 use MaddHatter\LaravelFullcalendar\Facades\Calendar;
 use Illuminate\Http\Request;
 class ConfirmerpaieController extends Controller
@@ -94,7 +95,32 @@ class ConfirmerpaieController extends Controller
     }
     
      public function calendar(){
-
+        
+      $events=Event::all();
+      //     $events->insert( [
+      //    "title"=>"et",
+      //     "color"=>"red",
+      //     "start_date"=>"",
+      //     "end_date"=>"", 
+      //     ] );
+      
+          
+         if(count($events)>0) {
+          foreach($events as $row){
+              $event=[];
+              $enddate=$row->end_date."24:00:00";
+              $event[]=\Calendar::event(
+                  $row->title,
+                  false,
+                  new \DateTime($row->start_date),
+                  new \DateTime($row->end_date),
+                  $row->id,
+                  [
+                      'color' => $row->color,
+                  ]
+                  );
+              }
+          }
       $conges=Demandeconge::all();
        
       if(count($conges)>0) {
@@ -115,7 +141,7 @@ class ConfirmerpaieController extends Controller
           }}}
           
           $calendar=\Calendar::addEvents($event);
-          return view('resppaie.calendar',compact('conges','calendar'));
+          return view('resppaie.calendar',compact('conges','event','calendar'));
      }
    
 }

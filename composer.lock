@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f27f298b7689a52b96e210aff15e241f",
+    "content-hash": "0fc4e6293c89539e1997b2dcf404d616",
     "packages": [
         {
             "name": "barryvdh/laravel-dompdf",
@@ -800,6 +800,62 @@
                 "psysh"
             ],
             "time": "2019-08-07T15:10:45+00:00"
+        },
+        {
+            "name": "laravelista/comments",
+            "version": "3.4.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laravelista/comments.git",
+                "reference": "5ea8cd0e49ccf08470c3f714734bae285582725e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/laravelista/comments/zipball/5ea8cd0e49ccf08470c3f714734bae285582725e",
+                "reference": "5ea8cd0e49ccf08470c3f714734bae285582725e",
+                "shasum": ""
+            },
+            "require": {
+                "erusev/parsedown": "^1.7",
+                "illuminate/database": "^5.6|^6.0",
+                "illuminate/http": "^5.6|^6.0",
+                "illuminate/pagination": "^5.6|^6.0",
+                "illuminate/queue": "^5.6|^6.0",
+                "illuminate/routing": "^5.6|^6.0",
+                "illuminate/support": "^5.6|^6.0",
+                "php": "^7.1.3",
+                "spatie/laravel-honeypot": "^1.3"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Laravelista\\Comments\\ServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Laravelista\\Comments\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Mario Bašić",
+                    "email": "mario@laravelista.hr",
+                    "homepage": "https://laravelista.hr"
+                }
+            ],
+            "description": "Comments for Laravel.",
+            "keywords": [
+                "comments",
+                "laravel"
+            ],
+            "time": "2020-04-19T12:52:24+00:00"
         },
         {
             "name": "league/flysystem",
@@ -2045,6 +2101,66 @@
                 "stylesheet"
             ],
             "time": "2019-02-22T07:42:52+00:00"
+        },
+        {
+            "name": "spatie/laravel-honeypot",
+            "version": "1.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spatie/laravel-honeypot.git",
+                "reference": "486c58b9bea4628a84fe24176e3b56ee2853980e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spatie/laravel-honeypot/zipball/486c58b9bea4628a84fe24176e3b56ee2853980e",
+                "reference": "486c58b9bea4628a84fe24176e3b56ee2853980e",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/contracts": "~5.7|~5.8",
+                "illuminate/encryption": "~5.7|~5.8",
+                "illuminate/http": "~5.7|~5.8",
+                "illuminate/support": "~5.7|~5.8",
+                "illuminate/validation": "~5.7|~5.8",
+                "php": "~7.1"
+            },
+            "require-dev": {
+                "orchestra/testbench": "~3.7|~3.8",
+                "phpunit/phpunit": "~8.0",
+                "spatie/phpunit-snapshot-assertions": "~2.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Spatie\\Honeypot\\HoneypotServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Spatie\\Honeypot\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Freek Van der Herten",
+                    "email": "freek@spatie.be",
+                    "homepage": "https://spatie.be",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Preventing spam submitted through forms",
+            "homepage": "https://github.com/spatie/laravel-honeypot",
+            "keywords": [
+                "laravel-honeypot",
+                "spatie"
+            ],
+            "time": "2019-02-27T10:01:57+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",

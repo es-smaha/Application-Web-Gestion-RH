@@ -178,13 +178,10 @@ reclamation
 <button type="button" rel="tooltip"data-toggle="modal"  data-target="#delete" title="Remove" class="btn btn-danger btn-link btn-sm">
   <i class="material-icons">close</i>
 </button></td>
-@endif
 @endif</div>
-
-
-
-</div>
-</div>
+</div></div>
+@comments(['model' => $rec])
+@endif
 
 @endforeach
 <hr>

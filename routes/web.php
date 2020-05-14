@@ -24,7 +24,6 @@ Route::get('/404error', function () {
     Route::resource('/events','EventController');
     Route::get('/display','EventController@show');
 
-    Route::resource('/reclamation','reclamationController');
     
 //
    
@@ -32,7 +31,6 @@ Route::group(['middleware'=>['auth','1']],function()
     {
       
     Route::get('/profilh','ProfilController@indexh');
-    Route::resource('/reclamationh','ReclamahConroller');
     Route::get('/demande-conge','TraitedemandeController@index');
     Route::get('/conge-accepter','TraitedemandeController@accepter');
     Route::get('/conge-refuser','TraitedemandeController@refuser');
@@ -109,6 +107,10 @@ Route::group(['middleware'=>['auth','0']],function()
         Route::get('/home','HomeController@index')->name('home');
         Route::resource('doc', 'DocumentController');
        
+        Route::get('/reclamation', 'reclamationController@index');
+        Route::post('/reclamation', 'reclamationController@store');
+        Route::put('/reclamation/{id}', 'reclamationController@edit');
+        Route::delete('/reclamation/{id}', 'reclamationController@destroy');
         
         
         Route::resource('conge', 'DemandecongeController');
@@ -140,10 +142,6 @@ Route::group(['middleware'=>['auth','3']],function()
     Route::get('/liste-agent/{id}', 'ConfirmerpaieController@show');
     
     Route::get('/usersservice2', 'ConfirmerpaieController@service');
-    //reclamation
-    Route::get('/reclamation-agent/{id}', 'reclamationController@editer');
-    Route::post('/reclamation-agent', 'reclamationController@ajouter');
-    Route::get('/reclamation-agent', 'reclamationController@indexp');
     
     Route::get('/cal2','EventController@cal2');
     

@@ -15,15 +15,16 @@ reclamation
 </button>
 </div>
 
-<div class="modal-body"><div class="card card-profile">
+<div class="modal-body">
+<div class="card card-profile">
 <div class="card-avatar">
 
   <img class="img" src="../assets/img/ops.png" />
 </a>
 </div>
 <div class="card-body">
-<h6 class="card-category text-gray">Deposer une Note ou bien une Reclamation</h6>
-<form action="/Reclamationn" method="Post">
+<h6 class="card-category text-gray">Note/reclamation</h6>
+<form action="/reclamation" method="Post">
 @csrf
 <div class="form-group">
 <label for="exampleInputEmail1">Titre</label>
@@ -70,10 +71,8 @@ reclamation
 
 
 @if(count($rec)>0)
-@foreach($rec as $rec)
 
-@if(!auth::guest())
-@if(auth::user()->id==$rec->user_id)
+@foreach($rec as $rec)
 <div class="modal modal-danger fade " id="delete" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 <div class="modal-dialog" role="document">
 <div class="modal-content">
@@ -145,8 +144,8 @@ reclamation
   </div>
 </div>
 <!--  -->
-@endif
-@endif
+
+
 <div class="card">
 
 <div class="card-body ">
@@ -170,24 +169,22 @@ reclamation
 
 <div class="stats ml-auto">
 @if(!auth::guest())
-@if(auth::user()->id==$rec->user_id)
+
 <button type="button" data-toggle="modal"  data-target="#edit" rel="tooltip" title="Edit Task" class="btn btn-success btn-link btn-sm">
   <i class="material-icons">edit</i>
 </button>
 <button type="button" rel="tooltip"data-toggle="modal"  data-target="#delete" title="Remove" class="btn btn-danger btn-link btn-sm">
   <i class="material-icons">close</i>
 </button></td>
+</div>
+</div></div>
+@comments(['model' => $rec])
 @endif
-@endif</div>
-
-
-
-</div>
-</div>
 
 @endforeach
 <hr>
 {{$pages}} 
+ 
 <div class="pages">
 <ul class="pagination ">
 

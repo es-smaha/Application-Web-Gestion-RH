@@ -7,10 +7,10 @@
   <li id="comment-{{ $comment->id }}" class="media">
 @endif
 <div class="author">
-    <img  class="avatar img-raised" src="/storage/cover_images/{{auth::user()->image}}" alt="">
+    <img  class="avatar img-raised" style="height:30px" src="/storage/cover_images/{{auth::user()->image}}" alt="">
         </div>
     <div class="media-body">
-        <div>
+        <div> 
         <h5 class="mt-0 mb-1">{{ $comment->commenter->name ?? $comment->guest_name }} <small class="text-muted">- {{ $comment->created_at->diffForHumans() }}</small></h5>
         <div style="white-space: pre-wrap;">{!! $markdown->line($comment->comment) !!}</div>
 

@@ -286,7 +286,7 @@
 <textarea   name="raison" class="form-control" id="message-text"></textarea>
 </div>
 <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
-<button type="submit" class="btn btn-success" onclick="toastr.info('Hi! I am info message.');" >Ajouter</button>
+<button type="submit" class="btn btn-success" onclick="md.showNotification('top','right')" >Ajouter</button>
 @csrf
 </form>
 </div>
@@ -300,7 +300,7 @@
 @section('scripts')
   <script>
   $("#alert-target").click(function () {
-toastr["info"]("l'Ajout est effectuer")
+toastr["info"]("I was launched via jQuery!")
 });
   
   

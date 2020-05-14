@@ -102,7 +102,14 @@ Route::group(['middleware'=>['auth','0']],function()
     {
         Route::get('/home','HomeController@index')->name('home');
         Route::resource('doc', 'DocumentController');
-       Route::resource('conge', 'DemandecongeController');
+       
+        Route::get('/reclamation', 'reclamationController@index');
+        Route::post('/reclamation', 'reclamationController@store');
+        Route::put('/reclamation/{id}', 'reclamationController@edit');
+        Route::delete('/reclamation/{id}', 'reclamationController@destroy');
+        
+        
+        Route::resource('conge', 'DemandecongeController');
         Route::resource('/profil','ProfilController');
       Route::get('/planningR', 'ImportExcelController@indexA');
       Route::get('/calendar-employee','EventController@calagent');

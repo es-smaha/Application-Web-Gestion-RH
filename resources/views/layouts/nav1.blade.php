@@ -137,7 +137,7 @@ The above copyright notice and this permission notice shall be included in all c
       
 <div class="logo"><a href="" class="simple-text logo-normal">
         Espace  Chef Hierarchique
-        </a></div> 
+        </a></div>
       <div class="sidebar-wrapper">
       <ul class="nav">
           <li class="{{'dashboard'==request()->path()?'active':''}}">
@@ -149,21 +149,7 @@ The above copyright notice and this permission notice shall be included in all c
           <li class="{{'demande-conge'==request()->path()?'active':''}} ">
             <a class="nav-link" href="/demande-conge">
               <i class="material-icons">exit_to_app</i>
-                <div class="row">
-                <p>Demande de Congé</p>
-                @foreach(Auth::user()->notifications as $notification)
-                   @if($notification->notifiable_id==Auth::user()->id  &&   $notification->read_at == '' )
-                   @if($notification->type=="App\Notifications\Useredemandeconge")
-                <span class="badge badge-warning">1</span>  
-                {{$notification->markAsRead()}}
-                    @endif
-         
-                 
-                 @endif
-
-                    @endforeach</div>
-              
-
+              <p>Demande de Congé</p>
             </a>
           </li>
 
@@ -202,7 +188,7 @@ The above copyright notice and this permission notice shall be included in all c
             </a>
           </li>
          
-  
+    
         </ul>
       </div>
     </div>

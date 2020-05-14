@@ -21,6 +21,11 @@ The above copyright notice and this permission notice shall be included in all c
     @yield('title')
   </title>
   <meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.2.7/fullcalendar.min.js"></script>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.2.7/fullcalendar.min.css"/>
   <!--     Fonts and icons     -->
   <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
@@ -68,9 +73,9 @@ The above copyright notice and this permission notice shall be included in all c
 .sidebar .nav li a, .sidebar .nav li .dropdown-menu a {
     margin: 10px 15px 0;
     border-radius: 3px;
-    color: #fafafa;
+    color: black;
     padding-left: 10px;
-    padding-right: 10px;
+    padding-right: 10px; 
     text-transform: capitalize;
     font-size: 13px;
     padding: 10px 15px;
@@ -81,7 +86,7 @@ The above copyright notice and this permission notice shall be included in all c
 
 <body class="">
   <div class="wrapper">
-    <div class="sidebar" data-color="green" data-background-color="black" data-image="../assets/img/sidebar-5.jpg">
+    <div class="sidebar" data-color="green" data-background-color="white" data-image="../assets/img/sidebar-3.jpg">
       <!--
         Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
 
@@ -96,18 +101,44 @@ The above copyright notice and this permission notice shall be included in all c
             <a class="nav-link" href="/home">
               <i class="material-icons">dashboard</i>
               <p>Dashboard</p>
+              
             </a>
           </li>
           <li class="{{'doc'==request()->path()?'active':''}} ">
             <a class="nav-link" href="/doc">
               <i class="material-icons">description</i>
-              <p> documents administratifs</p>
+                <div class="row">
+              <p>Demande Document <p> 
+              @foreach(Auth::user()->notifications as $notification)
+                @if($notification->notifiable_id==Auth::user()->id  && $notification->read_at == '' )
+                @if($notification->type=="App\Notifications\Validerdocument")
+                <span class="badge badge-warning">1</span>  
+                {{$notification->markAsRead()}}
+                    @endif
+         
+                    @endif
+                    
+                    @endforeach
+                   
+                    </div>
             </a>
           </li>
           <li class="{{'conge' == request()->path() ? 'active' : ''}}"  class="nav-item ">
             <a class="nav-link" href="/conge">
               <i class="material-icons">exit_to_app</i>
-              <p>Demande Congee</p>
+                <div class="row">
+              <p>Demande Congee     <p>  
+              @foreach(Auth::user()->notifications as $notification)
+                @if($notification->notifiable_id==Auth::user()->id  && $notification->read_at == '' )
+                @if($notification->type=="App\Notifications\Validerconge")
+                <span class="badge badge-warning">1</span>  
+                {{$notification->markAsRead()}}
+                    @endif
+         
+                    @endif
+                    
+                    @endforeach
+                    </div>
             </a>
           </li>
           <li class="{{'profil' == request()->path() ? 'active' : ''}}" class="nav-item ">
@@ -179,7 +210,7 @@ The above copyright notice and this permission notice shall be included in all c
                     <span class="notification">1</span>
                     <p>
                   <a class="dropdown-item" href="/conge ">{{$notification->data['userId']}}    <small>   Votre demande de conge  a ete valider </small> {{$notification->created_at->diffforHumans()}}  </a>
-                  {{$notification->markAsRead()}}
+                 
                     </p>
                     @endif
                     @endif

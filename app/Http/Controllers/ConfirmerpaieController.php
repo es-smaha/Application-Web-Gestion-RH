@@ -109,13 +109,27 @@ class ConfirmerpaieController extends Controller
                   new \DateTime($roww->datefin),
                   $roww->id,
                   [
-                      'color' => 'pink',
+                      'color' => 'blue',
                   ]
                   );
-          }}}
+          }else if($roww->avis==1 && $roww->decision==false){
+            $enddate=$roww->datefin."24:00:00";
+            $event[]=\Calendar::event(
+                $roww->user->name,
+                true,
+                new \DateTime($roww->datedebut),
+                new \DateTime($roww->datefin),
+                $roww->id,
+                [
+                    'color' => 'yellow',
+                ]
+                );
+          }
+         }
+         }
           
           $calendar=\Calendar::addEvents($event);
-          return view('resppaie.calendar',compact('conges','calendar'));
+          return view('resppaie.calendar',compact('conges','event','calendar'));
      }
    
 }

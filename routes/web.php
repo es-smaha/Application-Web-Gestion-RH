@@ -64,11 +64,7 @@ Route::group(['middleware'=>['auth','2']],function()
        
         Route::get('/cal','EventController@cal');
     Route::get('/profilrh','ProfilController@indexrh'); 
-    /*
-    Route::get('/reclamationr','reclamationController@indexRh');
-    Route::delete('/reclamationr/{id}', 'reclamationController@destroyr');
-    Route::get('/docum','RhdocumentController@index');
-    */
+ 
     Route::get('/document-pret','RhdocumentController@pret');
     Route::post('/pdf','RhdocumentController@pdf');
     Route::put('/docum/{id}','RhdocumentController@valider');
@@ -106,18 +102,11 @@ Route::group(['middleware'=>['auth','0']],function()
     {
         Route::get('/home','HomeController@index')->name('home');
         Route::resource('doc', 'DocumentController');
-       
-        Route::get('/reclamation', 'reclamationController@index');
-        Route::post('/reclamation', 'reclamationController@store');
-        Route::put('/reclamation/{id}', 'reclamationController@edit');
-        Route::delete('/reclamation/{id}', 'reclamationController@destroy');
-        
-        
-        Route::resource('conge', 'DemandecongeController');
+       Route::resource('conge', 'DemandecongeController');
         Route::resource('/profil','ProfilController');
-    
-        Route::get('/planningR', 'ImportExcelController@indexA');
-        
+      Route::get('/planningR', 'ImportExcelController@indexA');
+      Route::get('/calendar-employee','EventController@calagent');
+   
 
  });
  
@@ -126,12 +115,7 @@ Route::group(['middleware'=>['auth','3']],function()
     Route::get('/profilpaie','ProfilController@indexpaie');
     Route::get('/dashboard3', function () {
         return view('resppaie.dashboard');});
-    
-
-    // cal
-    // Route::get('/cal','Calpaie@cal');
- 
-    Route::get('/confin','ConfirmerpaieController@index');
+      Route::get('/confin','ConfirmerpaieController@index');
     Route::get('/decision-accepter','ConfirmerpaieController@archive1');
     Route::get('/decision-refuser','ConfirmerpaieController@archive2');
     Route::put('/confin/{id}','ConfirmerpaieController@valider');

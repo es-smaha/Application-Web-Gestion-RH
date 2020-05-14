@@ -18,13 +18,7 @@ class EventController extends Controller
     public function index()
     {
         $events=Event::all();
-    //     $events->insert( [
-    //    "title"=>"et",
-    //     "color"=>"red",
-    //     "start_date"=>"",
-    //     "end_date"=>"",
-    //     ] );
-    
+
         
        if(count($events)>0) {
         foreach($events as $row){
@@ -68,19 +62,41 @@ class EventController extends Controller
         return view('calendar.eventpage',compact('events','conges','calendar'));  
         
     }
+    public function calagent()
+    {
+       
+        $id=auth()->user()->id;
+        $conges=Demandeconge::where('user_id','=',$id)->get();
+     
+        if(count($conges)>0) {
+        foreach($conges as $roww ){
+            $conge=[];
+            if($roww->avis==1 && $roww->user_id==$id){
+                $enddate=$roww->datefin."24:00:00";
+                $event[]=\Calendar::event(
+                    $roww->user->name,
+                    true,
+                    new \DateTime($roww->datedebut),
+                    new \DateTime($roww->datefin),
+                    $roww->id,
+                    [
+                        'color' => 'pink',
+                    ]
+                    );
+            }}
+       
+          
+           
+        }
+        $calendar=\Calendar::addEvents($event);
+        return view('agent.demandes.calendar',compact('conges','calendar'));  
+        
+    }  
             
     public function cal()
     {
         $events=Event::all();
-    //     $events->insert( [
-    //    "title"=>"et",
-    //     "color"=>"red",
-    //     "start_date"=>"",
-    //     "end_date"=>"", 
-    //     ] );
-    
-        
-       if(count($events)>0) {
+         if(count($events)>0) {
         foreach($events as $row){
             $event=[];
             $enddate=$row->end_date."24:00:00";
@@ -96,12 +112,12 @@ class EventController extends Controller
                 );
             }
         }
-        $conges=Demandeconge::all();
+      
        
         if(count($conges)>0) {
         foreach($conges as $roww){
             $conge=[];
-            if($roww->avis==1){
+            if($roww->avis==1  ){
                 $enddate=$roww->datefin."24:00:00";
                 $event[]=\Calendar::event(
                     $roww->user->name,
@@ -183,7 +199,7 @@ class EventController extends Controller
       $ser=$request->cat_id;
       $services=Service::where('id','=',$ser);
       $events=Event::all();
-  
+   
        if(count($events)>0) {
         foreach($events as $row){
             $event=[];
@@ -200,6 +216,7 @@ class EventController extends Controller
                 );
             }
         }
+<<<<<<< HEAD
         $conges=Demandeconge::all();
        
  
@@ -252,6 +269,107 @@ class EventController extends Controller
            
         }
         $calendar=\Calendar::addEvents($event);
+=======
+     
+       $conges=Demandeconge::all();
+        if(count($conges)>0) {
+            foreach($conges as $roww){
+                $conge=[];
+                  if(auth()->user()->usertype==3){
+                       if($roww->avis==1 && $roww->decision==true && $roww->user->service_id==$ser ){
+                             $enddate=$roww->datefin."24:00:00";
+                                $event[]=\Calendar::event(
+                                   $roww->user->name,
+                                      true,
+                                         new \DateTime($roww->datedebut),
+                                        new \DateTime($roww->datefin),
+                                          $roww->id,
+                                         [
+                                          'color' => 'blue',
+                                            ]
+                                           );
+                }else if($roww->avis==1 && $roww->decision==false && $roww->user->service_id==$ser){
+                  $enddate=$roww->datefin."24:00:00";
+                  $event[]=\Calendar::event(
+                    $roww->user->name,
+                     true,
+                      new \DateTime($roww->datedebut),
+                      new \DateTime($roww->datefin),
+                      $roww->id,
+              
+                      [
+                          'color' => 'yellow',
+                      ]
+                      );
+                }}
+                 if (Auth()->user()->usertype==1){
+                 
+                if($roww->avis==0 && $roww->decision==false && $roww->user->service_id==$ser ){
+                    $enddate=$roww->datefin."24:00:00";
+                    $event[]=\Calendar::event(
+                        $roww->user->name,
+                        true,
+                        new \DateTime($roww->datedebut),
+                        new \DateTime($roww->datefin),
+                        $roww->id,
+                        [
+                            'color' => 'red',
+                        ]
+                        );
+                }else if($roww->avis==1 && $roww->decision==true && $roww->user->service_id==$ser){
+                  $enddate=$roww->datefin."24:00:00";
+                  $event[]=\Calendar::event(
+                    $roww->user->name,
+                     true,
+                      new \DateTime($roww->datedebut),
+                      new \DateTime($roww->datefin),
+                      $roww->id,
+              
+                      [
+                          'color' => 'green',
+                      ]
+                      );
+                }}
+                if(Auth()->user()->usertype==0){
+
+                    if($roww->avis==0 && $roww->decision==false && $roww->user->service_id==$ser ){
+                        $enddate=$roww->datefin."24:00:00";
+                        $event[]=\Calendar::event(
+                            $roww->user->name,
+                            true,
+                            new \DateTime($roww->datedebut),
+                            new \DateTime($roww->datefin),
+                            $roww->id,
+                            [
+                                'color' => 'yellow',
+                            ]
+                            );
+                    }else if($roww->avis==1 && $roww->decision==false && $roww->user->service_id==$ser){
+                      $enddate=$roww->datefin."24:00:00";
+                      $event[]=\Calendar::event(
+                        $roww->user->name,
+                         true,
+                          new \DateTime($roww->datedebut),
+                          new \DateTime($roww->datefin),
+                          $roww->id,
+                  
+                          [
+                              'color' => 'green',
+                          ]
+                          );
+                    } }
+
+
+
+
+                }}
+
+               
+            
+        
+                
+                $calendar=\Calendar::addEvents($event);
+>>>>>>> 8a67abf4f180cfec0fa1d4e603596500e69ddbea
       return view('resppaie.calendarajax',compact('events','conges','calendar')) ;
 
         }

@@ -61,7 +61,7 @@
         $.ajax({
           type:'get',
           dataType:'html',
-          url:'{{url('/usersservice')}}',
+          url:'{{url('/usersservice2')}}',
           data:'cat_id='+cat,
           success:function(response){
            console.log(response);

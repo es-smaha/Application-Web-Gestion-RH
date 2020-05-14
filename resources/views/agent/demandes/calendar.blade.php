@@ -1,8 +1,17 @@
-<script>
-    $(document).ready(function() {
-    $('#example').DataTable();
-} );
-  </script>
+
+@extends('layouts.nav4')
+
+
+@section('title')
+Calendar
+@endsection
+
+@section('content')
+
+
+
+
+<!-- modifier un evenement -->
 
 
 
@@ -122,13 +131,28 @@
         </div>
             </div>
                 </div>
-                @if($conges->user_id==Auth::user()->id)
                 <div class="psnel-bodt">
                 {!! $calendar->calendar() !!}
                 {!! $calendar->script() !!}
                 </div>
-            @endif
+            
             </div>
         </div>
         </div>
     </div>
+
+
+
+
+
+
+
+
+
+
+@endsection
+
+@section('scripts')
+
+
+@endsection

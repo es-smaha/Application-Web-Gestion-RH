@@ -63,7 +63,7 @@ Calendar
   <th>Delete</th>
 </tr>
 </thead>
-
+@if(count($conges)>0)
 @foreach($conges as $conges)
 @if($conges->avis==1)
 <tbody>
@@ -87,6 +87,7 @@ Calendar
 
 @endif
 @endforeach
+@endif
 
 </table>
         </div>
@@ -131,11 +132,12 @@ Calendar
         </div>
             </div>
                 </div>
+            
                 <div class="psnel-bodt">
                 {!! $calendar->calendar() !!}
                 {!! $calendar->script() !!}
                 </div>
-            
+
             </div>
         </div>
         </div>

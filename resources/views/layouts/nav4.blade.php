@@ -153,6 +153,12 @@ The above copyright notice and this permission notice shall be included in all c
               <p>Planning de travail</p>
             </a>
           </li>
+          <li class="{{'planning' == request()->path() ? 'active' : ''}}"  class="nav-item ">
+            <a class="nav-link" href="/calendar-employee">
+              <i class="material-icons">bubble_chart</i>
+              <p>Mon calendrier</p>
+            </a>
+          </li>
           <li class="{{'reclamation' == request()->path() ? 'active' : ''}}" class="nav-item ">
             <a class="nav-link" href="/reclamation">
               <i class="material-icons">local_post_office</i>

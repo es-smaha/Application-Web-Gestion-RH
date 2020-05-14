@@ -86,7 +86,7 @@ class DemandecongeController extends Controller
         $us=User::where('usertype',"=",1)->get();
         Notification::send($us, new Useredemandeconge(Auth()->user()));
          //fin
-
+         
         return redirect('conge')->with('success','lajout est effectuer');
       }
 

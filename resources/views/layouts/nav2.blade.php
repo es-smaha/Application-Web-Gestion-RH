@@ -214,10 +214,12 @@ box-shadow: 5px 5px 30px 7px rgba(0,0,0,0.25), -5px -5px 30px 7px rgba(0,0,0,0.2
               <i class="material-icons">library_books</i>
                    <div class="row">
               <p> Documents Administratifs</p>
+              
                 @foreach(Auth::user()->notifications as $notification)
+                
                    @if($notification->notifiable_id==Auth::user()->id  &&   $notification->read_at == '' )
                    @if($notification->type=="App\Notifications\Userdemandedocument")
-                <span class="badge badge-warning">1</span>  
+                <span class="badge badge-warning">{{Auth::user()->unreadNotifications->count()}}</span>  
                 {{$notification->markAsRead()}}
                     @endif
          

@@ -19,17 +19,12 @@ Route::get('/change','auth\ChangePasswordController@index');
 Route::post('/update-password','auth\ChangePasswordController@passwordupdate');
 Auth::routes();
 Route::get('/404error', function () {
-    return view('notfound');});
-   
-    Route::resource('/events','EventController');
-    Route::get('/display','EventController@show');
-
-    
-//
-   
+  return view('notfound');});
+  Route::resource('/events','EventController');
+  Route::get('/display','EventController@show');
+  
 Route::group(['middleware'=>['auth','1']],function()
     {
-      
     Route::get('/profilh','ProfilController@indexh');
     Route::get('/demande-conge','TraitedemandeController@index');
     Route::get('/conge-accepter','TraitedemandeController@accepter');
@@ -43,20 +38,13 @@ Route::group(['middleware'=>['auth','1']],function()
     Route::get('/dashboard', function () {
         return view('chefh.dashboard');
     });
-
-   
-    //calendier  
-
-   
+      //calendier  
     Route::get('/deleteevent','EventController@show');
-
     //planning
     Route::get('/ex', 'ImportExcelController@index');
     Route::get('/export', 'ImportExcelController@export');
     Route::post('/import', 'ImportExcelController@import');
-    
-
-   });
+       });
   
 
 Route::group(['middleware'=>['auth','2']],function()

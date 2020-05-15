@@ -166,8 +166,9 @@ reclamation
 <span>{{$rec->created_at}} {{$rec->created_at->diffforHumans()}}</span>
 </a>
 </div>
-
+  
 <div class="stats ml-auto">
+
 @if(!auth::guest())
 
 <button type="button" data-toggle="modal"  data-target="#edit" rel="tooltip" title="Edit Task" class="btn btn-success btn-link btn-sm">

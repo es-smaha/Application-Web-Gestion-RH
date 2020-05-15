@@ -70,6 +70,16 @@ class AdministrationController extends Controller
     $user=User::All();
     return view("resprh.reclamation",['rec'=>$rec,'user'=>$user,'pages'=>$pages]);
   }
+
+
+  public function show($id){
+
+    $rec=Reclamation::find($id);
+  
+   
+    return view("resprh.showrec",['rec'=>$rec]);
+
+  }
   public function store(Request $request)
 {  $rec= new Reclamation();
     $rec->titre=$request->input('titre');
@@ -77,6 +87,7 @@ class AdministrationController extends Controller
     $rec->user_id=Auth()->user()->id;
      $rec->save();
     return redirect('Reclamationn')->with('success', 'bien deposer');}
+
 
   public function edit(Request $request, $id)
     {

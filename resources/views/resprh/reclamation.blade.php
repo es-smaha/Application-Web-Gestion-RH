@@ -149,10 +149,15 @@ reclamation
 @endif
 @endif
 <div class="card">
-
+  <div class="new">
+    <p  style="float:right;color:yellow"><span class="material-icons">
+new_releases
+</span></p>
+</div>
 <div class="card-body ">
 <h6 class="card-category text-danger">
-<i class="material-icons">trending_up</i> {{$rec->titre}}
+<i class="material-icons">trending_up</i>   {{$rec->titre}}
+
 </h6>
 <h4 class="card-title">
 <a href="#pablo">{{$rec->description}}</a>
@@ -170,6 +175,10 @@ reclamation
 </div>
 
 <div class="stats ml-auto">
+<a href="/Show-suggestion/{{$rec->id}}"  class="btn btn-warning btn-sm">
+<span class="material-icons">reply</span>
+</a>
+
 @if(!auth::guest())
 @if(auth::user()->id==$rec->user_id)
 <button type="button" data-toggle="modal"  data-target="#edit" rel="tooltip" title="Edit Task" class="btn btn-success btn-link btn-sm">
@@ -180,7 +189,8 @@ reclamation
 </button></td>
 @endif</div>
 </div></div>
-@comments(['model' => $rec])
+
+ 
 @endif
 
 @endforeach
@@ -210,21 +220,17 @@ reclamation
 
 
 @section('scripts')
-<script>
-$(document).ready(function() {
-$('#data').DataTable();
-} );
-</script>
-<script>
-$('#delete').on('show.bs.model',function(event{
-var  button=$(event.relatedTarget)
-var user_id=button.data('userid')
-var modal=$(this)
-modal.find('.modal-body #user_id').val(user_id)
 
 
+  <script>
+  $(document).ready(function(){
+  $(".new").click(function(){
+    $(".new").remove();
+  });
+});
+  
+  
+  </script>
 
-
-}));
-
+  
 @endsection

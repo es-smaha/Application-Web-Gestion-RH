@@ -82,6 +82,7 @@ Route::group(['middleware'=>['auth','2']],function()
     Route::post('/Reclamationn', 'AdministrationController@store');
     Route::put('/Reclamationn/{id}', 'AdministrationController@edit');
     Route::delete('/Reclamationn/{id}', 'AdministrationController@destroy');
+    Route::get('/Show-suggestion/{id}', 'AdministrationController@show');
        
 
 });

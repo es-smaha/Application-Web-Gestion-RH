@@ -53,8 +53,7 @@
 <th>Nom</th>
 <th>Type Conge</th>
 <th>date conge</th>
-<th>Jour reservee</th>
-<th>jour consommee</th>
+<th>Jours demandés</th>
 <th>solde Conge</th>
 <th>date creation</th>
   <th><span class="material-icons">loupe</span>Details</th>
@@ -65,18 +64,21 @@
 <tbody>
 
 @foreach($conge as $conge)
-@if($conge->avis==1 && $conge->decision==0)
+@if($conge->avis!=0 && $conge->decision==0)
 <tr>
-<td>  <a href="/us/{{$conge->id}}"></a>{{$conge->user->name}}</td>
+<td>  <a href="/us/{{$conge->id}}"></a>{{$conge->user->name}}<span class="badge badge-warning">{{$conge->user->jour}}</span></td>
 <td>{{$conge->typeconge->nom}}</td>
 <td>{{$conge->datedebut}}   <b >a </b> {{$conge->datefin}}</td>
 <td>  {{$conge->jour}}</td>
-<td>  {{$conge->user->jour}}</td>
-<td>  {{$conge->user->solde}}</td>
+<td>  {{$conge->solde}}</td>
 <td>{{$conge->created_at}}</td>
-<td> <span class="badge badge-success">accepter</span> </td>
+@if($conge->avis==1)
+<td> <span class="badge badge-success">accepté</span> </td>
 <td> <span class="badge badge-warning">en attente </span> </td>
-
+@elseif($conge->avis==2)
+<td> <span class="badge badge-danger">refusé</span> </td>
+<td> <span class="badge badge-warning">en attente </span> </td>
+@endif
 <td>    <form action="/confin/{{$conge->id}}" method="POST">
 @csrf
 @method('PUT')

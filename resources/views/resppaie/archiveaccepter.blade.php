@@ -53,8 +53,7 @@
 <th>Nom</th>
 <th>Type Conge</th>
 <th>date conge</th>
-<th>Jour reservee</th>
-<th>jour consommee</th>
+<th>Jours demandés</th>
 <th>solde Conge</th>
 <th>date creation</th>
 <th>Avis chef hierarchique</th>
@@ -66,62 +65,78 @@
 @foreach($conge as $conge)
 @if($conge->avis==1 && $conge->decision==1)
 <tr>
-<td>{{$conge->user->name}}</td>
+<td>{{$conge->user->name}} <span class="badge badge-warning">{{$conge->user->jour}}</span></td>
 <td>{{$conge->typeconge->nom}}</td>
 <td>{{$conge->datedebut}}   <b >a </b> {{$conge->datefin}}</td>
 <td>  {{$conge->jour}}</td>
-<td>  {{$conge->user->jour}}</td>
 <td>  {{$conge->user->solde}}
 
 <button type="button" rel="tooltip" id="#update"  data-toggle="modal" data-target="#update" title="update" class="btn btn-danger btn-link btn-sm">
-                                                        <span class="material-icons">update</span></button>
+<span class="material-icons">update</span></button>
 
 </td>
 
 <td>{{$conge->created_at}}</td>
 
 
-<td> <span class="badge badge-success">accepter</span> </td>
-<td> <span class="badge badge-success">accepter </span> </td>
+<td> <span class="badge badge-success">accepté</span> </td>
+<td> <span class="badge badge-success">accepté </span> </td>
 <!-- update conge -->
+
+
 <div class="modal modal-danger fade " id="update" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">confirmations</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Modifier la Demande</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-  
+      <div class="modal-body">
         <form  action="/solde" method="POST">
         @csrf
         @method('PUT')
-        <div class="modal-body">
         <input type="hidden" name="conge_id" id="user_id" value="{{$conge->id}}">
-          <div class="form-control">
-                     
-                     <label for="message-text"   class="col-form-label">solde conge</label>
-                     <input type="text"   name="solde" id="user_id" value="{{$conge->user->solde}}">
-                     
-                     </div>
-                     <div class="form-control">
-                     <label for="message-text"   class="col-form-label">jour consommer</label>
-                     <input type="text"   name="jour" id="user_id" value="{{$conge->user->jour}}">
-                     
-                     </div>
-        </div>
 
-          <div class="modal-footer">
-        
-        <button type="submit"  onclick="md.showNotificationn('top','center')" class="btn btn-warning">Modifier</button>
-      </div>
-          
-        </form>
-      </div>
-     
-    </div>
-  </div>
+        <div class="form-group">
+<label for="message-text"   class="col-form-label">solde conge</label>
+<input type="text"   name="solde" id="user_id" value="{{$conge->user->solde}}">
+</div>
+
+<div class="form-group">
+<label for="message-text"   class="col-form-label">jour consommer</label>
+<input type="text"   name="jour" id="user_id" value="{{$conge->jour}}">
+</div>
+
+
+<div class="form-group">
+<label for="message-text"   class="col-form-label">date de debut</label>
+<input type="date"   name="datedebut" id="user_id" value="{{$conge->datedebut}}">
+</div>
+<div class="form-group">
+<label for="message-text"   class="col-form-label">date de fin</label>
+<input type="date"   name="datefin" id="user_id" value="{{$conge->datefin}}">
+</div>
+
+<button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+<button type="submit" onclick="md.showNotificationn('top','center')" class="btn btn-success"  >Modifier</button>
+@csrf
+</form>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
 
 
 

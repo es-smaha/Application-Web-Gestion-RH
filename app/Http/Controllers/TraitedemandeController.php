@@ -39,7 +39,8 @@ class TraitedemandeController extends Controller
          $conge->avis = 1;
          $us = $conge->user_id;
          $user =   User::find($us);
-          $user->solde = $user->solde - $conge->jour;
+         $user->solde = $user->solde - $conge->jour;
+         $conge->solde=$user->solde;
          $user->jour = $user->jour + $conge->jour;
          $user->save();
          $conge->save();

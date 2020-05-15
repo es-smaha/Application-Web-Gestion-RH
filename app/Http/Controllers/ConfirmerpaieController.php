@@ -88,7 +88,9 @@ class ConfirmerpaieController extends Controller
       $us=$conge->user_id;
          $user=User::find($us);
          $user->solde=$request->input('solde');
-         $user->jour=$request->input('jour');
+         $conge->datedebut=$request->input('datedebut');
+         $conge->datefin=$request->input('datefin');
+         $conge->jour=$request->input('jour');
          $user->save();
          return redirect()->back();
 

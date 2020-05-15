@@ -52,8 +52,7 @@
 <th>Nom</th>
 <th>Type Conge</th>
 <th>date conge</th>
-<th>Jour reservee</th>
-<th>jour consommee</th>
+<th>Jour demandé</th>
 <th>solde Conge</th>
 <th>date creation</th>
 <th>Avis chef hierarchique</th>
@@ -64,18 +63,17 @@
 @foreach($conge as $conge)
 @if($conge->avis==2 && $conge->decision==1)
 <tr>
-<td>{{$conge->user->name}}</td>
+<td>{{$conge->user->name}} <span class="badge badge-warning">{{$conge->user->jour}}</span></td>
 <td>{{$conge->typeconge->nom}}</td>
 <td>{{$conge->datedebut}}   <b >a </b> {{$conge->datefin}}</td>
 <td>  {{$conge->jour}}</td>
-<td>  {{$conge->user->jour}}</td>
 <td>  {{$conge->user->solde}}</td>
 
 <td>{{$conge->created_at}}</td>
 
 
-<td> <span class="badge badge-warning">refuser</span> </td>
-<td> <span class="badge badge-warning">refuser</span> </td>
+<td> <span class="badge badge-danger">refusé</span> </td>
+<td> <span class="badge badge-danger">refusé</span> </td>
 
 
 

@@ -22,6 +22,7 @@ class CreateDemandecongesTable extends Migration
             $table->longtext('motifs')->nullable();
             $table->string('recu')->nullable();
             $table->integer('user_id');
+            $table->integer('solde')->nullable();
             $table->integer('typeconge_id');
             $table->integer('avis')->default(0);
             $table->boolean('decision')->default(false);

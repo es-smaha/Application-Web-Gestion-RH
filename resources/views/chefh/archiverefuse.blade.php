@@ -57,7 +57,6 @@
 <th>Type Conge</th>
 <th>date conge</th>
 <th>Jour reservee</th>
-<th>jour consommee</th>
 <th>solde Conge</th>
 <th>date creation</th>
                                 <th>Etat</th>
@@ -69,11 +68,10 @@
                       @foreach($conge as $conge)
                       
                               <tr>
-                              <td><a href="/us/{{$conge->id}}">{{$conge->user->name}}</a></td>
-<td>{{$conge->typeconge->nom}}</td>
+                              <td><a href="/us/{{$conge->id}}">{{$conge->user->name}}</a> <span class="badge badge-warning">{{$conge->user->jour}}</span></td>
+<td>{{$conge->typeconge->nom}} </td>
 <td>{{$conge->datedebut}}   <b >a </b> {{$conge->datefin}}</td>
 <td>  {{$conge->jour}}</td>
-<td>  {{$conge->user->jour}}</td>
 <td>  {{$conge->user->solde}}</td>
 <td>{{$conge->created_at}}</td>
     

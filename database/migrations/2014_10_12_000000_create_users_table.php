@@ -19,6 +19,7 @@ class CreateUsersTable extends Migration
             $table->string('prenom');
             $table->integer('jour')->default(0);
             $table->string('usertype')->default(0);
+            $table->string('servicee')->nullable();
             $table->string('cne');
             $table->string('ko')->unique();
             $table->string('poste');
@@ -28,7 +29,7 @@ class CreateUsersTable extends Migration
             $table->string('kochef');
             $table->string('image')->default('noimagee.png');
             $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
+            $table->timestamp('email_verified_at');
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();

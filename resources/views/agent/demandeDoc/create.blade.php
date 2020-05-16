@@ -4,6 +4,57 @@
 @endsection
 
 @section('content')
+<div class="card card-nav-tabs">
+  <h4 class="card-header card-header-warning">Conditions Generale des demandes de conges</h4>
+  <div class="card-body">
+  <div id="accordion" role="tablist" aria-multiselectable="true" class="card-collapse">
+  <div class="card card-plain">
+    <div class="card-header" role="tab" id="headingOne">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+          Attestation de travail #1
+
+            <i class="material-icons">keyboard_arrow_down</i>
+        </a>
+    </div>
+
+    <div id="collapseOne" class="collapse show" role="tabpanel" aria-labelledby="headingOne">
+      <div class="card-body">
+        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+      </div>
+    </div>
+  </div>
+  <div class="card card-plain">
+    <div class="card-header" role="tab" id="headingTwo">
+        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+           Fiche de paie  #2
+
+            <i class="material-icons">keyboard_arrow_down</i>
+        </a>
+    </div>
+    <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo">
+      <div class="card-body">
+        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+      </div>
+    </div>
+  </div>
+  <div class="card card-plain">
+    <div class="card-header" role="tab" id="headingThree">
+        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+             certificat Travail #3
+
+            <i class="material-icons">keyboard_arrow_down</i>
+        </a>
+    </div>
+    <div id="collapseThree" class="collapse" role="tabpanel" aria-labelledby="headingThree">
+      <div class="card-body">
+        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+      </div>
+    </div>
+  </div>
+</div>
+  </div>
+</div>
+
  
 <div class="row">
   <div class="col-lg-12 col-md-12">
@@ -30,6 +81,7 @@
           </div>
         </div>
       </div>
+
       <div class="card-body">
         <div class="tab-content">
           <div class="tab-pane active" id="profile">
@@ -39,7 +91,7 @@
                   <div class="card-icon">
                     <i class="material-icons">content_copy</i>
                   </div>
-                  
+                   
                   <h3 class="card-title">Effectuer une demande</h3>
                     <form method="POST" action="/doc">
                   @csrf
@@ -66,6 +118,7 @@
               </div>
             </div>
           </div>
+          
 
           <div class="tab-pane" id="messages">
           <table class="table ">

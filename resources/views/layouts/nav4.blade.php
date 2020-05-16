@@ -34,6 +34,7 @@ The above copyright notice and this permission notice shall be included in all c
   <!-- CSS Just for demo purpose, don't include it in your project -->
   <link href="../assets/demo/demo.css" rel="stylesheet" />
     <style>
+
       .card4 {
     border: 0;
     margin-bottom: 30px;
@@ -45,7 +46,7 @@ The above copyright notice and this permission notice shall be included in all c
     box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
 }
       .card .card-header-primary .card-icon, .card .card-header-primary .card-text, .card .card-header-primary:not(.card-header-icon):not(.card-header-text), .card.bg-primary, .card.card-rotate.bg-primary .front, .card.card-rotate.bg-primary .back {
-        background: linear-gradient(60deg, #649e85, #439c84);
+        background: linear-gradient(60deg, #4b4d4e, #439c84);
 }
 
       .form-control {
@@ -88,6 +89,18 @@ The above copyright notice and this permission notice shall be included in all c
     text-transform: capitalize;
     font-size: 13px;
     padding: 10px 15px;
+}
+.sidebar[data-color="green"] li.active>a {
+    background-color: #999999;
+    box-shadow: 0 4px 20px 0px rgba(1, 0, 0, 0.14), 0 7px 10px -5px rgba(76, 175, 80, 0.4);
+}
+.card [class*="card-header-"] .card-icon, .card [class*="card-header-"] .card-text {
+    border-radius: 5px;
+    background-color: #67ab68;
+    padding: 15px;
+    margin-top: -20px;
+    margin-right: 15px;
+    float: left;
 }
     </style>
   

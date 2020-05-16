@@ -89,6 +89,7 @@ class UserController extends Controller
          $user->tele=$request->input('tele');
          $user->dateembauche=$request->input('dateembauche');
          $user->service_id=$request->service_id;
+        
          $user->solde=$request->input('solde');
         
          
@@ -104,6 +105,7 @@ class UserController extends Controller
 
         $user=User::find($id);
         $service=Service::All();
+         
         $user->name=$request->input('name');
         $user->prenom=$request->input('prenom');
         $user->kochef=$request->input('kochef');
@@ -116,6 +118,7 @@ class UserController extends Controller
         $user->solde=$request->input('solde');
           $user->email=$request->input('email');
           $user->usertype=$request->input('admin');
+         
           $user->password=hash::make($request->input('password'));
         $user->save();
          return redirect('users/'.$user->id)->with('service',$service);

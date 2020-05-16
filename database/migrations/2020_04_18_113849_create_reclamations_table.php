@@ -18,6 +18,7 @@ class CreateReclamationsTable extends Migration
             $table->string('titre');
             $table->longtext('description');
             $table->integer('user_id');
+            $table->boolean('etat')->default(true);
             $table->timestamps();
         });
     }

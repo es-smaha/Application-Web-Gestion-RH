@@ -178,12 +178,6 @@ The above copyright notice and this permission notice shall be included in all c
               <p>calendrier conge</p>
             </a>
           </li>
-          <li class="{{'reclamation-agent'==request()->path()?'active':''}} " class="nav-item ">
-            <a class="nav-link" href="/reclamation-agent">
-              <i class="material-icons">info_outline</i>
-              <p>reclamations</p>
-            </a>
-          </li>
     
         </ul>
       </div>

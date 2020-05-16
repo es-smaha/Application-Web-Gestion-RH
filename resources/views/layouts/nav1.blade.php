@@ -181,12 +181,7 @@ The above copyright notice and this permission notice shall be included in all c
               <p>Planning Travail</p>
             </a>
           </li>
-          <li class="{{'reclamationh'==request()->path()?'active':''}} " class="nav-item ">
-            <a class="nav-link" href="/reclamationh">
-              <i class="material-icons">info_outline</i>
-              <p>reclamation</p>
-            </a>
-          </li>
+          
          
     
         </ul>

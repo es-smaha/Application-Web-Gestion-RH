@@ -276,7 +276,7 @@ perm_identity
    @foreach(App\Service::all() as $service)
    $("#cat{{$service->id}}").click(function(){
     var cat=$("#cat{{$service->id}}").val();
-   
+ 
         $.ajax({
           type:'get',
           dataType:'html',

@@ -105,11 +105,11 @@ class UserController extends Controller
 
         $user=User::find($id);
         $service=Service::All();
-         
+         $ser=$user->service->nom;
         $user->name=$request->input('name');
         $user->prenom=$request->input('prenom');
         $user->kochef=$request->input('kochef');
-        $user->cne=$request->input('cne');
+     
         $user->ko=$request->input('ko');
         $user->poste=$request->input('poste');
         $user->tele=$request->input('tele');
@@ -118,15 +118,15 @@ class UserController extends Controller
         $user->solde=$request->input('solde');
           $user->email=$request->input('email');
           $user->usertype=$request->input('admin');
-         
-          $user->password=hash::make($request->input('password'));
+         $user->servicee=$ser;
+       
         $user->save();
          return redirect('users/'.$user->id)->with('service',$service);
 
     }
     public function destroy($id){
         $user=User::findOrFail($id);
-        $user->delete();
+        $user->delete($id);
     
         return redirect('users');
     }

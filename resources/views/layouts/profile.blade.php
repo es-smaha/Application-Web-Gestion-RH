@@ -311,9 +311,9 @@ html, body {
   
 </head>
 
-<body class="">
+<body class="sidebar-mini">
   <div class="wrapper">
-  <div class="sidebar" data-color="green" data-background-color="white" data-image="../assets/img/sidebar-5.jpg">
+  <div class="sidebar" data-color="green" data-background-color="black" data-image="../assets/img/sidebar-3.jpg">
       <!--
         Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
 

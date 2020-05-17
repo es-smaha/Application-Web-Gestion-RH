@@ -15,7 +15,7 @@
             
             <ul class="nav nav-tabs" data-tabs="tabs">
               <li class="nav-item">
-                <a class="nav-link " href="/demande-conge" data-toggle="tab">
+                <a class="nav-link " href="/demande-conge" >
                   <i class="material-icons"><span class="material-icons">note_add</span></i> les demandes en attentes
                   <div class="ripple-container"></div>
                 </a>
@@ -81,11 +81,11 @@
                                             <td>  {{$conge->solde + $conge->jour}}</td>
                                             <td>{{$conge->solde}}</td>
                                                <td>{{$conge->created_at}}</td>
-                                               <td> <span class="badge badge-success">Accepter</span> </td>
+                                               <td> <span class="badge badge-success">Accepté</span> </td>
                                                @if($conge->decision==false)
                                                <td> <span class="badge badge-warning">en attente</span> </td>
                                                @else
-                                               <td> <span class="badge badge-success">Accepter</span> </td>
+                                               <td> <span class="badge badge-success">Accepté</span> </td>
                                                @endif
                                                 <td >  <a href="/us/{{$conge->id}}" ><span class="material-icons warnning">loupe</span></td>
                                               

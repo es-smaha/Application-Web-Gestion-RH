@@ -157,7 +157,7 @@ class DemandecongeController extends Controller
         $conges=floor((($diff - $years * 365*60*60*24 -  $months*30*60*60*24)/ (60*60*24))+1);
 
         $conge->jour=$conges;
-        $conge->typeconge_id=$request->typeconge_id;
+        // $conge->typeconge_id=$request->typeconge_id;
         $conge->raison=$request->input('raison');
         $conge->user_id= auth()->user()->id;
         $conge->save();

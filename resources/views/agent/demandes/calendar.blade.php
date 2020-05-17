@@ -3,7 +3,7 @@
 
 
 @section('title')
-Calendar
+Calendrier
 @endsection
 
 @section('content')
@@ -21,7 +21,7 @@ Calendar
     <div class="modal-content">
       <div class="modal-header">
     
-                add event
+                
         </div>
         <div class="modal-body">
         <h1>task: add data</h1>
@@ -36,7 +36,7 @@ Calendar
         <label for="">enter end date of event</label>
         <input type="datetime-local" class="form-control" name="end_date" placehol der="enter the name"/>
         <br> <br>
-        <input type="submit" name="submit" class="btn btn-primary" value="add event data">
+        <input type="submit" name="submit" class="btn btn-primary" value=" data">
         </form>
         </div>
         </div>

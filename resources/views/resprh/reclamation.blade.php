@@ -18,7 +18,6 @@ reclamation
 <div class="card-header card-header-success">
 <h4 class="card-title">Zone de Systeme de suggestions et reclamations</h4>
 </div>
-
 <div class="card-body table-responsive" >
 
 </div>
@@ -46,14 +45,14 @@ new_releases
 
 </h6>
 <h4 class="card-title">
-<a href="#pablo">{{$rec->description}}</a>
+<a href="">{{$rec->description}}</a>
 </h4>
 </div>
 
 <div class="card-footer ">
 
 <div class="author">
-<a href="#pablo">
+<a href="">
 <img src="/storage/cover_images/{{$rec->user->image}}" alt="..." class="avatar img-raised">
 <span class="badge badge-pill badge-primary">{{$rec->user->name}} {{$rec->user->prenom}}</span>
 <span>{{$rec->created_at}} {{$rec->created_at->diffforHumans()}}</span>
@@ -78,14 +77,14 @@ new_releases
 
 </h6>
 <h4 class="card-title">
-<a href="#pablo">{{$rec->description}}</a>
+<a href="">{{$rec->description}}</a>
 </h4>
 </div>
 
 <div class="card-footer ">
 
 <div class="author">
-<a href="#pablo">
+<a href="">
 <img src="/storage/cover_images/{{$rec->user->image}}" alt="..." class="avatar img-raised">
 <span class="badge badge-pill badge-primary">{{$rec->user->name}} {{$rec->user->prenom}}</span>
 <span>{{$rec->created_at}} {{$rec->created_at->diffforHumans()}}</span>

@@ -33,6 +33,8 @@ The above copyright notice and this permission notice shall be included in all c
   <link href="../assets/css/material-dashboard.css?v=2.1.2" rel="stylesheet" />
   <!-- CSS Just for demo purpose, don't include it in your project -->
   <link href="../assets/demo/demo.css" rel="stylesheet" />
+
+
     <style>
 
       .card4 {
@@ -83,7 +85,7 @@ The above copyright notice and this permission notice shall be included in all c
 .sidebar .nav li a, .sidebar .nav li .dropdown-menu a {
     margin: 10px 15px 0;
     border-radius: 3px;
-    color: black;
+    color: white;
     padding-left: 10px;
     padding-right: 10px; 
     text-transform: capitalize;
@@ -91,7 +93,7 @@ The above copyright notice and this permission notice shall be included in all c
     padding: 10px 15px;
 }
 .sidebar[data-color="green"] li.active>a {
-    background-color: #999999;
+    background-color: orange;
     box-shadow: 0 4px 20px 0px rgba(1, 0, 0, 0.14), 0 7px 10px -5px rgba(76, 175, 80, 0.4);
 }
 .card [class*="card-header-"] .card-icon, .card [class*="card-header-"] .card-text {
@@ -106,9 +108,9 @@ The above copyright notice and this permission notice shall be included in all c
   
 </head>
 
-<body class="">
+<body class="sidebar-mini">
   <div class="wrapper">
-    <div class="sidebar" data-color="green" data-background-color="white" data-image="../assets/img/sidebar-3.jpg">
+    <div class="sidebar" data-color="green" data-background-color="black" data-image="../assets/img/sidebar-3.jpg">
       <!--
         Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
 

@@ -75,8 +75,10 @@ class AdministrationController extends Controller
   public function show($id){
 
     $rec=Reclamation::find($id);
-  
-   
+    if($rec->etat==true){
+  $rec->etat=false;
+  $rec->save();
+    }
     return view("resprh.showrec",['rec'=>$rec]);
 
   }

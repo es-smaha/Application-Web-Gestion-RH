@@ -34,11 +34,11 @@ reclamation
 @foreach($rec as $rec)
 
 @if($rec->etat==true)
-<div class="card">
-  <div class="new">
-    <p  style="float:right;color:yellow"><span class="material-icons">
+<div class="card ">
+  <div >
+    <p class="bg-warning " style="float:right"><span class="material-icons ">
 new_releases
-</span></p>
+</span> nouveau</p>
 </div>
 <div class="card-body ">
 <h6 class="card-category text-danger">
@@ -70,7 +70,7 @@ new_releases
     </div>
 
 @else
-<div class="card">
+<div class="card ">
  
 <div class="card-body ">
 <h6 class="card-category text-danger">

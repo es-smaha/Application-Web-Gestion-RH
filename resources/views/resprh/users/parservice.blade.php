@@ -6,7 +6,30 @@
  
     table.buttons().container()
         .appendTo( '#example_wrapper .col-md-6:eq(0)' );
-} );</script>
+} );
+
+$('#delete').on('show.bs.model',function(event{
+    var  button=$(event.relatedTarget)
+    var user_id=button.data('userid')
+    var modal=$(this)
+    modal.find('.modal-body #user_id').val(user_id)
+
+
+
+
+  }));
+
+
+</script>
+  <script>
+
+<script>
+
+  </script>
+
+
+
+  </script>
 
 
           <div class="row">
@@ -61,12 +84,18 @@
                             <td>{{$user->kochef}}</td> 
                                 
                                 <td> 
+                                  <div class="row">
                                     <a href="/users/{{$user->id}}" class="btn btn-success btn-link btn-lg" >
                                 <span class="material-icons">  remove_red_eye</span>   </a>
-                         
-                                   <button  type="button" rel="tooltip" id="#delete"  data-toggle="modal" data-target="#delete" title="Remove" class="btn btn-success btn-link btn-sm">
+                                <form  action="/user/{{$user->id}}" method="POST">
+                                      @method('delete')
+                                           @csrf
+                                   <button  type="button" rel="tooltip" id="#delete"  data-toggle="modal"  title="Remove" class="btn btn-success btn-link btn-sm">
                                 <i  class="material-icons" class="btn btn-danger">close</i>
-                              </button></td>
+                              </button>
+                              </form>
+                              </div>
+                              </td>
                    
 
                         </tr>
@@ -80,9 +109,8 @@
         </button>
       </div>
       
-        <form  action="/user/{{$user->id}}" method="POST">
-        @csrf
-        @method('delete')
+     
+       
         <div class="modal-body">
             <p>are you sure you wanna delete</p>
           <input type="hidden" name="users_id" id="user_id" value="">
@@ -92,7 +120,7 @@
         <button type="submit"  onclick="md.showNotificationn('top','center')" class="btn btn-warning">yes</button>
       </div>
           
-        </form>
+       
       </div>
      
     </div>

@@ -1,5 +1,7 @@
 @extends('layouts.nav4')
-
+@section('title')
+Demande de conge
+@endsection
 @section('content')
        
 <div class="row">
@@ -126,7 +128,7 @@
 <div class="modal-dialog" role="document">
 <div class="modal-content">
 <div class="modal-header">
-<h5 class="modal-title" id="exampleModalLabel">m Demande de conge</h5>
+<h5 class="modal-title" id="exampleModalLabel">Modifier votre Demande de congé</h5>
 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 <span aria-hidden="true">&times;</span>
 </button>
@@ -142,16 +144,16 @@
 
 </div>
 <div class="form-group">
-<label for="recipient-name" class="col-form-label">date Debut  <b class="text-danger  ">*</b></label>
-<input  name="datedebut" type="text" class="form-control" id="recipient-name" value="{{$conge->datedebut}}">
+<label for="recipient-name" class="col-form-label">date Debut  <b class="text-danger  ">*</b></label><br>
+<input  name="datedebut" type="date" class="form-control" id="recipient-name" value="{{$conge->datedebut}}">
 </div>
 <div class="form-group">
-<label for="recipient-name" class="col-form-label">Date Fin<b class="text-danger  ">*</b></label>
-<input  name="datefin" type="text" class="form-control" id="recipient-name" value="{{$conge->datefin}}">
+<label for="recipient-name" class="col-form-label">Date Fin<b class="text-danger  ">*</b></label><br>
+<input  name="datefin" type="date" class="form-control" id="recipient-name" value="{{$conge->datefin}}">
 </div>
 
 <div class="form-group">
-<label for="message-text"   class="col-form-label">raison</label>
+<label for="message-text"   class="col-form-label">raison</label><br>
 
 <textarea   name="raison" class="form-control" id="message-text">{{$conge->raison}}</textarea>
 </div>
@@ -229,7 +231,7 @@
 
 @endforeach
 @else
-<td>aucuene demande</td>
+<td> <h5>Aucune demande</h5> </td>
 @endif
 
 </tbody>
@@ -272,17 +274,17 @@
 </div>
 </div>
 <div class="form-group">
-<label for="recipient-name" class="col-form-label">date Debut  <b class="text-danger  ">*</b></label>
+<label for="recipient-name" class="col-form-label">date Debut  <b class="text-danger  ">*</b></label> <br>
 <input  name="datedebut" type="date" class="form-control" id="recipient-name">
 </div>
 <div class="form-group">
-<label for="recipient-name" class="col-form-label">Date Fin<b class="text-danger  ">*</b></label>
+<label for="recipient-name" class="col-form-label">Date Fin<b class="text-danger  ">*</b></label> <br>
 <input  name="datefin" type="date" class="form-control" id="recipient-name">
 </div>
 
 <div class="form-group">
 <label for="message-text"   class="col-form-label">raison</label>
-<p class="text-muted">pas obligatoire *</p>
+<br>
 <textarea   name="raison" class="form-control" id="message-text"></textarea>
 </div>
 <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>

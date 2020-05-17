@@ -1,5 +1,7 @@
 @extends('layouts.nav4')
-
+@section('title')
+Dashboard
+@endsection
 @section('content')
   
 <div class="content">

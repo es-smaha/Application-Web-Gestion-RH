@@ -47,7 +47,7 @@
                       <tbody>
                       @foreach($user as $user)
                         <tr>
-                        <td>#{{$user->ko}}</td>
+                        <td>{{$user->ko}}</td>
                               <td> <div class="author">
                              <a href="#pablo">
                                 <img src="/storage/cover_images/{{$user->image}}" alt="..." class="avatar img-raised">

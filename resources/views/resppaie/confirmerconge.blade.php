@@ -56,10 +56,10 @@
 <th>Jours demandés</th>
 <th>solde Conge</th>
 <th>date creation</th>
-  <th><span class="material-icons">loupe</span>Details</th>
-<th>Avis chef hierarchique</th>
-<th>Confirmation responsable</th>
-<th>Confirmer</th>
+  <th>Avis chef hierarchique</th>
+<th>Avis responsable de paie</th>
+<th>Confirmation responsable de paie</th>
+
 </thead>
 <tbody>
 
@@ -70,7 +70,7 @@
 <td>{{$conge->typeconge->nom}}</td>
 <td>{{$conge->datedebut}}   <b >a </b> {{$conge->datefin}}</td>
 <td>  {{$conge->jour}}</td>
-<td>  {{$conge->solde}}</td>
+<td>  {{$conge->user->solde}}</td>
 <td>{{$conge->created_at}}</td>
 @if($conge->avis==1)
 <td> <span class="badge badge-success">accepté</span> </td>
@@ -82,7 +82,7 @@
 <td>    <form action="/confin/{{$conge->id}}" method="POST">
 @csrf
 @method('PUT')
-<button type="submit" class="btn btn-success btn-round" data-toggle="modal"  data-target="#ajouter" ><span class="material-icons"></span>confirmer</button></td>
+<button type="submit" class="btn btn-success btn-round" data-toggle="modal"  data-target="#ajouter" ><span class="material-icons">check_circle</span></button></td>
 </form>
 
 

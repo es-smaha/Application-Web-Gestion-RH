@@ -14,7 +14,7 @@
             
             <ul class="nav nav-tabs" data-tabs="tabs">
               <li class="nav-item">
-                <a class="nav-link " href="/demande-conge" data-toggle="tab">
+                <a class="nav-link " href="/demande-conge" >
                   <i class="material-icons"><span class="material-icons">note_add</span></i> les demandes en attentes
                   <div class="ripple-container"></div>
                 </a>
@@ -125,7 +125,7 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">confirmations</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Ajouter un Motif de refus</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -136,12 +136,12 @@
         @csrf
     
         <div class="modal-body">
-            <p>Ercire Une justification de refus </p>
+            <p>Ercivez Une justification de refus </p>
               <input type="hidden" name="conge_id" value='{{$conge->id}}'>
-            <div class="form-control">
+          
             <label for="message-text"   class="col-form-label">justification</label>
             <textarea   name="justification" class="form-control" id="message-text"></textarea>
-          </div>
+          
         </div>
           <div class="modal-footer">
         <button type="button" class="btn btn-success" data-dismiss="modal">No</button>

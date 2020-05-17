@@ -13,13 +13,13 @@ documents administratifs
            
                       <ul class="nav nav-tabs" data-tabs="tabs">
                         <li class="nav-item">
-                          <a class="nav-link active" href="/docum" data-toggle="tab">
+                          <a class="nav-link active" href="/docum" >
                             <i class="material-icons">bug_report</i> Les demandes non valider
                             <div class="ripple-container"></div>
                           </a>
                         </li>
                         <li class="nav-item">
-                          <a class="nav-link" href="/document-pret" data-toggle="tab">
+                          <a class="nav-link" href="/document-pret" >
                             <i class="material-icons">code</i> les demandes prets
                             <div class="ripple-container"></div>
                           </a>

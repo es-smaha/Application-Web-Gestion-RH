@@ -7,7 +7,8 @@
     table.buttons().container()
         .appendTo( '#example_wrapper .col-md-6:eq(0)' );
 } );
-
+  </script>
+    <script>
 $('#delete').on('show.bs.model',function(event{
     var  button=$(event.relatedTarget)
     var user_id=button.data('userid')
@@ -21,15 +22,11 @@ $('#delete').on('show.bs.model',function(event{
 
 
 </script>
-  <script>
-
-<script>
-
-  </script>
+ 
 
 
 
-  </script>
+
 
 
           <div class="row">

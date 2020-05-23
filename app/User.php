@@ -51,6 +51,9 @@ class User extends Authenticatable
     protected function reclamation(){
         return $this->hasMany('App\Reclamation');
     }
+    protected function absence(){
+        return $this->hasMany('App\Absence');
+    }
     protected function demandedocument(){
         return $this->hasMany('App\Demandedocument');
     }

@@ -87,7 +87,7 @@ class DemandecongeController extends Controller
         Notification::send($us, new Useredemandeconge(Auth()->user()));
          //fin
          
-        return redirect('conge')->with('success','lajout est effectuer');
+        return redirect('conge');
       }
 
       return redirect('conge')->with('fail','Vous avez depassee votre solde');

@@ -89,6 +89,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">Modifier la Demande</h5>
+        
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -100,13 +101,15 @@
         <input type="hidden" name="conge_id" id="user_id" value="{{$conge->id}}">
 
         <div class="form-group">
+        <h5 style="color:red"> <span class="material-icons">warning
+</span> N'oubliez pas de modifier le solde de conge</h5> <br>
 <label for="message-text"   class="col-form-label">solde conge</label>
 <input type="text"   name="solde" id="user_id" value="{{$conge->user->solde}}">
 </div>
 
 <div class="form-group">
 <label for="message-text"   class="col-form-label">jour consommer</label>
-<input type="text"   name="jour" id="user_id" value="{{$conge->jour}}">
+<input type="text"   name="jour" id="user_id" value="<?php if(!empty("{{$conge->jour}}")) echo htmlentities("{$conge->jour}"); ?>" readOnly="readOnly">
 </div>
 
 

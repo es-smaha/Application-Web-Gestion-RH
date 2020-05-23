@@ -85,12 +85,31 @@ class ConfirmerpaieController extends Controller
     public function update( Request $request ){
        $id=$request->input('conge_id');
       $conge=Demandeconge::find($id);
-      $us=$conge->user_id;
+
+
+      $dated=$request->input('datedebut');
+      $datef=$request->input('datefin');
+      $start_date = strtotime( $dated); 
+      $end_date = strtotime($datef);
+      $diff = abs( $start_date-$end_date );
+      $years = floor($diff / (365*60*60*24)); 
+      $months = floor(($diff - $years * 365*60*60*24)   / (30*60*60*24));
+      $conges=floor((($diff - $years * 365*60*60*24 -  $months*30*60*60*24)/ (60*60*24))+1);
+
+     $conge->datedebut=$request->input('datedebut');
+     $conge->datefin=$request->input('datefin');
+     $start_date = strtotime( $conge->datedebut); 
+     $end_date = strtotime($conge->datefin);
+     $diff = abs(  $start_date-$end_date);
+     $years = floor($diff / (365*60*60*24)); 
+     $months = floor(($diff - $years * 365*60*60*24)   / (30*60*60*24));
+     $conges=floor((($diff - $years * 365*60*60*24 -  $months*30*60*60*24)/ (60*60*24))+1);
+     $conge->jour=$conges;
+     
+          $us=$conge->user_id;
          $user=User::find($us);
          $user->solde=$request->input('solde');
-         $conge->datedebut=$request->input('datedebut');
-         $conge->datefin=$request->input('datefin');
-         $conge->jour=$request->input('jour');
+        $conge->save();
          $user->save();
          return redirect()->back();
 

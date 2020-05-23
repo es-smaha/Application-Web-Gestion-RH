@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Absence;
+use App\User;
 class AbsenceConrtroller extends Controller
 {
     /**
@@ -13,7 +14,7 @@ class AbsenceConrtroller extends Controller
      */
     public function index()
     {
-            $absences=Absence::All()->orderBy('id','desc');
+            $absences=Absence::orderBy('id','desc');
             $user=User::all();
            
             return view('Resprh.absence',['user'=>$user,'absences'=>$absences]);

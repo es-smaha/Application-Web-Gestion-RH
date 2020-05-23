@@ -17,7 +17,7 @@
   
 <div class="cardi 1">
 
-  <div class="card_image"> <img src="https://cdn.icon-icons.com/icons2/9/PNG/256/calendar_office_day_1474.png" /> </div>
+  <div class="card_image">  <img src="https://cdn.icon-icons.com/icons2/9/PNG/256/calendar_office_day_1474.png" /> </div>
   <div class="card_title title-white">
   <a  data-toggle="modal"  data-target="#conge"><span class="material-icons" style="color:black" >add_circle</span></a>
   <a data-toggle="modal"  data-target="#congeshow" ><span class="material-icons"  style="color:black">  remove_red_eye</span></a>
@@ -167,20 +167,26 @@
         <form  action="typedoc" method="POST">
         @csrf
           <div class="form-group">
-            <label for="recipient-name" class="col-form-label">name</label>
+            <label for="recipient-name" class="col-form-label">name</label> <br>
             <input type="text"  name="name" class="form-control" id="recipient-name">
            
           </div>
           <div class="form-group">
          
-            <label for="recipient-name" class="col-form-label">Periodicite( par an ou par mois )</label>
+            <label for="recipient-name" class="col-form-label">Periodicité</label> 
+            <br> <h5 style="color:red"> <span class="material-icons">warning
+</span> Si la periodicité est par mois entrez m
+           <br> <span class="material-icons">warning
+</span> Si la periodicité est par ans entrez y</h5> 
+
+
             <input type="text"  name="periode" class="form-control" id="recipient-name">
 
           </div>
          
           <div class="form-group">
  
-            <label for="recipient-name" class="col-form-label">Nombre maximal par periode</label>
+            <label for="recipient-name" class="col-form-label">Nombre maximal par periode</label><br>
             <input type="number"  name="max" class="form-control" id="recipient-name">
           </div>
           <div class="modal-footer">

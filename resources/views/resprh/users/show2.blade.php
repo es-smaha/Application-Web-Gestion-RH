@@ -136,7 +136,9 @@
                     <div class="col-md-5">
                         <div class="form-group">
                           <label style="font-size:15px" class="bmd-label-floating">Role Admin</label>
+                       
                           <div class="form-check form-check-radio">
+
     <label class="form-check-label">
         <input class="form-check-input" type="radio" name="admin" id="exampleRadios1" value="2" >
          Responsable Rh

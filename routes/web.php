@@ -26,6 +26,7 @@ Route::get('/404error', function () {
 Route::group(['middleware'=>['auth','1']],function()
     {
     Route::resource('/absence','AbsenceConrtroller');
+    Route::get('/Allusers','AbsenceConrtroller@user');
     Route::get('/profilh','ProfilController@indexh');
     Route::get('/demande-conge','TraitedemandeController@index');
     Route::get('/conge-accepter','TraitedemandeController@accepter');

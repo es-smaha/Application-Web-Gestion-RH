@@ -15,10 +15,16 @@ class CreateAbsencesTable extends Migration
     {
         Schema::create('absences', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->date('jourAbsence');
-            $table->string('commentaire');
-            $table->string('justification');
+            $table->date('date');
+            $table->string('commentaire')->nullable();
+            $table->boolean('justification')->default(false);
             $table->integer('user_id');
+            $table->string('nomuser');
+            $table->string('prenomuser');
+
+            $table->string('matriculeuser');
+
+
             $table->timestamps();
         });
     }

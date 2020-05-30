@@ -718,6 +718,8 @@ box-shadow: 5px 5px 30px 7px rgba(0,0,0,0.25), -5px -5px 30px 7px rgba(0,0,0,0.2
   <!-- Material Dashboard DEMO methods, don't include it in your project! -->
   <script src="../assets/demo/demo.js"></script>
   <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js"></script>
+  <script src="../assets/js/jquery.elevatezoom.js"  type="text/javascript"></script>
+  <script src="../assets/js/jquery-1.8.3.min"  type="text/javascript"></script>
   <script>
     $(document).ready(function() {
       $().ready(function() {

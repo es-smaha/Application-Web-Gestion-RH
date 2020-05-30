@@ -114,8 +114,9 @@ class EventController extends Controller
         }
       
        
-        if(count($conges)>0) {
+        
         foreach($conges as $roww){
+            if(count($conges)>0) {
             $conge=[];
             if($roww->avis==1  ){
                 $enddate=$roww->datefin."24:00:00";
@@ -219,8 +220,9 @@ class EventController extends Controller
         $conges=Demandeconge::all();
        
  
-      if(count($conges)>0) {
+      
         foreach($conges as $roww){
+            if(count($conges)>0) {
             $conge=[];
             if($roww->avis==0 && $roww->decision==false && $roww->user->service_id==$ser ){
                 

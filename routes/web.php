@@ -66,6 +66,7 @@ Route::group(['middleware'=>['auth','2']],function()
     Route::get('/users/{id}','UserController@show');
     Route::delete('/user/{id}','UserController@destroy');
     Route::put('/edituser/{id}','UserController@update');
+    Route::resource('/map','MapController');
     Route::get('/dashboard2', function () {
             return view('resprh.dashboard');});
     Route::resource('service', 'ServiceController');

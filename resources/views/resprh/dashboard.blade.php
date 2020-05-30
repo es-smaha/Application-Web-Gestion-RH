@@ -5,6 +5,39 @@
     <h2>Statistics </h2>
     <span class="headerLine"></span>
 </div>
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+ Ajouter Map
+</button>
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        
+      <form  action="/map" method="POST" enctype="multipart/form-data">
+        @csrf
+      
+        <div class="modal-body">
+            <p>Importer le map d'usine </p>
+          <input type="hidden" name="demandedoc_id" id="user_id" value="">
+          <input type="file" name="recu" class="form-control">
+        </div>
+          <div class="modal-footer">
+        <button type="button" class="btn btn-success" data-dismiss="modal">No</button>
+        <button type="submit"  onclick="md.showNotificationn('top','center')" class="btn btn-warning">yes</button>
+      </div>
+          
+        </form>
+      </div>
+    
+    </div>
+  </div>
+</div>
 <div id="projectFacts" class="sectionClass">
     <div class="fullWidth eight columns">
         <div class="projectFactsWrap ">
@@ -80,9 +113,17 @@
     </div>
 </div>
 
+@foreach(App\Map::all() as $map)
+<embed id="zoom_01" height="600px" width="100%"  type="application/pdf" data-zoom-image="large/storage/cover_images/{{$map->map}}" src="/storage/cover_images/{{$map->map}}" />
+            
 
+
+@endforeach
 @endsection
 @section('scripts')
+    <script>
+    $("#zoom_01").elevateZoom();
+    </script>
   <script>
 
 $.fn.jQuerySimpleCounter = function( options ) {

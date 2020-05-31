@@ -16,52 +16,78 @@
 <div class="card-body">
 <div class="row">
 <div class="col-6">
+<div class="col-md-5">
       <div class="form-group">
+
     <label for="nom">Nom complet:</label>
       <span>{{Auth()->user()->name}} {{Auth()->user()->prenom}}</span>
+      </div>
   </div>
+  <div class="col-md-5">
   <div class="form-group">
-    <label for="nom">Matricule_____ :</label>
+    <label for="nom">Matricule :</label>
       <span>{{Auth()->user()->ko}} </span>
       </div>
+        </div>
+        <div class="col-md-5">
       <div class="form-group">
     <label for="nom">SuperViseur :</label>
       <span>{{Auth()->user()->kochef}}</span>
       </div>
+        </div>
+        <div class="col-md-5">
       <div class="form-group">
-    <label for="nom">Service__: </label>
+    <label for="nom">Service  : </label>
       <span>{{Auth()->user()->service_id}}</span>
       </div>
+        </div>
+        <div class="col-md-6">
       <div class="form-group">
-    <label for="nom">poste___: </label>
+    <label for="nom">poste : </label>
       <span>{{Auth()->user()->poste}}</span>
       </div>
+        </div>
+        <div class="col-md-5">
+      <div class="form-group">
+    <label for="nom">Sexe : </label>
+      <span>{{Auth()->user()->poste}}</span>
+      </div>
+        </div>
 
 
 </div>
 
 <div class="col-6">
+<div class="col-md-5">
 <div class="form-group">
     <label for="nom">Telephone :</label>
       <span>{{Auth()->user()->tele}}</span>
       </div>
-
+          </div>
+          <div class="col-md-5">
       <div class="form-group">
-    <label for="nom">email____ :</label>
+    <label for="nom">email :</label>
       <span>{{Auth()->user()->email}}</span>
       </div>
+        </div>
+        <div class="col-md-5">
       <div class="form-group">
-    <label for="nom">Solde Conge :</label>
+    <label for="nom">SoldeConge :</label>
       <span class="badge badge-success">{{Auth()->user()->solde}}</span>
       </div>
+      </div>
+      <div class="col-md-5">
       <div class="form-group">
-    <label for="nom">Jour consommer :</label>
+    <label for="nom">JourConsommer :</label>
       <span class="badge badge-success">{{Auth()->user()->jour}}</span>
       </div>
+        </div>
+        <div class="col-md-5">
       <div class="form-group">
-    <label for="nom">date Embauche :</label>
+    <label for="nom">dateEmbauche :</label>
       <span>{{Auth()->user()->dateembauche}}</span>
       </div>
+        </div>
 
     
 </div>

@@ -5,7 +5,7 @@
     <h2>Statistics </h2>
     <span class="headerLine"></span>
 </div>
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+<button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal">
  Ajouter Map
 </button>
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -38,76 +38,96 @@
     </div>
   </div>
 </div>
+
 <div id="projectFacts" class="sectionClass">
     <div class="fullWidth eight columns">
         <div class="projectFactsWrap ">
         <div class="item wow fadeInUpBig animated animated" data-number="55" style="visibility: visible;">
-                <i class="fa fa-smile-o"></i>
+        
+        <i class="material-icons">account_box</i>
+          <br>
+          <p>Nombre total des employee</p>
                 <p id="number2" class="number">{{App\User::count()}}</p>
-           
-                    <br>
-                <p>Nombre total des employee</p>
+              
+                               <br>
+               
             </div>
+
             <div class="item wow fadeInUpBig animated animated" data-number="{{App\Service::count()}}" style="visibility: visible;">
  
             <i class="fa fa-briefcase"></i>
-         
-                <p id="number1" class="number">{{App\Service::count()}}</p>
-          
-                    <br>
-                <p>total Service </p>
+            <br>
+            <p>total Service </p>
+                         <p id="number1" class="number">{{App\Service::count()}}</p>
+                              <br>
+                
             </div>
          
             <div class="item wow fadeInUpBig animated animated" data-number="{{App\Typedocument::count()}}" style="visibility: visible;">
-            <div class="card-icon">
+           
             <i class="material-icons">content_copy</i>
-                </div>
                 
-                <p id="number3" class="number">{{App\Typedocument::count()}}</p>
-            <br>
+                <br>
                 <p>Total Type Dosuments Administratives</p>
+                <p id="number3" class="number">{{App\Typedocument::count()}}</p>
+                  <br>
+                
             </div>
+
             <div class="item wow fadeInUpBig animated animated" data-number="{{App\Typeconge::count()}}" style="visibility: visible;">
-            <div class="card-icon">
+            
                   <i class="material-icons">event</i>
-                  </div>
+                  
+                  <br>
+                  <p>total Types Conges</p>
                 <p id="number4" class="number">{{App\Typeconge::count()}}</p>
-            <br>
-                <p>total Types Conges</p>
+                        <br>
+                
             </div>
         </div>
     </div>
     <div class="fullWidth eight columns">
         <div class="projectFactsWrap ">
         <div class="item wow fadeInUpBig animated animated" data-number="{{App\Demandedocument::count()}}" style="visibility: visible;">
-        <div class="card-icon">
+  
                     <i class="material-icons">content_copy</i>
-                  </div>
+            
+                  <br>
+                  <p>Total Documents demandee</p>
                 <p id="number5" class="number">{{App\Demandedocument::count()}}</p>
-           
                     <br>
-                <p>Nombre total des employee</p>
+                   
+                
             </div>
+
             <div class="item wow fadeInUpBig animated animated" data-number="{{App\User::count()}}" style="visibility: visible;">
+         
                 <i class="fa fa-briefcase"></i>
+              
+                <br>
+                <p>Documents Adminitratives  <b style="color:orange">Valider</b></p>
                 <p id="number6" class="number">{{App\Demandedocument::where('etat','=','1')->count()}}</p>
           
                     <br>
-                <p>Demande Documents Adminitratives  <b style="color:orange">Valider</b></p>
+                
             </div>
          
             <div class="item wow fadeInUpBig animated animated" data-number="{{App\Demandedocument::where('etat','=','1')->count()}}" style="visibility: visible;">
                 <i class="fa fa-coffee"></i>
+                  <br>
+                <p>Documents Administratives <b style="color:orange">enAttente</b></p>
                 <p id="number7" class="number">{{App\Demandedocument::where('etat','=','0')->count()}}</p>
             <br>
-                <p>demande Documents Administratives <b style="color:orange">enAttente</b></p>
+                
             </div>
 
             <div class="item wow fadeInUpBig animated animated" data-number="{{App\Reclamation::count()}}" style="visibility: visible;">
                 <i class="fa fa-camera"></i>
+                  <br>
+                <p>Nouvelles reclamations</p>
                 <p id="number8" class="number">{{App\Reclamation::count()}}</p>
             <br>
-                <p>Nouvelles reclamations</p>
+                
             </div>
         </div>
     </div>

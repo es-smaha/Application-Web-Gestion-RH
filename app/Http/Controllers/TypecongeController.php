@@ -39,7 +39,7 @@ class TypecongeController extends Controller
         $typeconges->nom=$request->input('nom');
         
         $typeconges->save();
-        return redirect('typecon')->with('success','le type conge est bien ajouté');
+       return redirect()->back()->with('success','le type conge est bien ajouté');
      
     }
 

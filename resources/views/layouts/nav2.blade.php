@@ -35,7 +35,220 @@ The above copyright notice and this permission notice shall be included in all c
   <!-- CSS Just for demo purpose, don't include it in your project -->
   <link href="../assets/demo/demo.css" rel="stylesheet" />
    
+  <style>
+  body{
+  background:#eeeeee;
+}
 
+section{
+		float: left;
+		padding-top: 50px;
+		padding-bottom: 100px;
+		width: 100%;
+		padding-left:0;
+		padding-right:0;
+}
+
+#icon-wrapper{
+	width:100%;
+	float:left;
+	height:300px;
+}
+
+.icons {
+	width:25%;
+	float:left;
+	position:relative;
+}
+.icons2 {
+	width:25%;
+	float:left;
+	position:relative;
+	margin-left:25%;
+}
+.icons3 {
+	width:25%;
+	float:left;
+	position:relative;
+	margin-left:50%;
+}
+.icons4 {
+	width:25%;
+	float:left;
+	position:relative;
+	margin-left:75%;
+}
+
+.icon-slide-container{
+	height:300px;
+	overflow:hidden;
+	text-align: left;
+	position: absolute;
+	float: left;
+	width: 300px;
+	left: 50%;
+	margin-left: -150px;
+}
+
+.slide-icon{
+  width:300px;
+  height:auto;
+  position:absolute;
+  margin-top:-300px;
+  -webkit-transition:.4s ease;
+  -moz-transition:.4s ease;
+  -ms-transition:.4s ease;
+  -o-transition:.4s ease;
+  transition:.4 ease;
+}
+	
+.slide-icon:hover{
+  position:absolute;
+  margin-top:0;
+}
+
+@media only screen and (max-width: 1300px) {
+  #icon-wrapper{
+		width:100%;
+		float:left;
+		height:170px;
+	}
+  .icon-slide-container {
+		height: 200px;
+		overflow: hidden;
+		text-align: left;
+		position: absolute;
+		float: left;
+		width: 200px;
+		left: 50%;
+		margin-left: -100px;
+	}
+  .slide-icon {
+		width: 200px;
+		height: auto;
+		position: absolute;
+		margin-top: -200px;
+	}
+}
+
+@media only screen and (max-width: 1000px) {
+  #home-social-container{
+		margin-right: 0;
+		margin-left: 0;
+		width: 100%;
+		padding: 0;
+		float: left;
+		left: 0;
+	}
+}
+
+@media only screen and (max-width: 840px) {
+  #icon-wrapper{
+		width:100%;
+		float:left;
+		height:650px;
+	}
+	
+	.icon-slide-container {
+		height: 300px;
+		overflow: hidden;
+		text-align: left;
+		position: absolute;
+		float: left;
+		width: 300px;
+		left: 50%;
+		margin-left: -150px;
+	}
+	
+	.slide-icon {
+		width: 300px;
+		height: auto;
+		position: absolute;
+		margin-top: -300px;
+	}	
+	.icons {
+		width: 50%;
+		float: left;
+		position: relative;
+	}
+	.icons2 {
+		width: 50%;
+		float: left;
+		position: relative;
+		margin-left: 50%;
+	}
+	.icons3 {
+		width: 50%;
+		float: left;
+		position: relative;
+		margin-left: 0%;
+		margin-top: 350px;
+	}
+	.icons4 {
+		width: 50%;
+		float: left;
+		position: relative;
+		margin-left: 50%;
+	}
+}
+                        
+@media only screen and (max-width: 650px) {
+	#icon-wrapper {
+		height: 400px;
+	}
+	#section{
+		width: 90%;
+		padding-left:5%;
+		padding-right:5%;
+	}
+	.slide-icon {
+		width: 200px;
+		height: auto;
+		position: absolute;
+		margin-top: -200px;
+	}
+	.icon-slide-container {
+		height: 200px;
+		width: 200px;
+		left: 50%;
+		margin-left: -100px;
+	}
+	.icons3 {
+		width: 50%;
+		position: relative;
+		margin-left: 0%;
+		margin-top: 230px;
+	}
+}
+                                  
+@media only screen and (max-width: 570px) {
+	#icon-wrapper {
+		height: 300px;
+	}
+	.slide-icon {
+		width: 150px;
+		height: auto;
+		position: absolute;
+		margin-top: -150px;
+	}
+	.icon-slide-container {
+		height: 150px;
+		width: 150px;
+		left: 50%;
+		margin-left: -75px;
+	}
+	.icons3 {
+		width: 50%;
+		float: left;
+		margin-left: 0%;
+		margin-top: 190px;
+	}	
+}
+  
+  
+  
+  
+  </style>
   <style>
 
 @import url(https://fonts.googleapis.com/css?family=PT+Sans+Narrow);
@@ -318,8 +531,9 @@ footer p strong {
   margin: 30px auto;
   width: 250px;
   height: 250px;
-  border-radius: 40px;
-box-shadow: 5px 5px 30px 7px rgba(0,0,0,0.25), -5px -5px 30px 7px rgba(0,0,0,0.22);
+  border-radius: 0px;
+  
+  box-shadow: 5px 5px 30px 7px rgba(0,0,0,0.25), -5px -5px 30px 7px rgba(0,0,0,0.22);
   cursor: pointer;
   transition: 0.4s;
 }
@@ -327,13 +541,15 @@ box-shadow: 5px 5px 30px 7px rgba(0,0,0,0.25), -5px -5px 30px 7px rgba(0,0,0,0.2
 .cardi .card_image {
   width: inherit;
   height: inherit;
+  text-align:center;
   border-radius: 40px;
 }
 
 .cardi .card_image img {
-  width: inherit;
-  height: inherit;
-  border-radius: 40px;
+  width: 250px;
+  height: 200px;
+  border-radius: 0px;
+  margin-top: 20px;
   object-fit: cover;
 }
 
@@ -343,12 +559,12 @@ box-shadow: 5px 5px 30px 7px rgba(0,0,0,0.25), -5px -5px 30px 7px rgba(0,0,0,0.2
   font-family: sans-serif;
   font-weight: bold;
   font-size: 30px;
-  margin-top: -80px;
-  height: 40px;
+  margin-top: -30px;
+  height: 20px;
 }
 
 .cardi:hover {
-  transform: scale(0.9, 0.9);
+   transform: scale(0.9, 0.9); 
   box-shadow: 5px 5px 30px 15px rgba(0,0,0,0.25), 
     -5px -5px 30px 15px rgba(0,0,0,0.22);
 }

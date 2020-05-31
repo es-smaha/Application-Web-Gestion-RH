@@ -17,11 +17,12 @@
   
 <div class="cardi 1">
 
-  <div class="card_image">  <img src="https://cdn.icon-icons.com/icons2/9/PNG/256/calendar_office_day_1474.png" /> </div>
+  <div class="card_image">  <p text-align="center">Gestion Types conge</p><img src="https://cdn.icon-icons.com/icons2/1146/PNG/512/1486485528-add-calendar-date-event_81152.png" /> </div>
   <div class="card_title title-white">
+  
   <a  data-toggle="modal"  data-target="#conge"><span class="material-icons" style="color:black" >add_circle</span></a>
   <a data-toggle="modal"  data-target="#congeshow" ><span class="material-icons"  style="color:black">  remove_red_eye</span></a>
-  <a  href="/typedoc"  ><span class="material-icons" style="color:black">  create</span></a>
+  <a  href="/typecon"  ><span class="material-icons" style="color:black">  create</span></a>
   </div>
   
 </div>
@@ -29,13 +30,16 @@
 
 
   <div class="cardi 2">
+  
   <div class="card_image">
-    <img src="https://icon-icons.com/icons2/9/PNG/256/product_document_file_1512.png" />
+  <p text-align="center"> Gestion Type Documents </p>
+    <img src="https://cdn.icon-icons.com/icons2/7/PNG/128/filesystems_thefolder_636.png" />
     </div>
   <div class="card_title title-white">
+ 
   <a data-toggle="modal"  data-target="#document" ><span class="material-icons"  style="color:black">add_circle</span></a>
   <a data-toggle="modal"  data-target="#docshow"  ><span class="material-icons"  style="color:black">  remove_red_eye</span></a>
-  <a  href="/typecon"  ><span class="material-icons" st style="color:black">  create</span></a>
+  <a  href="/typedoc"  ><span class="material-icons" st style="color:black">  create</span></a>
   
   
   </div>
@@ -44,9 +48,11 @@
 <div class="cardi 3">
 
   <div class="card_image">
-    <img src="https://cdn.icon-icons.com/icons2/1603/PNG/512/luggage-work-office-suitcase-brief-case_108567.png" />
+  <p text-align="center">Gestion services </p>
+    <img src="https://cdn.icon-icons.com/icons2/39/PNG/128/servicemanager_serviceconfig_gerentedeservicio_6020.png" />
   </div>
   <div class="card_title">
+ 
   <a data-toggle="modal"  data-target="#service" ><span class="material-icons" style="color:black">add_circle</span></a>
   <a    data-toggle="modal"  data-target="#serser"><span class="material-icons" style="color:black">  remove_red_eye</span></a>
   <a  href="/service"  ><span class="material-icons" style="color:black">  create</span></a>
@@ -55,7 +61,8 @@
   
   <div class="cardi 4">
   <div class="card_image">
-    <img src="https://cdn.icon-icons.com/icons2/121/PNG/256/users_folder_19898.png" />
+  <p text-align="center">Gestion Collaborateurs </p>
+  <img src="https://cdn.icon-icons.com/icons2/7/PNG/128/adduser_1103.png"/>
     </div>
   <div class="card_title title-black">
   <a href="/users" ><span class="material-icons"  style="color:black" >settings</span></a>
@@ -65,9 +72,11 @@
 
   <div class="cardi 4">
   <div class="card_image">
-    <img src="https://cdn.icon-icons.com/icons2/1670/PNG/512/10303manofficeworkerlightskintone_110631.png" />
+  <p text-align="center">Fonctions </p>
+    <img src="https://cdn.icon-icons.com/icons2/1603/PNG/512/luggage-work-office-suitcase-brief-case_108567.png" />
     </div>
   <div class="card_title title-black">
+   
   <a data-toggle="modal"  data-target="#document" ><span class="material-icons"  style="color:black">add_circle</span></a>
   <a data-toggle="modal"    ><span class="material-icons"  style="color:black">  remove_red_eye</span></a>
   <a  href="/users"  ><span class="material-icons" st style="color:black">  create</span></a>

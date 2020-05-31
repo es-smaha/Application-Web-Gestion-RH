@@ -17,8 +17,7 @@ class TypedocumentController extends Controller
     public function index()
     {
         $typedocuments=Typedocument::all();
-     
-        
+           
         return view('resprh.rerh.typedoc')->with('typedocuments',$typedocuments);
     
     }
@@ -52,7 +51,7 @@ class TypedocumentController extends Controller
      
         $typedocuments->save();
         alert()->basic('Basic Message', 'Mandatory Title');
-        return redirect()->back();
+        return redirect()->back()->with('success','ce type  est bien ajouté');
       
     }
     

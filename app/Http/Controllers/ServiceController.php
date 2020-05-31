@@ -38,7 +38,7 @@ class ServiceController extends Controller
         $services=new Service();
         $services->nom=$request->input('nom');
         $services->save();
-        return redirect('service')->with('success','le service est bien ajouté');
+        return redirect()->back()->with('success','le service est bien ajouté');
       }
    
 

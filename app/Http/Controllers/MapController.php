@@ -63,7 +63,7 @@ class MapController extends Controller
            $doc->save();
          
         
-         return "123";
+         return redirect()->back();
   
 
     

@@ -10,7 +10,8 @@
 <button type="button" class="btn btn-success btn-round" data-toggle="modal"  data-target="#ajouter" ><span class="material-icons">
 perm_identity
 </span>Ajouter Agents</button>
-      <a href="/admi" class="btn btn-success btn-round"><span class="material-icons">settings</span>Configuration</a>
+      <a href="/administration" class="btn btn-success btn-round"><span class="material-icons">settings</span>Configuration</a>
+      <a href="/absence" class="btn btn-success btn-round"><span class="material-icons">settings</span>Liste D'absence</a>
       <div class="dropdown show">
   <a class="btn btn-success dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     Filter par service
@@ -57,12 +58,12 @@ perm_identity
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">New message</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Ajouter Collaborateur</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="card-header">{{ __('Register') }}</div>
+      
       <div class="modal-body">
         <form  action="/save-agents" method="POST" enctype="multipart/form-data">
       
@@ -89,6 +90,36 @@ perm_identity
             <input type="text"  name="prenom" class="form-control  @error('prenom') is-invalid @enderror" id="recipient-name">
           
             @error('prenom')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+          
+          </div>
+          <div class="form-group">
+            <label for="recipient-name" class="col-form-label">{{ __('sexe') }}</label>
+            <br>
+            <select name="sexe" id="sexe" class="form-control">
+                                     <option value="femme">femme</option>
+                                    <option value="homme">homme</option>
+                               
+                                </select>
+            @error('sexe')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+          
+          </div>
+          <div class="form-group">
+            <label for="recipient-name" class="col-form-label">{{ __('situation familiale') }}</label>
+            <br>
+            <select name="situation" id="situation" class="form-control">
+                                     <option value="mariée">mariée</option>
+                                    <option value="celibataire">celibataire</option>
+                               
+                                </select>
+            @error('sexe')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -129,7 +160,26 @@ perm_identity
                                     </span>
                                 @enderror
          
+          </div>
+          
+      
          
+          
+        
+          </div>
+
+
+            <div class="col-6">
+            <div class="form-group">
+            <label for="recipient-name" class="col-form-label @error('tele') is-invalid @enderror">{{ __('télèphone') }}</label>
+            <br>
+            <input type="text"  name="tele" class="form-control" id="recipient-name" >
+            @error('tele')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+          
           </div>
           <div class="form-group">
           <label for="recipient-name" class="col-form-label">{{ __('poste') }}</label>
@@ -146,25 +196,6 @@ perm_identity
           </div>
 
           <div class="form-group">
-            <label for="recipient-name" class="col-form-label @error('tele') is-invalid @enderror">{{ __('tele') }}</label>
-            <br>
-            <input type="text"  name="tele" class="form-control" id="recipient-name" >
-            @error('tele')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-          
-          </div>
-         
-          
-        
-          </div>
-
-
-            <div class="col-6">
-
-          <div class="form-group">
             <label for="recipient-name" class="col-form-label">{{ __('Date Embauche') }}</label>
             <br>
             <input type="date"  name="dateembauche" class="form-control @error('dateembauche') is-invalid @enderror" id="recipient-name" >
@@ -176,7 +207,7 @@ perm_identity
           
           </div>
           <div class="form-group">
-            <label for="recipient-name" class="col-form-label">{{ __('Nom service') }}</label>
+            <label for="recipient-name" class="col-form-label">{{ __('Service') }}</label>
             <br>
             <select name="service_id" id="service" class="form-control">
                                 @foreach($services as $service )
@@ -187,7 +218,7 @@ perm_identity
           </div>
            
           <div class="form-group">
-            <label for="recipient-name" class="col-form-label">{{ __('solde') }}</label>
+            <label for="recipient-name" class="col-form-label">{{ __('soldeCongé') }}</label>
             <br>
             <input type="number"  name="solde" class="form-control @error('solde') is-invalid @enderror" id="recipient-name"  >
             @error('solde')

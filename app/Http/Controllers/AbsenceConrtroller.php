@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Absence;
 use App\User;
@@ -15,11 +15,14 @@ class AbsenceConrtroller extends Controller
     public function index()
     {
         $ab=Absence::All();
-       
+        if(Auth::user()->usertype==1){
         return view('chefh.absence.index',['ab'=>$ab]);
+        }else if(Auth::user()->usertype==2){
+            return view('resprh.absence.index',['ab'=>$ab]);
+        }
     }
     public function user()
-    {
+    { 
         $id=Auth()->user()->service_id;
         $user=User::where('service_id','=',$id)->get();
        

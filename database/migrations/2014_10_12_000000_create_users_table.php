@@ -29,7 +29,7 @@ class CreateUsersTable extends Migration
             $table->string('kochef');
             $table->string('sexe')->default('femme');
             $table->string('situation')->default('mariee');
-              $table->string('image')->default('noimagee.png');
+            $table->string('image')->default('noimagee.png');
             $table->string('email')->unique();
             $table->string('servicee')->nullable();
             $table->timestamp('email_verified_at');

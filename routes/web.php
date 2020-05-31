@@ -22,10 +22,10 @@ Route::get('/404error', function () {
   return view('notfound');});
   Route::resource('/events','EventController');
   Route::get('/display','EventController@show');
-  
+  Route::resource('/absence','AbsenceConrtroller');
 Route::group(['middleware'=>['auth','1']],function()
     {
-    Route::resource('/absence','AbsenceConrtroller');
+    
     Route::get('/Allusers','AbsenceConrtroller@user');
     Route::get('/profilh','ProfilController@indexh');
     Route::get('/demande-conge','TraitedemandeController@index');

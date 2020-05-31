@@ -33,6 +33,21 @@
                       </div>
                       <div class="col-md-5">
                         <div class="form-group">
+                        
+                          <label style="font-size:15px" class="bmd-label-floating">Sexe</label>
+                    <br>  <input type="text"  name="sexe" class="form-control" id="recipient-name" value="{{$user->sexe}}">
+                        </div>
+                      </div>
+
+                      <div class="col-md-5">
+                        <div class="form-group">
+                       
+                          <label style="font-size:15px" class="bmd-label-floating">Situation Familiale</label>
+                    <br>  <input type="text"  name="situation" class="form-control" id="recipient-name" value="{{$user->situation}}">
+                        </div>
+                      </div>
+                      <div class="col-md-5">
+                        <div class="form-group">
                           <label  style="font-size:15px" class="bmd-label-floating">CNSS</label>
                     <br>
                           <input type="text"  name="cne" class="form-control" id="recipient-name" value="{{$user->cne}}">
@@ -133,8 +148,10 @@
                     
                     
 
-                    <div class="col-md-5">
+                    <div class="col-md-7">
+
                         <div class="form-group">
+                          
                           <label style="font-size:15px" class="bmd-label-floating">Role Admin</label>
                        
                           <div class="form-check form-check-radio">
@@ -170,7 +187,7 @@
 <div class="form-check form-check-radio disabled">
     <label class="form-check-label">
         <input class="form-check-input" type="radio" name="admin" id="exampleRadios1" value="0">
-      agent
+        Collaborateur
         <span class="circle">
             <span class="check"></span>
         </span>

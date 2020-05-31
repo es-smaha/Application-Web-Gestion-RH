@@ -33,8 +33,11 @@ $('#delete').on('show.bs.model',function(event{
             <div class="col-md-12">
               <div class="card">
                 <div class="card-header card-header-success">
-                  <h4 class="card-title "> Table d'agent service: </h4>
-                  <p class="card-category">{{$servicename}} </p>
+                <div class="sectiontitle">
+    <h2>Service {{$servicename}} </h2>
+    
+</div>
+               
                 </div>
                 <div class="card-body">
                   <div class="table-responsive">
@@ -77,8 +80,7 @@ $('#delete').on('show.bs.model',function(event{
                             <td>{{$user->name}}</td>
                             <td>{{$user->dateembauche}}</td>
                             <td>{{$user->service->nom}}</td>
-                            
-                            <td>{{$user->kochef}}</td> 
+                               <td>{{$user->kochef}}</td> 
                                 
                                 <td> 
                                   <div class="row">

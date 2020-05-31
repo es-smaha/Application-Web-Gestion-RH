@@ -26,6 +26,7 @@
   </div>
   
 </div>
+
   
 
 
@@ -54,8 +55,8 @@
   <div class="card_title">
  
   <a data-toggle="modal"  data-target="#service" ><span class="material-icons" style="color:black">add_circle</span></a>
-  <a    data-toggle="modal"  data-target="#serser"><span class="material-icons" style="color:black">  remove_red_eye</span></a>
-  <a  href="/service"  ><span class="material-icons" style="color:black">  create</span></a>
+  <a data-toggle="modal"  data-target="#serser"><span class="material-icons" style="color:black">  remove_red_eye</span></a>
+  <a href="/service"  ><span class="material-icons" style="color:black">  create</span></a>
    </div>
 </div>
   

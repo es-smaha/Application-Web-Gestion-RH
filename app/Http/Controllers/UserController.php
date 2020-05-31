@@ -87,6 +87,8 @@ class UserController extends Controller
          $user->ko=$request->input('ko');
          $user->poste=$request->input('poste');
          $user->tele=$request->input('tele');
+         $user->sexe=$request->input('sexe');
+         $user->situation=$request->input('situation');
          $user->dateembauche=$request->input('dateembauche');
          $user->service_id=$request->service_id;
         
@@ -113,6 +115,8 @@ class UserController extends Controller
         $user->ko=$request->input('ko');
         $user->poste=$request->input('poste');
         $user->tele=$request->input('tele');
+        $user->sexe=$request->input('sexe');
+        $user->situation=$request->input('situation');
         $user->dateembauche=$request->input('dateembauche');
         $user->service_id=$request->service_id;
         $user->solde=$request->input('solde');

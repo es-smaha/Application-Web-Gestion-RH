@@ -13,19 +13,20 @@ The above copyright notice and this permission notice shall be included in all c
 <html lang="en">
 
 <head>
-  <meta charset="utf-8" />
+<meta charset="utf-8" />
   <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/kohler.jpg">
   <link rel="icon" type="image/png" href="../assets/img/kohler.jpg">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-  <title>
-    @yield('title')
-  </title>
-  <meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <!-- fullcalendar -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.2.7/fullcalendar.min.js"></script>
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.2.7/fullcalendar.min.css"/>
+  <title>
+    @yield('title')
+  </title>
+  <meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
   <!--     Fonts and icons     -->
   <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
@@ -33,22 +34,576 @@ The above copyright notice and this permission notice shall be included in all c
   <link href="../assets/css/material-dashboard.css?v=2.1.2" rel="stylesheet" />
   <!-- CSS Just for demo purpose, don't include it in your project -->
   <link href="../assets/demo/demo.css" rel="stylesheet" />
-
-
-    <style>
-
-      .card4 {
-    border: 0;
-    margin-bottom: 30px;
-    margin-top: 30px;
-    border-radius: 6px;
-    color: #333333;
-    background: rgba(241, 239, 239, 0.15);
-    width: 100%;
-    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+   
+  <style>
+  body{
+  background:#eeeeee;
 }
+
+section{
+		float: left;
+		padding-top: 50px;
+		padding-bottom: 100px;
+		width: 100%;
+		padding-left:0;
+		padding-right:0;
+}
+
+#icon-wrapper{
+	width:100%;
+	float:left;
+	height:300px;
+}
+
+.icons {
+	width:25%;
+	float:left;
+	position:relative;
+}
+.icons2 {
+	width:25%;
+	float:left;
+	position:relative;
+	margin-left:25%;
+}
+.icons3 {
+	width:25%;
+	float:left;
+	position:relative;
+	margin-left:50%;
+}
+.icons4 {
+	width:25%;
+	float:left;
+	position:relative;
+	margin-left:75%;
+}
+
+.icon-slide-container{
+	height:300px;
+	overflow:hidden;
+	text-align: left;
+	position: absolute;
+	float: left;
+	width: 300px;
+	left: 50%;
+	margin-left: -150px;
+}
+
+.slide-icon{
+  width:300px;
+  height:auto;
+  position:absolute;
+  margin-top:-300px;
+  -webkit-transition:.4s ease;
+  -moz-transition:.4s ease;
+  -ms-transition:.4s ease;
+  -o-transition:.4s ease;
+  transition:.4 ease;
+}
+	
+.slide-icon:hover{
+  position:absolute;
+  margin-top:0;
+}
+
+@media only screen and (max-width: 1300px) {
+  #icon-wrapper{
+		width:100%;
+		float:left;
+		height:170px;
+	}
+  .icon-slide-container {
+		height: 200px;
+		overflow: hidden;
+		text-align: left;
+		position: absolute;
+		float: left;
+		width: 200px;
+		left: 50%;
+		margin-left: -100px;
+	}
+  .slide-icon {
+		width: 200px;
+		height: auto;
+		position: absolute;
+		margin-top: -200px;
+	}
+}
+
+@media only screen and (max-width: 1000px) {
+  #home-social-container{
+		margin-right: 0;
+		margin-left: 0;
+		width: 100%;
+		padding: 0;
+		float: left;
+		left: 0;
+	}
+}
+
+@media only screen and (max-width: 840px) {
+  #icon-wrapper{
+		width:100%;
+		float:left;
+		height:650px;
+	}
+	
+	.icon-slide-container {
+		height: 300px;
+		overflow: hidden;
+		text-align: left;
+		position: absolute;
+		float: left;
+		width: 300px;
+		left: 50%;
+		margin-left: -150px;
+	}
+	
+	.slide-icon {
+		width: 300px;
+		height: auto;
+		position: absolute;
+		margin-top: -300px;
+	}	
+	.icons {
+		width: 50%;
+		float: left;
+		position: relative;
+	}
+	.icons2 {
+		width: 50%;
+		float: left;
+		position: relative;
+		margin-left: 50%;
+	}
+	.icons3 {
+		width: 50%;
+		float: left;
+		position: relative;
+		margin-left: 0%;
+		margin-top: 350px;
+	}
+	.icons4 {
+		width: 50%;
+		float: left;
+		position: relative;
+		margin-left: 50%;
+	}
+}
+                        
+@media only screen and (max-width: 650px) {
+	#icon-wrapper {
+		height: 400px;
+	}
+	#section{
+		width: 90%;
+		padding-left:5%;
+		padding-right:5%;
+	}
+	.slide-icon {
+		width: 200px;
+		height: auto;
+		position: absolute;
+		margin-top: -200px;
+	}
+	.icon-slide-container {
+		height: 200px;
+		width: 200px;
+		left: 50%;
+		margin-left: -100px;
+	}
+	.icons3 {
+		width: 50%;
+		position: relative;
+		margin-left: 0%;
+		margin-top: 230px;
+	}
+}
+                                  
+@media only screen and (max-width: 570px) {
+	#icon-wrapper {
+		height: 300px;
+	}
+	.slide-icon {
+		width: 150px;
+		height: auto;
+		position: absolute;
+		margin-top: -150px;
+	}
+	.icon-slide-container {
+		height: 150px;
+		width: 150px;
+		left: 50%;
+		margin-left: -75px;
+	}
+	.icons3 {
+		width: 50%;
+		float: left;
+		margin-left: 0%;
+		margin-top: 190px;
+	}	
+}
+  
+  
+  
+  
+  </style>
+  <style>
+
+@import url(https://fonts.googleapis.com/css?family=PT+Sans+Narrow);
+body {
+  font-family: Open Sans, "Helvetica Neue", "Helvetica", Helvetica, Arial,   sans-serif;
+  font-size: 13px;
+  color: #666;
+  position: relative;
+  -webkit-font-smoothing: antialiased;
+  margin: 0;
+}
+
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, p, blockquote, th, td {
+  margin: 0;
+  padding: 0;
+  font-size: 13px;
+  direction: ltr;
+}
+
+.sectionClass {
+  padding: 20px 0px 50px 0px;
+  position: relative;
+  display: block;
+}
+
+.fullWidth {
+  width: 100% !important;
+  display: table;
+  float: none;
+  padding: 0;
+  min-height: 1px;
+  height: 100%;
+  position: relative;
+}
+
+
+.sectiontitle {
+  background-position: center;
+  margin: 30px 0 0px;
+  text-align: center;
+  min-height: 20px;
+}
+
+.sectiontitle h2 {
+  font-size: 30px;
+  color: #222;
+  margin-bottom: 0px;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+
+.headerLine {
+  width: 160px;
+  height: 2px;
+  display: inline-block;
+  background: #101F2E;
+}
+
+
+.projectFactsWrap{
+    display: flex;
+  margin-top: 30px;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+
+#projectFacts .fullWidth{
+  padding: 0;
+}
+
+.projectFactsWrap .item{
+  width: 25%;
+  height: 100%;
+  padding: 50px 0px;
+  text-align: center;
+}
+
+.projectFactsWrap .item:nth-child(1){
+  background: rgb(16, 31, 46);
+}
+
+.projectFactsWrap .item:nth-child(2){
+  background: rgb(18, 34, 51);
+}
+
+.projectFactsWrap .item:nth-child(3){
+  background: rgb(21, 38, 56);
+}
+
+.projectFactsWrap .item:nth-child(4){
+  background: rgb(23, 44, 66);
+}
+
+.projectFactsWrap .item p.number{
+  font-size: 40px;
+  padding: 0;
+  font-weight: bold;
+}
+
+.projectFactsWrap .item p{
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 18px;
+  margin: 0;
+  padding: 10px;
+  font-family: 'Open Sans';
+}
+
+
+.projectFactsWrap .item span{
+  width: 60px;
+  background: rgba(255, 255, 255, 0.8);
+  height: 2px;
+  display: block;
+  margin: 0 auto;
+}
+
+
+.projectFactsWrap .item i{
+  vertical-align: middle;
+  font-size: 50px;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+
+.projectFactsWrap .item:hover i, .projectFactsWrap .item:hover p{
+  color: white;
+}
+
+.projectFactsWrap .item:hover span{
+  background: white;
+}
+
+@media (max-width: 786px){
+  .projectFactsWrap .item {
+     flex: 0 0 50%;
+  }
+}
+
+/* AUTHOR LINK */
+
+
+footer{
+  z-index: 100;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+}
+
+footer p {
+color: rgba(255, 255, 255, 0.8);
+  font-size: 16px;
+  opacity: 0;
+  font-family: 'Open Sans';
+  width: 100%;
+    word-wrap: break-word;
+  line-height: 25px;
+  -webkit-transform: translateX(-200px);
+  transform: translateX(-200px);
+  margin: 0;
+  -webkit-transition: all 250ms ease;
+  -moz-transition: all 250ms ease;
+  transition: all 250ms ease;
+}
+
+footer .authorWindow a{
+  color: white;
+  text-decoration: none;
+}
+
+footer p strong {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.about-me-img {
+  width: 120px;
+  height: 120px;
+  left: 10px;
+  /* bottom: 30px; */
+  position: relative;
+  border-radius: 100px;
+}
+
+
+.about-me-img img {
+}
+
+
+.authorWindow{
+  width: 600px;
+  background: #75439a;
+  padding: 22px 20px 22px 20px;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.authorWindowWrapper{
+  display: none;
+  left: 110px;
+  top: 0;
+  padding-left: 25px;
+  position: absolute;
+}
+
+
+
+
+
+.trans{
+  opacity: 1;
+  -webkit-transform: translateX(0px);
+  transform: translateX(0px);
+  -webkit-transition: all 500ms ease;
+  -moz-transition: all 500ms ease;
+  transition: all 500ms ease;
+}
+
+@media screen and (max-width: 768px) {
+    .authorWindow{
+         width: 210px;
+    }
+
+    .authorWindowWrapper{
+             bottom: -170px;
+  margin-bottom: 20px;
+    }
+
+    footer p{
+          font-size: 14px;
+    }
+}
+
+
+
+
+
+
+
+  </style>
+    <style>
+/* lll */
+
+.card5 {
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: .25rem;
+}
+.jumbotron { 
+    padding: 1rem 1rem;
+    margin-bottom: 2rem;
+    background-color: #ffff;
+    border-radius: 0.3rem;
+}
+.cards-listt {
+  z-index: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.cardi {
+  margin: 30px auto;
+  width: 285px;
+  height: 285px;
+  border-radius: 0px;
+  
+  box-shadow: 5px 5px 30px 7px rgba(0,0,0,0.25), -5px -5px 30px 7px rgba(0,0,0,0.22);
+  cursor: pointer;
+  transition: 0.4s;
+}
+
+.cardi .card_image {
+  width: inherit;
+  height: inherit;
+  text-align:center;
+  border-radius: 40px;
+}
+
+.cardi .card_image img {
+  width: 250px;
+  height: 250px;
+  border-radius: 0px;
+  margin-top: 20px;
+  object-fit: cover;
+}
+
+.cardi .card_title {
+  text-align: center;
+  border-radius: 0px 0px 40px 40px;
+  font-family: sans-serif;
+  font-weight: bold;
+  font-size: 30px;
+  margin-top: -30px;
+  height: 20px;
+}
+
+.cardi:hover {
+   transform: scale(0.9, 0.9); 
+  box-shadow: 5px 5px 30px 15px rgba(0,0,0,0.25), 
+    -5px -5px 30px 15px rgba(0,0,0,0.22);
+}
+
+.title-white {
+  color: white;
+}
+
+.title-black {
+  color: black;
+}
+
+@media all and (max-width: 500px) {
+  .card-listt {
+    /* On small screens, we are no longer using row direction but column */
+    flex-direction: column;
+  }
+}
+
+
+/*
+.card {
+  margin: 30px auto;
+  width: 300px;
+  height: 300px;
+  border-radius: 40px;
+  background-image: url('https://i.redd.it/b3esnz5ra34y.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-repeat: no-repeat;
+box-shadow: 5px 5px 30px 7px rgba(0,0,0,0.25), -5px -5px 30px 7px rgba(0,0,0,0.22);
+  transition: 0.4s;
+}
+*/
+
+/* ;;; */
       .card .card-header-primary .card-icon, .card .card-header-primary .card-text, .card .card-header-primary:not(.card-header-icon):not(.card-header-text), .card.bg-primary, .card.card-rotate.bg-primary .front, .card.card-rotate.bg-primary .back {
-        background: linear-gradient(60deg, #4b4d4e, #439c84);
+        background: linear-gradient(60deg,#424644, #439c84);
 }
 
       .form-control {
@@ -67,7 +622,7 @@ The above copyright notice and this permission notice shall be included in all c
    
 }
 .card .card-header-success .card-icon, .card .card-header-success .card-text, .card .card-header-success:not(.card-header-icon):not(.card-header-text), .card.bg-success, .card.card-rotate.bg-success .front, .card.card-rotate.bg-success .back {
-    background: linear-gradient(60deg, #649e85, #439c84);
+    background: linear-gradient(60deg,#424644, #439c84);
 }
 .btn.btn-success {
     color: #fff;
@@ -78,31 +633,23 @@ The above copyright notice and this permission notice shall be included in all c
     color: #649e85;
     box-shadow: none;
 }
+.sidebar[data-color="green"] li.active>a {
+    background-color: orange;
+    box-shadow: 0 4px 20px 0px rgba(1, 0, 0, 0.14), 0 7px 10px -5px rgba(76, 175, 80, 0.4);
+}
+
 .text-primary {
     color: black!important;
 }
-
 .sidebar .nav li a, .sidebar .nav li .dropdown-menu a {
     margin: 10px 15px 0;
     border-radius: 3px;
     color: white;
     padding-left: 10px;
-    padding-right: 10px; 
+    padding-right: 10px;
     text-transform: capitalize;
-    font-size: 13px;
+    font-size: 25px;
     padding: 10px 15px;
-}
-.sidebar[data-color="green"] li.active>a {
-    background-color: orange;
-    box-shadow: 0 4px 20px 0px rgba(1, 0, 0, 0.14), 0 7px 10px -5px rgba(76, 175, 80, 0.4);
-}
-.card [class*="card-header-"] .card-icon, .card [class*="card-header-"] .card-text {
-    border-radius: 5px;
-    background-color: #67ab68;
-    padding: 15px;
-    margin-top: -20px;
-    margin-right: 15px;
-    float: left;
 }
     </style>
   
@@ -168,7 +715,7 @@ The above copyright notice and this permission notice shall be included in all c
           <li class="{{'profil' == request()->path() ? 'active' : ''}}" class="nav-item ">
             <a class="nav-link" href="/profil">
               <i class="material-icons">account_circle</i>
-              <p>Profile </p>
+              <p>Profil </p>
             </a>
           </li>
           <li class="{{'planning' == request()->path() ? 'active' : ''}}"  class="nav-item ">

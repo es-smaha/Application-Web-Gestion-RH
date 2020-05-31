@@ -175,7 +175,7 @@
 
 <div class="file-field">
 
-<label for="image" class="col-form-label"> Modifier l'image de prophil</label> 
+<label for="image" class="col-form-label"> Modifier l'image de profil</label> 
 <input type="file" name="image" class="form-control">
 
 

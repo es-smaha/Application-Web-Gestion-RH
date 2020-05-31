@@ -720,20 +720,19 @@ box-shadow: 5px 5px 30px 7px rgba(0,0,0,0.25), -5px -5px 30px 7px rgba(0,0,0,0.2
           </li>
           <li class="{{'planning' == request()->path() ? 'active' : ''}}"  class="nav-item ">
             <a class="nav-link" href="/planningR">
-              <i class="material-icons">bubble_chart</i>
+            <i class="fa fa-table"></i>
               <p>Planning de travail</p>
             </a>
           </li>
           <li class="{{'planning' == request()->path() ? 'active' : ''}}"  class="nav-item ">
             <a class="nav-link" href="/calendar-employee">
-              <i class="material-icons">bubble_chart</i>
+            <i class="fa fa-calendar"></i>
               <p>Mon calendrier</p>
             </a>
           </li>
           <li class="{{'reclamation' == request()->path() ? 'active' : ''}}" class="nav-item ">
             <a class="nav-link" href="/reclamation">
-              <i class="material-icons">local_post_office</i>
-              <p>Reclamation</p>
+            <i class="fa fa-exclamation-circle"></i>              <p>Reclamation</p>
             </a>
           </li>
 

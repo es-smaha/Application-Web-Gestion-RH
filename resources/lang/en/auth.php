@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'failed' => 'These credentials do not match our records.',
+    'failed' => 'Ces informations ne correspondent pas à nos enregistrements.',
     'throttle' => 'vous avez depassé les 3 tentatives. Vous ne pouvez pas se connecter',
 
 ];

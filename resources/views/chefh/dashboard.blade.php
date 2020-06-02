@@ -9,7 +9,7 @@
     <div class="fullWidth eight columns">
         <div class="projectFactsWrap ">
         <div class="item wow fadeInUpBig animated animated" data-number="55" style="visibility: visible;">
-                <i class="fa fa-smile-o"></i>
+                <i class="fa fa-users"></i> <br> <br> 
                 <p id="number2" class="number">{{App\User::count()}}</p>
            
                     <br>
@@ -17,7 +17,7 @@
             </div>
             <div class="item wow fadeInUpBig animated animated" data-number="{{App\Service::count()}}" style="visibility: visible;">
  
-            <i class="fa fa-briefcase"></i>
+            <i class="fa fa-server"></i> <br> <br>  
          
                 <p id="number1" class="number">{{App\Service::count()}}</p>
           
@@ -27,7 +27,7 @@
          
             <div class="item wow fadeInUpBig animated animated" data-number="{{App\Typedocument::count()}}" style="visibility: visible;">
             <div class="card-icon">
-            <i class="material-icons">content_copy</i>
+            <i class="material-icons">content_copy</i> <br> <br>
                 </div>
                 
                 <p id="number3" class="number">{{App\Typedocument::count()}}</p>
@@ -36,7 +36,7 @@
             </div>
             <div class="item wow fadeInUpBig animated animated" data-number="{{App\Typeconge::count()}}" style="visibility: visible;">
             <div class="card-icon">
-                  <i class="material-icons">event</i>
+                  <i class="material-icons">event</i> <br><br>
                   </div>
                 <p id="number4" class="number">{{App\Typeconge::count()}}</p>
             <br>
@@ -44,37 +44,38 @@
             </div>
         </div>
     </div>
+    
     <div class="fullWidth eight columns">
         <div class="projectFactsWrap ">
         <div class="item wow fadeInUpBig animated animated" data-number="{{App\Demandedocument::count()}}" style="visibility: visible;">
         <div class="card-icon">
-                    <i class="material-icons">content_copy</i>
+                    <i class="fa fa-sign-out"></i> <br><br>
                   </div>
-                <p id="number5" class="number">{{App\Demandedocument::count()}}</p>
+                <p id="number5" class="number">{{App\Demandeconge::count()}}</p>
            
                     <br>
-                <p>Nombre total des employee</p>
+                <p>  Nombre total des demandes du congé</p>
             </div>
             <div class="item wow fadeInUpBig animated animated" data-number="{{App\User::count()}}" style="visibility: visible;">
-                <i class="fa fa-briefcase"></i>
-                <p id="number6" class="number">{{App\Demandedocument::where('etat','=','1')->count()}}</p>
+                <i class="fa fa-check-square"></i> <br> <br>
+                <p id="number6" class="number">{{App\Demandeconge::where('decision','=','1')->count()}}</p>
           
                     <br>
-                <p>Demande Documents Adminitratives  <b style="color:orange">Valider</b></p>
+                <p>Demandes de congé  <b style="color:orange">Validées</b></p>
             </div>
          
             <div class="item wow fadeInUpBig animated animated" data-number="{{App\Demandedocument::where('etat','=','1')->count()}}" style="visibility: visible;">
-                <i class="fa fa-coffee"></i>
-                <p id="number7" class="number">{{App\Demandedocument::where('etat','=','0')->count()}}</p>
+                <i class="fa fa-sign-out"></i> <br> <br>
+                <p id="number7" class="number">{{App\Demandeconge::where('decision','=','0')->count()}}</p>
             <br>
-                <p>demande Documents Administratives <b style="color:orange">enAttente</b></p>
+                <p>demandes de congé <b style="color:orange">en Attente</b></p>
             </div>
 
             <div class="item wow fadeInUpBig animated animated" data-number="{{App\Reclamation::count()}}" style="visibility: visible;">
-                <i class="fa fa-camera"></i>
+                <i class="fa fa-exclamation-circle"></i> <br> <br>
                 <p id="number8" class="number">{{App\Reclamation::count()}}</p>
             <br>
-                <p>Nouvelles reclamations</p>
+                <p>Nouvelles reclamations</p> 
             </div>
         </div>
     </div>

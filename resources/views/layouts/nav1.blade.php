@@ -368,23 +368,36 @@ footer p strong {
               <p>Dashboard</p>
             </a>
           </li>
+          <li class="{{'profilh'==request()->path()?'active':''}}">
+            <a class="nav-link" href="/profilh">
+            <i class="material-icons">account_circle</i>
+              <p>Profil</p>
+            </a>
+          </li>
           <li class="{{'demande-conge'==request()->path()?'active':''}} ">
             <a class="nav-link" href="/demande-conge">
               <i class="material-icons">exit_to_app</i>
-              <p>Demande de Congé</p>
+              <p>Demandes de Congé</p>
             </a>
           </li>
 
           <li class="{{'conge-accepter'==request()->path()?'active':''}} " class="nav-item ">
             <a class="nav-link" href="/conge-accepter">
               <i class="material-icons">folder</i>
-              <p>Demandes Conge pret</p>
+              <p>Demandes de Congé prêtes</p>
             </a>
           </li>
           <li class="{{'conge-refuser'==request()->path()?'active':''}} " class="nav-item ">
             <a class="nav-link" href="/conge-refuser">
               <i class="material-icons">folder</i>
-              <p> demandes conge refuser</p>
+              <p> demandes congé refusées</p>
+            </a>
+          </li>
+
+          <li class="{{'absence'==request()->path()?'active':''}} " class="nav-item ">
+            <a class="nav-link" href="/absence">
+            <i class="fa fa-suitcase"></i>
+              <p> gestion des absences</p>
             </a>
           </li>
         
@@ -397,10 +410,10 @@ footer p strong {
        
             </a>
           </li>
-          <li  class="{{'/conge-refuser'==request()->path()?'active':''}} " class="nav-item ">
+          <li  class="{{'ex'==request()->path()?'active':''}} " class="nav-item ">
             <a class="nav-link" href="/ex">
               <i class="material-icons">schedule</i>
-              <p>Planning Travail</p>
+              <p>Planning De Travail</p>
             </a>
           </li>
           

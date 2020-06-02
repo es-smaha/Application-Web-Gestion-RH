@@ -674,24 +674,25 @@ box-shadow: 5px 5px 30px 7px rgba(0,0,0,0.25), -5px -5px 30px 7px rgba(0,0,0,0.2
               <p>Dashboard</p>
             </a>
           </li>
-        <li class="{{'Myprophil' == request()->path() ? 'active' : ''}}" class="nav-item ">
-            <a class="nav-link" href="/Myprophil">
-              <i class="material-icons">account_circle</i>
-              <p>Profile </p>
-            </a>
-          </li>
-          <li class="{{'administration'==request()->path()?'active':''}}">
-            <a class="nav-link" href="/administration">
-            <i class="material-icons">build</i>
-              <p>Settings</p>
-            </a>
-          </li>
           <li class="{{'users'==request()->path()?'active':''}} ">
             <a class="nav-link" href="/users">
               <i class="material-icons">person</i>
               <p>Gestion Collaborateurs</p>
             </a>
           </li>
+        <!-- <li class="{{'Myprophil' == request()->path() ? 'active' : ''}}" class="nav-item "> 
+            <a class="nav-link" href="/Myprophil">
+              <i class="material-icons">account_circle</i>
+              <p>Profile </p>
+            </a>
+          </li>-->
+          <li class="{{'administration'==request()->path()?'active':''}}">
+            <a class="nav-link" href="/administration">
+            <i class="material-icons">build</i>
+              <p>configuration</p>
+            </a>
+          </li>
+         
      
           <li class="{{'/docum'==request()->path()?'active':''}} ">
             <a class="nav-link" href="/docum">
@@ -717,14 +718,14 @@ box-shadow: 5px 5px 30px 7px rgba(0,0,0,0.25), -5px -5px 30px 7px rgba(0,0,0,0.2
           <li class="nav-item ">
             <a class="nav-link" href="/cal">
               <i class="material-icons">content_paste</i>
-              <p>cal</p>
+              <p>calendrier</p>
             </a>
           </li>
          
           <li class="{{'Reclamationn' == request()->path() ? 'active' : ''}}" class="nav-item ">
             <a class="nav-link" href="/Reclamationn">
               <i class="material-icons">error_outline</i>
-              <p>Reclamation </p>
+              <p>Systeme Reclamations </p>
             </a>
           </li>
          

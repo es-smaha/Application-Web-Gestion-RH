@@ -1,5 +1,9 @@
 @extends('layouts.nav1')
 @section('title')
+les demandes refusées
+
+@endsection
+@section('title')
 
 @endsection
 

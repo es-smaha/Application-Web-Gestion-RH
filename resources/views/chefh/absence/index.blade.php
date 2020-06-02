@@ -1,10 +1,14 @@
 @extends('layouts.nav1')
 @section('title')
+Absences
+
+@endsection
+@section('title')
 
 @endsection
 
 @section('content')
-<a href="/Allusers" class="btn btn-success"><span class="material-icons">person</span>liste des employee</a>
+<a href="/Allusers" class="btn btn-success"><span class="material-icons">person</span>Ajouter une absnece</a>
 
 <div class="sectiontitle">
     <h2>Liste D'absence </h2>

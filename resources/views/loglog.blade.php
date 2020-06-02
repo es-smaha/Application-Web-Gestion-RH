@@ -6,7 +6,7 @@
 		<link href="{{ asset('css/app.css') }}" rel="stylesheet">
 		<script src="{{ asset('js/app.js') }}" defer></script>
 
-        <title>Document</title>
+        <title>KOHLER</title>
             <style>
             
             @import url(https://fonts.googleapis.com/css?family=Exo:100,200,400);

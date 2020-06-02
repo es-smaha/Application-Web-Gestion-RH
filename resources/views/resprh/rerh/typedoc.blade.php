@@ -12,7 +12,7 @@ keyboard_backspace
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Ajouter un type de document</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Gestion des types des documents administratives</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -27,9 +27,15 @@ keyboard_backspace
           </div>
           <div class="form-group">
          
-            <label for="recipient-name" class="col-form-label">Periodicite( par an ou par mois )</label>
-            <input type="text"  name="periode" class="form-control" id="recipient-name">
-
+            <!-- <label for="recipient-name" class="col-form-label">( par an ou par mois )</label> -->
+             <!-- <input type="text"  " class="form-control" id="recipient-name">  -->
+             <label for="exampleFormControlSelect1">Periodicite</label>
+             
+    <select name="periode" class="form-control" id="exampleFormControlSelect1">
+      <option value="  An">An </option>
+      <option value="mois">mois</option>
+    
+    </select>
           </div>
          
           <div class="form-group">
@@ -54,22 +60,22 @@ keyboard_backspace
             <div class="col-lg-12 col-md-12">
               <div class="card">
                 <div class="card-header card-header-success">
-                  <h4 class="card-title">Type De Document</h4>
+                  <h4 class="card-title">Gestion des Type Des Document administratifs</h4>
                 
                 </div>
                 <div class="col-lg-6 col-md-2">
-                  <button type="button" class="btn btn-orange" data-toggle="modal"  data-target="#exampleModal" >Ajouter un type de document</button> </tr>
+                  <button type="button" class="btn btn-orange" data-toggle="modal"  data-target="#exampleModal" ><span class="material-icons">add</span>Ajouter</button> </tr>
                 </div>
                 <div class="card-body table-responsive">
                   <table class="table table-hover">
                   
-                    <thead class="text-success">
+                    <thead class="">
                       <th>ID</th>
                       <th>Name</th>
                       <th>Nombre maximale   <br> par Periode</th>
-                        <th>Periode( Year/Month)</th>
+                        <th>Périodicité</th>
                         
-                      <th>action</th>
+                      <th class="text-right">action</th>
                     </thead>
                     <tbody>
                       
@@ -80,11 +86,11 @@ keyboard_backspace
       <td>{{$typedocument->name}}</td>
       <td>{{$typedocument->max}}</td>
       <td>{{$typedocument->periode}}</td>
-      <td class="td-actions text-right">
-        <button type="button" rel="tooltip" title="Editer" data-toggle="modal"  data-target="#edit" class="btn btn-success btn-link btn-sm">
+      <td  class="td-actions text-right">
+        <button type="button" rel="tooltip" title="Editer" data-toggle="modal"  data-target="#edit" class="btn btn-info  btn-sm">
             <i class="material-icons">edit</i> </button>
 
-          <button type="submit" rel="tooltip" title="Remove" class="btn btn-danger btn-link btn-sm" data-userid="{{$typedocument->id}}" data-toggle="modal" data-target="#delete" >
+          <button type="submit" rel="tooltip" title="Remove" class="btn btn-danger  btn-sm" data-userid="{{$typedocument->id}}" data-toggle="modal" data-target="#delete" >
         <i class="material-icons">close</i> </button>
       </td>
       

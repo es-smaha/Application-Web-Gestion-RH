@@ -43,17 +43,14 @@ $('#delete').on('show.bs.model',function(event{
                   <div class="table-responsive">
                     <table id="example"class="table">
                       <thead class=" text-primary">
-                            <th>matricule</th>
-                              <th>image</th>
+                            <th>Matricule</th>
+                              <th>Image</th>
                         <th>
-                         last Name
-                        </th>
-                        <th>
-                          Name
+                       Nom complet
                         </th>
                      
                         <th>
-                        Date Conge
+                        Date Embauche
                         </th>
                         <th>
                         Service
@@ -76,23 +73,23 @@ $('#delete').on('show.bs.model',function(event{
                                 <img src="/storage/cover_images/{{$user->image}}" alt="..." class="avatar img-raised">
                                                          </a>
                                          </div></td>
-                            <td>{{$user->prenom}}</td>
-                            <td>{{$user->name}}</td>
+                            <td>{{$user->prenom}} {{$user->name}}</td>
                             <td>{{$user->dateembauche}}</td>
                             <td>{{$user->service->nom}}</td>
                                <td>{{$user->kochef}}</td> 
                                 
-                                <td> 
-                                  <div class="row">
-                                    <a href="/users/{{$user->id}}" class="btn btn-success btn-link btn-lg" >
+                                <td>  <div class="row">
+                                  <div class="text-right">
+                                    <a href="/users/{{$user->id}}" class="btn btn-success btn-sm" >
                                 <span class="material-icons">  remove_red_eye</span>   </a>
                                 <form  action="/user/{{$user->id}}" method="POST">
                                       @method('delete')
                                            @csrf
-                                   <button  type="button" rel="tooltip" id="#delete"  data-toggle="modal"  title="Remove" class="btn btn-success btn-link btn-sm">
-                                <i  class="material-icons" class="btn btn-danger">close</i>
+                                   <button  type="button" rel="tooltip" id="#delete"  data-toggle="modal"  title="Remove" class="btn btn-info  btn-sm">
+                                <i  class="material-icons" >close</i>
                               </button>
                               </form>
+                              </div>
                               </div>
                               </td>
                    

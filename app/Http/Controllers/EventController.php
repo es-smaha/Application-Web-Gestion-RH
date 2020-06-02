@@ -17,7 +17,7 @@ class EventController extends Controller
      */
     public function index()
     {
-        $events=Event::all();
+        /*$events=Event::all();
 
         
        if(count($events)>0) {
@@ -58,8 +58,8 @@ class EventController extends Controller
           
            
         }
-        $calendar=\Calendar::addEvents($event);
-        return view('calendar.eventpage',compact('events','conges','calendar'));  
+        $calendar=\Calendar::addEvents($event);*/
+        return view('calendar.eventpage');  
         
     }
     public function calagent()
@@ -103,55 +103,9 @@ class EventController extends Controller
     
     public function cal2()
     {
-        $events=Event::all();
-    //     $events->insert( [
-    //    "title"=>"et",
-    //     "color"=>"red",
-    //     "start_date"=>"",
-    //     "end_date"=>"", 
-    //     ] );
+       
     
-        
-       if(count($events)>0) {
-        foreach($events as $row){
-            $event=[];
-            $enddate=$row->end_date."24:00:00";
-            $event[]=\Calendar::event(
-                $row->title,
-                false,
-                new \DateTime($row->start_date),
-                new \DateTime($row->end_date),
-                $row->id,
-                [
-                    'color' => $row->color,
-                ]
-                );
-            }
-        }
-        $conges=Demandeconge::all();
-       
-        if(count($conges)>0) {
-        foreach($conges as $roww){
-            $conge=[];
-            if($roww->avis==1){
-                $enddate=$roww->datefin."24:00:00";
-                $event[]=\Calendar::event(
-                    $roww->user->name,
-                    true,
-                    new \DateTime($roww->datedebut),
-                    new \DateTime($roww->datefin),
-                    $roww->id,
-                    [
-                        'color' => 'pink',
-                    ]
-                    );
-            }}
-       
-          
-           
-        }
-        $calendar=\Calendar::addEvents($event);
-        return view('resppaie.calendar',compact('events','conges','calendar'));  
+        return view('resppaie.calendar');  
         
     }    
         public function calendarajax(Request $request){

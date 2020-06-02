@@ -43,11 +43,11 @@ keyboard_backspace
 <div class="col-lg-12 col-md-12">
               <div class="card">
                 <div class="card-header card-header-success">
-                  <h4 class="card-title">Employees Stats</h4>
+                  <h4 class="card-title">Gestion Type Congé</h4>
                 
                 </div>
                 <div class="col-lg-6 col-md-2">
-                  <button type="button" class="btn btn-orange" data-toggle="modal"  data-target="#exampleModal" >Ajouter un type de conge</button> </tr>
+                  <button type="button" class="btn btn-orange" data-toggle="modal"  data-target="#exampleModal" ><span class="material-icons">add</span>Ajouter</button></tr>
                 </div>
                 <div class="card-body table-responsive">
                   <table class="table table-hover">
@@ -55,22 +55,23 @@ keyboard_backspace
                     <thead class="text-success">
                       <th>ID</th>
                      <th>Name</th> 
-                     <th><th>
+                     <th class="text-right">Action<th>
                      
                     </thead>
                     <tbody>
                       
                    
-                    @foreach($typeconges as $typeconges)
+                    @foreach($typeconges as $typeconges)          
     <tr>
+
       <td >{{$typeconges->id}}</td>
       <td>{{$typeconges->nom}}</td>
 
       <td class="td-actions text-right">
-        <button type="button" rel="tooltip" title="Editer" data-toggle="modal"  data-target="#edit" class="btn btn-success btn-link btn-sm">
+        <button type="button" rel="tooltip" title="Editer" data-toggle="modal"  data-target="#edit" class="btn btn-success  btn-sm">
             <i class="material-icons">edit</i> </button>
 
-          <button type="submit" rel="tooltip" title="Remove" class="btn btn-danger btn-link btn-sm" data-userid="{{$typeconges->id}}" data-toggle="modal" data-target="#delete" >
+          <button type="submit" rel="tooltip" title="Remove" class="btn btn-danger  btn-sm" data-userid="{{$typeconges->id}}" data-toggle="modal" data-target="#delete" >
         <i class="material-icons">close</i> </button>
       </td>
       

@@ -39,11 +39,11 @@ keyboard_backspace
             <div class="col-lg-12 col-md-12">
               <div class="card">
                 <div class="card-header card-header-success">
-                  <h4 class="card-title"  >Employees Stats</h4>
+                  <h4 class="card-title"  >Gestion des Services</h4>
                 
                 </div>
                 <div class="col-lg-6 col-md-2">
-                  <button type="button" class="btn btn-orange" data-toggle="modal"  data-target="#exampleModal" >Ajouter un service</button> </tr></div>
+                  <button type="button" class="btn btn-orange" data-toggle="modal"  data-target="#exampleModal" ><span class="material-icons">add</span>Ajouter</button> </tr></div>
 
                 <div class="card-body table-responsive">
                   <table class="table table-hover">

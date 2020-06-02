@@ -34,7 +34,7 @@
   
   <div class="card_image">
   <p text-align="center"> Gestion Type Documents </p>
-    <img src="https://cdn.icon-icons.com/icons2/7/PNG/128/filesystems_thefolder_636.png" />
+    <img src="https://cdn.icon-icons.com/icons2/1379/PNG/512/foldertealdocuments_92850.png" />
     </div>
   <div class="card_title title-white">
  
@@ -63,7 +63,7 @@
   <div class="cardi 4">
   <div class="card_image">
   <p text-align="center">Gestion Collaborateurs </p>
-  <img src="https://cdn.icon-icons.com/icons2/7/PNG/128/adduser_1103.png"/>
+  <img src="https://cdn.icon-icons.com/icons2/1381/PNG/512/systemusers_94754.png"/>
     </div>
   <div class="card_title title-black">
   <a href="/users" ><span class="material-icons"  style="color:black" >settings</span></a>
@@ -74,7 +74,7 @@
   <div class="cardi 4">
   <div class="card_image">
   <p text-align="center">Fonctions </p>
-    <img src="https://cdn.icon-icons.com/icons2/1603/PNG/512/luggage-work-office-suitcase-brief-case_108567.png" />
+    <img src="https://cdn.icon-icons.com/icons2/1459/PNG/512/2799208-bag-business_99786.png" />
     </div>
   <div class="card_title title-black">
    

@@ -13,7 +13,7 @@
             <div class="col-md-8">
               <div class="card">
                 <div class="card-header card-header-primary">
-                  <h4 class="card-title">Edit Profile</h4>
+                  <h4 class="card-title">Modifier Profile</h4>
                
                 </div>
                 <div class="card-body">
@@ -142,9 +142,9 @@
                   </a>
                 </div>
                 <div class="card-body">
-                  <h6 class="card-category text-gray">{{Auth()->user()->jour}} </h6>
+                <h6 class="card-category text-gray">{{Auth()->user()->poste}} </h6>
                   <h4 class="card-title">{{Auth()->user()->name}} {{Auth()->user()->prenom}}</h4>
-                  <h4 class="card-title">Solde Conge: {{Auth()->user()->Solde}} </h4>
+                                    <h4 class="card-title">Solde Conge: {{Auth()->user()->solde}} </h4>
                   
                   <button type="button" class="btn btn-success btn-round" data-toggle="modal"  data-target="#ajouter" ><span class="material-icons"> edit</button>
                 </div>

@@ -8,7 +8,7 @@
             <div class="col-md-8">
               <div class="card">
                 <div class="card-header card-header-primary">
-                  <h4 class="card-title">Edit Profile</h4>
+                  <h4 class="card-title">Modifier Profile</h4>
                
                 </div>
                 <div class="card-body">

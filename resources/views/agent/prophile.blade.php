@@ -1,4 +1,7 @@
 @extends('layouts.nav4')
+@section('title')
+Profil
+@endsection
 
 @section('content')
 

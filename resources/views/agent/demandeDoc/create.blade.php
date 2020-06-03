@@ -10,45 +10,78 @@ demande de document
   <div id="accordion" role="tablist" aria-multiselectable="true" class="card-collapse">
   <div class="card card-plain">
     <div class="card-header" role="tab" id="headingOne">
-        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-          Attestation de travail #1
-
+    <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseTwo"> Attestation de travail 
+          
+          &nbsp&nbsp&nbsp&nbsp  &nbsp&nbsp&nbsp&nbsp   &nbsp&nbsp&nbsp&nbsp   &nbsp&nbsp&nbsp&nbsp
             <i class="material-icons">keyboard_arrow_down</i>
         </a>
     </div>
 
-    <div id="collapseOne" class="collapse show" role="tabpanel" aria-labelledby="headingOne">
+    <div id="collapseOne" class="collapse" role="tabpanel" aria-labelledby="headingOne">
       <div class="card-body">
-        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+      L’attestation de travail est une attestation délivrée par l’employeur à un salarié, sur sa demande, permettant d’établir officiellement, vis-à-vis des tiers, que le salarié est bien employé par l’entreprise. <br>
+      vous avez le droit que de deux documents par an.
       </div>
     </div>
   </div>
   <div class="card card-plain">
     <div class="card-header" role="tab" id="headingTwo">
         <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-           Fiche de paie  #2
+        Attestation de salaire     &nbsp&nbsp&nbsp  &nbsp&nbsp&nbsp&nbsp  &nbsp&nbsp&nbsp&nbsp  &nbsp&nbsp&nbsp&nbsp
+          
 
             <i class="material-icons">keyboard_arrow_down</i>
         </a>
     </div>
     <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo">
       <div class="card-body">
-        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-      </div>
+      L'attestation de salaire est un document rédigé par l'employeur à la suite d'un arrêt de travail ou d'un congé de son salarié, quel qu'en soit le motif. C'est sur la base de ce document que le salarié peut prétendre à des indemnités journalières auprès de l'Assurance Maladie.<br>vous avez le droit que de deux documents par an.</div>
     </div>
   </div>
   <div class="card card-plain">
     <div class="card-header" role="tab" id="headingThree">
         <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-             certificat Travail #3
+        Attestation salaire horaire  &nbsp&nbsp&nbsp&nbsp  &nbsp&nbsp&nbsp&nbsp  &nbsp
+	          
 
             <i class="material-icons">keyboard_arrow_down</i>
         </a>
     </div>
     <div id="collapseThree" class="collapse" role="tabpanel" aria-labelledby="headingThree">
       <div class="card-body">
-        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-      </div>
+      L’attestation de salaire est un document que doit rédiger un employeur pour renseigner l’Assurance maladie lorsque le travail d’un salarié au sein de l’entreprise est momentanément interrompu en raison d’un arrêt de travail ou de la prise d’un congé indemnisé.
+      <br>vous avez le droit que de deux documents par an.</div>
+    </div>
+  </div>
+  <div class="card card-plain">
+    <div class="card-header" role="tab" id="headingFoor">
+        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFoor" aria-expanded="false" aria-controls="collapseTwo">
+        Certificat de travail   &nbsp&nbsp &nbsp&nbsp&nbsp&nbsp  &nbsp&nbsp&nbsp&nbsp  &nbsp&nbsp&nbsp&nbsp  &nbsp&nbsp&nbsp&nbsp
+          
+            <i class="material-icons">keyboard_arrow_down</i>
+        </a>
+    </div>
+    <div id="collapseFoor" class="collapse" role="tabpanel" aria-labelledby="headingFoor">
+      <div class="card-body">
+      Le certificat de travail est un document obligatoire remis au salarié par l'employeur lors de la rupture de son contrat de travail
+      <br>vous avez le droit que de deux documents par an. </div>
+    </div>
+  </div>
+  <div class="card card-plain">
+    <div class="card-header" role="tab" id="headingFive">
+        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+        
+        Bulletin de paie (3 derniers mois)
+          
+
+            <i class="material-icons">keyboard_arrow_down</i>
+        </a>
+    </div>
+    <div id="collapseFive" class="collapse" role="tabpanel" aria-labelledby="headingFive">
+      <div class="card-body">
+      Le Bulletins de paie est un document obligatoire transmis à un employé par son employeur de manière mensuelle (les bulletins des 3 derniers mois) . Il constitue le récapitulatif des différentes informations relatives au travail et à la rémunération du salarié.
+      <br>vous avez le droit que d'un seul document par mois. 
+       </div>
     </div>
   </div>
 </div>

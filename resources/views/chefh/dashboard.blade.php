@@ -1,4 +1,8 @@
 @extends('layouts.nav1')
+@section('title')
+Dashboard
+
+@endsection
 
 @section('content')
 <div class="sectiontitle">

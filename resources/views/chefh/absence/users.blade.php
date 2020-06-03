@@ -1,5 +1,9 @@
 @extends('layouts.nav3')
 @section('title')
+Ajouter absences
+
+@endsection
+@section('title')
 
 @endsection
 

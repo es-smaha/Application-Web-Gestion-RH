@@ -39,9 +39,47 @@ The above copyright notice and this permission notice shall be included in all c
   <link href="../assets/css/material-dashboard.css?v=2.1.2" rel="stylesheet" />
   <!-- CSS Just for demo purpose, don't include it in your project -->
   <link href="../assets/demo/demo.css" rel="stylesheet" />
+      
     <style>
+.progress-bar-danger {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: #ffffff;
+    text-align: center;
+    background-color: red;
+ 
+    transition: width 0.6s ease;
+}
+.progress-bar-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: #ffffff;
+    text-align: center;
+    background-color: #28a745;
+    transition: width 0.6s ease;
+}
+.btn.btn-warning {
+    color: #fff;
+    background-color: #d0ccc6;
+    border-color: #564b3b;
+    box-shadow: 0 2px 2px 0 ;
+}
+.progress-bar-warning {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: #ffffff;
+    text-align: center;
+    background-color: #eae90a;
+    transition: width 0.6s ease;
+}
 
-<style>
+
+
+    
+/*  */
 
 @import url(https://fonts.googleapis.com/css?family=PT+Sans+Narrow);
 body {
@@ -307,9 +345,11 @@ footer p strong {
 
       
       .card .card-header-primary .card-icon, .card .card-header-primary .card-text, .card .card-header-primary:not(.card-header-icon):not(.card-header-text), .card.bg-primary, .card.card-rotate.bg-primary .front, .card.card-rotate.bg-primary .back {
-        background: linear-gradient(60deg, #649e85, #439c84);
+        background: linear-gradient(60deg, #474948, #439c84);
 }
-
+.card .card-header-success .card-icon, .card .card-header-success .card-text, .card .card-header-success:not(.card-header-icon):not(.card-header-text), .card.bg-success, .card.card-rotate.bg-success .front, .card.card-rotate.bg-success .back {
+    background: linear-gradient(60deg, #474948, #439c84);
+}
       .form-control {
    
         border-style: inset;
@@ -374,7 +414,7 @@ footer p strong {
           <li class="{{'liste-agent'==request()->path()?'active':''}} ">
             <a class="nav-link" href="/liste-agent">
               <i class="material-icons">person</i>
-              <p>Liste Agent </p>
+              <p>Liste de collaborateurs </p>
             </a>
           </li>
           <li class="{{'confin'==request()->path()?'active':''}} ">

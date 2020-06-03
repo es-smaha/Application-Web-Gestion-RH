@@ -160,7 +160,7 @@ class EventController extends Controller
                     new \DateTime($roww->datefin),
                     $roww->id,
                     [
-                        'color' => 'green',
+                        'color' => 'yellow',
                     ]
                     );
             }elseif($roww->avis==1  && $roww->decision==true && $roww->user->service_id==$ser ){
@@ -173,7 +173,7 @@ class EventController extends Controller
                     new \DateTime($roww->datefin),
                     $roww->id,
                     [
-                        'color' => 'yellow',
+                        'color' => 'green',
                     ]
                     );
             }

@@ -87,11 +87,11 @@
 
 <div class="container">
 <div class="jumbotron">
-<h2>Calendrier Congee Par Service</h2>
+<h1 class="text-center">Calendrier Congée Par Service</h1>
 <div class="row">
-<a type="button" class="btn btn-warning" data-toggle="modal"  data-target="#exampleModal" >Ajouter un evenement</a> 
-<a type="button" class="btn btn-warning" data-toggle="modal"  data-target="#mod" > Consulter les conges</a>
-<a type="button" class="btn btn-warning" href="/deleteevent" > Consulter les conges</a>
+<!-- <a type="button" class="btn btn-warning" data-toggle="modal"  data-target="#exampleModal" >Ajouter un evenement</a>  -->
+<a type="button" class="btn btn-warning" data-toggle="modal"  data-target="#mod" > Consulter les Congées</a>
+<!-- <a type="button" class="btn btn-warning" href="/deleteevent" > Consulter les conges</a> -->
 </div>
 
 <br> <br>
@@ -117,7 +117,29 @@
         <!-- colors: "header-primary", "header-info", "header-success", "header-warning", "header-danger" -->
         <div class="nav-tabs-navigation">
             <div class="nav-tabs-wrapper">
-               Full calendar
+            <div class="row">
+              <div class="col-2">
+              <p>Congée En attente</p>
+            <div class="progress">
+              
+  <div class="progress-bar progress-bar-striped progress-bar-danger" role="progressbar" style="width: 100%" aria-valuenow="" aria-valuemin="0" aria-valuemax="0"></div>
+</div>
+  </div>
+  <div class="col-2">
+              <p>Congée Accepter </p>
+            <div class="progress">
+              
+  <div class="progress-bar progress-bar-striped progress-bar-warning" role="progressbar" style="width: 100%" aria-valuenow="" aria-valuemin="0" aria-valuemax="0"></div>
+</div>
+  </div>
+    <div class="col-2">
+    <p>Congée reussi</p>
+<div class="progress">
+  <div class="progress-bar progress-bar-striped progress-bar-info" role="progressbar" style="width: 100%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="0"></div>
+</div>
+</div>
+</div>
+</div>
             </div>
         </div>
             </div>

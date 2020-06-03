@@ -1,4 +1,5 @@
-<script>$(document).ready(function() {
+
+          <script>$(document).ready(function() {
     var table = $('#example').DataTable( {
         lengthChange: false,
         buttons: [ 'copy', 'excel', 'pdf', 'colvis' ]
@@ -6,31 +7,51 @@
  
     table.buttons().container()
         .appendTo( '#example_wrapper .col-md-6:eq(0)' );
-} );</script>
+} );
+  </script>
+    <script>
+$('#delete').on('show.bs.model',function(event{
+    var  button=$(event.relatedTarget)
+    var user_id=button.data('userid')
+    var modal=$(this)
+    modal.find('.modal-body #user_id').val(user_id)
+
+
+
+
+  }));
+
+
+</script>
+ 
+
+
+
+
 
 
           <div class="row">
             <div class="col-md-12">
               <div class="card">
                 <div class="card-header card-header-success">
-                  <h4 class="card-title "> Table d'agent service: </h4>
-                  <p class="card-category">{{$servicename}} </p>
+                <div class="sectiontitle">
+    <h2>Service {{$servicename}} </h2>
+    
+</div>
+               
                 </div>
                 <div class="card-body">
                   <div class="table-responsive">
                     <table id="example"class="table">
                       <thead class=" text-primary">
-                            <th>matricule</th>
-                              <th>image</th>
+                            <th>Matricule</th>
+                              <th>Image</th>
                         <th>
-                         last Name
-                        </th>
-                        <th>
-                          Name
+                       Nom complet
                         </th>
                      
                         <th>
-                        Date Conge
+                        Date Embauche
                         </th>
                         <th>
                         Service
@@ -47,26 +68,31 @@
                       <tbody>
                       @foreach($user as $user)
                         <tr>
-                        <td>#{{$user->ko}}</td>
+                        <td>{{$user->ko}}</td>
                               <td> <div class="author">
                              <a href="#pablo">
                                 <img src="/storage/cover_images/{{$user->image}}" alt="..." class="avatar img-raised">
                                                          </a>
                                          </div></td>
-                            <td>{{$user->prenom}}</td>
-                            <td>{{$user->name}}</td>
+                            <td>{{$user->prenom}} {{$user->name}}</td>
                             <td>{{$user->dateembauche}}</td>
                             <td>{{$user->service->nom}}</td>
-                            
-                            <td>{{$user->kochef}}</td> 
+                               <td>{{$user->kochef}}</td> 
                                 
-                                <td> 
-                                    <a href="/liste-agent/{{$user->id}}" class="btn btn-success btn-link btn-lg" >
+                                <td>  <div class="row">
+                                  <div class="text-right">
+                                    <a href="/liste-agent/{{$user->id}}" class="btn btn-success btn-sm" >
                                 <span class="material-icons">  remove_red_eye</span>   </a>
-                         
-                                   <button  type="button" rel="tooltip" id="#delete"  data-toggle="modal" data-target="#delete" title="Remove" class="btn btn-success btn-link btn-sm">
-                                <i  class="material-icons" class="btn btn-danger">close</i>
-                              </button></td>
+                                <form  action="/user/{{$user->id}}" method="POST">
+                                      @method('delete')
+                                           @csrf
+                                   <button  type="button" rel="tooltip" id="#delete"  data-toggle="modal"  title="Remove" class="btn btn-info  btn-sm">
+                                <i  class="material-icons" >close</i>
+                              </button>
+                              </form>
+                              </div>
+                              </div>
+                              </td>
                    
 
                         </tr>
@@ -80,9 +106,8 @@
         </button>
       </div>
       
-        <form  action="/user/{{$user->id}}" method="POST">
-        @csrf
-        @method('delete')
+     
+       
         <div class="modal-body">
             <p>are you sure you wanna delete</p>
           <input type="hidden" name="users_id" id="user_id" value="">
@@ -92,7 +117,7 @@
         <button type="submit"  onclick="md.showNotificationn('top','center')" class="btn btn-warning">yes</button>
       </div>
           
-        </form>
+       
       </div>
      
     </div>

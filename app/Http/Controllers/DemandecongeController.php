@@ -83,7 +83,7 @@ class DemandecongeController extends Controller
         $conge->save();
             
         //notification
-        $us=User::where('usertype',"=",3)->get();
+        $us=User::where('usertype',"=",1)->get();
         Notification::send($us, new Useredemandeconge(Auth()->user()));
          //fin
          

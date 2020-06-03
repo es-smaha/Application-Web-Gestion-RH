@@ -1,4 +1,4 @@
-@extends('layouts.nav3')
+@extends('layouts.nav1')
 @section('title')
 Ajouter absences
 
@@ -10,7 +10,7 @@ Ajouter absences
 @section('content')
 
 <div class="sectiontitle">
-    <h2>Service Finances </h2>
+    <h2>Service {{$service}} </h2>
     <span class="headerLine"></span>
 </div>
 <a href="/absence" class="btn btn-success"><span class="material-icons">person</span>Liste D'absence</a>

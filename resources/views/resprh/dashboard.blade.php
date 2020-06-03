@@ -184,7 +184,7 @@ dashboard
             </div>
 
             
-        </div>
+        </div> 
     </div>
 </div>
 @foreach(App\Map::all() as $map)

@@ -668,50 +668,28 @@ box-shadow: 5px 5px 30px 7px rgba(0,0,0,0.25), -5px -5px 30px 7px rgba(0,0,0,0.2
         </a></div>
       <div class="sidebar-wrapper">
         <ul class="nav">
-          <li class="{{'home'==request()->path()?'active':''}}">
+          <li class="{{'home'==request()->path()?'active':''}}" class="nav-item ">
             <a class="nav-link" href="/home">
               <i class="material-icons">dashboard</i>
               <p>Dashboard</p>
               
             </a>
           </li>
-          <li class="{{'doc'==request()->path()?'active':''}} ">
-            <a class="nav-link" href="/doc">
-              <i class="material-icons">description</i>
-                <div class="row">
-              <p>Demande Document <p> 
-              @foreach(Auth::user()->notifications as $notification)
-                @if($notification->notifiable_id==Auth::user()->id  && $notification->read_at == '' )
-                @if($notification->type=="App\Notifications\Validerdocument")
-                <span class="badge badge-warning">1</span>  
-                {{$notification->markAsRead()}}
-                    @endif
-         
-                    @endif
-                    
-                    @endforeach
-                   
-                    </div>
-            </a>
-          </li>
           <li class="{{'conge' == request()->path() ? 'active' : ''}}"  class="nav-item ">
             <a class="nav-link" href="/conge">
               <i class="material-icons">exit_to_app</i>
-                <div class="row">
-              <p>Demande Congee     <p>  
-              @foreach(Auth::user()->notifications as $notification)
-                @if($notification->notifiable_id==Auth::user()->id  && $notification->read_at == '' )
-                @if($notification->type=="App\Notifications\Validerconge")
-                <span class="badge badge-warning">1</span>  
-                {{$notification->markAsRead()}}
-                    @endif
-         
-                    @endif
-                    
-                    @endforeach
-                    </div>
+                          <p>Demande Congee  <p>  
+                       </a>
+          </li>
+          <li class="{{'doc'== request()->path() ? 'active' : ''}} " class="nav-item ">
+          <a class="nav-link" href="/doc">
+              <i class="material-icons">description</i>
+                             <p>Demande Document <p> 
+              
             </a>
           </li>
+   
+         
           <li class="{{'profil' == request()->path() ? 'active' : ''}}" class="nav-item ">
             <a class="nav-link" href="/profil">
               <i class="material-icons">account_circle</i>
@@ -760,7 +738,7 @@ box-shadow: 5px 5px 30px 7px rgba(0,0,0,0.25), -5px -5px 30px 7px rgba(0,0,0,0.2
               <li class="nav-item dropdown">
                 <a class="nav-link" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   <i class="material-icons">notifications</i>
-                  <span class="notification">*</span>
+                  <span class="notification">{{Auth::user()->unreadNotifications->count()}}</span>
                   <p class="d-lg-none d-md-block">
                     Some Actions
                   </p>
@@ -769,17 +747,21 @@ box-shadow: 5px 5px 30px 7px rgba(0,0,0,0.25), -5px -5px 30px 7px rgba(0,0,0,0.2
                 @foreach(Auth::user()->notifications as $notification)
                 @if($notification->notifiable_id==Auth::user()->id  && $notification->read_at == '' )
                 @if($notification->type=="App\Notifications\Validerdocument")
-                   <span class="notification">1</span>
+                <span class="notification">1</span>
                     <p>
-                  <a class="dropdown-item" href="/doc ">{{$notification->data['userId']}}    <small>   Votre demande  a ete valider </small> {{$notification->created_at->diffforHumans()}}  </a>
+                    <a class="dropdown-item" href="/docum ">
+                   <span style="color:green" class="material-icons">description</span>
+                  Votre  Document Administrative  &nbsp <b> est pret </b>   &nbsp il y'a     {{$notification->created_at->diffforHumans()}}  </a>
                     </p>
                     {{$notification->markAsRead()}}
                     @else($notification->type=="App\Notifications\Validerconge")
                     <span class="notification">1</span>
                     <p>
-                  <a class="dropdown-item" href="/conge ">{{$notification->data['userId']}}    <small>   Votre demande de conge  a ete valider </small> {{$notification->created_at->diffforHumans()}}  </a>
-                 
+                    <a class="dropdown-item" href="/conge ">
+                   <span style="color:green" class="material-icons">event</span>
+                  &nbsp    Votre demande de     &nbsp<b> Conge</b>    &nbsp a ete consulte il y'a     {{$notification->created_at->diffforHumans()}}  </a>
                     </p>
+                    {{$notification->markAsRead()}}
                     @endif
                     @endif
                     

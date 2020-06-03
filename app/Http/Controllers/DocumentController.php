@@ -62,7 +62,7 @@ class DocumentController extends Controller
         // select demande doc where id user . typde doc . and createdAT in type doc month ola year 
        
         $date = carbon::now() ;
-             if($typedoc->periode=='y'&& date("y", strtotime($date)) == date("y", strtotime($periode))){
+             if($typedoc->periode=='An'&& date("y", strtotime($date)) == date("y", strtotime($periode))){
                 $demandes = Demandedocument::where(["user_id"=>$user, "typedocument_id"=>$typeDocId])->count();
                 if($demandes < $max  ){
 
@@ -83,7 +83,7 @@ class DocumentController extends Controller
                 return redirect('doc')->with('fail','vous avez depassez la limite de vos demandes ');
             }  
         }
-            if($typedoc->periode=='m'  && date("m", strtotime($date)) == date("m", strtotime($periode)) ){
+            if($typedoc->periode=='mois'  && date("m", strtotime($date)) == date("m", strtotime($periode)) ){
                 $demandes = Demandedocument::where(["user_id"=>$user, "typedocument_id"=>$typeDocId])->count();
                 if($demandes < $max){
 

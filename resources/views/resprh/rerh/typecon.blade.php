@@ -76,19 +76,11 @@ keyboard_backspace
       </td>
       
     </tr>
-   @endforeach
 
-                    </tbody>
-                  </table>
-                    </div>
-                  </div>
-                </div>
-            
 
-           
 
-     <!-- Button trigger modal -->
-    
+
+       
 <div class="modal modal-danger fade " id="delete" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -119,15 +111,6 @@ keyboard_backspace
 </div>
 
 
-     
- 
-
-
-
-
-
-<br>
-<br>
 
 <div class="modal fade" id="edit" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
@@ -159,6 +142,19 @@ keyboard_backspace
 </div>
 
 
+   @endforeach
+
+                    </tbody>
+                  </table>
+                    </div>
+                  </div>
+                </div>
+            
+
+           
+
+     <!-- Button trigger modal -->
+ 
 
 
 

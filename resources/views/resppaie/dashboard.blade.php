@@ -1,5 +1,7 @@
 @extends('layouts.nav3')
-
+@section('title')
+dashboard
+@endsection
 @section('content')
 <div class="sectiontitle">
     <h2>Statistics </h2>
@@ -37,7 +39,12 @@
   </div>
 </div>
 
+
+
+
+
 <div id="projectFacts" class="sectionClass">
+  <div class="col-12">
     <div class="fullWidth eight columns">
         <div class="projectFactsWrap ">
         <div class="item wow fadeInUpBig animated animated" data-number="55" style="visibility: visible;">
@@ -51,76 +58,20 @@
                
             </div>
 
-            <div class="item wow fadeInUpBig animated animated" data-number="{{App\Demandeconge::count()}}" style="visibility: visible;">
- 
+            <div class="item wow fadeInUpBig animated animated" data-number="{{App\Service::count()}}" style="visibility: visible;">
+  
             <i class="fa fa-briefcase"></i>
+
             <br>
             <p>total Service </p>
-                         <p id="number1" class="number">{{App\Demandeconge::count()}}</p>
+                         <p id="number1" class="number">{{App\Service::count()}}</p>
                               <br>
                 
             </div>
          
-            <div class="item wow fadeInUpBig animated animated" data-number="{{App\Typedocument::count()}}" style="visibility: visible;">
            
-            <i class="material-icons">content_copy</i>
-                
-                <br>
-                <p>Total Type Dosuments Administratives</p>
-                <p id="number3" class="number">{{App\Typedocument::count()}}</p>
-                  <br>
-                
-            </div>
-
-            <div class="item wow fadeInUpBig animated animated" data-number="{{App\Typeconge::count()}}" style="visibility: visible;">
-            
-                  <i class="material-icons">event</i>
-                  
-                  <br>
-                  <p>total Types Conges</p>
-                <p id="number4" class="number">{{App\Typeconge::count()}}</p>
-                        <br>
-                
-            </div>
-        </div>
-    </div>
-    <div class="fullWidth eight columns">
-        <div class="projectFactsWrap ">
-        <div class="item wow fadeInUpBig animated animated" data-number="{{App\Demandedocument::count()}}" style="visibility: visible;">
-  
-                    <i class="material-icons">content_copy</i>
-            
-                  <br>
-                  <p>Total Documents demandee</p>
-                <p id="number5" class="number">{{App\Demandedocument::count()}}</p>
-                    <br>
-                   
-                
-            </div>
-
-            <div class="item wow fadeInUpBig animated animated" data-number="{{App\User::count()}}" style="visibility: visible;">
-         
-                <i class="fa fa-briefcase"></i>
-              
-                <br>
-                <p>Documents Adminitratives  <b style="color:orange">Valider</b></p>
-                <p id="number6" class="number">{{App\Demandedocument::where('etat','=','1')->count()}}</p>
-          
-                    <br>
-                
-            </div>
-         
-            <div class="item wow fadeInUpBig animated animated" data-number="{{App\Demandedocument::where('etat','=','1')->count()}}" style="visibility: visible;">
-                <i class="fa fa-coffee"></i>
-                  <br>
-                <p>Documents Administratives <b style="color:orange">enAttente</b></p>
-                <p id="number7" class="number">{{App\Demandedocument::where('etat','=','0')->count()}}</p>
-            <br>
-                
-            </div>
-
             <div class="item wow fadeInUpBig animated animated" data-number="{{App\Reclamation::count()}}" style="visibility: visible;">
-                <i class="fa fa-camera"></i>
+                <i class="fa fa-exclamation-circle"></i>
                   <br>
                 <p>Nouvelles reclamations</p>
                 <p id="number8" class="number">{{App\Reclamation::count()}}</p>
@@ -129,8 +80,54 @@
             </div>
         </div>
     </div>
-</div>
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   
+    <div class="fullWidth eight columns">
+        <div class="projectFactsWrap ">
+        <div class="item wow fadeInUpBig animated animated" data-number="{{App\Demandedocument::count()}}" style="visibility: visible;">
+        
+                    <i class="fa fa-sign-out"></i> <br><br>
+             
+                <p id="number5" class="number">{{App\Demandeconge::count()}}</p>
+           
+                    <br>
+                <p>  Nombre total des demandes du congé</p>
+            </div>
+            <div class="item wow fadeInUpBig animated animated" data-number="{{App\User::count()}}" style="visibility: visible;">
+                <i class="fa fa-check-square"></i> <br> <br>
+                <p id="number6" class="number">{{App\Demandeconge::where('decision','=','1')->count()}}</p>
+                              <br>
+                <p>Demandes de congé  <b style="color:orange">Validées</b></p>
+            </div>
+         
+            <div class="item wow fadeInUpBig animated animated" data-number="{{App\Demandedocument::where('etat','=','1')->count()}}" style="visibility: visible;">
+                <i class="fa fa-hourglass-half"></i> <br> <br>
+                <p id="number7" class="number">{{App\Demandeconge::where('decision','=','0')->count()}}</p>
+            <br>
+                <p>demandes de congé <b style="color:orange">en Attente</b></p>
+            </div>
+
+            
+        </div> 
+    </div>
+</div>
+</div>
 @foreach(App\Map::all() as $map)
 <embed id="zoom_01" height="600px" width="100%"  type="application/pdf" data-zoom-image="large/storage/cover_images/{{$map->map}}" src="/storage/cover_images/{{$map->map}}" />
             

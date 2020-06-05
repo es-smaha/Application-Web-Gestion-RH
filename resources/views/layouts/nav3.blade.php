@@ -39,9 +39,47 @@ The above copyright notice and this permission notice shall be included in all c
   <link href="../assets/css/material-dashboard.css?v=2.1.2" rel="stylesheet" />
   <!-- CSS Just for demo purpose, don't include it in your project -->
   <link href="../assets/demo/demo.css" rel="stylesheet" />
+      
     <style>
+.progress-bar-danger {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: #ffffff;
+    text-align: center;
+    background-color: red;
+ 
+    transition: width 0.6s ease;
+}
+.progress-bar-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: #ffffff;
+    text-align: center;
+    background-color: #28a745;
+    transition: width 0.6s ease;
+}
+.btn.btn-warning {
+    color: #fff;
+    background-color: #d0ccc6;
+    border-color: #564b3b;
+    box-shadow: 0 2px 2px 0 ;
+}
+.progress-bar-warning {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: #ffffff;
+    text-align: center;
+    background-color: #eae90a;
+    transition: width 0.6s ease;
+}
 
-<style>
+
+
+    
+/*  */
 
 @import url(https://fonts.googleapis.com/css?family=PT+Sans+Narrow);
 body {
@@ -95,7 +133,7 @@ body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, p, blockqu
   color: #222;
   margin-bottom: 0px;
   padding-right: 10px;
-  padding-left: 10px;
+  padding-left: 50px;
 }
 
 
@@ -120,7 +158,7 @@ body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, p, blockqu
 }
 
 .projectFactsWrap .item{
-  width: 25%;
+  width: 30%;
   height: 100%;
   padding: 50px 0px;
   text-align: center;
@@ -307,9 +345,11 @@ footer p strong {
 
       
       .card .card-header-primary .card-icon, .card .card-header-primary .card-text, .card .card-header-primary:not(.card-header-icon):not(.card-header-text), .card.bg-primary, .card.card-rotate.bg-primary .front, .card.card-rotate.bg-primary .back {
-        background: linear-gradient(60deg, #649e85, #439c84);
+        background: linear-gradient(60deg, #474948, #439c84);
 }
-
+.card .card-header-success .card-icon, .card .card-header-success .card-text, .card .card-header-success:not(.card-header-icon):not(.card-header-text), .card.bg-success, .card.card-rotate.bg-success .front, .card.card-rotate.bg-success .back {
+    background: linear-gradient(60deg, #474948, #439c84);
+}
       .form-control {
    
         border-style: inset;
@@ -374,9 +414,10 @@ footer p strong {
           <li class="{{'liste-agent'==request()->path()?'active':''}} ">
             <a class="nav-link" href="/liste-agent">
               <i class="material-icons">person</i>
-              <p>Liste Agent </p>
+              <p>Liste de collaborateurs </p>
             </a>
           </li>
+          
           <li class="{{'confin'==request()->path()?'active':''}} ">
             <a class="nav-link" href="/confin">
               <i class="material-icons">exit_to_app</i>
@@ -424,11 +465,7 @@ footer p strong {
           <div class="collapse navbar-collapse justify-content-end">
             <form class="navbar-form">
               <div class="input-group no-border">
-                <input type="text" value="" class="form-control" placeholder="Search...">
-                <button type="submit" class="btn btn-white btn-round btn-just-icon">
-                  <i class="material-icons">search</i>
-                  <div class="ripple-container"></div>
-                </button>
+               
               </div>
             </form>
             <ul class="navbar-nav">
@@ -443,7 +480,7 @@ footer p strong {
               <li class="nav-item dropdown">
                 <a class="nav-link" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   <i class="material-icons">notifications</i>
-                  <span class="notification">*</span>
+                  <span class="notification">{{Auth::user()->unreadNotifications->count()}}</span>
                   <p class="d-lg-none d-md-block">
                     Some Actions
                   </p>
@@ -453,16 +490,17 @@ footer p strong {
                    @if($notification->notifiable_id==Auth::user()->id  &&   $notification->read_at == '' )
                    <span class="notification">1</span>
                     <p>
-                  <a class="dropdown-item" href="/demande-conge ">{{$notification->data['userId']}}    <small>   a deposer une demande de conge il y'a  </small> {{$notification->created_at->diffforHumans()}}  </a>
+                  <a class="dropdown-item" href="/demande-conge ">
+                  <span style="color:green" class="material-icons">event</span>
+                  &nbsp    Nouvelle demande de    &nbsp<b> Conge </b> &nbsp  par &nbsp <span class="badge badge-warning">  {{$notification->data['userId']}} </span> &nbspil y'a     {{$notification->created_at->diffforHumans()}}  </a>
                     </p>
                    {{$notification->markAsRead()}}
                  @endif
-
+   
                     @endforeach
-              </li>
-              <li class="nav-item dropdown">
+                    <li class="nav-item dropdown">
                 <a class="nav-link" href="javascript:;" id="navbarDropdownProfile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  <i class="material-icons">person</i>
+                {{ Auth::user()->name }} {{ Auth::user()->prenom}} <span class="caret"></span> <i class="material-icons">person</i>
                   <p class="d-lg-none d-md-block">
                     Account
                   </p>
@@ -472,12 +510,8 @@ footer p strong {
                   <a class="dropdown-item" href="/changepaie">Settings</a>
                   <div class="dropdown-divider"></div>
                
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }} <span class="caret"></span>
-                                </a>
-
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                <a id="navbarDropdown"  href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
@@ -485,10 +519,13 @@ footer p strong {
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                         @csrf
-                                    </form>
+                                    </form> 
+                                </a>
+
+                                   
                              
                          
-                </div>
+             
               </li>
             </ul>
           </div>

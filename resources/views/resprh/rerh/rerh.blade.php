@@ -70,19 +70,7 @@ keyboard_backspace
       </td>
       
     </tr>
-   @endforeach
-
-   @else
-   <td >no data</td>
-      <td>no data</td>
-   @endif
-
-                    </tbody>
-                  </table>
-                    </div>
-                  </div>
-                </div>
-                </div>
+  
 
            
 
@@ -120,13 +108,7 @@ keyboard_backspace
 
 
      @endif
- 
 
-
-
-
-<br>
-<br>
 @if(count($services)>0)
 <div class="modal fade" id="edit" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
@@ -158,7 +140,19 @@ keyboard_backspace
 </div>
 @endif
 
+@endforeach
 
+@else
+<td >no data</td>
+   <td>no data</td>
+@endif
+
+                 </tbody>
+               </table>
+                 </div>
+               </div>
+             </div>
+             </div>
 
 
 

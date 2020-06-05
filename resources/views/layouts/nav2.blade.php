@@ -694,27 +694,16 @@ box-shadow: 5px 5px 30px 7px rgba(0,0,0,0.25), -5px -5px 30px 7px rgba(0,0,0,0.2
           </li>
          
      
-          <li class="{{'/docum'==request()->path()?'active':''}} ">
+          <li class="{{'docum'==request()->path()?'active':''}} ">
             <a class="nav-link" href="/docum">
               <i class="material-icons">library_books</i>
-                   <div class="row">
-              <p> Documents Administratifs</p>
-              
-                @foreach(Auth::user()->notifications as $notification)
                 
-                   @if($notification->notifiable_id==Auth::user()->id  &&   $notification->read_at == '' )
-                   @if($notification->type=="App\Notifications\Userdemandedocument")
-                <span class="badge badge-warning">{{Auth::user()->unreadNotifications->count()}}</span>  
-                {{$notification->markAsRead()}}
-                    @endif
-         
-                 
-                 @endif
-
-                    @endforeach</div>
-        
+              <p> Documents Administratifs</p>
+              <!-- 
+            
+         -->
             </a>
-          </li>
+          </li> 
           <li class="nav-item ">
             <a class="nav-link" href="/cal">
               <i class="material-icons">content_paste</i>
@@ -734,7 +723,7 @@ box-shadow: 5px 5px 30px 7px rgba(0,0,0,0.25), -5px -5px 30px 7px rgba(0,0,0,0.2
               <i class="material-icons">event</i>
               <p>Planning</p>
             </a>
-          </li>
+          </li> 
         </ul>
       </div>
     </div>
@@ -772,7 +761,7 @@ box-shadow: 5px 5px 30px 7px rgba(0,0,0,0.25), -5px -5px 30px 7px rgba(0,0,0,0.2
               <li class="nav-item dropdown">
                 <a class="nav-link" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   <i class="material-icons">notifications</i>
-                  <span class="notification">*</span>
+                  <span class="notification">{{Auth::user()->unreadNotifications->count()}}</span>
                   <p class="d-lg-none d-md-block">
                     Some Actions
                   </p>
@@ -780,11 +769,15 @@ box-shadow: 5px 5px 30px 7px rgba(0,0,0,0.25), -5px -5px 30px 7px rgba(0,0,0,0.2
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
                 @foreach(Auth::user()->notifications as $notification)
                    @if($notification->notifiable_id==Auth::user()->id &&   $notification->read_at == '' )
-                   <span class="notification">1</span>
+                                      @if($notification->type=="App\Notifications\Userdemandedocument")
+                                      <span class="notification">1</span>
                     <p>
-                  <a class="dropdown-item" href="/docum ">{{$notification->data['userId']}}    <small>   a deposer une demande de document il y'a  </small> {{$notification->created_at->diffforHumans()}}  </a>
+                    <a class="dropdown-item" href="/docum ">
+                   <span style="color:green" class="material-icons">description</span>
+                  &nbsp    Nouvelle demande de    &nbsp<b> Document Administrative </b> &nbsp  par &nbsp <span class="badge badge-warning">  {{$notification->data['userId']}} </span> &nbspil y'a     {{$notification->created_at->diffforHumans()}}  </a>
                     </p>
                    {{$notification->markAsRead()}}
+                 @endif
                  @endif
 
                     @endforeach

@@ -26,7 +26,7 @@ class AbsenceConrtroller extends Controller
         $id=Auth()->user()->service_id;
         $user=User::where('service_id','=',$id)->get();
        
-        return view('chefh.absence.users',['user'=>$user]); 
+        return view('chefh.absence.users',['user'=>$user,'service'=>$user[0]->service->nom]); 
     
     }
 

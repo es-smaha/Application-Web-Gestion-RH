@@ -476,7 +476,7 @@ footer p strong {
                 </a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownProfile">
                   <a class="dropdown-item" href="profilh">Profil</a>
-                  <a class="dropdown-item" href="">Settings</a>
+                  <a class="dropdown-item" href="changechefh">Settings</a>
                   <div class="dropdown-divider"></div>
                
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>

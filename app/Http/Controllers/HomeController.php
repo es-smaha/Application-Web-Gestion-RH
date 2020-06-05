@@ -25,9 +25,9 @@ class HomeController extends Controller
     public function index()
     {    
         if(Auth::user()->first_time_login==false){
-            $first_time_login = true;
-            Auth::user()->first_time_login = 1; 
-            Auth::user()->save();
+           // $first_time_login = true;
+            //Auth::user()->first_time_login = 1; 
+            //Auth::user()->save();
             return view('change');
 
         }else if(Auth::user()->first_time_login==true && Auth::user()->usertype=='1' ){

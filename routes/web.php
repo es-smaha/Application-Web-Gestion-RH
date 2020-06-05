@@ -39,13 +39,16 @@ Route::group(['middleware'=>['auth','1']],function()
     Route::get('/us/{id}','TraitedemandeController@sho');
     Route::get('/dashboard', function () {
         return view('chefh.dashboard');
-    });
+    }); 
       //calendier  
     Route::get('/deleteevent','EventController@show');
     //planning
     Route::get('/ex', 'ImportExcelController@index');
     Route::get('/export', 'ImportExcelController@export');
     Route::post('/import', 'ImportExcelController@import');
+    Route::get('/changechefh','auth\ChangePasswordController@indexchefh');
+    Route::post('/update-passwordchefh','auth\ChangePasswordController@passwordupdatechefh');
+    
        });
   
 
@@ -74,6 +77,9 @@ Route::group(['middleware'=>['auth','2']],function()
     Route::resource('typedoc', 'TypedocumentController');
     Route::get('/administation', function(){
             return view('resprh.rerh.admini');});
+    Route::get('/changerh','auth\ChangePasswordController@indexrh');
+    Route::post('/update-passwordrh','auth\ChangePasswordController@passwordupdaterh');
+            
           
     Route::get('/planningrh', 'ImportExcelController@indexRH');
     Route::get('/dashboard2', 'AdministrationController@index');
@@ -105,7 +111,10 @@ Route::group(['middleware'=>['auth','0']],function()
         Route::resource('/profil','ProfilController');
       Route::get('/planningR', 'ImportExcelController@indexA');
       Route::get('/calendar-employee','EventController@calagent');
-   
+
+      Route::get('/changeAgent','auth\ChangePasswordController@indexAgent');
+Route::post('/update-passwordAg','auth\ChangePasswordController@passwordupdateAgent');
+
 
  });
  
@@ -123,6 +132,10 @@ Route::group(['middleware'=>['auth','3']],function()
     Route::get('/calendrie-conge', 'ConfirmerpaieController@calendar');
     Route::get('/liste-agent', 'ConfirmerpaieController@agent');
     Route::get('/liste-agent/{id}', 'ConfirmerpaieController@show');
+     
+    Route::get('/changepaie','auth\ChangePasswordController@indexresppaie');
+    Route::post('/update-passwordpaie','auth\ChangePasswordController@passwordupdateresppaie');
+      
     
     Route::get('/usersservice2', 'ConfirmerpaieController@service');
     

@@ -6,6 +6,7 @@ use App\Motif;
 use App\Notifications\Validerconge;
 use App\Typeconge;
 use App\Demandeconge;
+use PDF;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Notification;
 
@@ -122,5 +123,15 @@ class TraitedemandeController extends Controller
       $conge=Demandeconge::find($id);
       return view('chefh.show')->with('conge',$conge);
     }
+
+    public function showview($id){
+      $conge=Demandeconge::find($id);
+   
+      $pdf = PDF::loadView('chefh.pdfview',['conge'=>$conge]);
+      // $pdf->setOrientation('landscape');
+      return $pdf->stream('demandeConge.pdf');
+     
+    }
+  
 
 }

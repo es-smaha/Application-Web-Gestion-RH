@@ -45,6 +45,42 @@ The above copyright notice and this permission notice shall be included in all c
 
   <style>
 
+.progress-bar-danger {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: #ffffff;
+    text-align: center;
+    background-color: red;
+ 
+    transition: width 0.6s ease;
+}
+.progress-bar-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: #ffffff;
+    text-align: center;
+    background-color: #28a745;
+    transition: width 0.6s ease;
+}
+.btn.btn-warning {
+    color: #fff;
+    background-color: #d0ccc6;
+    border-color: #564b3b;
+    box-shadow: 0 2px 2px 0 ;
+}
+.progress-bar-warning {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: #ffffff;
+    text-align: center;
+    background-color: #eae90a;
+    transition: width 0.6s ease;
+}
+
+
 @import url(https://fonts.googleapis.com/css?family=PT+Sans+Narrow);
 body {
   font-family: Open Sans, "Helvetica Neue", "Helvetica", Helvetica, Arial,   sans-serif;

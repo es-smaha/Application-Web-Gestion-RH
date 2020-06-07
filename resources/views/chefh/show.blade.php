@@ -198,7 +198,7 @@ h1, .h1 {
     
     
     
-    <span class="more">Mouse over the card for more info</span>
+   
   </div>
 </div>
 

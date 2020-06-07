@@ -43,7 +43,7 @@ documents administratifs
 <table id="example" class="table">
 <thead class=" text-primary">
 <th>
-Nom D'agent
+Demandeur
 </th>
 <th>
 Type de document
@@ -68,7 +68,7 @@ valider
 <form action="{{url('docum/'.$demandedocuments->id)}}" method="POST">
 @csrf
 @method("PUT")
-<button class="btn btn-red" type=submit>valider la demande</button>
+<button class="btn btn-red" type=submit>valider</button>
 </form>
 </td>
 

@@ -806,7 +806,7 @@ box-shadow: 5px 5px 30px 7px rgba(0,0,0,0.25), -5px -5px 30px 7px rgba(0,0,0,0.2
       <!-- End Navbar -->
       <div class="content">
         <div class="container-fluid">
-        @yield('content')
+        
         @if(count($errors)>0)
 @if ($errors->any()) 
     <div class="alert alert-danger">
@@ -845,7 +845,8 @@ box-shadow: 5px 5px 30px 7px rgba(0,0,0,0.25), -5px -5px 30px 7px rgba(0,0,0,0.2
                                  </button>
                                 </div>
                                @endif
-        
+                                <br>
+                               @yield('content')
         </div>
       </div>
       <footer class="footer">

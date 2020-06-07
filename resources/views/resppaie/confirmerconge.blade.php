@@ -46,7 +46,7 @@
 </div>
 <div class="card-body">
 <div class="table-responsive">
-<table class="table table-hover">
+<table id="example" class="table table-hover">
 <thead class="">
 
 
@@ -102,5 +102,9 @@
 @endsection
 
 @section('scripts')
-
+<script>
+    $(document).ready(function() {
+    $('#example').DataTable();
+} );
+  </script>
 @endsection

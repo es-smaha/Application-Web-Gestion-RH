@@ -769,7 +769,7 @@ box-shadow: 5px 5px 30px 7px rgba(0,0,0,0.25), -5px -5px 30px 7px rgba(0,0,0,0.2
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
                 @foreach(Auth::user()->notifications as $notification)
                    @if($notification->notifiable_id==Auth::user()->id &&   $notification->read_at == '' )
-                                      @if($notification->type=="App\Notifications\Userdemandedocument")
+                                     
                                       <span class="notification">1</span>
                     <p>
                     <a class="dropdown-item" href="/docum ">
@@ -778,7 +778,7 @@ box-shadow: 5px 5px 30px 7px rgba(0,0,0,0.25), -5px -5px 30px 7px rgba(0,0,0,0.2
                     </p>
                    {{$notification->markAsRead()}}
                  @endif
-                 @endif
+                
 
                     @endforeach
                 </div>

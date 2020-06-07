@@ -62,7 +62,7 @@ class DocumentController extends Controller
         // select demande doc where id user . typde doc . and createdAT in type doc month ola year 
        
         $date = carbon::now() ;
-             if($typedoc->periode=='ans'&& date("y", strtotime($date)) == date("y", strtotime($periode))){
+             if($typedoc->periode=='an'&& date("y", strtotime($date)) == date("y", strtotime($periode))){
                 $demandes = Demandedocument::where(["user_id"=>$user, "typedocument_id"=>$typeDocId])->count();
                 if($demandes < $max  ){
 

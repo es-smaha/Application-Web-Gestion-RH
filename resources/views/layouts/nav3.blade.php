@@ -490,7 +490,7 @@ footer p strong {
                    @if($notification->notifiable_id==Auth::user()->id  &&   $notification->read_at == '' )
                    <span class="notification">1</span>
                     <p>
-                  <a class="dropdown-item" href="/demande-conge ">
+                  <a class="dropdown-item" href="/confin ">
                   <span style="color:green" class="material-icons">event</span>
                   &nbsp    Nouvelle demande de    &nbsp<b> Conge </b> &nbsp  par &nbsp <span class="badge badge-warning">  {{$notification->data['userId']}} </span> &nbspil y'a     {{$notification->created_at->diffforHumans()}}  </a>
                     </p>

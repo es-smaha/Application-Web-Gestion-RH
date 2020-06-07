@@ -58,7 +58,7 @@ Demande de conge
 <div class="tab-pane" id="messages">
 <div class="card-body">
 <div class="table-responsive">
-<table class="table table-hover">
+<table class="table table-hover" id="example">
 <thead class="">
 <th>Nom</th>
 <th>Type Conge</th>
@@ -85,7 +85,7 @@ Demande de conge
 <td>{{$conge->jour}}</td>
 <td>{{$conge->created_at}}</td>
 
-@if($conge->avis=='0' && $conge->decision==false || $conge->avis=='1' && $conge->decision==false ||$conge->avis=='2' && $conge->decision==false)
+@if($conge->avis=='0' && $conge->decision==false  ||$conge->avis=='2' && $conge->decision==false)
 <td> <span class="badge badge-warning">en attente</span> </td>
 <td>  <a type="button" style="color:green"  data-toggle="modal"  data-target="#edit" ><span class="material-icons">create</span></a></td>
 <td><a type="button" style="color:red" data-toggle="modal"  data-target="#delete" ><span class="material-icons">delete</span> </a></td>
@@ -168,7 +168,7 @@ Demande de conge
 </div>
 
 
-@elseif($conge->avis=='1' && $conge->decision==true )
+@elseif($conge->avis=='1'  )
 <td> <span class="badge badge-success">accepte</span> </td>
 <td>  <a  style="color:gray" disabled><span class="material-icons">create</span></a></td>
 <td><a  style="color:gray" disabled><span class="material-icons">delete</span> </a></td>
@@ -300,14 +300,15 @@ Demande de conge
 
 @endsection
 @section('scripts')
-  <script>
-  $("#alert-target").click(function () {
-toastr["info"]("I was launched via jQuery!")
-});
-  
-  
-  
-  
+
+<script>
+    $(document).ready(function() {
+    $('#example').DataTable();
+} );
   </script>
+  
+  
+  
+  
 
 @endsection

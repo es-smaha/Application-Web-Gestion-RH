@@ -46,7 +46,7 @@
 </div>
 <div class="card-body">
 <div class="table-responsive">
-<table class="table table-hover">
+<table id="example" class="table table-hover">
 <thead class="">
 
 
@@ -83,6 +83,53 @@
 <td> <span class="badge badge-success">accepté </span> </td>
 <!-- update conge -->
 
+
+<div class="modal fade" id="update" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal-dialog" role="document">
+<div class="modal-content">
+<div class="modal-header">
+<h5 class="modal-title" id="exampleModalLabel">Effectuer Demande de conge</h5>
+<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+<span aria-hidden="true">&times;</span>
+</button>
+</div>
+<div class="modal-body">
+<form  action="/solde" method="POST">
+        @csrf
+        @method('PUT')
+        <input type="hidden" name="conge_id" id="user_id" value="{{$conge->id}}">
+        <h5 style="color:red"> <span class="material-icons">warning
+</span> N'oubliez pas de modifier le solde de conge</h5> <br>
+<div class="form-group">
+<label for="recipient-name"   class="col-form-label">solde conge</label>
+<input type="text"   name="solde" id="user_id" value="{{$conge->user->solde}}" class="form-control" id="recipient-name">
+  </div>
+
+<div class="form-group">
+<label for="recipient-name" class="col-form-label">date Debut  <b class="text-danger  "></b></label> <br>
+<input  name="datedebut" type="date" class="form-control" id="recipient-name" value="{{$conge->datedebut}}">
+</div>
+<div class="form-group">
+<label for="recipient-name" class="col-form-label">Date Fin<b class="text-danger  "></b></label> <br>
+<input  name="datefin" type="date" class="form-control" id="recipient-name" value="{{$conge->datefin}}">
+</div>
+<div class="form-group">
+<label for="message-text"   class="col-form-label">jour consommer</label>
+<input type="text"  class="form-control" id="recipient-name" name="jour" id="user_id" value="<?php if(!empty("{{$conge->jour}}")) echo htmlentities("{$conge->jour}"); ?>" readOnly="readOnly">
+</div>
+
+
+<button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+<button type="submit" class="btn btn-success" onclick="md.showNotification('top','right')" >Ajouter</button>
+@csrf
+</form>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- 
 
 <div class="modal modal-danger fade " id="update" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
@@ -132,7 +179,7 @@
 </div>
 </div>
 
-
+ -->
 
 
 
@@ -158,5 +205,9 @@
 @endsection
 
 @section('scripts')
-
+<script>
+    $(document).ready(function() {
+    $('#example').DataTable();
+} );
+  </script>
 @endsection

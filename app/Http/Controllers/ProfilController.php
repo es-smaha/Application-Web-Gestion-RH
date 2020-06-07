@@ -20,6 +20,44 @@ class ProfilController extends Controller
         $service=Service::all();
         return view("agent.prophile",['$user'=>$user,'service'=>$service]);
     }
+      public function profil(){
+        $id=Auth()->user()->id;
+        $user=User::find($id);
+        $service=Service::all();
+        return view("agent.prophile",['$user'=>$user,'service'=>$service]);
+    }
+    public function updatee(Request $request)
+    {
+        $this->validate($request,[
+          
+            'image'=>'image|nullable|max:1999',
+  
+         ]);
+         // handla file upload
+        if($request->hasFile('image')){
+            //get fn with ext
+           $FilenameWithExt=$request->file('image')->getClientOriginalName();
+
+           //gwt just filename
+           $filename=pathinfo($FilenameWithExt,PATHINFO_FILENAME);
+           //gET JUST EXT
+           $extension=$request->file('image')->getClientOriginalExtension();
+           //file name to store
+           $fileNameToStore=$filename.'_'.time().'.'.$extension;
+           //upload image
+           $path=$request->file('image')->storeAs('public\cover_images',  $fileNameToStore);
+       // on utise ce commande pour cree ce dossier :php artisan storage:link
+
+         }else{
+
+           $fileNameToStore='noimage.jpeg';
+         }
+         $id=Auth()->User()->id;
+         $user = User::find($id);
+        $user->image=$fileNameToStore;
+         $user->save();
+         return redirect('profil');
+    }
     public function indexh()
     { 
         $id=Auth()->user()->id;

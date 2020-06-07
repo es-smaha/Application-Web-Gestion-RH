@@ -184,14 +184,11 @@
           <div class="form-group">
          
             <label for="recipient-name" class="col-form-label">Periodicité</label> 
-            <br> <h5 style="color:red"> <span class="material-icons">warning
-</span> Si la periodicité est par mois entrez m
-           <br> <span class="material-icons">warning
-</span> Si la periodicité est par ans entrez y</h5> 
-
-
-            <input type="text"  name="periode" class="form-control" id="recipient-name">
-
+            <select name="periode" class="form-control" id="exampleFormControlSelect1">
+      <option value="  An">ans</option>
+      <option value="mois">mois</option>
+    
+    </select>
           </div>
          
           <div class="form-group">

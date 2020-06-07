@@ -7,53 +7,72 @@ changer le mot de passe
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">{{ __('Register') }}</div>
 
-  <form class="px-4 py-3"  method="POST" action="/update-passwordAg" >
+                <div class="card-body">
+                    <form method="POST" action='/update-passwordAg'>
                         @csrf
+                        @if(session('success'))
+                        <div class="alert alert-success" role="alert">{{session('success')}}</div>
+                        @endif
 
-    <div class="form-group row">
-      <label class="bmd-label-floating" for="oldpassword">Mot de passe actuel</label>
-      <div class="col-md-12">
-      <input class="form-control @error('oldpassword') is-invalid @enderror" id="oldpassword" name="oldpassword" type="password"  >
-      @error('oldpassword')
-         <span class="invalid-feedback" role="alert">
-         <strong>{{ $message }}</strong>
-        </span>
-      @enderror
 
-      </div>
-    </div>
+                        @if(session('error'))
+                        <div class="alert alert-danger" role="alert">{{session('error')}}</div>
+                        @endif
 
-    <div class="form-group row">
-      <label class="bmd-label-floating" for="password"> nouveau mot de passe</label>
-      <div class="col-md-12">
-      
-      <input class="form-control @error('password') is-invalid @enderror" id="password" name="password" type="password"  >
-      @error('password')
-         <span class="invalid-feedback" role="alert">
-         <strong>{{ $message }}</strong>
-        </span>
-      @enderror
-      </div>
-    </div>
+                        <div class="form-group row">
+                            <label for="oldpassword" class="col-md-4 col-form-label text-md-right">{{ __('actuel Password') }}</label>
 
-      <div class="form-group row">
-      <label class="bmd-label-floating" for="passwordc">confirmation de nouveau mot de passe</label>
-      <div class="col-md-12">
-      <input class="form-control @error('passwordc') is-invalid @enderror" id="passwordc" name="passwordc" type="password"  >
-     
-      </div>
-    </div>
-   
-    <div class="form-group row mb-0">
-                            <div class="col-md-6 offset-md-4">
-    <button type="submit" class="btn btn-primary">Enregistrer les modifications</button></div>
+                            <div class="col-md-6">
+                                <input id="oldpassword" type="password" class="form-control @error('oldpassword') is-invalid @enderror" name="oldpassword" required autocomplete="new-password">
+
+                                @error('oldpassword')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
                         </div>
-  </form>
-  
-</div>
+
+
+                        <div class="form-group row">
+                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __(' new Password') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
+
+                                @error('password')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
+                            </div>
+                        </div>
+
+                        <div class="form-group row mb-0">
+                            <div class="col-md-6 offset-md-4">
+                                <button type="submit" class="btn btn-primary">
+                                    {{ __('Register') }}
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                    </div>
                 </div>
             </div>
+        </div>
+    </div>
+</div>
 
 
 @endsection

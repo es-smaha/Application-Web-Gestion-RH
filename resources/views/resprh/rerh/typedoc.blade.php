@@ -155,7 +155,7 @@ keyboard_backspace
              <label for="exampleFormControlSelect1">Periodicite</label>
              
     <select name="periode" class="form-control" id="exampleFormControlSelect1">
-      <option value="  An">An </option>
+      <option value="  An">ans</option>
       <option value="mois">mois</option>
     
     </select>

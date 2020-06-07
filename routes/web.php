@@ -108,7 +108,10 @@ Route::group(['middleware'=>['auth','0']],function()
         
         
         Route::resource('conge', 'DemandecongeController');
-        Route::resource('/profil','ProfilController');
+        //Route::resource('/profil','ProfilController');
+        Route::get('/profil', 'ProfilController@profil');
+        Route::post('/profil', 'ProfilController@updatee');
+        
       Route::get('/planningR', 'ImportExcelController@indexA');
       Route::get('/calendar-employee','EventController@calagent');
 

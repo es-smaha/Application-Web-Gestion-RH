@@ -1,10 +1,10 @@
 @extends('layouts.nav2')
-
+@section('title')
+Mon Profil
+@endsection
 @section('content')
 
 
-@extends('layouts.nav2')
-@section('content')
 
 
 <div class="content">
@@ -13,7 +13,7 @@
             <div class="col-md-8">
               <div class="card">
                 <div class="card-header card-header-primary">
-                  <h4 class="card-title">Modifier Profile</h4>
+                  <h4 class="card-title">Mon Profil</h4>
                
                 </div>
                 <div class="card-body">

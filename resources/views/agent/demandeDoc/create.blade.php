@@ -5,7 +5,7 @@ demande de document
 
 @section('content')
 <div class="card card-nav-tabs">
-  <h4 class="card-header card-header-warning">Conditions Generale des demandes de Documents Administratifs</h4>
+  <h4 class="card-header card-header-primary">Conditions Generales de demandes des Documents Administratifs</h4>
   <div class="card-body">
   <div id="accordion" role="tablist" aria-multiselectable="true" class="card-collapse">
   <div class="card card-plain">

@@ -52,27 +52,26 @@ class ChangePasswordController extends Controller
     }
 
     public function passwordupdateAgent(Request $request){
-     
-        $this->validate($request,[
+        $validate=$request->validate([
             'oldpassword' => 'required',
      
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
-           
-  
+            'password' => 'required|min:8|required-with:password-confirmation' 
          ]);
-         $hashedPass= Auth::user()->password;
-         if(hash::check($request->oldpassword,$hashedPass)){
-                     $user=User::find(Auth::id());
-                     $user->password=hash::make($request->password);
-                      $user->save();
-                      Auth::logout();
-                      
-                      return redirect('/');
-         }else{
-            
-                 return view('agent.change');
-         }}
+        $user=User::find(Auth::user()->id);
+        if($user){
+            if(hash::check($request->oldpassword, $user->password && $validate)){
+                $user->password=hash::make($request->password);
+                $user->save();
+                $request->session()->flash('success','compatibles');
+            return redirect()->back();
+               
+    }else{
+            $request->session()->flash('error','incompatibles');
+            return redirect()->back();
+    }} }
 
+      
+         
          public function indexrh(){
        
             return view('resprh.change');

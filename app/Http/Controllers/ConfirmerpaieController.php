@@ -114,9 +114,15 @@ class ConfirmerpaieController extends Controller
          return redirect()->back();
 
     }
+
     
      public function calendar(){
-        
+        $e= new Event();
+        $e->title='.';
+        $e->color='white';
+        $e->start_date='2020-05-30 19:34:27';
+        $e->end_date='2020-05-31 19:34:27';
+        $e->save();
       $events=Event::all();
       //     $events->insert( [
       //    "title"=>"et",

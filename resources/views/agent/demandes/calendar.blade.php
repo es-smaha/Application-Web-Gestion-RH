@@ -16,33 +16,7 @@ Calendrier
 
 
 
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-    
-                
-        </div>
-        <div class="modal-body">
-        <h1>task: add data</h1>
-        <form method="POST" action="/events">
-        @csrf
-        <label for="">enter name of event</label>
-        <input type="text" class="form-control" name="title" placeholder="enter the name"/> <br> <br>
-        <label for="">enter color</label>
-        <input type="color" class="form-control" name="color" placeholder="enter the color"/> <br> <br>
-        <label for="">enter start date of event</label>
-        <input type="datetime-local" class="form-control" name="start_date" placeholder="enter the name"/> <br> <br>
-        <label for="">enter end date of event</label>
-        <input type="datetime-local" class="form-control" name="end_date" placehol der="enter the name"/>
-        <br> <br>
-        <input type="submit" name="submit" class="btn btn-primary" value=" data">
-        </form>
-        </div>
-        </div>
-    </div>
-  </div>
-</div>
+
 <div class="modal fade" id="mod" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -97,12 +71,41 @@ Calendrier
 
 <div class="container">
 <div class="jumbotron">
-<h2>Calendrier Congee Par Service</h2>
+
 <div class="row">
-<a type="button" class="btn btn-warning" data-toggle="modal"  data-target="#exampleModal" >Ajouter un evenement</a> 
-<a type="button" class="btn btn-warning" data-toggle="modal"  data-target="#mod" > Consulter les conges</a>
-<a type="button" class="btn btn-warning" href="/deleteevent" > Consulter les conges</a>
+        <div class="col-md-12 col-md-offset-4">
+     
+    <div class="card-header card-header-primary">
+        <!-- colors: "header-primary", "header-info", "header-success", "header-warning", "header-danger" -->
+        <div class="nav-tabs-navigation">
+            <div class="nav-tabs-wrapper">
+            <div class="row">
+              <div class="col-2">
+              <p>Congé Refusé</p>
+            <div class="progress">
+              
+            <div class="progress-bar bg-danger" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
 </div>
+  </div>
+  <div class="col-2">
+              <p>Congé En attente </p>
+            <div class="progress">
+              
+            <div class="progress-bar bg-warning" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+</div>
+  </div>
+    <div class="col-2">
+    <p>Congé Accepté</p>
+<div class="progress">
+<div class="progress-bar bg-success" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+</div>
+</div>
+</div>
+</div>
+            </div>
+        </div>
+            </div>
+                </div>
 
 <br> <br>
 
@@ -123,16 +126,7 @@ Calendrier
         <div class="row">
         <div class="col-md-12 col-md-offset-4">
      
-    <div class="card-header card-header-primary">
-        <!-- colors: "header-primary", "header-info", "header-success", "header-warning", "header-danger" -->
-        <div class="nav-tabs-navigation">
-            <div class="nav-tabs-wrapper">
-               Full calendar
-            </div>
-        </div>
-            </div>
-                </div>
-            
+   
                 <div class="psnel-bodt">
                 {!! $calendar->calendar() !!}
                 {!! $calendar->script() !!}

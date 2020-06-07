@@ -5,17 +5,17 @@ planning
 @section('content')
 <h4>Plannind de travail </h4>
 <br>
-<table id="example" class="table">
+<table id="example" class="table table-bordered ">
 <thead class="thead-dark">
 <tr>
-<th>Agent</th>
-<th>lundi</th>
-<th>Mardi</th>
-<th>mercredi</th>
-<th>vendredi</th>
-<th>jeudi</th>
-<th>Samedi</th>
-<th>Dimanche</th>
+<th scope="col">Agent</th>
+<th scope="col">lundi</th>
+<th scope="col">Mardi</th>
+<th scope="col">mercredi</th>
+<th scope="col">vendredi</th>
+<th scope="col">jeudi</th>
+<th scope="col">Samedi</th>
+<th scope="col">Dimanche</th>
 </tr>
 </thead>
 <tbody class="thead-light">

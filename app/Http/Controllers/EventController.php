@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Event;
 use App\Demandeconge;
 use App\Service;
+use Illuminate\Support\Facades\Auth;
 use MaddHatter\LaravelFullcalendar\Facades\Calendar;
 
 class EventController extends Controller
@@ -81,6 +82,7 @@ class EventController extends Controller
       
           
          if(count($events)>0) {
+        
           foreach($events as $row){
               $event=[];
               $enddate=$row->end_date."24:00:00";
@@ -99,7 +101,9 @@ class EventController extends Controller
       $conges=Demandeconge::all();
        
       if(count($conges)>0) {
+        
       foreach($conges as $roww){
+        if(auth::user()->id==$roww->user_id){
           $conge=[];
           if($roww->avis==1 && $roww->decision==true){
               $enddate=$roww->datefin."24:00:00";
@@ -141,6 +145,7 @@ class EventController extends Controller
           }
          }
          }
+        }
           
           $calendar=\Calendar::addEvents($event);
           return view('agent.demandes.calendar',compact('conges','event','calendar'));

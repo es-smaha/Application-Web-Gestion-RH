@@ -307,46 +307,70 @@ html, body {
 .text-primary {
     color: black!important;
 }
+.sidebar .nav li a, .sidebar .nav li .dropdown-menu a {
+    margin: 10px 15px 0;
+    border-radius: 3px;
+    color: white;
+    padding-left: 10px;
+    padding-right: 10px;
+    text-transform: capitalize;
+    font-size: 15px;
+    padding: 10px 15px;
+}
     </style>
   
 </head>
 
 <body class="sidebar-mini">
   <div class="wrapper">
-  <div class="sidebar" data-color="green" data-background-color="black" data-image="../assets/img/sidebar-3.jpg">
+    <div class="sidebar" data-color="green" data-background-color="black" data-image="../assets/img/sidebar-3.jpg">
       <!--
         Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
 
         Tip 2: you can also add an image using data-image tag
     -->
-      <div class="logo"><a href="" class="simple-text logo-normal">
-         Chef Hiérarchique
+      
+<div class="logo"><a href="" class="simple-text logo-normal">
+        Espace  Chef Hierarchique
         </a></div>
       <div class="sidebar-wrapper">
-        <ul class="nav">
+      <ul class="nav">
           <li class="{{'dashboard'==request()->path()?'active':''}}">
             <a class="nav-link" href="/dashboard">
               <i class="material-icons">dashboard</i>
               <p>Dashboard</p>
             </a>
           </li>
+          <li class="{{'profilh'==request()->path()?'active':''}}">
+            <a class="nav-link" href="/profilh">
+            <i class="material-icons">account_circle</i>
+              <p>Profil</p>
+            </a>
+          </li>
           <li class="{{'demande-conge'==request()->path()?'active':''}} ">
             <a class="nav-link" href="/demande-conge">
               <i class="material-icons">exit_to_app</i>
-              <p>Demande de Congé</p>
+              <p>Demandes de Congé</p>
             </a>
           </li>
 
           <li class="{{'conge-accepter'==request()->path()?'active':''}} " class="nav-item ">
             <a class="nav-link" href="/conge-accepter">
               <i class="material-icons">folder</i>
-              <p>Demandes Conge pret</p>
+              <p>Demandes de Congé prêtes</p>
             </a>
           </li>
           <li class="{{'conge-refuser'==request()->path()?'active':''}} " class="nav-item ">
             <a class="nav-link" href="/conge-refuser">
               <i class="material-icons">folder</i>
-              <p> demandes conge refuser</p>
+              <p> demandes congé refusées</p>
+            </a>
+          </li>
+
+          <li class="{{'absence'==request()->path()?'active':''}} " class="nav-item ">
+            <a class="nav-link" href="/absence">
+            <i class="fa fa-suitcase"></i>
+              <p> gestion des absences</p>
             </a>
           </li>
         
@@ -359,12 +383,13 @@ html, body {
        
             </a>
           </li>
-          <li  class="{{'/conge-refuser'==request()->path()?'active':''}} " class="nav-item ">
+          <li  class="{{'ex'==request()->path()?'active':''}} " class="nav-item ">
             <a class="nav-link" href="/ex">
               <i class="material-icons">schedule</i>
-              <p>Planning Travail</p>
+              <p>Planning De Travail</p>
             </a>
           </li>
+          
          
     
         </ul>
@@ -373,7 +398,7 @@ html, body {
     <div class="main-panel">
       <!-- Navbar -->
       <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
-        <div class="container-fluid">
+      <div class="container-fluid">
         <img src="../assets/img/kohler2.jpg" alt="kohler"></a>
           <div class="navbar-wrapper">
             <a class="navbar-brand" href="javascript:;"></a>
@@ -385,18 +410,10 @@ html, body {
             <span class="navbar-toggler-icon icon-bar"></span>
           </button>
           <div class="collapse navbar-collapse justify-content-end">
-            <form class="navbar-form">
-              <div class="input-group no-border">
-                <input type="text" value="" class="form-control" placeholder="Search...">
-                <button type="submit" class="btn btn-white btn-round btn-just-icon">
-                  <i class="material-icons">search</i>
-                  <div class="ripple-container"></div>
-                </button>
-              </div>
-            </form>
+            
             <ul class="navbar-nav">
               <li class="nav-item">
-                <a class="nav-link" href="javascript:;">
+                <a class="nav-link" href="dashboard">
                   <i class="material-icons">dashboard</i>
                   <p class="d-lg-none d-md-block">
                     Stats
@@ -406,50 +423,48 @@ html, body {
               <li class="nav-item dropdown">
                 <a class="nav-link" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   <i class="material-icons">notifications</i>
-                  <span class="notification">*</span>
+                  <span class="notification">{{Auth::user()->unreadNotifications->count()}}</span>
                   <p class="d-lg-none d-md-block">
                     Some Actions
                   </p>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                   @foreach(Auth::user()->notifications as $notification)
+                @foreach(Auth::user()->notifications as $notification)
                    @if($notification->notifiable_id==Auth::user()->id  &&   $notification->read_at == '' )
                    <span class="notification">1</span>
                     <p>
-                  <a class="dropdown-item" href="/demande-conge ">{{$notification->data['userId']}}    <small>   a deposer une demande de conge il y'a  </small> {{$notification->created_at->diffforHumans()}}  </a>
+                  <a class="dropdown-item" href="/demande-conge ">
+                  <span style="color:green" class="material-icons">event</span>
+                  &nbsp    Nouvelle demande de    &nbsp<b> Conge </b> &nbsp  par &nbsp <span class="badge badge-warning">  {{$notification->data['userId']}} </span> &nbspil y'a     {{$notification->created_at->diffforHumans()}}  </a>
                     </p>
                    {{$notification->markAsRead()}}
                  @endif
-
+   
                     @endforeach
               </li>
               <li class="nav-item dropdown">
-                <a class="nav-link" href="javascript:;" id="navbarDropdownProfile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  <i class="material-icons">person</i>
+              <a class="nav-link" href="javascript:;" id="navbarDropdownProfile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                {{ Auth::user()->name }} {{ Auth::user()->prenom}} <span class="caret"></span> <i class="material-icons">person</i>
                   <p class="d-lg-none d-md-block">
                     Account
                   </p>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownProfile">
-                  <a class="dropdown-item" href="#">Profile</a>
-                  <a class="dropdown-item" href="#">Settings</a>
+                  <a class="dropdown-item" href="profilh">Profil</a>
+                  <a class="dropdown-item" href="changechefh">Settings</a>
                   <div class="dropdown-divider"></div>
                
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }} <span class="caret"></span>
-                                </a>
-
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                <a id="navbarDropdown"  href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
+                                        {{ __('Deconnexion') }}
                                     </a>
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                         @csrf
-                                    </form>
-                             
+                                    </form> 
+                                </a>
                          
                 </div>
               </li>
@@ -457,9 +472,11 @@ html, body {
           </div>
         </div>
       </nav>
+        <br>
+        <br>
       <!-- End Navbar -->
       <div class="content">
-      
+        <div class="container-fluid">
         @yield('content')
         @if(count($errors)>0)
 @if ($errors->any()) 
@@ -500,7 +517,7 @@ html, body {
                                 </div>
                                @endif
         
-       
+        </div>
       </div>
       <footer class="footer">
         <div class="container-fluid">
@@ -748,3 +765,6 @@ html, body {
 </body>
 
 </html>
+
+
+

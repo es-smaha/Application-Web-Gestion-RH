@@ -47,8 +47,8 @@ Demamdes de conge
 <div class="col-md-12">
 <div class="card card-plain">
 <div class="card-header card-header-primary">
-<h4 class="card-title mt-0"> Table on Plain Background</h4>
-<p class="card-category"> Here is a subtitle for this table</p>
+<h4 class="card-title mt-0"> Table des demandes de congé  en attente</h4>
+<p class="card-category"> </p>
 </div>
 <div class="card-body">
 <div class="table-responsive">

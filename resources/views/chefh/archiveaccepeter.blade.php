@@ -45,8 +45,8 @@
               <div class="col-md-12">
               <div class="card card-plain">
                 <div class="card-header card-header-primary">
-                  <h4 class="card-title mt-0"> Table on Plain Background</h4>
-                  <p class="card-category"> Here is a subtitle for this table</p>
+                  <h4 class="card-title mt-0"> Archives des demandes de congé refusée</h4>
+                  <p class="card-category"> </p>
                 </div>
                 <div class="card-body">
                   <div class="table-responsive">
@@ -87,11 +87,11 @@
                                                @else
                                                <td> <span class="badge badge-success">Accepté</span> </td>
                                                @endif
-                                                <td >  <a href="/us/{{$conge->id}}" ><span class="material-icons warnning">loupe</span></td>
+                                                <td >  <a href="/us/{{$conge->id}}" style="color:orange" ><span class="material-icons warnning">loupe</span></td>
                                               
                                                @if($conge->pdf==0)
-                                                        <td> <a type="button" rel="tooltip" id="#motif"  data-toggle="modal" data-target="#ajouter" title="ecrire motif" class="btn btn-success btn-link btn-sm">
-                                                        <span class="material-icons">picture_as_pdf</span></a></td>
+                                                       
+                                                        <td >  <a href="/pdf-convert/{{$conge->id}}" style="color:green" ><span class="material-icons">picture_as_pdf</span></td>
                                                           @else
                                                           <td> <a type="button" rel="tooltip" id="#motif"  data-toggle="modal" data-target="#motif" title="deja Envoyer" class="btn btn-success btn-link btn-sm" disabled>
                                                         <span class="material-icons"><span class="material-icons">done_all</span>picture_as_pdf</span></a></td>

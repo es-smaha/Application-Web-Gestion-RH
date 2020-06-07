@@ -23,6 +23,7 @@ Route::get('/404error', function () {
   Route::resource('/events','EventController');
   Route::get('/display','EventController@show');
   Route::resource('/absence','AbsenceConrtroller');
+
 Route::group(['middleware'=>['auth','1']],function()
     {
     
@@ -37,6 +38,8 @@ Route::group(['middleware'=>['auth','1']],function()
     Route::post('/motifs','TraitedemandeController@store');
     Route::post('/pdfinsert','TraitedemandeController@pdf');
     Route::get('/us/{id}','TraitedemandeController@sho');
+    Route::get('/pdf-convert/{id}','TraitedemandeController@showview');
+    Route::get('/pdf-convert/{id}/pdf','TraitedemandeController@pdff');
     Route::get('/dashboard', function () {
         return view('chefh.dashboard');
     }); 

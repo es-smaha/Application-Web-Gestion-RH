@@ -445,7 +445,12 @@ footer p strong {
               <p> Calendrier</p>
             </a>
           </li>
-       
+          <li class="{{'Map-usine'==request()->path()?'active':''}} " class="nav-item ">
+            <a class="nav-link" href="/Map-usine">
+              <i class="material-icons">event</i>
+              <p>Map Usine</p>
+            </a>
+          </li>
             </a>
           </li>
           <li  class="{{'ex'==request()->path()?'active':''}} " class="nav-item ">

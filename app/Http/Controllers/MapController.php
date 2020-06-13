@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Map;
 class MapController extends Controller
@@ -14,7 +14,18 @@ class MapController extends Controller
     public function index()
     {
         $m=Map::All();
-        return view("resprh.dashboard",['m'=>$m]);
+        if(Auth::user()->usertype==2){
+            return view("resprh.map",['m'=>$m]);
+            }else if(Auth::user()->usertype==1){
+                return view('chefrh.planning.map',['ab'=>$ab]);
+            }else if(Auth::user()->usertype==3){
+                return view('resprh.map',['ab'=>$ab]);
+            
+        }else if(Auth::user()->usertype==0){
+            return view('agent.map',['ab'=>$ab]);
+        }
+      
+      
     }
 
     /**

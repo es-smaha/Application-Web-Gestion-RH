@@ -187,12 +187,7 @@ dashboard
         </div> 
     </div>
 </div>
-@foreach(App\Map::all() as $map)
-<embed id="zoom_01" height="600px" width="100%"  type="application/pdf" data-zoom-image="large/storage/cover_images/{{$map->map}}" src="/storage/cover_images/{{$map->map}}" />
-            
 
-
-@endforeach
 @endsection
 @section('scripts')
     <script>

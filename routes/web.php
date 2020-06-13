@@ -22,6 +22,7 @@ Route::get('/404error', function () {
   return view('notfound');});
   Route::resource('/events','EventController');
   Route::get('/display','EventController@show');
+  Route::get('/Map-usine','MapController@index');
   Route::resource('/absence','AbsenceConrtroller');
 
 Route::group(['middleware'=>['auth','1']],function()
@@ -60,7 +61,9 @@ Route::group(['middleware'=>['auth','2']],function()
        
         Route::get('/cal','EventController@cal');
     Route::get('/profilrh','ProfilController@indexrh'); 
- 
+    Route::get('/dashboard2', function () {
+      return view('resprh.dashboard');
+  }); 
     Route::get('/document-pret','RhdocumentController@pret');
     Route::post('/pdf','RhdocumentController@pdf');
     Route::put('/docum/{id}','RhdocumentController@valider');

@@ -29,7 +29,7 @@ class AbsenceConrtroller extends Controller
         return view('chefh.absence.users',['user'=>$user,'service'=>$user[0]->service->nom]); 
     
     }
-
+    
     /**
      * Show the form for creating a new resource.
      *

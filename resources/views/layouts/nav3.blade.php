@@ -438,10 +438,17 @@ footer p strong {
               <p>Planning de travail</p>
             </a>
           </li>
+
           <li class="{{'calendrie-conge'==request()->path()?'active':''}} " class="nav-item ">
             <a class="nav-link" href="/calendrie-conge">
               <i class="material-icons">event</i>
               <p>calendrier conge</p>
+            </a>
+          </li>
+          <li class="nav-item ">
+            <a class="{{'Map-usine'==request()->path()?'active':''}} " href="/Map-usine">
+              <i class="material-icons">content_paste</i>
+              <p>Map usine</p>
             </a>
           </li>
     

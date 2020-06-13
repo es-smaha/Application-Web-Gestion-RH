@@ -546,8 +546,8 @@ footer p strong {
 }
 
 .cardi .card_image img {
-  width: 250px;
-  height: 200px;
+  width: 180px;
+  height: 180px;
   border-radius: 0px;
   margin-top: 20px;
   object-fit: cover;

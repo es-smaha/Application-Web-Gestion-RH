@@ -1,6 +1,6 @@
 @extends('layouts.nav2')
 @section('title')
-    
+    configuration
 @endsection
 
 @section('content')

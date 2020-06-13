@@ -22,15 +22,15 @@
             <form action="/confirmer/{{$conge->id}}/edit" method="POST">
               @csrf
                    @method('PUT')
-                   <button type="submit" class="btn btn-success btn-round" data-toggle="modal"  data-target="#ajouter" ><span class="material-icons"></span>confirmer</button></td>
+                   <button type="submit" class="btn btn-success btn-round" data-toggle="modal"  data-target="#ajouter" ><span class="material-icons">check</span>confirmer</button></td>
                      </form>
-                     </div>
-                       <div >
-                            <td>
+                     
+                      
+                            
                 <form action="/refuser/{{$conge->id}}" method="POST">
                      @csrf
                       @method('PUT')
-                          <button type="submit" class="btn btn-warning btn-round" data-toggle="modal"  data-target="#ajouter" ><span class="material-icons"></span>refuser</button></td>
+                          <button type="submit" class="btn btn-warning btn-round" data-toggle="modal"  data-target="#ajouter" ><span class="material-icons">close</span>r   e f u s e r</button>
                             </form>
                                </td>
           @else 

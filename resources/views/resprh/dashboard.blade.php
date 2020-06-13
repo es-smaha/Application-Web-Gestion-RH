@@ -52,7 +52,7 @@ dashboard
         
         <i class="material-icons">account_box</i>
           <br>
-          <p>Nombre total des employee</p>
+          <p>Total des collaborateurs</p>
                 <p id="number2" class="number">{{App\User::count()}}</p>
               
                                <br>
@@ -64,7 +64,7 @@ dashboard
             <i class="fa fa-briefcase"></i>
 
             <br>
-            <p>total Service </p>
+            <p>Services </p>
                          <p id="number1" class="number">{{App\Service::count()}}</p>
                               <br>
                 
@@ -75,7 +75,7 @@ dashboard
             <i class="material-icons">content_copy</i>
                 
                 <br>
-                <p>Total Type Dosuments Administratives</p>
+                <p>Documents Administratives</p>
                 <p id="number3" class="number">{{App\Typedocument::count()}}</p>
                   <br>
                 
@@ -86,7 +86,7 @@ dashboard
                   <i class="material-icons">event</i>
                   
                   <br>
-                  <p>total Types Conges</p>
+                  <p>Conges</p>
                 <p id="number4" class="number">{{App\Typeconge::count()}}</p>
                         <br>
                 
@@ -110,7 +110,7 @@ dashboard
                     <i class="material-icons">content_copy</i>
             
                   <br>
-                  <p>Nombre Total de Documents demandées</p>
+                  <p>Total des Documents demandés</p>
                 <p id="number5" class="number">{{App\Demandedocument::count()}}</p>
                     <br>
                    
@@ -132,7 +132,7 @@ dashboard
             <div class="item wow fadeInUpBig animated animated" data-number="{{App\Demandedocument::where('etat','=','1')->count()}}" style="visibility: visible;">
                 <i class="fa fa-hourglass-half"></i>
                   <br>
-                <p>Documents Administratives <b style="color:orange">En Attente</b></p>
+                <p> Documents Administratives <b style="color:orange">En Attente</b></p>
                 <p id="number7" class="number">{{App\Demandedocument::where('etat','=','0')->count()}}</p>
             <br>
                 
@@ -141,7 +141,7 @@ dashboard
             <div class="item wow fadeInUpBig animated animated" data-number="{{App\Reclamation::count()}}" style="visibility: visible;">
                 <i class="fa fa-exclamation-circle"></i>
                   <br>
-                <p>Nouvelles reclamations</p>
+                <p>Total de reclamations</p>
                 <p id="number8" class="number">{{App\Reclamation::count()}}</p>
             <br>
                 
@@ -166,7 +166,7 @@ dashboard
                 <p id="number5" class="number">{{App\Demandeconge::count()}}</p>
            
                     <br>
-                <p>  Nombre total des demandes du congé</p>
+                <p> Total des demandes du congé</p>
             </div>
             <div class="item wow fadeInUpBig animated animated" data-number="{{App\User::count()}}" style="visibility: visible;">
                 <i class="fa fa-check-square"></i> <br> <br>

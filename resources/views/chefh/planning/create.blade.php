@@ -24,9 +24,9 @@ Planning
 <th>Agent</th>
 <th>lundi</th>
 <th>Mardi</th>
-<th>mercredi</th>
+<th>mercredi</th> <th>jeudi</th>
 <th>vendredi</th>
-<th>jeudi</th>
+
 <th>Samedi</th>
 <th>Dimanche</th>
 </tr>

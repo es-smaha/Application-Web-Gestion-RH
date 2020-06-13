@@ -17,7 +17,7 @@ Dashboard
                 <p id="number2" class="number">{{App\User::count()}}</p>
            
                     <br>
-                <p>Nombre total des employee</p>
+                <p>Total des employee</p>
             </div>
             <div class="item wow fadeInUpBig animated animated" data-number="{{App\Service::count()}}" style="visibility: visible;">
  
@@ -26,7 +26,7 @@ Dashboard
                 <p id="number1" class="number">{{App\Service::count()}}</p>
           
                     <br>
-                <p>total Service </p>
+                <p>Services </p>
             </div>
          
             <div class="item wow fadeInUpBig animated animated" data-number="{{App\Typedocument::count()}}" style="visibility: visible;">
@@ -36,7 +36,7 @@ Dashboard
                 
                 <p id="number3" class="number">{{App\Typedocument::count()}}</p>
             <br>
-                <p>Total Type Dosuments Administratives</p>
+                <p>Dosuments Administratives</p>
             </div>
             <div class="item wow fadeInUpBig animated animated" data-number="{{App\Typeconge::count()}}" style="visibility: visible;">
             <div class="card-icon">
@@ -44,7 +44,7 @@ Dashboard
                   </div>
                 <p id="number4" class="number">{{App\Typeconge::count()}}</p>
             <br>
-                <p>total Types Conges</p>
+                <p>Congés</p>
             </div>
         </div>
     </div>
@@ -58,28 +58,28 @@ Dashboard
                 <p id="number5" class="number">{{App\Demandeconge::count()}}</p>
            
                     <br>
-                <p>  Nombre total des demandes du congé</p>
+                <p>  Total des demandes du congé</p>
             </div>
             <div class="item wow fadeInUpBig animated animated" data-number="{{App\User::count()}}" style="visibility: visible;">
                 <i class="fa fa-check-square"></i> <br> <br>
                 <p id="number6" class="number">{{App\Demandeconge::where('decision','=','1')->count()}}</p>
           
                     <br>
-                <p>Demandes de congé  <b style="color:orange">Validées</b></p>
+                <p>Total des Demandes de congé  <b style="color:orange">Validées</b></p>
             </div>
          
             <div class="item wow fadeInUpBig animated animated" data-number="{{App\Demandedocument::where('etat','=','1')->count()}}" style="visibility: visible;">
                 <i class="fa fa-sign-out"></i> <br> <br>
                 <p id="number7" class="number">{{App\Demandeconge::where('decision','=','0')->count()}}</p>
             <br>
-                <p>demandes de congé <b style="color:orange">en Attente</b></p>
+                <p>Total des demandes de congé <b style="color:orange">en Attente</b></p>
             </div>
 
             <div class="item wow fadeInUpBig animated animated" data-number="{{App\Reclamation::count()}}" style="visibility: visible;">
                 <i class="fa fa-exclamation-circle"></i> <br> <br>
                 <p id="number8" class="number">{{App\Reclamation::count()}}</p>
             <br>
-                <p>Nouvelles reclamations</p> 
+                <p>Total de  reclamations</p> 
             </div>
         </div>
     </div>

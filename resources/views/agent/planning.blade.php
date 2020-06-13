@@ -12,8 +12,8 @@ planning
 <th scope="col">lundi</th>
 <th scope="col">Mardi</th>
 <th scope="col">mercredi</th>
-<th scope="col">vendredi</th>
 <th scope="col">jeudi</th>
+<th scope="col">vendredi</th>
 <th scope="col">Samedi</th>
 <th scope="col">Dimanche</th>
 </tr>

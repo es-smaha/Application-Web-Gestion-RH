@@ -1,9 +1,6 @@
 @extends('loglog')
 @section('div')
-
-
-    
-Sign <span style="color: #32CD32 !important; "> In</span>
+Sign<span style="color:#2E8B57"> In</span>
 @endsection
 
 @section('content')
@@ -48,22 +45,25 @@ Sign <span style="color: #32CD32 !important; "> In</span>
                         </div>
 
                         <div class="form-group row">
-                            <div class="col-md-12 ">
+                            <div class="col-md-6 offset-md-4">
                                 <div class="form-check">
                                     <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
 
                                     <label class="form-check-label" for="remember">
                                         {{ __('Remember Me') }}
-                                    </label> 
-                                    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-                                    <button type="submit" class="btn btn-success">
-                                    {{ __('Login') }}
-                                </button>
+                                    </label>
                                 </div>
                             </div>
                         </div>
 
-                        
+                        <div class="form-group row mb-0">
+                            <div class="col-md-8 offset-md-4">
+                                <button type="submit" class="btn btn-success">
+                                    {{ __('Login') }}
+                                </button>
+
+                               
+                            </div>
                         </div>
                     </form>
                 </div>

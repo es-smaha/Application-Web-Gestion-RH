@@ -119,23 +119,23 @@
             <div class="nav-tabs-wrapper">
             <div class="row">
               <div class="col-2">
-              <p>Congée En attente</p>
+              <p>Congé Refusé</p>
             <div class="progress">
               
-  <div class="progress-bar progress-bar-striped progress-bar-danger" role="progressbar" style="width: 100%" aria-valuenow="" aria-valuemin="0" aria-valuemax="0"></div>
+            <div class="progress-bar bg-danger" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
 </div>
   </div>
   <div class="col-2">
-              <p>Congée Accepter </p>
+              <p>Congé En attente </p>
             <div class="progress">
               
-  <div class="progress-bar progress-bar-striped progress-bar-warning" role="progressbar" style="width: 100%" aria-valuenow="" aria-valuemin="0" aria-valuemax="0"></div>
+            <div class="progress-bar bg-warning" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
 </div>
   </div>
     <div class="col-2">
-    <p>Congée reussi</p>
+    <p>Congé Accepté</p>
 <div class="progress">
-  <div class="progress-bar progress-bar-striped progress-bar-info" role="progressbar" style="width: 100%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="0"></div>
+<div class="progress-bar bg-success" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
 </div>
 </div>
 </div>

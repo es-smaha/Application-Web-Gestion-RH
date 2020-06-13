@@ -12,14 +12,14 @@
 </div>
     
     
-                <div style="font-size:20px" class="d-flex justify-content-center">
+                <!-- <div style="font-size:20px" class="d-flex justify-content-center">
                    
                 <button class="btn btn-warning btn-sm"><span class="material-icons">keyboard_backspace</span></button>
             <script>
               document.write(new Date())
             </script>
              <button class="btn btn-warning btn-sm"> <span class="material-icons">arrow_forward</span></button>
-            </div>
+            </div> -->
            
 <div class="container-fluid">
         <!-- Mes demandes de Conge  -->

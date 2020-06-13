@@ -701,8 +701,9 @@ box-shadow: 5px 5px 30px 7px rgba(0,0,0,0.25), -5px -5px 30px 7px rgba(0,0,0,0.2
               <p>Planning de travail</p>
             </a>
           </li>
-          <li class="nav-item ">
-            <a class="{{'Map-usine'==request()->path()?'active':''}} " href="/Map-usine">
+          
+          <li class="{{'Map-usine'==request()->path()?'active':''}} " >
+            <a class="nav-link"  href="/Map-usine">
               <i class="material-icons">content_paste</i>
               <p>Map usine</p>
             </a>

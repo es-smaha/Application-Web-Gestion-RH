@@ -17,12 +17,12 @@ class MapController extends Controller
         if(Auth::user()->usertype==2){
             return view("resprh.map",['m'=>$m]);
             }else if(Auth::user()->usertype==1){
-                return view('chefrh.planning.map',['ab'=>$ab]);
+                return view('chefrh.planning.map',['m'=>$m]);
             }else if(Auth::user()->usertype==3){
-                return view('resprh.map',['ab'=>$ab]);
+                return view('resprh.map',['m'=>$m]);
             
         }else if(Auth::user()->usertype==0){
-            return view('agent.map',['ab'=>$ab]);
+            return view('agent.map',['m'=>$m ]);
         }
       
       

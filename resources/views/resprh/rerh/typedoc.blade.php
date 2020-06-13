@@ -201,5 +201,5 @@ keyboard_backspace
 
 
   }));
-  
+    </script>
 @endsection

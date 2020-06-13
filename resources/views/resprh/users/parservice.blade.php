@@ -8,8 +8,10 @@
         .appendTo( '#example_wrapper .col-md-6:eq(0)' );
 } );
   </script>
-    <script>
-$('#delete').on('show.bs.model',function(event{
+ 
+ 
+ <script>
+  $('#delete').on('show.bs.model',function(event{
     var  button=$(event.relatedTarget)
     var user_id=button.data('userid')
     var modal=$(this)
@@ -19,11 +21,7 @@ $('#delete').on('show.bs.model',function(event{
 
 
   }));
-
-
-</script>
- 
-
+    </script>
 
 
 
@@ -85,7 +83,7 @@ $('#delete').on('show.bs.model',function(event{
                                 <form  action="/user/{{$user->id}}" method="POST">
                                       @method('delete')
                                            @csrf
-                                   <button  type="button" rel="tooltip" id="#delete"  data-toggle="modal"  title="Remove" class="btn btn-info  btn-sm">
+                                   <button  type="button" rel="tooltip" id="#delete" data-target="#delete"  data-toggle="modal"  title="Remove" class="btn btn-info  btn-sm">
                                 <i  class="material-icons" >close</i>
                               </button>
                               </form>
@@ -111,11 +109,13 @@ $('#delete').on('show.bs.model',function(event{
             <p>are you sure you wanna delete</p>
           <input type="hidden" name="users_id" id="user_id" value="">
         </div>
-          <div class="modal-footer">
-        <button type="button" class="btn btn-success" data-dismiss="modal">No</button>
-        <button type="submit"  onclick="md.showNotificationn('top','center')" class="btn btn-warning">yes</button>
-      </div>
-          
+        <form  action="/user/{{$user->id}}" method="POST">
+        @csrf
+                                      @method('delete')
+                                          
+                                           <button type="submit"  class="btn btn-warning">yes</button>
+         
+      </form>
        
       </div>
      

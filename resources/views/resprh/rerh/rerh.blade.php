@@ -75,7 +75,7 @@ keyboard_backspace
            
 
      <!-- Button trigger modal -->
-     @if(count($services)>0)
+
   
 <div class="modal modal-danger fade " id="delete" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
@@ -107,9 +107,6 @@ keyboard_backspace
 </div>
 
 
-     @endif
-
-@if(count($services)>0)
 <div class="modal fade" id="edit" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -138,7 +135,7 @@ keyboard_backspace
     </div>
   </div>
 </div>
-@endif
+
 
 @endforeach
 

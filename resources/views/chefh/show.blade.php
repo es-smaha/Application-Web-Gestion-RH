@@ -34,9 +34,7 @@
                             </form>
                                </td>
           @else 
-          <button type="submit" class="btn btn-success btn-round" data-toggle="modal" title="deja confirmer" data-target="#ajouter" disabled>confirmer</button></td>
-          <button type="submit" class="btn btn-warning btn-round" data-toggle="modal" title="deja refuser" data-target="#ajouter" disabled>refuser</button></td>
-            
+         -
             @endif
             
             

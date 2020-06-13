@@ -30,10 +30,9 @@ perm_identity
 
 
     <div id="usersparservice">
+    
     </div>    
   
-
-
 
 <!-- supprimer agents -->
 
@@ -318,25 +317,7 @@ perm_identity
            $("#usersparservice").html(response);
           }
         }); 
-   }); 
-    </script>
-
-
-    <script>
-    $('#delete').on('show.bs.model',function(event{
-    var  button=$(event.relatedTarget)
-    var user_id=button.data('userid')
-    var modal=$(this)
-    modal.find('.modal-body #user_id').val(user_id)
-
-
-
-
-  }));
-    
-    
-    
-    </script>
+   });
       @endforeach
   
     

@@ -8,20 +8,9 @@
         .appendTo( '#example_wrapper .col-md-6:eq(0)' );
 } );
   </script>
+   
  
- 
- <script>
-  $('#delete').on('show.bs.model',function(event{
-    var  button=$(event.relatedTarget)
-    var user_id=button.data('userid')
-    var modal=$(this)
-    modal.find('.modal-body #user_id').val(user_id)
 
-
-
-
-  }));
-    </script>
 
 
 
@@ -80,19 +69,19 @@
                                   <div class="text-right">
                                     <a href="/users/{{$user->id}}" class="btn btn-success btn-sm" >
                                 <span class="material-icons">  remove_red_eye</span>   </a>
-                                <form  action="/user/{{$user->id}}" method="POST">
-                                      @method('delete')
-                                           @csrf
-                                   <button  type="button" rel="tooltip" id="#delete" data-target="#delete"  data-toggle="modal"  title="Remove" class="btn btn-info  btn-sm">
+                             
+                                   <button  type="button" rel="tooltip" id="#delete" data-target="#delete" data-toggle="modal"  title="Remove" class="btn btn-info  btn-sm">
                                 <i  class="material-icons" >close</i>
                               </button>
-                              </form>
+                           
                               </div>
                               </div>
                               </td>
                    
 
                         </tr>
+
+  
                         <div class="modal modal-danger fade " id="delete" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -103,25 +92,29 @@
         </button>
       </div>
       
-     
-       
+        <form  action="/user/{{$user->id}}"  method="POST">
+        @csrf
+        @method('delete')
         <div class="modal-body">
             <p>are you sure you wanna delete</p>
           <input type="hidden" name="users_id" id="user_id" value="">
         </div>
-        <form  action="/user/{{$user->id}}" method="POST">
-        @csrf
-                                      @method('delete')
-                                          
-                                           <button type="submit"  class="btn btn-warning">yes</button>
-         
-      </form>
-       
+          <div class="modal-footer">
+        <button type="button" class="btn btn-orange" data-dismiss="modal">No</button>
+        <button type="submit" class="btn btn-success">yes</button>
+      </div>
+          
+        </form>
       </div>
      
     </div>
   </div>
 </div>
+
+
+
+
+
 
                         @endforeach
                        

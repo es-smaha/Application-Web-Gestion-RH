@@ -72,8 +72,10 @@ class ServiceController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+ 
+    public function save(Request $request)
     {
+        $id=$request->input('service_id');
          $services=Service::find($id);
          $services->nom=$request->input('nom');
          $services->save();
@@ -86,10 +88,12 @@ class ServiceController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+   
+    public function supprimer(Request $request)
     {
+        $id=$request->input('service_id');
         $services=Service::find($id);
         $services->delete($id);
-        return redirect('service')->with('success','le service a ete bien supprime');
+        return redirect('service')->with('fail','le service a ete bien supprime');
     }
 }

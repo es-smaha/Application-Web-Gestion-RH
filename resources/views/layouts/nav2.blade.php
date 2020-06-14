@@ -245,7 +245,10 @@ section{
 	}	
 }
   
-  
+.btn.btn-secondary {
+    color: #333333;
+    background-color: white;
+}
   
   
   </style>

@@ -163,7 +163,6 @@ md = {
       $sidebar.append(sidebar_container);
     }
   },
-
   showNotification: function(from, align) {
     type = ['', 'info', 'primary'];
 
@@ -171,7 +170,43 @@ md = {
 
     $.notify({
       icon: "add_alert",
-      message: "l'utilisateure a ete modifier"
+      message: "La Modification étè effctuer"
+
+    }, {
+      type: type[color],
+      timer: 3000,
+      placement: {
+        from: from,
+        align: align
+      }
+    });
+  },
+  showNotificatio: function(from, align) {
+    type = ['', 'info', 'success'];
+
+    color = Math.floor((Math.random() * 6) + 1);
+
+    $.notify({
+      icon: "add_alert",
+      message: "L'ajout est effectuer"
+
+    }, {
+      type: type[color],
+      timer: 5000,
+      placement: {
+        from: from,
+        align: align
+      }
+    });
+  },
+  showNotification: function(from, align) {
+    type = ['', 'success', 'info'];
+
+    color = Math.floor((Math.random() * 6) + 1);
+
+    $.notify({
+      icon: "add_alert",
+      message: " Modification avec succée"
 
     }, {
       type: type[color],
@@ -189,11 +224,11 @@ md = {
 
     $.notify({
       icon: "add_alert",
-      message: "Suppression avec success"
+      message: "Suppression avec succée"
 
     }, {
       type: type[color],
-      timer: 3000,
+      timer: 5000,
       placement: {
         from: from,
         align: align

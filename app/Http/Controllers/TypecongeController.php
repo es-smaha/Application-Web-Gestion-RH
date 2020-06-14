@@ -74,9 +74,9 @@ class TypecongeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function editer(Request $request)
     {
-        
+        $id=$request->input('typeconges_id');
         $typeconges=Typeconge::find($id);
         $typeconges->nom=$request->input('nom');
         $typeconges->save();
@@ -90,11 +90,13 @@ class TypecongeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+   
+    public function delete(Request $request)
     {
+        $id=$request->input('typeconges_id');
         $typeconges=Typeconge::find($id);
         $typeconges->delete($id);
-        return redirect('typecon')->with('alert', 'Updated!');
+        return redirect('typecon')->with('fail', 'le type conge a ete bien supprimer');
     
     }
 }

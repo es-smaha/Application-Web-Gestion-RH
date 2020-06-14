@@ -157,7 +157,7 @@
                           <div class="form-check form-check-radio">
 
     <label class="form-check-label">
-        <input class="form-check-input" type="radio" name="admin" id="exampleRadios1" value="2" >
+        <input class="form-check-input" type="radio" name="admin" id="exampleRadios1" value="2"  required>
          Responsable Rh
         <span class="circle">
             <span class="check"></span>
@@ -166,7 +166,7 @@
 </div>
 <div class="form-check form-check-radio">
     <label class="form-check-label">
-        <input class="form-check-input" type="radio" name="admin" id="exampleRadios2" value="1" >
+        <input class="form-check-input" type="radio" name="admin" id="exampleRadios2" value="1"  required>
        chef Hierarchique
         <span class="circle">
             <span class="check"></span>
@@ -176,7 +176,7 @@
 
 <div class="form-check form-check-radio disabled">
     <label class="form-check-label">
-        <input class="form-check-input" type="radio" name="admin" id="exampleRadios1" value="3" >
+        <input class="form-check-input" type="radio" name="admin" id="exampleRadios1" value="3"  required>
        responsable de paie
         <span class="circle">
             <span class="check"></span>
@@ -186,7 +186,7 @@
 
 <div class="form-check form-check-radio disabled">
     <label class="form-check-label">
-        <input class="form-check-input" type="radio" name="admin" id="exampleRadios1" value="0">
+        <input class="form-check-input" type="radio" name="admin" id="exampleRadios1" value="0" required>
         Collaborateur
         <span class="circle">
             <span class="check"></span>

@@ -36,6 +36,10 @@ The above copyright notice and this permission notice shall be included in all c
   <link href="../assets/demo/demo.css" rel="stylesheet" />
    
   <style>
+  .btn.btn-secondary {
+    color: #333333;
+    background-color: white;
+}
   body{
   background:#eeeeee;
 }

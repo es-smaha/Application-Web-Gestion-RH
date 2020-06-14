@@ -1,1 +1,0 @@
-daaayn d ymak google jajajajajajja

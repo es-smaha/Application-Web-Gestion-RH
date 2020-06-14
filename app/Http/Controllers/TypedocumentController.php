@@ -96,14 +96,33 @@ class TypedocumentController extends Controller
     
     }
 
+    public function edite(Request $request)
+    {
+        $id=$request->input('typedocument_id');
+        $typedocuments=Typedocument::find($id);
+        $typedocuments->name=$request->input('name');
+        $typedocuments->max=$request->input('max');
+        $typedocuments->periode=$request->input('periode');
+        $d=$typedocuments->duree;
+        if(date("m", strtotime($d)) != date("m"))
+        {
+            $typedocuments->duree=Carbon::now();
+        }
+     
+        $typedocuments->save();
+        return redirect()->back()->with('success','le Type document a ete modifie');
+    
+    }
     /**
      * Remove the specified resource from storage.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+   
+    public function supp(Request $request)
     {
+        $id=$request->input('typedocument_id');
         $typedocuments=Typedocument::find($id);
         $typedocuments->delete($id);
         return redirect()->back();

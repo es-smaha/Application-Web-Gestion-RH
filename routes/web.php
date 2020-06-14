@@ -73,14 +73,23 @@ Route::group(['middleware'=>['auth','2']],function()
     Route::get('/create','UserController@create');
     Route::post('/save-agents','UserController@store');
     Route::get('/users/{id}','UserController@show');
-    Route::delete('/user/{id}','UserController@destroy');
+    Route::post('/users','UserController@destroy');
     Route::put('/edituser/{id}','UserController@update');
     Route::resource('/map','MapController');
     Route::get('/dashboard2', function () {
             return view('resprh.dashboard');});
+            //service
     Route::resource('service', 'ServiceController');
+    Route::post('/supprimer','ServiceController@supprimer');
+    Route::post('/savi','ServiceController@save');
+    // type conge
     Route::resource('typecon', 'TypecongeController');
+    Route::post('/delete','TypecongeController@delete');
+    Route::post('/editer','TypecongeController@editer');
+    //type doc
     Route::resource('typedoc', 'TypedocumentController');
+    Route::post('supp', 'TypedocumentController@supp');
+    Route::post('edite', 'TypedocumentController@edite');
     Route::get('/administation', function(){
             return view('resprh.rerh.admini');});
     Route::get('/changerh','auth\ChangePasswordController@indexrh');

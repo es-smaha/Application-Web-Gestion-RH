@@ -128,7 +128,8 @@ class UserController extends Controller
          return redirect('users/'.$user->id)->with('service',$service);
 
     }
-    public function destroy($id){
+    public function destroy(Request $request){
+      $id=$request->input('user_id');
         $user=User::findOrFail($id);
         $user->delete($id);
     

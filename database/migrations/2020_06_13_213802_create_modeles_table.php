@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePlanningsTable extends Migration
+class CreateModelesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreatePlanningsTable extends Migration
      */
     public function up()
     {
-        Schema::create('plannings', function (Blueprint $table) {
+        Schema::create('modeles', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('nom')->nullable();
             $table->string('prenom')->nullable();
@@ -26,8 +26,9 @@ class CreatePlanningsTable extends Migration
             $table->string('vendredi')->nullable();
             $table->string('samedi')->nullable();
             $table->string('dimanche')->nullable();
-            $table->timestamps();
+            $table->timestamps ();
         });
+          
     }
 
     /**
@@ -37,6 +38,6 @@ class CreatePlanningsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('plannings');
+        Schema::dropIfExists('modeles');
     }
 }

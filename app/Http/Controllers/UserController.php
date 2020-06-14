@@ -99,7 +99,8 @@ class UserController extends Controller
          $user->image=$fileNameToStore;
          $user->password=hash::make($request->input('cne'));
          $user->save();
-
+         $user->servicee=$user->service->nom;
+         $user->save();
         return redirect('users')->with('services',$services);
 
     }

@@ -21,7 +21,10 @@ Planning
 <table id="example" class="table">
 <thead>
 <tr>
-<th>Agent</th>
+<th>Nom </th>
+<th>Prenom</th>
+<th>Matricule</th>
+<th>Service</th>
 <th>lundi</th>
 <th>Mardi</th>
 <th>mercredi</th> <th>jeudi</th>
@@ -34,7 +37,10 @@ Planning
 <tbody>
 @forelse($data as $data)
 <tr>
-<td>{{$data->user}}</td>
+<td>{{$data->nom}}</td>
+<td>{{$data->prenom}}</td>
+<td>{{$data->matricule}}</td>
+<td>{{$data->service}}</td>
 <td>{{$data->lundi}}</td>
 <td>{{$data->mardi}}</td>
 <td>{{$data->mercredi}}</td>

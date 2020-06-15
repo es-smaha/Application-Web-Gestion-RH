@@ -8,20 +8,26 @@ planning
 <table id="example" class="table table-bordered ">
 <thead class="thead-dark">
 <tr>
-<th scope="col">Agent</th>
-<th scope="col">lundi</th>
-<th scope="col">Mardi</th>
-<th scope="col">mercredi</th>
-<th scope="col">jeudi</th>
-<th scope="col">vendredi</th>
-<th scope="col">Samedi</th>
-<th scope="col">Dimanche</th>
+<th>Nom </th>
+<th>Prenom</th>
+<th>Matricule</th>
+<th>Service</th>
+<th>lundi</th>
+<th>Mardi</th>
+<th>mercredi</th> <th>jeudi</th>
+<th>vendredi</th>
+
+<th>Samedi</th>
+<th>Dimanche</th>
 </tr>
 </thead>
 <tbody class="thead-light">
 @forelse($data as $data)
 <tr>
-<td>{{$data->user}}</td>
+<td>{{$data->nom}}</td>
+<td>{{$data->prenom}}</td>
+<td>{{$data->matricule}}</td>
+<td>{{$data->service}}</td>
 <td>{{$data->lundi}}</td>
 <td>{{$data->mardi}}</td>
 <td>{{$data->mercredi}}</td>
@@ -37,11 +43,7 @@ planning
 </table>
 @endsection
 @section('scripts')
-<script>
-$(document).ready(function() {
-    $('#example').DataTable();
-} )
-</script>
+
 
 
 

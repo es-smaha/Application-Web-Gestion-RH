@@ -202,7 +202,7 @@
                    
                  
                    
-                    <button type="submit" class="btn btn-success pull-right" onclick="md.showNotification('top','center')" >Update Profile</button>
+                    <button type="submit" class="btn btn-success pull-right" onclick="md.showNotification('top','center')" >Modifier Profile</button>
                    
                   </form>
                 </div>

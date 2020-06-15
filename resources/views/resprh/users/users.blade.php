@@ -54,9 +54,12 @@ perm_identity
                         <th>
                         Date Embauche
                         </th>
+                        <th>
+                     Service
+                        </th>
                       
                         <th>
-                      SuperViseur
+                      Superviseur
                         </th>
                       
                         <th>
@@ -75,6 +78,7 @@ perm_identity
                                          </div></td>
                             <td>{{$user->prenom}} {{$user->name}}</td>
                             <td>{{$user->dateembauche}}</td>
+                            <td>{{$user->servicee}}</td>
                            
                                <td>{{$user->kochef}}</td> 
                                 

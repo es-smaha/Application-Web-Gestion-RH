@@ -57,7 +57,7 @@ $('#delete').on('show.bs.model',function(event{
               <div class="card">
                 <div class="card-header card-header-success">
                 <div class="sectiontitle">
-    <h2 style="color:white; font-size:35px"> Collaborateurs du Service {{$servicename}} </h2>
+    <h2 style="color:white; font-size:35px"> Collaborateurs du  {{$servicename}} </h2>
     
 </div>
                

@@ -796,7 +796,7 @@ box-shadow: 5px 5px 30px 7px rgba(0,0,0,0.25), -5px -5px 30px 7px rgba(0,0,0,0.2
               </li>
               <li class="nav-item dropdown">
                 <a class="nav-link" href="javascript:;" id="navbarDropdownProfile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                {{ Auth::user()->name }} {{ Auth::user()->prenom}} <span class="caret"></span> <i class="material-icons">person</i>
+                {{ Auth::user()->name }} {{ Auth::user()->prenom}}  <span class="caret"></span> <i class="material-icons">person</i>
                   <p class="d-lg-none d-md-block">
                     Account
                   </p>

@@ -108,7 +108,7 @@ class UserController extends Controller
 
         $user=User::find($id);
         $service=Service::All();
-         $ser=$user->service->nom;
+        
         $user->name=$request->input('name');
         $user->prenom=$request->input('prenom');
         $user->kochef=$request->input('kochef');
@@ -123,6 +123,7 @@ class UserController extends Controller
         $user->solde=$request->input('solde');
           $user->email=$request->input('email');
           $user->usertype=$request->input('admin');
+          $ser=$user->service->nom;
          $user->servicee=$ser;
        
         $user->save();

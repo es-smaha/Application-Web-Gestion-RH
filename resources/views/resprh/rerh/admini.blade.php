@@ -10,7 +10,7 @@
 <div class="card-body">
               <div class="row">
                 <div class="col-md-10">
-                             <h3 ><i class="fa fa-user-md"></i> Configuration</h3>
+                             <h1  style="font-size:24px"><i class="fa fa-user-md"></i> Configuration</h1>
             </div>
                 </div>
 <div class="cards-listt">

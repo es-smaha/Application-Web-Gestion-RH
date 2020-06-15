@@ -16,6 +16,7 @@ Calendar
   </a>
    
   <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+  <a href="/cal" class="dropdown-item" >     tous </a>
   @foreach(App\Service::all() as $service)
   <option class="dropdown-item" id="calendar{{$service->id}}" value="{{$service->id}}">{{$service->nom}}</option>
       
@@ -23,7 +24,14 @@ Calendar
    
   </div>
   <br>
-  <div id="calendar"></div>
+  <div id="calendar">
+  <div class="psnel-bodt">
+
+                {!! $calendar->calendar() !!}
+                {!! $calendar->script() !!}
+                </div>
+         
+  </div>
 
 
 <!-- modifier un evenement -->

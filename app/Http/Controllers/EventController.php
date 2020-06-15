@@ -156,8 +156,97 @@ class EventController extends Controller
             
     public function cal()
     {
+        $e= new Event();
+        $e->title='.';
+        $e->color='white';
+        $e->start_date='2020-05-30 19:34:27';
+        $e->end_date='2020-05-31 19:34:27';
+        $e->save();
+      $events=Event::all();
+      //     $events->insert( [
+      //    "title"=>"et",
+      //     "color"=>"red",
+      //     "start_date"=>"",
+      //     "end_date"=>"", 
+      //     ] );
       
-        return view('resprh.calendare.calendar');  
+          
+         if(count($events)>0) {
+          foreach($events as $row){
+              $event=[];
+              $enddate=$row->end_date."24:00:00";
+              $event[]=\Calendar::event(
+                  $row->title,
+                  false,
+                  new \DateTime($row->start_date),
+                  new \DateTime($row->end_date),
+                  $row->id,
+                  [
+                      'color' => $row->color,
+                  ]
+                  );
+              }
+          }
+      $conges=Demandeconge::all();
+       
+      if(count($conges)>0) {
+      foreach($conges as $roww){
+          $conge=[];
+          if($roww->avis==0 && $roww->decision==false){
+              $enddate=$roww->datefin."24:00:00";
+              $event[]=\Calendar::event(
+                  $roww->user->name,
+                  true,
+                  new \DateTime($roww->datedebut),
+                  new \DateTime($roww->datefin),
+                  $roww->id,
+                  [
+                      'color' => 'red',
+                  ]
+                  );
+          }else if($roww->avis==1 && $roww->decision==false){
+            $enddate=$roww->datefin."24:00:00";
+            $event[]=\Calendar::event(
+                $roww->user->name,
+                true,
+                new \DateTime($roww->datedebut),
+                new \DateTime($roww->datefin),
+                $roww->id,
+                [
+                    'color' => 'yellow',
+                ]
+                );
+          }
+          else if($roww->avis==2 && $roww->decision==false){
+            $enddate=$roww->datefin."24:00:00";
+            $event[]=\Calendar::event(
+                $roww->user->name,
+                true,
+                new \DateTime($roww->datedebut),
+                new \DateTime($roww->datefin),
+                $roww->id,
+                [
+                    'color' => 'yellow',
+                ]
+                );
+          }else if($roww->avis==1 && $roww->decision==true){
+            $enddate=$roww->datefin."24:00:00";
+            $event[]=\Calendar::event(
+                $roww->user->name,
+                true,
+                new \DateTime($roww->datedebut),
+                new \DateTime($roww->datefin),
+                $roww->id,
+                [
+                    'color' => 'green',
+                ]
+                );
+          }
+         }
+         }
+          
+          $calendar=\Calendar::addEvents($event);
+        return view('resprh.calendare.calendar',compact('conges','event','calendar'));  
         
     }    
         

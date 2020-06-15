@@ -24,7 +24,7 @@ class DemandecongeController extends Controller
         $user_id=auth()->user()->id;
         $user=User::find($user_id);
         $type=Typeconge::All();
-         $conge=Demandeconge::All();
+        $conge=Demandeconge::orderBy('created_at','desc')->get();
           
        
         return view('agent.demandes.demandeConge', ['type'=>$type,'conge'=>$conge,'user'=>$user ]);

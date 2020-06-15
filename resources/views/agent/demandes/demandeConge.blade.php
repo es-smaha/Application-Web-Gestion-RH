@@ -85,7 +85,7 @@ Demande de conge
 <td>{{$conge->jour}}</td>
 <td>{{$conge->created_at}}</td>
 
-@if($conge->avis=='0' && $conge->decision==false  ||$conge->avis=='2' && $conge->decision==false)
+@if($conge->avis=='0' && $conge->decision==false  )
 <td> <span class="badge badge-warning">en attente</span> </td>
 <td>  <a type="button" style="color:green"  data-toggle="modal"  data-target="#edit" ><span class="material-icons">create</span></a></td>
 <td><a type="button" style="color:red" data-toggle="modal"  data-target="#delete" ><span class="material-icons">delete</span> </a></td>
@@ -176,11 +176,11 @@ Demande de conge
 <td>  <a style="color:green" href="/storage/cover_images/{{$conge->recu}}" download="{{$conge->recu}}"><span class="material-icons">get_app</span></a></td>
 
 
-@else
+@elseif($conge->avis=='2'  )
 <td><span class="badge badge-danger">Refusee</span> </td>
 <td>  <a  style="color:gray" disabled><span class="material-icons">create</span></a></td>
 <td><a  style="color:gray" disabled><span class="material-icons">delete</span> </a></td>
-<td><button type="button" class="btn btn-outline-danger btn-round " data-toggle="modal"  data-target="#motif" >Voir plus <span class="badge badge-light">1</span> </button></td>@endif
+<td><button type="button" class="btn btn-outline-danger btn-round " data-toggle="modal"  data-conge_id="{{$conge->id}}" data-motifs="{{$conge->motifs}}" data-target="#motif" >Voir plus <span class="badge badge-light">1</span> </button></td>@endif
 </tr>
 
 
@@ -193,40 +193,6 @@ Demande de conge
 
 <!-- Motif -->
 
-<div class="modal fade" id="motif" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">New message</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-   
-          <div class="form-group">
-            <label for="recipient-name" class="col-form-label">Votre Demande A ete refusee </label>
-          
-          </div>
-          <div class="form-group">
-            <label for="message-text" class="col-form-label">Justification</label>
-        
-         
-               <p>{{$conge->motifs}}</p>
-            
-
-              <p></p>
-          </div>
-        </form>
-      </div>
-
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-      
-      </div>
-    </div>
-  </div>
-</div>
 
 
 @endforeach
@@ -298,7 +264,47 @@ Demande de conge
 </div>
 
 
+
+<div class="modal fade" id="motif" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" >New message</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+   
+          <div class="form-group">
+            <label for="recipient-name" class="col-form-label">Votre Demande A ete refusee </label>
+          
+          </div>
+          <div class="form-group">
+            <label for="message-text" class="col-form-label">Justification</label>
+        <input type="text" name="motifs" id="motifs">
+        <input type="text" name="conge_id" id="conge_id"> 
+         
+               
+            
+
+              
+          </div>
+        </form>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      
+      </div>
+    </div>
+  </div>
+</div>
+
 @endsection
+
+
+
 @section('scripts')
 
 <script>
@@ -307,7 +313,19 @@ Demande de conge
 } );
   </script>
   
-  
+  <script>
+    $('motif').on('show.bs.modal',function(event){
+     var button =$(event.relatedTarget)
+    
+     var motifs= button.data('motifs')
+     var conge_id= button.data('conge_id')
+     var modal =$(this)
+     modal.find('.modal-title').text('Confirmation de suppresion');
+     modal.find('.modal-body #motifs').val(motifs);
+     modal.find('.modal-body #conge_id').val(conge_id);
+        })
+    
+    </script>
   
   
 

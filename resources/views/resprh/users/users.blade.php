@@ -437,7 +437,7 @@ perm_identity
   
   
   
-  </script>
+  </script> 
 
     <script>
     $('#delete').on('show.bs.modal',function(event){

@@ -102,11 +102,9 @@ comment
 </form>
 
 <td>
-<form action="/refuser/{{$conge->id}}" method="POST">
-@csrf
-@method('PUT')
-<button type="submit" class="btn btn-warning btn-round" data-toggle="modal"  data-target="#ajouter" ><span class="material-icons">cancel</span></button></td>
-</form>
+
+<button type="button" class="btn btn-warning btn-round" data-conge_id='{{$conge->id}}' data-toggle="modal"  data-target="#refu" ><span class="material-icons">cancel</span></button></td>
+
 </td>
 
 
@@ -124,6 +122,46 @@ comment
 </div>
 </div>
 </div>
+
+
+
+
+
+
+
+<div class="modal modal-danger fade " id="refu" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Ajouter un Motif de refus</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+  
+      <form action="/refuser" method="POST">
+@csrf
+
+    
+        <div class="modal-body">
+            <p>Ercivez Une justification de refus </p>
+              <input type="hidden" name="conge_id" id="conge_id">
+          
+            <label for="message-text"   class="col-form-label">justification</label>
+            <textarea   name="justification" class="form-control" id="message-text"></textarea>
+          
+        </div>
+          <div class="modal-footer">
+        <button type="button" class="btn btn-success" data-dismiss="modal">No</button>
+        <button type="submit"  onclick="md.showNotificationn('top','right')" class="btn btn-warning">yes</button>
+      </div>
+          
+        </form>
+      </div>
+     
+    </div>
+  </div>
+</div>
 @endsection
 
 @section('scripts')
@@ -132,4 +170,26 @@ comment
     $('#example').DataTable();
 } );
   </script>
+
+
+
+<script>
+    $('#refu').on('show.bs.modal',function(event){
+     var button =$(event.relatedTarget)
+
+     var conge_id= button.data('conge_id')
+
+     var modal =$(this)
+     modal.find('.modal-title').text('Confirmation de suppresion');
+ 
+     modal.find('.modal-body #conge_id').val(conge_id);
+
+
+
+
+    })
+    
+    
+    
+    </script>
 @endsection

@@ -34,7 +34,7 @@ Route::group(['middleware'=>['auth','1']],function()
     Route::get('/conge-accepter','TraitedemandeController@accepter');
     Route::get('/conge-refuser','TraitedemandeController@refuser');
     Route::put('/confirmer/{id}/edit','TraitedemandeController@valider');
-    Route::put('/refuser/{id}','TraitedemandeController@refuuseer');
+    Route::post('/refuser','TraitedemandeController@refuuseer');
     Route::delete('/delete/{id}','TraitedemandeController@destroy');
     Route::post('/motifs','TraitedemandeController@store');
     Route::post('/pdfinsert','TraitedemandeController@pdf');

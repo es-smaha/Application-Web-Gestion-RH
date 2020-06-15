@@ -17,19 +17,20 @@ class TraitedemandeController extends Controller
    public function index(){
     $type=Typeconge::All();
    
-    $conge=Demandeconge::All()->where('avis','=',0);
+    $conge=Demandeconge::where('avis','=',0)->orderBy('created_at','desc')->get();
+   
    
     return view('chefh.demande', ['type'=>$type,'conge'=>$conge,]);
    }
    public function accepter(){
       $type=Typeconge::All();
-      $conge=Demandeconge::All()->where('avis',"=", 1);
+      $conge=Demandeconge::where('avis',"=", 1)->orderBy('created_at','desc')->get();
   
       return view('chefh.archiveaccepeter', ['type'=>$type,'conge'=>$conge, ]);
      }
    public function refuser(){
       $type=Typeconge::All();
-      $conge=Demandeconge::All()->where('avis','=',2);
+      $conge=Demandeconge::where('avis','=',2)->orderBy('created_at','desc')->get();
        $user=User::All();
       return view('chefh.archiverefuse', ['type'=>$type,'conge'=>$conge,'user'=>$user ]);
      }
@@ -53,10 +54,14 @@ class TraitedemandeController extends Controller
          Notification::send( $user1, new Validerconge(Auth()->user()));
       return redirect('conge-accepter');
    }
-   public function refuuseer($id){
+   public function refuuseer(Request $request){
+      $id=$request->conge_id;
       $conge=Demandeconge::find($id);
-    
+  
+      
       if( $conge->avis==0){
+         $conge->motif=1;
+         $conge->motifs=$request->input('justification');
          $conge->avis=2;
          $conge->save();
       }

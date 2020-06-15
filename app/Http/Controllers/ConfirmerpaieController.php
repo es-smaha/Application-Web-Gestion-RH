@@ -153,7 +153,7 @@ class ConfirmerpaieController extends Controller
       if(count($conges)>0) {
       foreach($conges as $roww){
           $conge=[];
-          if($roww->avis==1 && $roww->decision==true){
+          if($roww->avis==0 && $roww->decision==false){
               $enddate=$roww->datefin."24:00:00";
               $event[]=\Calendar::event(
                   $roww->user->name,
@@ -162,7 +162,7 @@ class ConfirmerpaieController extends Controller
                   new \DateTime($roww->datefin),
                   $roww->id,
                   [
-                      'color' => 'blue',
+                      'color' => 'red',
                   ]
                   );
           }else if($roww->avis==1 && $roww->decision==false){
@@ -175,6 +175,31 @@ class ConfirmerpaieController extends Controller
                 $roww->id,
                 [
                     'color' => 'yellow',
+                ]
+                );
+          }
+          else if($roww->avis==2 && $roww->decision==false){
+            $enddate=$roww->datefin."24:00:00";
+            $event[]=\Calendar::event(
+                $roww->user->name,
+                true,
+                new \DateTime($roww->datedebut),
+                new \DateTime($roww->datefin),
+                $roww->id,
+                [
+                    'color' => 'yellow',
+                ]
+                );
+          }else if($roww->avis==1 && $roww->decision==true){
+            $enddate=$roww->datefin."24:00:00";
+            $event[]=\Calendar::event(
+                $roww->user->name,
+                true,
+                new \DateTime($roww->datedebut),
+                new \DateTime($roww->datefin),
+                $roww->id,
+                [
+                    'color' => 'green',
                 ]
                 );
           }

@@ -595,13 +595,7 @@ footer p strong {
           <nav class="float-left">
            
           </nav>
-          <div class="copyright float-right">
-            &copy;
-            <script>
-              document.write(new Date().getFullYear())
-            </script>, Portail Web<i class="material-icons">favorite</i> by
-            <a href="https://www.creative-tim.com" target="_blank">Kohler JacobdelaFon</a> 
-          </div>
+         
         </div>
       </footer>
     </div>

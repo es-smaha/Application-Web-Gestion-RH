@@ -23,7 +23,79 @@
   </div>
 
 
-  <div id="service"></div>
+  <div id="service"><div class="row">
+            <div class="col-md-12">
+              <div class="card">
+                <div class="card-header card-header-success">
+                <div class="sectiontitle">
+    <h2 style="color:white; font-size:35px">La liste des Collaborateurs</h2>
+    
+</div>
+               
+                </div>
+                <div class="card-body">
+                  <div class="table-responsive">
+                    <table id="example" class="table">
+                      <thead class=" text-primary">
+                            <th>Matricule</th>
+                              <th>Image</th>
+                        <th>
+                       Nom complet
+                        </th>
+                     
+                        <th>
+                        Date Embauche
+                        </th>
+                        <th>
+                     Service
+                        </th>
+                      
+                        <th>
+                      Superviseur
+                        </th>
+                      
+                        <th>
+                      
+                       Action
+                        </th>
+                      </thead>
+                      <tbody>
+                      @foreach($user as $user)
+                        <tr>
+                        <td>{{$user->ko}}</td>
+                              <td> <div class="author">
+                             <a href="#pablo">
+                                <img src="/storage/cover_images/{{$user->image}}" alt="..." class="avatar img-raised">
+                                                         </a>
+                                         </div></td>
+                            <td>{{$user->prenom}} {{$user->name}}</td>
+                            <td>{{$user->dateembauche}}</td>
+                            <td>{{$user->servicee}}</td>
+                           
+                               <td>{{$user->kochef}}</td> 
+                                
+                                <td>  <div class="row">
+                                  <div class="text-right">
+                                    <a href="/liste-agent/{{$user->id}}" class="btn btn-success btn-sm" >
+                                <span class="material-icons">  remove_red_eye</span>   </a>
+                             
+                                   <!-- <button data-ko="{{$user->ko}}" data-name="{{$user->name}}" data-user_id="{{$user->id}}" type="button" rel="tooltip"  data-target="#delete" data-toggle="modal"  title="Remove" class="btn btn-info  btn-sm"> -->
+                                <!-- <i  class="material-icons" >close</i> -->
+                              <!-- </button> -->
+                                
+                              </div>
+                              </div>
+                              </td>
+                   
+
+                        </tr>
+
+    </div>    
+  
+
+
+    @endforeach
+    </div>
   
 <!-- supprimer agents -->
 

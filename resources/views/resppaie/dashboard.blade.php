@@ -168,9 +168,9 @@ $('#number1').jQuerySimpleCounter({end: {{App\Service::count()}},duration: 3000}
 $('#number2').jQuerySimpleCounter({end: {{App\User::count()}} ,duration: 3000});
 $('#number3').jQuerySimpleCounter({end: {{App\Typedocument::count()}},duration: 2000});
 $('#number4').jQuerySimpleCounter({end: {{App\Typeconge::count()}},duration: 2500});
-$('#number5').jQuerySimpleCounter({end: {{App\Demandedocument::count()}},duration: 3000});
-$('#number6').jQuerySimpleCounter({end: {{App\Demandedocument::where('etat','=','1')->count()}} ,duration: 3000});
-$('#number7').jQuerySimpleCounter({end: {{App\Demandedocument::where('etat','=','0')->count()}},duration: 2000});
+$('#number5').jQuerySimpleCounter({end: {{App\Demandeconge::count()}},duration: 3000});
+$('#number6').jQuerySimpleCounter({end: {{App\Demandeconge::where('decision','=','1')->count()}} ,duration: 3000});
+$('#number7').jQuerySimpleCounter({end: {{App\Demandeconge::where('decision','=','1')->count()}},duration: 2000});
 $('#number8').jQuerySimpleCounter({end: {{App\Reclamation::count()}},duration: 2500});
 
 

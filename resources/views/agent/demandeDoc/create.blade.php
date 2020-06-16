@@ -143,7 +143,7 @@ demande de document
                   
                   
 
-                  <button type="submit" class="btn btn-dark" onclick="md.showNotification('top','center')">Effectuer</button>
+                  <button type="submit" class="btn btn-dark" onclick="md.showNotification('top','center')">Ajouter</button>
                   </form>
 
                 </div>
@@ -223,7 +223,7 @@ demande de document
 </div>
   @endforeach
   @else
-    <p>non valide</p>
+    <td>aucune demande</td>
   @endif
 
 </tbody>

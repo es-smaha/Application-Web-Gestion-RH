@@ -418,14 +418,14 @@ footer p strong {
           <li class="{{'liste-agent'==request()->path()?'active':''}} ">
             <a class="nav-link" href="/liste-agent">
               <i class="material-icons">person</i>
-              <p>Liste de collaborateurs </p>
+              <p>Liste des collaborateurs </p>
             </a>
           </li>
           
           <li class="{{'confin'==request()->path()?'active':''}} ">
             <a class="nav-link" href="/confin">
               <i class="material-icons">exit_to_app</i>
-              <p>Demandes de conges</p>
+              <p>Demandes de congé</p>
             </a>
           </li>
 
@@ -433,7 +433,7 @@ footer p strong {
           <li class="{{'decision-accepter'==request()->path()?'active':''}} " class="nav-item ">
             <a class="nav-link" href="/decision-accepter">
               <i class="material-icons">library_books</i>
-              <p>demandes conge pret </p>
+              <p>demandes congé pret </p>
             </a>
           </li>
           <li class="{{'planning'==request()->path()?'active':''}} " class="nav-item ">

@@ -16,19 +16,19 @@ class RhdocumentController extends Controller
 {
     public function index(){
 
-        $demandedocument=Demandedocument::all();
         
-        $demandedocuments=$demandedocument->where('etat',false);
         
-        return view('resprh.document.index', ['demandedocuments'=> $demandedocuments,'demandedocument'=> $demandedocument]);
+        $demandedocuments=Demandedocument::where('etat',false)->orderBy('created_at','desc')->get();
+        
+        return view('resprh.document.index', ['demandedocuments'=> $demandedocuments]);
     }
     public function pret(){
 
-        $demandedocument=Demandedocument::all();
+       
         
-        $demandedocuments=$demandedocument->where('etat',true);
+        $demandedocuments=Demandedocument::where('etat',true)->orderBy('created_at','desc')->get();
         
-        return view('resprh.document.documentpret', ['demandedocuments'=> $demandedocuments,'demandedocument'=> $demandedocument]);
+        return view('resprh.document.documentpret', ['demandedocuments'=> $demandedocuments]);
     }
    
     public function valider($id)

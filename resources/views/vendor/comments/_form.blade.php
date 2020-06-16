@@ -22,14 +22,14 @@
           
 
             <div class="form-group">
-                <label for="message"><span class="material-icons">reply</span>Repondre ...</label>
+                <label for="message"><span class="material-icons">reply</span>Repondre ....</label>
                 <textarea   class="form-control @if($errors->has('message')) is-invalid @endif" name="message" rows="3"></textarea>
                 <div class="invalid-feedback">
                     Your message is required.
                 </div>
                 
             </div>
-            <button type="submit" class="btn btn-sm btn btn-warning text-uppercase">reply</button>
+            <button type="submit" class="btn btn-sm btn btn-warning text-uppercase">laisser un commentaire</button>
         </form>
     </div>
 </div>

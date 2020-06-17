@@ -65,7 +65,7 @@ Dashboard
                   <div class="card-icon">
                     <i class="material-icons">account_circle</i>
                   </div>
-                  <p class="card-category">Visiter Profil</p>
+                  <p class="card-category">Apérçu du Profil</p>
                   
                 </div>
                 <div class="card-footer">
@@ -82,7 +82,7 @@ Dashboard
                   <div class="card-icon">
                   <i class="fa fa-calendar"></i>
                   </div>
-                  <p class="card-category">Visiter Calendrier</p>
+                  <p class="card-category">Apérçu du Calendrier</p>
                  </div>
                 <div class="card-footer">
                   <div class="stats">
@@ -99,7 +99,7 @@ Dashboard
                   <div class="card-icon">
                   <i class="fa fa-table"></i>
                   </div>
-                  <p class="card-category">Visiter Le Planning de Travail</p>
+                  <p class="card-category">Apérçu  du Planning de travail</p>
                  
                 </div>
                 <div class="card-footer">

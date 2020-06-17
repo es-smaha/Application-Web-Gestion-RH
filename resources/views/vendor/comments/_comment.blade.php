@@ -11,7 +11,7 @@
         </div>
     <div class="media-body">
         <div> 
-        <h5 class="mt-0 mb-1">{{ $comment->commenter->name ?? $comment->guest_name }} <small class="text-muted">- {{ $comment->created_at->diffForHumans() }}</small></h5>
+        <h1 class="mt-0 mb-1">{{ $comment->commenter->name ?? $comment->guest_name }} <small class="text-muted">- {{ $comment->created_at->diffForHumans() }}</small></h1>
         <div style="white-space: pre-wrap;">{!! $markdown->line($comment->comment) !!}</div>
 
         
@@ -46,13 +46,13 @@
                             </div>
                             <div class="modal-body">
                                 <div class="form-group">
-                                    <label for="message">Update your message here:</label>
+                                    <label for="message">Modifier votre commentaire</label>
                                     <textarea required class="form-control" name="message" rows="3">{{ $comment->comment }}</textarea>
                                 </div>
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-sm btn-outline-secondary text-uppercase" data-dismiss="modal">Cancel</button>
-                                <button type="submit" class="btn btn-sm btn-outline-success text-uppercase">Update</button>
+                                <button type="button" class="btn btn-sm btn-outline-secondary text-uppercase" data-dismiss="modal">Annuler</button>
+                                <button type="submit" class="btn btn-sm btn-outline-success text-uppercase">Modifier</button>
                             </div>
                         </form>
                     </div>

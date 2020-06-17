@@ -103,7 +103,7 @@ reclamation
       <span>{{$rec->user->name}} {{$rec->user->prenom}}</span>
   </div>
   <div class="form-group">
-    <label for="nom">Matricule_____ :</label>
+    <label for="nom">Matricule:</label>
       <span>{{$rec->user->ko}} </span>
       </div>
       <div class="form-group">
@@ -111,8 +111,8 @@ reclamation
       <span>{{$rec->user->kochef}}</span>
       </div>
       <div class="form-group">
-    <label for="nom">Service__: </label>
-      <span>{{$rec->user->service_id}}</span>
+    <label for="nom">Service: </label>
+      <span>{{$rec->user->servicee}}</span>
       </div>
       <div class="form-group">
     <label for="nom">poste Occupee: </label>
@@ -129,16 +129,16 @@ reclamation
       </div>
 
       <div class="form-group">
-    <label for="nom">email____ :</label>
+    <label for="nom">email:</label>
       <span>{{$rec->user->email}}</span>
       </div>
       <div class="form-group">
-    <label for="nom">SEXE :</label>
-      <span class="badge badge-success">{{$rec->user->solde}}</span>
+    <label for="nom">Sexe:</label>
+      <span class="badge badge-success">{{$rec->user->sexe}}</span>
       </div>
       <div class="form-group">
     <label for="nom">Situation familiale :</label>
-      <span class="badge badge-success">{{Auth()->user()->jour}}</span>
+      <span class="badge badge-success">{{Auth()->user()->situation}}</span>
       </div>
       <div class="form-group">
     <label for="nom">date Embauche :</label>

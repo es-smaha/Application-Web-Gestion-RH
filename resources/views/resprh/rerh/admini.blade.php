@@ -280,7 +280,7 @@
                       <th>ID</th>
                       <th>Name</th>
                       <th>Nombre maximale   <br> par Periode</th>
-                        <th>Periode( Year/Month)</th>
+                        <th>Periode( Année/mois)</th>
            
                     </thead>
                     <tbody>

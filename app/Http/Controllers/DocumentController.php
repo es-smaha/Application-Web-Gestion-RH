@@ -25,7 +25,7 @@ class DocumentController extends Controller
         $typedoc=Typedocument::All();
         $user_id=auth()->user()->id;
         $user=User::find($user_id);
-        $demandedocuments=Demandedocument::All();
+        $demandedocuments=Demandedocument::orderBy('created_at','desc')->get();
         return view('agent.demandeDoc.create', ['typedoc'=>$typedoc, 'demandedocuments'=> $demandedocuments]);
     }
 
@@ -62,7 +62,7 @@ class DocumentController extends Controller
         // select demande doc where id user . typde doc . and createdAT in type doc month ola year 
        
         $date = carbon::now() ;
-             if($typedoc->periode=='ans'&& date("y", strtotime($date)) == date("y", strtotime($periode))){
+             if($typedoc->periode=='An'&& date("y", strtotime($date)) == date("y", strtotime($periode))){
                 $demandes = Demandedocument::where(["user_id"=>$user, "typedocument_id"=>$typeDocId])->count();
                 if($demandes < $max  ){
 

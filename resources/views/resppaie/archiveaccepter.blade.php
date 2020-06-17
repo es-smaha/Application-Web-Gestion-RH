@@ -42,7 +42,7 @@
 <div class="card card-plain">
 <div class="card-header card-header-primary">
 <h4 class="card-title mt-0"> Les demandes non-traite</h4>
-<p class="card-category"> Here is a subtitle for this table</p>
+<p class="card-category"> </p>
 </div>
 <div class="card-body">
 <div class="table-responsive">

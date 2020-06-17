@@ -36,10 +36,6 @@ The above copyright notice and this permission notice shall be included in all c
   <link href="../assets/demo/demo.css" rel="stylesheet" />
    
   <style>
-  .btn.btn-secondary {
-    color: #333333;
-    background-color: white;
-}
   body{
   background:#eeeeee;
 }
@@ -660,7 +656,7 @@ box-shadow: 5px 5px 30px 7px rgba(0,0,0,0.25), -5px -5px 30px 7px rgba(0,0,0,0.2
 
 <body class="sidebar-mini">
   <div class="wrapper">
-    <div class="sidebar" data-color="green" data-background-color="black" data-image="../assets/img/sidebar-5.jpg">
+    <div class="sidebar" data-color="green" data-background-color="black" data-image="../assets/img/sidebar-3.jpg">
       <!--
         Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
 
@@ -671,48 +667,39 @@ box-shadow: 5px 5px 30px 7px rgba(0,0,0,0.25), -5px -5px 30px 7px rgba(0,0,0,0.2
         </a></div>
       <div class="sidebar-wrapper">
         <ul class="nav">
-          <li class="{{'home'==request()->path()?'active':''}}" class="nav-item ">
+        <li class="{{'home'==request()->path()?'active':''}}">
             <a class="nav-link" href="/home">
               <i class="material-icons">dashboard</i>
-              <p>Dashboard</p>
-              
+              <p>Acceuil</p>
             </a>
           </li>
-          <li class="{{'conge' == request()->path() ? 'active' : ''}}"  class="nav-item ">
-            <a class="nav-link" href="/conge">
-              <i class="material-icons">exit_to_app</i>
-                          <p>Demande Congee  <p>  
-                       </a>
-          </li>
-          <li class="{{'doc'== request()->path() ? 'active' : ''}} " class="nav-item ">
-          <a class="nav-link" href="/doc">
-              <i class="material-icons">description</i>
-                             <p>Demande Document <p> 
-              
-            </a>
-          </li>
-   
-         
-          <li class="{{'profil' == request()->path() ? 'active' : ''}}" class="nav-item ">
+          <li class="{{'profil'==request()->path()?'active':''}} " class="nav-item ">
             <a class="nav-link" href="/profil">
-              <i class="material-icons">account_circle</i>
-              <p>Profil </p>
+            <i class="material-icons">account_circle</i>
+              <p>Profil</p>
             </a>
           </li>
-          <li class="{{'planningR' == request()->path() ? 'active' : ''}}"  class="nav-item ">
+          <li class="{{'conge'==request()->path()?'active':''}}">
+            <a class="nav-link" href="/conge">
+            <i class="material-icons">exit_to_app</i>
+              <p>demande de Congé</p>
+            </a>
+          </li>
+          <li class="{{'doc'==request()->path()?'active':''}} ">
+            <a class="nav-link" href="/doc">
+            <i class="material-icons">description</i>
+              <p>Demande Documents </p>
+            </a>
+          </li>
+
+         
+          <li class="{{'planningR'==request()->path()?'active':''}} " class="nav-item ">
             <a class="nav-link" href="/planningR">
             <i class="fa fa-table"></i>
-              <p>Planning de travail</p>
+              <p> Planning</p>
             </a>
           </li>
-          
-          <li class="{{'Map-usine'==request()->path()?'active':''}} " >
-            <a class="nav-link"  href="/Map-usine">
-              <i class="material-icons">content_paste</i>
-              <p>Map usine</p>
-            </a>
-          </li>
-          <li class="{{'planning' == request()->path() ? 'active' : ''}}"  class="nav-item ">
+          <li class="{{'calendar-employee' == request()->path() ? 'active' : ''}}"  class="nav-item ">
             <a class="nav-link" href="/calendar-employee">
             <i class="fa fa-calendar"></i>
               <p>Mon calendrier</p>
@@ -720,7 +707,14 @@ box-shadow: 5px 5px 30px 7px rgba(0,0,0,0.25), -5px -5px 30px 7px rgba(0,0,0,0.2
           </li>
           <li class="{{'reclamation' == request()->path() ? 'active' : ''}}" class="nav-item ">
             <a class="nav-link" href="/reclamation">
-            <i class="fa fa-exclamation-circle"></i>              <p>Reclamation</p>
+            <i class="fa fa-exclamation-circle"></i> <p>Reclamation</p>
+            </a>
+          </li>
+
+          <li class="{{'Map-usine'==request()->path()?'active':''}} " class="nav-item ">
+            <a class="nav-link" href="/Map-usine">
+            <i class="fa fa-map-marker" ></i>
+              <p> Map d'usine</p>
             </a>
           </li>
 

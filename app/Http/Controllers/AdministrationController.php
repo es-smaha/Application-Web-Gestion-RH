@@ -65,7 +65,7 @@ class AdministrationController extends Controller
          return redirect('Myprophil');
     }
   public function reclamation(){
-    $rec=Reclamation::orderBy('created_at','asc')->paginate(4);
+    $rec=Reclamation::orderBy('created_at','desc')->paginate(2);
     $pages = $rec->links();
     $user=User::All();
     return view("resprh.reclamation",['rec'=>$rec,'user'=>$user,'pages'=>$pages]);

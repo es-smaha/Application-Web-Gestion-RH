@@ -9,7 +9,7 @@ Planning
 <div class="card-body">
 <div class="row">
 <div class="col-12">
-<a href="/export" class="btn btn-success">Exporter XLSX</a>
+<a href="/export" class="btn btn-success">Téléchager modèle XLSX</a>
 
 <form action="/import" method="POST" enctype="multipart/form-data">
 @csrf

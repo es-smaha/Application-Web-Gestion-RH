@@ -13,6 +13,7 @@ Ajouter absences
     <h2>Service {{$service}} </h2>
     <span class="headerLine"></span>
 </div>
+
 <a href="/absence" class="btn btn-success"><span class="material-icons">person</span>Liste D'absence</a>
 <div class="container-fluid">
 

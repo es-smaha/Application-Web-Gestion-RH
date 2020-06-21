@@ -20,16 +20,81 @@ Calendar
   @foreach(App\Service::all() as $service)
   <option class="dropdown-item" id="calendar{{$service->id}}" value="{{$service->id}}">{{$service->nom}}</option>
       
-      @endforeach
+      @endforeach 
    
   </div>
   <br>
   <div id="calendar">
-  <div class="psnel-bodt">
 
+  <div class="container">
+<div class="jumbotron">
+<h1 class="text-center">Calendrier Congée Par Service</h1>
+<div class="row">
+<!-- <a type="button" class="btn btn-warning" data-toggle="modal"  data-target="#exampleModal" >Ajouter un evenement</a>  -->
+<a type="button" class="btn btn-warning" data-toggle="modal"  data-target="#mod" > Consulter les Congées</a>
+<!-- <a type="button" class="btn btn-warning" href="/deleteevent" > Consulter les conges</a> -->
+</div>
+
+<br> <br>
+
+
+
+    
+    @if(count($errors)>0)
+    <div class="alert alert-danger">
+    <ul>
+    @foreach($errors->all() as $error)
+    <li>{{ $error}}</li>
+    @endforeach
+    </ul>
+    </div>
+    @endif
+  
+      
+        <div class="row">
+        <div class="col-md-12 col-md-offset-4">
+     
+    <div class="card-header card-header-primary">
+        <!-- colors: "header-primary", "header-info", "header-success", "header-warning", "header-danger" -->
+        <div class="nav-tabs-navigation">
+            <div class="nav-tabs-wrapper">
+            <div class="row">
+              <div class="col-2">
+              <p>Congé Refusé</p>
+            <div class="progress">
+              
+            <div class="progress-bar bg-danger" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+</div>
+  </div>
+  <div class="col-2">
+              <p>Congé En attente </p>
+            <div class="progress">
+              
+            <div class="progress-bar bg-warning" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+</div>
+  </div>
+    <div class="col-2">
+    <p>Congé Accepté</p>
+<div class="progress">
+<div class="progress-bar bg-success" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+</div>
+</div>
+</div>
+</div>
+            </div>
+        </div>
+            </div>
+                </div>
+              
+                <div class="psnel-bodt">
                 {!! $calendar->calendar() !!}
                 {!! $calendar->script() !!}
                 </div>
+         
+            </div>
+        </div>
+        </div>
+    </div>
          
   </div>
 

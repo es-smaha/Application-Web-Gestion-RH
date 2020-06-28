@@ -38,7 +38,14 @@ Mon Profil
                         <div class="form-group">
                         
                           <label style="font-size:15px" class="bmd-label-floating">Sexe</label>
-                    <br>  <input type="text"  name="sexe" class="form-control" id="recipient-name" value="{{Auth()->user()->sexe}}">
+
+                          @if(Auth()->user()->sexe=='0') 
+                    
+                    <input type="hidden"  name="sexe" class="form-control" id="recipient-name" value="0">femme
+                    @else
+                    <input type="hidden"  name="sexe" class="form-control" id="recipient-name" value="1">Homme
+                    @endif
+                    <br>  
                         </div>
                       </div>
 

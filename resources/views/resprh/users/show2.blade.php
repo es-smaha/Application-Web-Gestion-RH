@@ -35,7 +35,14 @@
                         <div class="form-group">
                         
                           <label style="font-size:15px" class="bmd-label-floating">Sexe</label>
-                    <br>  <input type="text"  name="sexe" class="form-control" id="recipient-name" value="{{$user->sexe}}">
+                          
+                    <br> 
+                    @if($user->sexe=='0') 
+                    
+                    <input type="hidden"  name="sexe" class="form-control" id="recipient-name" value="0">femme
+                    @else
+                    <input type="hidden"  name="sexe" class="form-control" id="recipient-name" value="1">Homme
+                    @endif
                         </div>
                       </div>
 
@@ -48,7 +55,7 @@
                       </div>
                       <div class="col-md-5">
                         <div class="form-group">
-                          <label  style="font-size:15px" class="bmd-label-floating">CNSS</label>
+                          <label  style="font-size:15px" class="bmd-label-floating">CNE</label>
                     <br>
                           <input type="text"  name="cne" class="form-control" id="recipient-name" value="{{$user->cne}}">
                         </div>

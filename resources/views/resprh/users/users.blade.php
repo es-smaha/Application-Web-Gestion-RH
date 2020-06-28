@@ -151,17 +151,6 @@ perm_identity
 
 
 
-       
-
-
-
-
-
-
-
-
-
-
 
 
 <!-- Ajouter Agent -->
@@ -212,8 +201,8 @@ perm_identity
             <label for="recipient-name" class="col-form-label">{{ __('sexe') }}</label>
             <br>
             <select name="sexe" id="sexe" class="form-control">
-                                     <option value="femme">femme</option>
-                                    <option value="homme">homme</option>
+                                     <option value="0">femme</option>
+                                    <option value="1">homme</option>
                                
                                 </select>
             @error('sexe')

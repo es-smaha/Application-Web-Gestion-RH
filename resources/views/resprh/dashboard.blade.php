@@ -10,6 +10,16 @@ dashboard
 <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal">
  Ajouter Map
 </button>
+  
+   <div class="row">
+<div class="col-6">
+    <canvas id="myChart"></canvas>
+    </div>
+    <div class="col-6">
+    <canvas id="Chart"></canvas>
+    </div>
+    </div>
+
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -49,7 +59,7 @@ dashboard
     <div class="fullWidth eight columns">
         <div class="projectFactsWrap ">
         <div class="item wow fadeInUpBig animated animated" data-number="55" style="visibility: visible;">
-        
+          
         <i class="material-icons">account_box</i>
           <br>
           <p>Total des collaborateurs</p>
@@ -149,13 +159,6 @@ dashboard
         </div>
     </div>
 
-
-
-
-
-
-
-
    
     <div class="fullWidth eight columns">
         <div class="projectFactsWrap ">
@@ -187,7 +190,7 @@ dashboard
         </div> 
     </div>
 </div>
-
+ 
 @endsection
 @section('scripts')
     <script>
@@ -241,4 +244,78 @@ $('#number8').jQuerySimpleCounter({end: {{App\Reclamation::count()}},duration: 2
 
 
   </script>
+    <script>
+    
+    var ctx = document.getElementById('Chart').getContext('2d');
+var chart = new Chart(ctx, {
+    // The type of chart we want to create
+    type: 'doughnut',
+
+    // The data for our dataset
+    data: {
+        labels: ['Femme', 'Homme'],
+        datasets: [{
+            label: 'My First dataset',
+            backgroundColor:[
+        '#F9C276',
+        '#B1CBF2',
+    
+    ],
+            borderColor: 'gray',
+            data: [{{App\User::where('sexe','=','0')->count()}} , {{App\User::where('sexe','=','1')->count()}}]
+        }]
+    },
+
+    // Configuration options go here
+    options: {}
+});
+    
+    
+    </script>
+    <script>
+    
+    var ctx = document.getElementById('myChart').getContext('2d');
+var myChart = new Chart(ctx, {
+    // The type of chart we want to create
+    type: 'bar',
+
+    // The data for our dataset
+    data: {
+        labels: ['IT', 'RH',' Commerciale',' Finance','Générale','Achats','production','maintenace',' qualité',' logistique'],
+        datasets: [{ 
+            label: 'Collaborateurs de chaque service',
+            backgroundColor:[
+        '#AACBD8',
+        '#F6DD80',
+        '#7EEFE0',
+        '#FBB330',
+        '#AAF537' ,
+        '#F5CCDE',
+        '#A2F6C3',
+        '#608957',
+        '#FAFD22',
+        '#8F9194',
+        
+    
+    ],
+    data: [
+      {{App\User::where('servicee','Service Informatique')->count()}} , {{App\User::where('servicee','=','Resources humaines')->count()}},
+            {{App\User::where('servicee','=','Direction Commerciale')->count()}},{{App\User::where('servicee','=','Direction Finance')->count()}},{{App\User::where('servicee','Direction Générale')->count()}},
+            {{App\User::where('servicee','=','Service Achats')->count()}},{{App\User::where('servicee','=','Service Production')->count()}},{{App\User::where('servicee','=','Service Maintenance')->count()}},
+            {{App\User::where('servicee','=','Service Qualité')->count()}},{{App\User::where('servicee','==','Service Logistique')->count()}}
+            ],
+            borderwidth:4,
+            borderColor: 'gray',
+            hoverBorderWidth:2,
+            hoverBorderColor:'#000',
+         
+        }]
+    },
+
+    // Configuration options go here
+    options: {}
+});
+    
+    
+    </script>
 @endsection

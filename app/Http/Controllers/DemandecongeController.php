@@ -161,7 +161,7 @@ class DemandecongeController extends Controller
         $conge->raison=$request->input('raison');
         $conge->user_id= auth()->user()->id;
         $conge->save();
-        return redirect('conge')->with('success','votre Demande a ete modifier');
+        return redirect('conge');
       }
 
       return redirect('conge')->with('fail','Vous avez depassee votre solde');

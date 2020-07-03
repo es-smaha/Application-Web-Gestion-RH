@@ -143,7 +143,7 @@ demande de document
                   
                   
 
-                  <button type="submit" class="btn btn-dark" onclick="md.showNotification('top','center')">Ajouter</button>
+                  <button type="submit" class="btn btn-dark" onclick="md.showNotificatio('top','center')">Ajouter</button>
                   </form>
 
                 </div>

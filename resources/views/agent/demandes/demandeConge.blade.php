@@ -158,7 +158,7 @@ Demande de conge
 <textarea   name="raison" class="form-control" id="message-text">{{$conge->raison}}</textarea>
 </div>
 <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
-<button type="submit" class="btn btn-success" onclick="md.showNotification('top','right')" >Ajouter</button>
+<button type="submit" class="btn btn-success" onclick="md.showNotification('top','right')" >modifier</button>
 @csrf
 </form>
 </div>
@@ -269,7 +269,7 @@ Demande de conge
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" >New message</h5>
+        <h5 class="modal-title" ></h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>

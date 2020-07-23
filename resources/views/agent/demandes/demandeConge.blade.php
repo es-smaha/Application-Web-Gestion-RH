@@ -282,10 +282,10 @@ Demande de conge
           </div>
           <div class="form-group">
             <label for="message-text" class="col-form-label">Justification</label>
-        <input type="text" name="motifs" id="motifs">
-        <input type="text" name="conge_id" id="conge_id"> 
+        <input type="hidden" name="motifs" id="motifs">
+        <input type="hidden" name="conge_id" id="conge_id"> 
          
-               
+                <p style="font-size:24px;color:black">{{$conge->motifs}}</p>
             
 
               

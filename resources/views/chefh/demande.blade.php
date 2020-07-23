@@ -153,7 +153,7 @@ comment
         </div>
           <div class="modal-footer">
         <button type="button" class="btn btn-success" data-dismiss="modal">No</button>
-        <button type="submit"  onclick="md.showNotificationn('top','right')" class="btn btn-warning">yes</button>
+        <button type="submit"  onclick="md.operation('top','right')" class="btn btn-warning">yes</button>
       </div>
           
         </form>

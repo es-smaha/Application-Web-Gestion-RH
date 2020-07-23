@@ -418,20 +418,20 @@ footer p strong {
           <li class="{{'demande-conge'==request()->path()?'active':''}} ">
             <a class="nav-link" href="/demande-conge">
               <i class="material-icons">exit_to_app</i>
-              <p>Demandes de Congé</p>
+              <p>Demandes de Congé </p>
             </a>
           </li>
 
           <li class="{{'conge-accepter'==request()->path()?'active':''}} " class="nav-item ">
             <a class="nav-link" href="/conge-accepter">
               <i class="material-icons">folder</i>
-              <p>Demandes de Congé prêtes</p>
+              <p>Archives prét</p>
             </a>
           </li>
           <li class="{{'conge-refuser'==request()->path()?'active':''}} " class="nav-item ">
             <a class="nav-link" href="/conge-refuser">
               <i class="material-icons">folder</i>
-              <p> demandes congé refusées</p>
+              <p> Archives Refusée</p>
             </a>
           </li>
 
@@ -510,7 +510,7 @@ footer p strong {
                   <span style="color:green" class="material-icons">event</span>
                   &nbsp    Nouvelle demande de    &nbsp<b> Conge </b> &nbsp  par &nbsp <span class="badge badge-warning">  {{$notification->data['userId']}} </span> &nbspil y'a     {{$notification->created_at->diffforHumans()}}  </a>
                     </p>
-                   {{$notification->markAsRead()}}
+                {{$notification->markAsRead()}} 
                  @endif
    
                     @endforeach

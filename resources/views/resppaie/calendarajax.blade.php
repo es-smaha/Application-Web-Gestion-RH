@@ -119,21 +119,21 @@
             <div class="nav-tabs-wrapper">
             <div class="row">
               <div class="col-2">
-              <p>Congé Refusé</p>
+              <p>Congé En attente </p>
             <div class="progress">
               
             <div class="progress-bar bg-danger" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
 </div>
   </div>
   <div class="col-2">
-              <p>Congé En attente </p>
+              <p>Congé Acceptée </p>
             <div class="progress">
               
             <div class="progress-bar bg-warning" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
 </div>
   </div>
     <div class="col-2">
-    <p>Congé Accepté</p>
+    <p>Congé Reussi</p>
 <div class="progress">
 <div class="progress-bar bg-success" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
 </div>

@@ -18,9 +18,10 @@ Absences
                 <div style="font-size:20px" class="d-flex justify-content-center">
                   
                 <button class="btn btn-warning btn-sm"><span class="material-icons">keyboard_backspace</span></button>
-            <script>
-              document.write(new Date())
-            </script>
+            
+            
+            Fri Jul 03 2020
+           
              <button class="btn btn-warning btn-sm"> <span class="material-icons">arrow_forward</span></button>
             </div> 
            

@@ -163,6 +163,24 @@ md = {
       $sidebar.append(sidebar_container);
     }
   },
+  operation: function(from, align) {
+    type = ['', 'info', 'success'];
+
+    color = Math.floor((Math.random() * 6) + 1);
+
+    $.notify({
+      icon: "add_alert",
+      message: "Operation reussite"
+
+    }, {
+      type: type[color],
+      timer: 5000,
+      placement: {
+        from: from,
+        align: align
+      }
+    });
+},
   showNotification: function(from, align) {
     type = ['', 'info', 'primary'];
 

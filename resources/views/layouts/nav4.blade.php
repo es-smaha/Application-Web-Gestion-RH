@@ -757,7 +757,7 @@ box-shadow: 5px 5px 30px 7px rgba(0,0,0,0.25), -5px -5px 30px 7px rgba(0,0,0,0.2
                    <span style="color:green" class="material-icons">description</span>
                   Votre  Document Administrative  &nbsp <b> est pret </b>   &nbsp il y'a     {{$notification->created_at->diffforHumans()}}  </a>
                     </p>
-                    {{$notification->markAsRead()}}
+                   
                     @else($notification->type=="App\Notifications\Validerconge")
                     <span class="notification">1</span>
                     <p>

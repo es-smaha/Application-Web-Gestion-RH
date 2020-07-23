@@ -58,6 +58,7 @@
 <th>date creation</th>
 <th>Avis chef hierarchique</th>
 <th>Confirmation responsable</th>
+<th>PDF</th>
 
 </thead>
 <tbody>
@@ -69,8 +70,7 @@
 <td>{{$conge->typeconge->nom}}</td>
 <td>{{$conge->datedebut}}   <b >a </b> {{$conge->datefin}}</td>
 <td>  {{$conge->jour}}</td>
-<td>  {{$conge->user->solde}}
-
+<td>  {{$conge->user->solde}}   
 <button type="button" rel="tooltip" id="#update"  data-toggle="modal" data-target="#update" title="update" class="btn btn-danger btn-link btn-sm">
 <span class="material-icons">update</span></button>
 
@@ -81,6 +81,7 @@
 
 <td> <span class="badge badge-success">accepté</span> </td>
 <td> <span class="badge badge-success">accepté </span> </td>
+   <td >  <a href="/pdf-convert/{{$conge->id}}" style="color:green" ><span class="material-icons">picture_as_pdf</span></td>
 <!-- update conge -->
 
 
